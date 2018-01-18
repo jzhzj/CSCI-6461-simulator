@@ -22,11 +22,29 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.gwu.cs6461.Main</mainClass>
+                            <mainClass>com.gwu.cs6461.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.fxml</include>
+                    <include>**/*.css</include>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.css</include>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 </project>
