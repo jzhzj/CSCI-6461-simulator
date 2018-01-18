@@ -23,6 +23,10 @@ hs_err_pid*
 
 # Idea configuartion directory
 *.idea
+*.iml
+
+# Maven
+pom.xml
 
 # Build output
 /target
