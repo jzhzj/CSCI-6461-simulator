@@ -3,12 +3,25 @@ This project is to build a Java simulator of a small processor with performance 
 
 Please kindly be reminded to follow [GW Academic Integrity Code](https://studentconduct.gwu.edu/code-academic-integrity).
 
-## Team member contact info
+## Table of Contents
+- [Team members](#Contacts)
+- [Deliverable](#Deliverable)
+  * [Working JAR files](https://github.com/1988warren/csa_simulator/releases)
+  * [User Guide](https://github.com/1988warren/csa_simulator/wiki/User-Guide)
+  * [Design Notes](https://github.com/1988warren/csa_simulator/wiki/Design-Notes)
+- [For developers](#For Developers)
+  * [Notes](#Notes)
+  * [Contributing](#Contributing)
+  * [Usage](#Usage)
+
+## Contacts
 - [Cao Wuchen](mailto:caowuchen@gwu.edu) (a.k.a. Warren)
 - [Yang Tong](mailto:)
-- [Hou YanBing](mailto:)
+- [Hou Yanbing](mailto:)
 
-## A few notes
+## For Developers
+
+### Notes
 
 1. The project is managed by [Apache Maven](https://maven.apache.org/), 
 it is highly recommend to use [Intellij IDEA Ultimate](https://www.jetbrains.com/idea/download/) (with built-in Maven v2 & v3 and plugin, zero configuration).
@@ -19,26 +32,25 @@ accordingly if you are using JDK 1.8.
 
 3. The implementation of UI is powered by [JavaFX](http://www.oracle.com/technetwork/java/javase/overview/javafx-overview-2158620.html), which supports MVC.
 
-## About contributing
+### Contributing
 1. __Please do not commit anything but source code and resource files to this repository, also please make modifications based on the
 latest version of code to avoid conflict.__
 2. __Please do include a message for every commit.__
 3. __Please inform all team members before commit any change regarding to pom.xml, .gitignore and simulator.iml.__ 
 
-## Usage
+### Usage
 Revise pom.xml if you are using JDK 1.8
-```
+```xml
 <properties>
   <maven.compiler.source>1.8</maven.compiler.source>
   <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
 ```
 Delete target folder
-```
-mvn clean
+```sh
+$ mvn clean
 ```
 Build artifact
+```sh
+$ mvn install
 ```
-mvn install
-```
-Find simulator-1.0-SNAPSHOT.jar in target folder after install success.
