@@ -8,7 +8,7 @@ Please kindly be reminded to follow [GW Academic Integrity Code](https://student
 - [Yang Tong](mailto:)
 - [Hou YanBing](mailto:)
 
-## A few notes for developers
+## A few notes
 
 1. The project is managed by [Apache Maven](https://maven.apache.org/), 
 it is highly recommend to use [Intellij IDEA Ultimate](https://www.jetbrains.com/idea/download/) (with built-in Maven v2 & v3 and plugin, zero configuration).
@@ -18,10 +18,12 @@ JDK 8+ should be used. The default compiler level has been set to 9 (JDK 1.9), p
 accordingly if you are using JDK 1.8.
 
 3. The implementation of UI is powered by [JavaFX](http://www.oracle.com/technetwork/java/javase/overview/javafx-overview-2158620.html), which supports MVC.
-4. __Please do not commit anything but source code and resource files to this repository, also please make modifications based on the
+
+## About contributing
+1. __Please do not commit anything but source code and resource files to this repository, also please make modifications based on the
 latest version of code to avoid conflict.__
-5. __Please do include a message for every commit.__
-6. __Please inform all team members before commit any change regarding to pom.xml, .gitignore and simulator.iml.__ 
+2. __Please do include a message for every commit.__
+3. __Please inform all team members before commit any change regarding to pom.xml, .gitignore and simulator.iml.__ 
 
 ## Usage
 Revise pom.xml if you are using JDK 1.8
