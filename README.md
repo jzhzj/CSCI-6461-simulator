@@ -17,7 +17,7 @@ Please kindly be reminded to follow [GW Academic Integrity Code](https://student
 ## Contacts
 - [Cao Wuchen](mailto:caowuchen@gwu.edu) (a.k.a. Warren)
 - [Yang Tong](mailto:yangtong@gwu.edu)
-- [Hou Yanbing](mailto:)
+- [Hou Yanbing](mailto:hou_yanbing@gwu.edu)
 
 ## Notes
 
