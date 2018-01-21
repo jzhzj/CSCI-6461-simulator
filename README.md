@@ -55,5 +55,5 @@ $ mvn install
 ```
 Run / Debug
 ```sh
-$ mvn exec:java
+$ mvn verify
 ```
