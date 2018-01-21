@@ -5,42 +5,110 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.HBox?>
 <?import java.net.URL?>
 
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ListView?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <GridPane fx:controller="com.gwu.cs6461.components.main.MainController"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+          xmlns:fx="http://javafx.com/fxml" alignment="top_left" hgap="10" vgap="10">
 
     <padding>
         <Insets top="25" right="25" bottom="10" left="25" />
     </padding>
 
-    <Text text="Welcome"
-          GridPane.columnIndex="0" GridPane.rowIndex="0"
-          GridPane.columnSpan="2"/>
-
-    <Label text="User Name:"
-           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-
-    <TextField
-            GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-
-    <Label text="Password:"
-           GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-
-    <PasswordField fx:id="passwordField"
-                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-
-    <HBox spacing="10" alignment="bottom_right"
-          GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <Button text="Sign In"
-                onAction="#handleSubmitButtonAction"/>
+    <HBox spacing="10" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <Button fx:id="powerButton" text="Power On" styleClass="button-power-on"
+                onMouseClicked="#handlePowerButtonClick"/>
+        <Button text="IPL"
+                onAction="#handleIPLButtonAction"/>
     </HBox>
 
-    <Text fx:id="actionTarget"
-          GridPane.columnIndex="0" GridPane.columnSpan="2"
-          GridPane.halignment="RIGHT" GridPane.rowIndex="6"/>
+    <VBox spacing="10" alignment="TOP_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <children>
+            <Label text="Registers"/>
+        </children>
+        <children>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="R0"/>
+                <TextField text="0x0000"/>
+                <Button text="Load Value" />
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="R1"/>
+                <TextField text="0x0000"/>
+                <Button text="Load Value" />
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="R2"/>
+                <TextField text="0x0000"/>
+                <Button text="Load Value" />
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="R3"/>
+                <TextField text="0x0000"/>
+                <Button text="Load Value" />
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="X1"/>
+                <TextField text="0x0000"/>
+                <Button text="Load Value" />
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="X2"/>
+                <TextField text="0x0000"/>
+                <Button text="Load Value" />
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="X3"/>
+                <TextField text="0x0000"/>
+                <Button text="Load Value" />
+            </HBox>
+        </children>
+    </VBox>
+
+    <VBox spacing="10" alignment="TOP_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <children>
+            <Label text="Memory"/>
+        </children>
+
+        <children>
+            <ListView fx:id="memoryListView">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="One"/>
+                        <String fx:value="Two"/>
+                        <String fx:value="Three"/>
+                        <String fx:value="Four"/>
+                        <String fx:value="Five"/>
+                        <String fx:value="One"/>
+                        <String fx:value="Two"/>
+                        <String fx:value="Three"/>
+                        <String fx:value="Four"/>
+                        <String fx:value="Five"/>
+                        <String fx:value="One"/>
+                        <String fx:value="Two"/>
+                        <String fx:value="Three"/>
+                        <String fx:value="Four"/>
+                        <String fx:value="Five"/>
+                        <String fx:value="One"/>
+                        <String fx:value="Two"/>
+                        <String fx:value="Three"/>
+                        <String fx:value="Four"/>
+                        <String fx:value="Five"/>
+                        <String fx:value="One"/>
+                        <String fx:value="Two"/>
+                        <String fx:value="Three"/>
+                        <String fx:value="Four"/>
+                        <String fx:value="Five"/>
+                    </FXCollections>
+                </items>
+            </ListView>
+        </children>
+    </VBox>
 
     <stylesheets>
         <URL value="@main.css" />
