@@ -1,4 +1,4 @@
 package com.gwu.cs6461.services;
 
-public class Service {
+public interface ALU {
 }
