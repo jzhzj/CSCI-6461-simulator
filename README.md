@@ -53,3 +53,7 @@ Build artifact
 ```sh
 $ mvn install
 ```
+Run / Debug
+```sh
+$ mvn exec:java
+```
