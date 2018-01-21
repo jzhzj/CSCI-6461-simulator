@@ -24,56 +24,75 @@
         <Button fx:id="powerButton" text="Power On" styleClass="button-power-on"
                 onMouseClicked="#handlePowerButtonClick"/>
         <Button text="IPL"
-                onAction="#handleIPLButtonAction"/>
+                onMouseClicked="#handleIPLButtonClick"/>
+        <Button text="Single Step"
+                onMouseClicked="#handleSingleStepButtonClick"/>
     </HBox>
 
     <VBox spacing="10" alignment="TOP_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
-        <children>
-            <Label text="Registers"/>
-        </children>
-        <children>
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="R0"/>
-                <TextField text="0x0000"/>
-                <Button text="Load Value" />
-            </HBox>
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="R1"/>
-                <TextField text="0x0000"/>
-                <Button text="Load Value" />
-            </HBox>
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="R2"/>
-                <TextField text="0x0000"/>
-                <Button text="Load Value" />
-            </HBox>
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="R3"/>
-                <TextField text="0x0000"/>
-                <Button text="Load Value" />
-            </HBox>
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="X1"/>
-                <TextField text="0x0000"/>
-                <Button text="Load Value" />
-            </HBox>
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="X2"/>
-                <TextField text="0x0000"/>
-                <Button text="Load Value" />
-            </HBox>
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="X3"/>
-                <TextField text="0x0000"/>
-                <Button text="Load Value" />
-            </HBox>
-        </children>
+        <Label text="Registers"/>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="R0"/>
+            <TextField text="0x0000"/>
+            <Button text="Load Value" />
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="R1"/>
+            <TextField text="0x0000"/>
+            <Button text="Load Value" />
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="R2"/>
+            <TextField text="0x0000"/>
+            <Button text="Load Value" />
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="R3"/>
+            <TextField text="0x0000"/>
+            <Button text="Load Value" />
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="X1"/>
+            <TextField text="0x0000"/>
+            <Button text="Load Value" />
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="X2"/>
+            <TextField text="0x0000"/>
+            <Button text="Load Value" />
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="X3"/>
+            <TextField text="0x0000"/>
+            <Button text="Load Value" />
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="MBR"/>
+            <TextField text="0x0000"/>
+            <Button text="Load Value" />
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="MAR"/>
+            <TextField text="0x0000"/>
+            <Button text="Load Value" />
+        </HBox>
     </VBox>
 
     <VBox spacing="10" alignment="TOP_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1">
-        <children>
-            <Label text="Memory"/>
-        </children>
+        <Label text="Memory"/>
+
+        <HBox spacing="10">
+            <VBox>
+                <Label text="Address" />
+                <TextField style="-fx-pref-width: 30px"/>
+            </VBox>
+            <VBox>
+                <Label text="Value" />
+                <TextField style="-fx-pref-width: 30px"/>
+            </VBox>
+            <Button text="Load Value" alignment="BASELINE_RIGHT"/>
+        </HBox>
+
 
         <children>
             <ListView fx:id="memoryListView">

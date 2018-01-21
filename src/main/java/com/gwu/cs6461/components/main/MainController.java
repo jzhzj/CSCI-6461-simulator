@@ -1,10 +1,10 @@
 package com.gwu.cs6461.components.main;
 
 import com.gwu.cs6461.services.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
@@ -25,12 +25,17 @@ public class MainController {
     private ListView<String> memoryListView;
 
     @FXML
-    protected void handleIPLButtonAction(ActionEvent actionEvent) {
+    protected void handleIPLButtonClick(MouseEvent mouseEvent) {
 
     }
 
     @FXML
-    protected void handlePowerButtonClick() {
+    protected void handleSingleStepButtonClick(MouseEvent mouseEvent) {
+
+    }
+
+    @FXML
+    protected void handlePowerButtonClick(MouseEvent mouseEvent) {
         if (running) {
             powerOff();
             powerButton.setText("Power On");
