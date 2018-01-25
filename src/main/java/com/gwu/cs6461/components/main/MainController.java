@@ -50,6 +50,11 @@ public class MainController {
         running = !running;
     }
 
+    @FXML
+    protected void handleRunButtonClick(MouseEvent mouseEvent) {
+
+    }
+
 
     private void powerOn() {
         alu = new ALUImpl();
@@ -64,4 +69,6 @@ public class MainController {
         regular_regs.clear();
         index_regs.clear();
     }
+
+
 }
