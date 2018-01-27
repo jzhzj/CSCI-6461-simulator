@@ -7,16 +7,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainController {
 
-    public static boolean running = false;
-    private ALU alu;
-    private Memory memory;
-    private List<Register> regular_regs = new ArrayList<>(4);
-    private List<Register> index_regs = new ArrayList<>(3);
+    private MachineImpl machine = MachineImpl.getInstance();
 
     @FXML
     private Button powerButton;
@@ -36,39 +29,22 @@ public class MainController {
 
     @FXML
     protected void handlePowerButtonClick(MouseEvent mouseEvent) {
-        if (running) {
-            powerOff();
+        if (machine.isRunning()) {
+            machine.powerOff();
             powerButton.setText("Power On");
             powerButton.getStyleClass().remove("button-power-off");
             powerButton.getStyleClass().add("button-power-on");
         } else {
-            powerOn();
+            machine.powerOn();
             powerButton.setText("Power Off");
             powerButton.getStyleClass().remove("button-power-on");
             powerButton.getStyleClass().add("button-power-off");
         }
-        running = !running;
     }
 
     @FXML
     protected void handleRunButtonClick(MouseEvent mouseEvent) {
 
     }
-
-
-    private void powerOn() {
-        alu = new ALUImpl();
-        memory = new MemoryImpl();
-        regular_regs.forEach(register -> new RegisterImpl());
-        index_regs.forEach(register -> new RegisterImpl());
-    }
-
-    private void powerOff() {
-        alu = null;
-        memory = null;
-        regular_regs.clear();
-        index_regs.clear();
-    }
-
 
 }
