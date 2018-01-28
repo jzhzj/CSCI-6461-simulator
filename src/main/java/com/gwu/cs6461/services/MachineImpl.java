@@ -1,8 +1,18 @@
 package com.gwu.cs6461.services;
 
+import com.gwu.cs6461.services.CPU.ALU;
+import com.gwu.cs6461.services.CPU.ALUImpl;
+import com.gwu.cs6461.services.CPU.Register;
+import com.gwu.cs6461.services.CPU.RegisterImpl;
+import com.gwu.cs6461.services.DRAM.Memory;
+import com.gwu.cs6461.services.DRAM.MemoryImpl;
+
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Singleton
+ */
 public class MachineImpl implements Machine{
 
     private static MachineImpl ourInstance = new MachineImpl();
@@ -18,6 +28,8 @@ public class MachineImpl implements Machine{
     private boolean running = false;
     private ALU alu;
     private Memory memory;
+
+    // general purpose registers: accumulators
     private List<Register> regular_regs = new ArrayList<>(4);
     private List<Register> index_regs = new ArrayList<>(3);
 
