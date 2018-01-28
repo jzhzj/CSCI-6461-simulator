@@ -18,33 +18,22 @@ public class MainController {
     private ListView<String> memoryListView;
 
     @FXML
-    protected void handleIPLButtonClick(MouseEvent mouseEvent) {
+    void handleIPLButtonClick(MouseEvent mouseEvent) {
 
     }
 
     @FXML
-    protected void handleSingleStepButtonClick(MouseEvent mouseEvent) {
+    void handleSingleStepButtonClick(MouseEvent mouseEvent) {
 
     }
 
     @FXML
-    protected void handlePowerButtonClick(MouseEvent mouseEvent) {
-        if (machine.isRunning()) {
-            machine.powerOff();
-            powerButton.setText("Power On");
-            powerButton.getStyleClass().remove("button-power-off");
-            powerButton.getStyleClass().add("button-power-on");
-        } else {
-            machine.powerOn();
-            powerButton.setText("Power Off");
-            powerButton.getStyleClass().remove("button-power-on");
-            powerButton.getStyleClass().add("button-power-off");
-        }
+    void handleRunButtonClick(MouseEvent mouseEvent) {
+
     }
 
     @FXML
-    protected void handleRunButtonClick(MouseEvent mouseEvent) {
+    void handleHaltButtonClick(MouseEvent mouseEvent) {
 
     }
-
 }

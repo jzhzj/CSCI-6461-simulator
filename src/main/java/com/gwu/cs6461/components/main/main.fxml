@@ -19,12 +19,12 @@
     </padding>
 
     <HBox spacing="10" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
-        <Button fx:id="powerButton" text="Power On" styleClass="button-power-on"
-                onMouseClicked="#handlePowerButtonClick"/>
         <Button text="IPL"
                 onMouseClicked="#handleIPLButtonClick"/>
         <Button text="Run"
                 onMouseClicked="#handleRunButtonClick"/>
+        <Button text="Halt"
+                onMouseClicked="#handleHaltButtonClick"/>
         <Button text="Single Step"
                 onMouseClicked="#handleSingleStepButtonClick"/>
     </HBox>
