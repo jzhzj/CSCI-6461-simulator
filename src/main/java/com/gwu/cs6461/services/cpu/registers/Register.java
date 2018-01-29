@@ -1,4 +1,4 @@
-package com.gwu.cs6461.services.CPU;
+package com.gwu.cs6461.services.cpu.registers;
 
 /**
  * Defines what register does

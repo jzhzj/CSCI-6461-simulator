@@ -1,4 +1,4 @@
-package com.gwu.cs6461.services;
+package com.gwu.cs6461.services.instruction;
 
 /**
  * Defines what instruction does
