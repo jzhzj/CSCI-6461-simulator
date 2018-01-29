@@ -1,62 +1,68 @@
 package com.gwu.cs6461.services.cpu.alu;
 
+import com.gwu.cs6461.services.cpu.flags.Negative;
+import com.gwu.cs6461.services.cpu.flags.Overflow;
+import com.gwu.cs6461.services.cpu.flags.Zero;
+import com.gwu.cs6461.util.Binary;
+
 /**
  * TODO to be implemented.
  */
 public class ALUImpl implements ALU {
 
     @Override
-    public void add() {
-
+    public Binary add(Binary a, Binary b) throws Zero, Overflow, Negative {
+        return null;
     }
 
     @Override
-    public void addWithCarry() {
-
+    public Binary addWithCarry(Binary a, Binary b) throws Zero, Overflow, Negative {
+        return null;
     }
 
     @Override
-    public void subtract() {
-
+    public Binary subtract(Binary a, Binary b) throws Zero, Overflow, Negative {
+        return null;
     }
 
     @Override
-    public void subtractWithBorrow() {
-
+    public Binary subtractWithBorrow(Binary a, Binary b) throws Zero, Overflow, Negative {
+        return null;
     }
 
     @Override
-    public void negate() {
-
+    public Binary negate(Binary a) throws Zero, Overflow, Negative {
+        return null;
     }
 
     @Override
-    public void increment() {
-
+    public Binary increment(Binary a) throws Zero, Overflow, Negative {
+        return null;
     }
 
     @Override
-    public void decrement() {
-
+    public Binary decrement(Binary a) throws Zero, Overflow, Negative {
+        return null;
     }
 
     @Override
-    public void passThrough() {
+    public Binary passThrough(Binary a) throws Zero, Negative {
+        return null;
+    }
 
+
+    @Override
+    public boolean and() {
+        return false;
     }
 
     @Override
-    public void and() {
-
+    public boolean or() {
+        return false;
     }
 
     @Override
-    public void or() {
-
-    }
-
-    @Override
-    public void not() {
-
+    public boolean not() {
+        return false;
     }
 }
