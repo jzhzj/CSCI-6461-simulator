@@ -1,6 +1,18 @@
 package com.gwu.cs6461.services.dram;
 
+import com.gwu.cs6461.constants.MachineProps;
+
 public class DRAMImpl implements DRAM {
 
-    // memory cell -> address + data
+    private DRAMData[] dramData = new DRAMData[MachineProps.DRAM_WORD_SIZE];
+
+    @Override
+    public DRAMData read(DRAMAddress address) {
+        return null;
+    }
+
+    @Override
+    public void write(DRAMAddress address, DRAMData data) {
+
+    }
 }
