@@ -3,6 +3,7 @@ package com.gwu.cs6461.services.cpu.alu;
 /**
  * Arithmetic Unit
  * Responsible for handling all numerical operations.
+ * TODO need more detailed design.
  */
 public interface ArithmeticUnit {
     // A and B are summed

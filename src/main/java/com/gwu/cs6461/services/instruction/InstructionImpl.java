@@ -7,6 +7,8 @@ package com.gwu.cs6461.services.instruction;
  *  R: 2 bits, refers to general purpose register r0 - r3
  *  I: 1 bit, 1 = indirect addressing, 0 = no indirect addressing
  *  Address: 5 bits, refers to 32 locations. To address all of memory, indexing will be required.
+ *
+ *  TODO not yet designed.
  */
 public class InstructionImpl implements Instruction {
 
