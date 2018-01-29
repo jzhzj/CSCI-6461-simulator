@@ -1,11 +1,10 @@
-package com.gwu.cs6461.services.cpu;
+package com.gwu.cs6461.services.cpu.alu;
 
 /**
- * Defines what ALU does
+ * Arithmetic Unit
+ * Responsible for handling all numerical operations.
  */
-public interface ALU {
-    // what arithmetic unit does
-
+public interface ArithmeticUnit {
     // A and B are summed
     void add();
 
@@ -29,11 +28,4 @@ public interface ALU {
 
     // all bits of A are passed through unmodified
     void passThrough();
-
-
-
-    // what logic unit does
-    void and();
-    void or();
-    void not();
 }
