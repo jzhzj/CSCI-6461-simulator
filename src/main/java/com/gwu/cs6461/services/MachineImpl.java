@@ -1,13 +1,12 @@
 package com.gwu.cs6461.services;
 
-import com.gwu.cs6461.services.cpu.ALU;
-import com.gwu.cs6461.services.cpu.ALUImpl;
+import com.gwu.cs6461.services.cpu.alu.ALU;
+import com.gwu.cs6461.services.cpu.alu.ALUImpl;
 import com.gwu.cs6461.services.cpu.registers.GPRImpl;
 import com.gwu.cs6461.services.cpu.registers.IDXRImpl;
 import com.gwu.cs6461.services.cpu.registers.Register;
-import com.gwu.cs6461.services.cpu.registers.PCImpl;
-import com.gwu.cs6461.services.dram.RAM;
-import com.gwu.cs6461.services.dram.RAMImpl;
+import com.gwu.cs6461.services.dram.DRAM;
+import com.gwu.cs6461.services.dram.DRAMImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +28,7 @@ public class MachineImpl implements Machine{
 
     private boolean running = false;
     private ALU alu;
-    private RAM RAM;
+    private DRAM RAM;
 
     // general purpose registers: accumulators
     private List<Register> gp_regs = new ArrayList<>(4);
@@ -44,7 +43,7 @@ public class MachineImpl implements Machine{
     public void powerOn() {
         running = true;
         alu = new ALUImpl();
-        RAM = new RAMImpl();
+        RAM = new DRAMImpl();
         gp_regs.forEach(register -> new GPRImpl());
         index_regs.forEach(register -> new IDXRImpl());
     }
