@@ -8,7 +8,7 @@ public interface Binary {
     String getBinary();
     String getHex();
 
-    void setValue(int literalValue);
+    void setValue(int literalValue) throws IllegalArgumentException;
 //    void setValue(String literalValue);
 
 }

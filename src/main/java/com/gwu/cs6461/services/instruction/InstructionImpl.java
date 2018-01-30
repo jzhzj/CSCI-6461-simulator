@@ -15,4 +15,24 @@ public class InstructionImpl implements Instruction {
     // operation code, 6 bits
     private int opCode;
 
+
+    @Override
+    public int getDecimalValue() {
+        return 0;
+    }
+
+    @Override
+    public String getBinary() {
+        return null;
+    }
+
+    @Override
+    public String getHex() {
+        return null;
+    }
+
+    @Override
+    public void setValue(int literalValue) throws IllegalArgumentException {
+
+    }
 }

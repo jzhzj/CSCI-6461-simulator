@@ -1,10 +1,10 @@
 package com.gwu.cs6461.services.dram;
 
+import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.util.Binary;
 
 /**
  * DRAM Address range from [0, 4096 = 2^12), represented in 12 bits.
- * TODO to be implemented.
  */
 public class DRAMAddress implements Binary{
 
@@ -17,17 +17,19 @@ public class DRAMAddress implements Binary{
 
     @Override
     public String getBinary() {
-        return null;
+        return Integer.toBinaryString(address);
     }
 
     @Override
     public String getHex() {
-        return null;
+        return Integer.toHexString(address);
     }
 
     @Override
-    public void setValue(int literalValue) {
-        // TODO check out of range
+    public void setValue(int literalValue) throws IllegalArgumentException{
+        if(literalValue < 0 || literalValue > MachineProps.DRAM_EXPAND_WORD_SIZE - 1){
+            throw new IllegalArgumentException();
+        }
         address = literalValue;
     }
 }

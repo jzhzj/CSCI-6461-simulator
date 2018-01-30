@@ -20,6 +20,10 @@ public final class MachineProps {
         MFR_REG_BIT_WIDTH = Integer.parseInt(rb.getString("MFR_REG_BIT_WIDTH"));
     }
 
+    static {
+        DRAM_DATA_MAX_VALUE = (int) Math.pow(2, (MachineProps.WORD_BIT_WIDTH / 2)) - 1;
+        DRAM_DATA_MIN_VALUE = - (int) Math.pow(2, (MachineProps.WORD_BIT_WIDTH / 2));
+    }
 
     public static final int WORD_BIT_WIDTH;
     public static final int DRAM_WORD_SIZE;
@@ -33,4 +37,8 @@ public final class MachineProps {
     public static final int MBR_REG_BIT_WIDTH;
     public static final int MSR_REG_BIT_WIDTH;
     public static final int MFR_REG_BIT_WIDTH;
+
+    // RAM data range
+    public static final int DRAM_DATA_MAX_VALUE;
+    public static final int DRAM_DATA_MIN_VALUE;
 }

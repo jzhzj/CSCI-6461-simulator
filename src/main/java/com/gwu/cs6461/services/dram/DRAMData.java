@@ -1,5 +1,6 @@
 package com.gwu.cs6461.services.dram;
 
+import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.util.Binary;
 
 /**
@@ -17,17 +18,26 @@ public class DRAMData implements Binary{
 
     @Override
     public String getBinary() {
-        return null;
+        return Integer.toBinaryString(data);
     }
 
     @Override
     public String getHex() {
-        return null;
+        return Integer.toHexString(data);
     }
 
     @Override
-    public void setValue(int literalValue) {
-        // TODO check out of range
+    public void setValue(int literalValue) throws IllegalArgumentException{
+        if(literalValue < MachineProps.DRAM_DATA_MIN_VALUE || literalValue > MachineProps.DRAM_DATA_MAX_VALUE) {
+            throw new IllegalArgumentException();
+        }
         data = literalValue;
+    }
+
+    public static void main(String[] args) {
+        DRAMData dd = new DRAMData();
+        dd.setValue(8);
+        System.out.println(dd.getBinary());
+        System.out.println(dd.getHex());
     }
 }

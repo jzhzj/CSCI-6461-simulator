@@ -34,5 +34,14 @@ public class CPUImpl implements CPU{
     // 1 Memory Buffer Register
     private MBRImpl mb_reg = new MBRImpl();
 
+    // 1 Condition Code Register
+    private CCRImpl cc_reg = new CCRImpl();
+
+    // 1 Machine Fault Register
+    private MFRImpl mf_reg = new MFRImpl();
+
+    // 1 Machine Status Register
+    private MSRImpl ms_reg = new MSRImpl();
+
 
 }
