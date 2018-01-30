@@ -28,4 +28,15 @@ public class TestDRAMAddress {
         thrown.expect(IllegalArgumentException.class);
         dramAddress.setValue(DRAMAddress.MIN_VALUE - 1);
     }
+
+    @Test
+    public void testGetBinary() {
+        dramAddress = new DRAMAddress();
+        // after dramAddress is initialized, it should have binary value of 12 zeros.
+    }
+
+    @Test void testGetHex() {
+        dramAddress = new DRAMAddress();
+
+    }
 }

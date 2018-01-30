@@ -58,9 +58,9 @@ public class TestDRAMData {
         assertEquals("0000", dramData.getHex());
 
         dramData.setValue(2);
-        assertEquals("0002", dramData.getBinary());
+        assertEquals("0002", dramData.getHex());
 
         dramData.setValue(-2);
-        assertEquals("fff2", dramData.getBinary());
+        assertEquals("fff2", dramData.getHex());
     }
 }
