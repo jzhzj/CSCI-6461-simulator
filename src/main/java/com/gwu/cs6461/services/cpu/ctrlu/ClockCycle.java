@@ -10,5 +10,9 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 public @interface ClockCycle {
+    int FETCH = 1;
+    int DECODE = 2;
+    int EXECUTE = 3;
+
     int count() default 1;
 }
