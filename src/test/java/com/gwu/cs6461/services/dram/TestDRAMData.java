@@ -47,4 +47,20 @@ public class TestDRAMData {
         dramData.setValue(-2);
         assertEquals("1111111111111110", dramData.getBinary());
     }
+
+    @Test
+    public void testGetHex() {
+        dramData = new DRAMData();
+        // after dramData is initialized, it should have binary value of 16 zeros.
+
+        assertEquals(MachineProps.WORD_BIT_WIDTH / Byte.SIZE * 2, dramData.getHex().length());
+
+        assertEquals("0000", dramData.getHex());
+
+        dramData.setValue(2);
+        assertEquals("0002", dramData.getBinary());
+
+        dramData.setValue(-2);
+        assertEquals("fff2", dramData.getBinary());
+    }
 }
