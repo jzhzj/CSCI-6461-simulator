@@ -1,4 +1,4 @@
-package com.gwu.cs6461.services.cpu;
+package com.gwu.cs6461.services.cpu.ctrlu;
 
 import com.gwu.cs6461.services.instruction.Instruction;
 
