@@ -2,12 +2,16 @@ package com.gwu.cs6461.services.dram;
 
 import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.util.Binary;
+import org.apache.commons.lang3.StringUtils;
 
 /**
- * DRAM data at each address, represented in 16 bits = 1 word
+ * DRAM data at each address, represented in 16 bits = 2 bytes = 1 word
  * TODO to be implemented
  */
-public class DRAMData implements Binary{
+public class DRAMData implements Binary {
+
+    public static final int MIN_VALUE = - (int) Math.pow(2, (MachineProps.WORD_BIT_WIDTH / 2));
+    public static final int MAX_VALUE = (int) Math.pow(2, (MachineProps.WORD_BIT_WIDTH / 2)) - 1;;
 
     private int data;
 
@@ -18,7 +22,7 @@ public class DRAMData implements Binary{
 
     @Override
     public String getBinary() {
-        return Integer.toBinaryString(data);
+        return StringUtils.leftPad(Integer.toBinaryString(data), 16, data < 0 ? "1" : "0");
     }
 
     @Override
@@ -28,16 +32,9 @@ public class DRAMData implements Binary{
 
     @Override
     public void setValue(int literalValue) throws IllegalArgumentException{
-        if(literalValue < MachineProps.DRAM_DATA_MIN_VALUE || literalValue > MachineProps.DRAM_DATA_MAX_VALUE) {
+        if(literalValue <  MIN_VALUE || literalValue > MAX_VALUE) {
             throw new IllegalArgumentException();
         }
         data = literalValue;
-    }
-
-    public static void main(String[] args) {
-        DRAMData dd = new DRAMData();
-        dd.setValue(8);
-        System.out.println(dd.getBinary());
-        System.out.println(dd.getHex());
     }
 }
