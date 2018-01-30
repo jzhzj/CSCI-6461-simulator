@@ -1,7 +1,9 @@
 package com.gwu.cs6461.services.instruction;
 
+
 /**
- *  16 bits Instruction
+ *  Load and Store Instruction
+ *
  *  operation code: 6 bits, refers to 64 possible operations
  *  IX: 2 bits, refers to index register X1 - X3, 0 value indicates no indexing
  *  R: 2 bits, refers to general purpose register r0 - r3
@@ -10,11 +12,8 @@ package com.gwu.cs6461.services.instruction;
  *
  *  TODO not yet designed.
  */
-public class InstructionImpl implements Instruction {
 
-    // operation code, 6 bits
-    private int opCode;
-
+public class LoadStoreImpl implements Instruction {
 
     @Override
     public int getDecimalValue() {
