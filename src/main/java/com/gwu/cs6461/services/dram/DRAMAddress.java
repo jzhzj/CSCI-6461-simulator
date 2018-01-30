@@ -8,6 +8,9 @@ import com.gwu.cs6461.util.Binary;
  */
 public class DRAMAddress implements Binary{
 
+    public static final int MIN_VALUE = 0;
+    public static final int MAX_VALUE = MachineProps.DRAM_EXPAND_WORD_SIZE - 1;
+
     private int address;
 
     @Override
@@ -27,7 +30,7 @@ public class DRAMAddress implements Binary{
 
     @Override
     public void setValue(int literalValue) throws IllegalArgumentException{
-        if(literalValue < 0 || literalValue > MachineProps.DRAM_EXPAND_WORD_SIZE - 1){
+        if(literalValue < MIN_VALUE || literalValue > MAX_VALUE){
             throw new IllegalArgumentException();
         }
         address = literalValue;

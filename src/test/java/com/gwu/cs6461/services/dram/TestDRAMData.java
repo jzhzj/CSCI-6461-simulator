@@ -1,5 +1,6 @@
 package com.gwu.cs6461.services.dram;
 
+import com.gwu.cs6461.constants.MachineProps;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -34,6 +35,16 @@ public class TestDRAMData {
     @Test
     public void testGetBinary() {
         dramData = new DRAMData();
-        assertEquals(dramData.getBinary(), "0000000000000000");
+        // after dramData is initialized, it should have binary value of 16 zeros.
+
+        assertEquals(MachineProps.WORD_BIT_WIDTH, dramData.getBinary().length());
+
+        assertEquals("0000000000000000", dramData.getBinary());
+
+        dramData.setValue(2);
+        assertEquals("0000000000000010", dramData.getBinary());
+
+        dramData.setValue(-2);
+        assertEquals("1111111111111110", dramData.getBinary());
     }
 }

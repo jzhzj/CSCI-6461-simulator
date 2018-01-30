@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 public class DRAMData implements Binary {
 
     public static final int MIN_VALUE = - (int) Math.pow(2, (MachineProps.WORD_BIT_WIDTH / 2));
-    public static final int MAX_VALUE = (int) Math.pow(2, (MachineProps.WORD_BIT_WIDTH / 2)) - 1;;
+    public static final int MAX_VALUE = (int) Math.pow(2, (MachineProps.WORD_BIT_WIDTH / 2)) - 1;
 
     private int data;
 
