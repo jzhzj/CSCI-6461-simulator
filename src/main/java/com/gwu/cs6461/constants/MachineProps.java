@@ -20,6 +20,7 @@ public final class MachineProps {
         MBR_REG_BIT_WIDTH = Integer.parseInt(rb.getString("MBR_REG_BIT_WIDTH"));
         MSR_REG_BIT_WIDTH = Integer.parseInt(rb.getString("MSR_REG_BIT_WIDTH"));
         MFR_REG_BIT_WIDTH = Integer.parseInt(rb.getString("MFR_REG_BIT_WIDTH"));
+        OPERATION_CODE_BIT_WIDTH = Integer.parseInt(rb.getString("OPERATION_CODE_BIT_WIDTH"));
     }
 
     public static final int WORD_BIT_WIDTH;
@@ -34,5 +35,6 @@ public final class MachineProps {
     public static final int MBR_REG_BIT_WIDTH;
     public static final int MSR_REG_BIT_WIDTH;
     public static final int MFR_REG_BIT_WIDTH;
+    public static final int OPERATION_CODE_BIT_WIDTH;
 
 }
