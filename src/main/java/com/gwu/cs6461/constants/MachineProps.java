@@ -6,6 +6,8 @@ public final class MachineProps {
 
     static {
         ResourceBundle rb = ResourceBundle.getBundle("machine");
+
+        // sizes and widths
         WORD_BIT_WIDTH = Integer.parseInt(rb.getString("WORD_BIT_WIDTH"));
         DRAM_WORD_SIZE = Integer.parseInt(rb.getString("DRAM_WORD_SIZE"));
         DRAM_EXPAND_WORD_SIZE = Integer.parseInt(rb.getString("DRAM_EXPAND_WORD_SIZE"));
@@ -18,6 +20,11 @@ public final class MachineProps {
         MBR_REG_BIT_WIDTH = Integer.parseInt(rb.getString("MBR_REG_BIT_WIDTH"));
         MSR_REG_BIT_WIDTH = Integer.parseInt(rb.getString("MSR_REG_BIT_WIDTH"));
         MFR_REG_BIT_WIDTH = Integer.parseInt(rb.getString("MFR_REG_BIT_WIDTH"));
+
+        // clock cycle
+        FETCH_CLOCK_CYCLE_COUNT = Integer.parseInt(rb.getString("FETCH_CLOCK_CYCLE_COUNT"));
+        DECODE_CLOCK_CYCLE_COUNT = Integer.parseInt(rb.getString("DECODE_CLOCK_CYCLE_COUNT"));
+        EXECUTE_CLOCK_CYCLE_COUNT = Integer.parseInt(rb.getString("EXECUTE_CLOCK_CYCLE_COUNT"));
     }
 
     public static final int WORD_BIT_WIDTH;
@@ -32,5 +39,9 @@ public final class MachineProps {
     public static final int MBR_REG_BIT_WIDTH;
     public static final int MSR_REG_BIT_WIDTH;
     public static final int MFR_REG_BIT_WIDTH;
+
+    public static final int FETCH_CLOCK_CYCLE_COUNT;
+    public static final int DECODE_CLOCK_CYCLE_COUNT;
+    public static final int EXECUTE_CLOCK_CYCLE_COUNT;
 
 }
