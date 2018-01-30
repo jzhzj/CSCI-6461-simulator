@@ -8,12 +8,12 @@ import com.gwu.cs6461.services.instruction.Instruction;
  */
 public interface ControlUnit {
 
-    @ClockCycle()
+    @ClockCycle(count = 1)
     Instruction fetch();
 
-    @ClockCycle()
+    @ClockCycle(count = 2)
     void decode(Instruction instruction);
 
-    @ClockCycle()
+    @ClockCycle(count = 3)
     void execute();
 }
