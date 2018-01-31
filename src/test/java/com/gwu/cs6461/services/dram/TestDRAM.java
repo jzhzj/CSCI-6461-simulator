@@ -14,8 +14,8 @@ public class TestDRAM {
 
     @Test
     public void testWrite(){
-        DRAMImpl.getInstance().write(new DRAMAddress().setValue(1), new DRAMData().setValue(-1));
-        DRAMImpl.getInstance().write(new DRAMAddress().setValue(1), new DRAMData().setValue(1));
+        DRAMImpl.getInstance().write(new DRAMAddress().setValue(1), new DRAMDataImpl().setValue(-1));
+        DRAMImpl.getInstance().write(new DRAMAddress().setValue(1), new DRAMDataImpl().setValue(1));
         assertEquals(1, DRAMImpl.getInstance().read(new DRAMAddress().setValue(1)).getDecimalValue());
     }
 

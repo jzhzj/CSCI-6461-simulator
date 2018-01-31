@@ -1,6 +1,6 @@
 package com.gwu.cs6461.services;
 
-import com.gwu.cs6461.services.romloader.RomLoader;
+import com.gwu.cs6461.services.cpu.CPUImpl;
 import com.gwu.cs6461.services.romloader.RomLoaderImpl;
 
 /**
@@ -19,25 +19,23 @@ public class MachineImpl implements Machine{
 
     }
 
-    private RomLoader romLoader = RomLoaderImpl.getInstance();
-
     @Override
     public void run() {
-
+        CPUImpl.getInstance().run();
     }
 
     @Override
     public void halt() {
-
+        CPUImpl.getInstance().halt();
     }
 
     @Override
     public void singleStep() {
-
+        CPUImpl.getInstance().singleStep();
     }
 
     @Override
     public void ipl() {
-        romLoader.load();
+        RomLoaderImpl.getInstance().load();
     }
 }

@@ -7,34 +7,34 @@ import org.junit.rules.ExpectedException;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class TestDRAMData {
+public class TestDRAMDataImpl {
 
     @Rule
     public ExpectedException thrown= ExpectedException.none();
 
-    private DRAMData dramData = new DRAMData();
+    private DRAMDataImpl dramData = new DRAMDataImpl();
 
     @Test
     public void testSetValueInRange() {
-        dramData.setValue(DRAMData.MIN_VALUE);
-        dramData.setValue(DRAMData.MAX_VALUE);
+        dramData.setValue(DRAMDataImpl.MIN_VALUE);
+        dramData.setValue(DRAMDataImpl.MAX_VALUE);
     }
 
     @Test
     public void testSetValueAboveRange(){
         thrown.expect(IllegalArgumentException.class);
-        dramData.setValue(DRAMData.MAX_VALUE + 1);
+        dramData.setValue(DRAMDataImpl.MAX_VALUE + 1);
     }
 
     @Test
     public void testSetValueBelowRange(){
         thrown.expect(IllegalArgumentException.class);
-        dramData.setValue(DRAMData.MIN_VALUE - 1);
+        dramData.setValue(DRAMDataImpl.MIN_VALUE - 1);
     }
 
     @Test
     public void testGetBinary() {
-        dramData = new DRAMData();
+        dramData = new DRAMDataImpl();
         // after dramData is initialized, it should have binary value of 16 zeros.
 
         assertEquals(MachineProps.WORD_BIT_WIDTH, dramData.getBinary().length());
@@ -50,7 +50,7 @@ public class TestDRAMData {
 
     @Test
     public void testGetHex() {
-        dramData = new DRAMData();
+        dramData = new DRAMDataImpl();
         // after dramData is initialized, it should have hex value of 4 zeros.
 
         assertEquals(MachineProps.WORD_BIT_WIDTH / Byte.SIZE * 2, dramData.getHex().length());

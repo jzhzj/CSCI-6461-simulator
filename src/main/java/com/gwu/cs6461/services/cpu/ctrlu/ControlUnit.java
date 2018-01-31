@@ -1,7 +1,5 @@
 package com.gwu.cs6461.services.cpu.ctrlu;
 
-import com.gwu.cs6461.services.dram.DRAMAddress;
-import com.gwu.cs6461.services.instruction.Instruction;
 
 /**
  * Defines what control unit does: decode and fetch instructions
@@ -9,15 +7,10 @@ import com.gwu.cs6461.services.instruction.Instruction;
  */
 public interface ControlUnit {
 
-    /**
-     * Fetch an Instruction from a given memory address
-     * @param address memory address
-     * @return instruction
-     */
-    void fetch(DRAMAddress address);
+    void fetch();
 
-    void decode(Instruction instruction);
+    void decode();
 
-    void execute(Instruction instruction);
+    void execute();
 
 }

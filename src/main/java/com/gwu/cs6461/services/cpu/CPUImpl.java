@@ -16,4 +16,23 @@ public class CPUImpl implements CPU{
 
     }
 
+    @Override
+    public void run() {
+
+    }
+
+    @Override
+    public void halt() {
+
+    }
+
+    @Override
+    public void singleStep() {
+
+    }
+
+    @Override
+    public void reset() {
+
+    }
 }

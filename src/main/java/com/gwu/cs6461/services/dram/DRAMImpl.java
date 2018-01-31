@@ -15,21 +15,21 @@ public class DRAMImpl implements DRAM {
     }
 
     private DRAMImpl() {
-        dramData = new DRAMData[MachineProps.DRAM_EXPAND_WORD_SIZE];
+        dramData = new DRAMDataImpl[MachineProps.DRAM_EXPAND_WORD_SIZE];
         for (int i = 0; i < dramData.length; i++) {
-            dramData[i] = new DRAMData().setValue(0);
+            dramData[i] = new DRAMDataImpl().setValue(0);
         }
     }
 
-    private DRAMData[] dramData;
+    private DRAMDataImpl[] dramData;
 
     @Override
-    public DRAMData read(DRAMAddress address) {
+    public DRAMDataImpl read(DRAMAddress address) {
         return dramData[address.getDecimalValue()];
     }
 
     @Override
-    public void write(DRAMAddress address, DRAMData data) {
+    public void write(DRAMAddress address, DRAMDataImpl data) {
         dramData[address.getDecimalValue()] = data;
     }
 

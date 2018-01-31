@@ -1,9 +1,11 @@
 package com.gwu.cs6461.services.cpu.ctrlu;
 
-import com.gwu.cs6461.services.dram.DRAM;
+import com.gwu.cs6461.services.cpu.registers.IARImpl;
+import com.gwu.cs6461.services.cpu.registers.IRImpl;
+import com.gwu.cs6461.services.cpu.registers.MARImpl;
+import com.gwu.cs6461.services.cpu.registers.MBRImpl;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMImpl;
-import com.gwu.cs6461.services.instruction.Instruction;
 
 /**
  * Singleton
@@ -21,20 +23,25 @@ public class ControlUnitImpl implements ControlUnit {
 
     }
 
-    private DRAM dram = DRAMImpl.getInstance();
-
     @Override
-    public void fetch(DRAMAddress address) {
-        dram.read(address);
+    public void fetch() {
+        // memory address : PC -> MAR
+        MARImpl.getInstance().write(IARImpl.getInstance().read());
+        // read memory data using the address, then write it to MBR : M (MAR) -> MBR
+        MBRImpl.getInstance().write(DRAMImpl.getInstance().read(MARImpl.getInstance().read()));
+        // MBR -> IR
+        IRImpl.getInstance().write(MBRImpl.getInstance().read());
+        // PC -> PC + 1
+        IARImpl.getInstance().write(new DRAMAddress().setValue(IARImpl.getInstance().read().getDecimalValue() + 1));
     }
 
     @Override
-    public void decode(Instruction instruction) {
-
+    public void decode() {
+        IRImpl.getInstance().read();
     }
 
     @Override
-    public void execute(Instruction instruction) {
+    public void execute() {
 
     }
 }
