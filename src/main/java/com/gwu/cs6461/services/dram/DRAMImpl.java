@@ -15,10 +15,13 @@ public class DRAMImpl implements DRAM {
     }
 
     private DRAMImpl() {
-
+        dramData = new DRAMData[MachineProps.DRAM_EXPAND_WORD_SIZE];
+        for (int i = 0; i < dramData.length; i++) {
+            dramData[i] = new DRAMData().setValue(0);
+        }
     }
 
-    private DRAMData[] dramData = new DRAMData[MachineProps.DRAM_EXPAND_WORD_SIZE];
+    private DRAMData[] dramData;
 
     @Override
     public DRAMData read(DRAMAddress address) {
@@ -32,6 +35,6 @@ public class DRAMImpl implements DRAM {
 
     @Override
     public void reset() {
-        dramData = new DRAMData[MachineProps.DRAM_EXPAND_WORD_SIZE];
+        ourInstance = new DRAMImpl();
     }
 }

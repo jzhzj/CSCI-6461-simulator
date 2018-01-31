@@ -6,8 +6,8 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * DRAM data at each address, represented in 16 bits = 2 bytes = 1 word
- * TODO to be implemented
  */
+
 public class DRAMData implements Binary {
 
     public static final int MIN_VALUE = - (int) Math.pow(2, (MachineProps.WORD_BIT_WIDTH / 2));
@@ -22,19 +22,32 @@ public class DRAMData implements Binary {
 
     @Override
     public String getBinary() {
-        return StringUtils.leftPad(Integer.toBinaryString(data), 16, data < 0 ? "1" : "0");
+        String unformatted = Integer.toBinaryString(data);
+        if(unformatted.length() < MachineProps.WORD_BIT_WIDTH){
+            return StringUtils.leftPad(unformatted, MachineProps.WORD_BIT_WIDTH, data < 0 ? "1" : "0");
+        } else {
+            return StringUtils.substring(unformatted, unformatted.length() - MachineProps.WORD_BIT_WIDTH);
+        }
+
     }
 
     @Override
     public String getHex() {
-        return Integer.toHexString(data);
+        String unformatted = Integer.toHexString(data);
+        int hexLength = MachineProps.WORD_BIT_WIDTH / Byte.SIZE * 2;
+        if(unformatted.length() < hexLength){
+            return StringUtils.leftPad(unformatted, hexLength, data < 0 ? "f" : "0");
+        } else {
+            return StringUtils.substring(unformatted, unformatted.length() - hexLength);
+        }
     }
 
     @Override
-    public void setValue(int literalValue) throws IllegalArgumentException{
+    public DRAMData setValue(int literalValue) throws IllegalArgumentException{
         if(literalValue <  MIN_VALUE || literalValue > MAX_VALUE) {
             throw new IllegalArgumentException();
         }
         data = literalValue;
+        return this;
     }
 }
