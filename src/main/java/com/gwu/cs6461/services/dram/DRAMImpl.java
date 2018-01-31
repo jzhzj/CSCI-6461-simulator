@@ -8,6 +8,16 @@ import com.gwu.cs6461.constants.MachineProps;
  */
 public class DRAMImpl implements DRAM {
 
+    private static DRAMImpl ourInstance = new DRAMImpl();
+
+    public static DRAMImpl getInstance() {
+        return ourInstance;
+    }
+
+    private DRAMImpl() {
+
+    }
+
     private DRAMData[] dramData = new DRAMData[MachineProps.DRAM_EXPAND_WORD_SIZE];
 
     @Override
@@ -18,5 +28,10 @@ public class DRAMImpl implements DRAM {
     @Override
     public void write(DRAMAddress address, DRAMData data) {
         dramData[address.getDecimalValue()] = data;
+    }
+
+    @Override
+    public void reset() {
+        dramData = new DRAMData[MachineProps.DRAM_EXPAND_WORD_SIZE];
     }
 }

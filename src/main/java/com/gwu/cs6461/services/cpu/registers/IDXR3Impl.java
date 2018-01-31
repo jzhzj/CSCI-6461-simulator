@@ -1,11 +1,12 @@
 package com.gwu.cs6461.services.cpu.registers;
 
 /**
- * Index Register
+ * Singleton
+ * Index Register 3
  * Index Registers are used for data movement.
  * TODO to be implemented
  */
-public class IDXRImpl implements Register<Object> {
+public class IDXR3Impl implements Register<Object> {
     @Override
     public void write(Object data) {
 
@@ -14,5 +15,10 @@ public class IDXRImpl implements Register<Object> {
     @Override
     public Object read() {
         return null;
+    }
+
+    @Override
+    public void reset() {
+        write(null);
     }
 }

@@ -16,4 +16,9 @@ public interface Register<T> {
      * @return data in register
      */
     T read();
+
+    /**
+     * Reset register, clear data
+     */
+    void reset();
 }

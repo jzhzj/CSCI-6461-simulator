@@ -10,6 +10,16 @@ import com.gwu.cs6461.services.dram.DRAMAddress;
  */
 public class IARImpl implements Register<DRAMAddress> {
 
+    private static IARImpl ourInstance = new IARImpl();
+
+    public static IARImpl getInstance() {
+        return ourInstance;
+    }
+
+    private IARImpl() {
+
+    }
+
     private DRAMAddress nextInsAddress;
 
     @Override
@@ -20,5 +30,10 @@ public class IARImpl implements Register<DRAMAddress> {
     @Override
     public DRAMAddress read() {
         return nextInsAddress;
+    }
+
+    @Override
+    public void reset() {
+        write(null);
     }
 }

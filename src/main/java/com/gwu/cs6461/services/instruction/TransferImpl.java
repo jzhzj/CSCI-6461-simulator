@@ -1,9 +1,9 @@
 package com.gwu.cs6461.services.instruction;
 
 /**
- * Halt Instruction
+ * Transfer Instruction
  */
-public class HaltImpl implements Instruction{
+public class TransferImpl implements Instruction{
 
     @Override
     public int getDecimalValue() {
@@ -24,5 +24,4 @@ public class HaltImpl implements Instruction{
     public void setValue(int literalValue) throws IllegalArgumentException {
 
     }
-
 }

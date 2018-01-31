@@ -6,8 +6,8 @@ import com.gwu.cs6461.services.cpu.flags.Zero;
 import com.gwu.cs6461.util.Binary;
 
 /**
- * Arithmetic Unit
- * Responsible for handling all numerical operations.
+ * Defines what Arithmetic Unit does
+ * ALU is responsible for handling all numerical operations.
  * TODO need more detailed design.
  */
 public interface ArithmeticUnit {

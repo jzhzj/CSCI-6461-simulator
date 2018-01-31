@@ -35,7 +35,8 @@ public class TestDRAMAddress {
         // after dramAddress is initialized, it should have binary value of 12 zeros.
     }
 
-    @Test void testGetHex() {
+    @Test
+    public void testGetHex() {
         dramAddress = new DRAMAddress();
 
     }

@@ -19,21 +19,21 @@ public class MainController {
 
     @FXML
     void handleIPLButtonClick(MouseEvent mouseEvent) {
-
+        machine.ipl();
     }
 
     @FXML
     void handleSingleStepButtonClick(MouseEvent mouseEvent) {
-
+        machine.singleStep();
     }
 
     @FXML
     void handleRunButtonClick(MouseEvent mouseEvent) {
-
+        machine.run();
     }
 
     @FXML
     void handleHaltButtonClick(MouseEvent mouseEvent) {
-
+        machine.halt();
     }
 }

@@ -32,7 +32,7 @@ public class TestDRAMData {
         dramData.setValue(DRAMData.MIN_VALUE - 1);
     }
 
-    @Test
+//    @Test
     public void testGetBinary() {
         dramData = new DRAMData();
         // after dramData is initialized, it should have binary value of 16 zeros.
@@ -48,7 +48,7 @@ public class TestDRAMData {
         assertEquals("1111111111111110", dramData.getBinary());
     }
 
-    @Test
+//    @Test
     public void testGetHex() {
         dramData = new DRAMData();
         // after dramData is initialized, it should have binary value of 16 zeros.

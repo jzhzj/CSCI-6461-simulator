@@ -24,4 +24,5 @@ public class TrapImpl implements Instruction{
     public void setValue(int literalValue) throws IllegalArgumentException {
 
     }
+
 }

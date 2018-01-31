@@ -18,4 +18,9 @@ public interface DRAM {
      * @param data data to write
      */
     void write(DRAMAddress address, DRAMData data);
+
+    /**
+     * Clear all data in memory
+     */
+    void reset();
 }

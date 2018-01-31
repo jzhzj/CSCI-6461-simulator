@@ -3,11 +3,22 @@ package com.gwu.cs6461.services.cpu.registers;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 
 /**
+ * Singleton
  * Memory Address Register
  * It holds the address of active memory location.
  * When CPU wants to store or read data from memory, CPU stores the required address of memory location in MAR.
  */
 public class MARImpl implements Register<DRAMAddress>{
+
+    private static MARImpl ourInstance = new MARImpl();
+
+    public static MARImpl getInstance() {
+        return ourInstance;
+    }
+
+    private MARImpl() {
+
+    }
 
     private DRAMAddress activeAddress;
 
@@ -19,5 +30,10 @@ public class MARImpl implements Register<DRAMAddress>{
     @Override
     public DRAMAddress read() {
         return activeAddress;
+    }
+
+    @Override
+    public void reset() {
+        write(null);
     }
 }

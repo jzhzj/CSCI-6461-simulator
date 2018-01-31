@@ -1,5 +1,6 @@
 package com.gwu.cs6461.services.cpu.ctrlu;
 
+import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.instruction.Instruction;
 
 /**
@@ -8,12 +9,15 @@ import com.gwu.cs6461.services.instruction.Instruction;
  */
 public interface ControlUnit {
 
-    @ClockCycle(count = ClockCycle.FETCH)
-    Instruction fetch();
+    /**
+     * Fetch an Instruction from a given memory address
+     * @param address memory address
+     * @return instruction
+     */
+    void fetch(DRAMAddress address);
 
-    @ClockCycle(count = ClockCycle.DECODE)
     void decode(Instruction instruction);
 
-    @ClockCycle(count = ClockCycle.EXECUTE)
-    void execute();
+    void execute(Instruction instruction);
+
 }

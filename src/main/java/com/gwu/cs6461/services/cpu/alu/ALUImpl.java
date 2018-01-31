@@ -6,9 +6,20 @@ import com.gwu.cs6461.services.cpu.flags.Zero;
 import com.gwu.cs6461.util.Binary;
 
 /**
- * TODO to be implemented.
+ * Singleton
+ * Arithmetic and Logical Unit
  */
 public class ALUImpl implements ALU {
+
+    private static ALUImpl ourInstance = new ALUImpl();
+
+    public static ALUImpl getInstance() {
+        return ourInstance;
+    }
+
+    private ALUImpl() {
+
+    }
 
     @Override
     public Binary add(Binary a, Binary b) throws Zero, Overflow, Negative {

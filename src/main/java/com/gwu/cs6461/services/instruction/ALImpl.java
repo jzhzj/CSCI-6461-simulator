@@ -24,4 +24,5 @@ public class ALImpl implements Instruction {
     public void setValue(int literalValue) throws IllegalArgumentException {
 
     }
+
 }
