@@ -26,7 +26,7 @@ public class OpCode implements Binary {
     }
 
     @Override
-    public void setValue(int literalValue) throws IllegalArgumentException {
-
+    public OpCode setValue(int literalValue) throws IllegalArgumentException {
+        return this;
     }
 }

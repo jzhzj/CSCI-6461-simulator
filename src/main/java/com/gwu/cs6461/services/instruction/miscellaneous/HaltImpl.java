@@ -1,9 +1,11 @@
-package com.gwu.cs6461.services.instruction;
+package com.gwu.cs6461.services.instruction.miscellaneous;
+
+import com.gwu.cs6461.services.instruction.Instruction;
 
 /**
  * Halt Instruction
  */
-public class HaltImpl implements Instruction{
+public class HaltImpl implements Instruction {
 
     @Override
     public int getDecimalValue() {
@@ -21,8 +23,8 @@ public class HaltImpl implements Instruction{
     }
 
     @Override
-    public void setValue(int literalValue) throws IllegalArgumentException {
-
+    public HaltImpl setValue(int literalValue) throws IllegalArgumentException {
+        return this;
     }
 
 }

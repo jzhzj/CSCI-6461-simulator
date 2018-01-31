@@ -1,9 +1,11 @@
-package com.gwu.cs6461.services.instruction;
+package com.gwu.cs6461.services.instruction.miscellaneous;
+
+import com.gwu.cs6461.services.instruction.Instruction;
 
 /**
  * Trap Instruction
  */
-public class TrapImpl implements Instruction{
+public class TrapImpl implements Instruction {
 
     @Override
     public int getDecimalValue() {
@@ -21,8 +23,8 @@ public class TrapImpl implements Instruction{
     }
 
     @Override
-    public void setValue(int literalValue) throws IllegalArgumentException {
-
+    public TrapImpl setValue(int literalValue) throws IllegalArgumentException {
+        return this;
     }
 
 }
