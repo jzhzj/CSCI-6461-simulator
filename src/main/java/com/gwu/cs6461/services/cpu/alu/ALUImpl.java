@@ -1,8 +1,8 @@
 package com.gwu.cs6461.services.cpu.alu;
 
-import com.gwu.cs6461.services.cpu.flags.Negative;
-import com.gwu.cs6461.services.cpu.flags.Overflow;
-import com.gwu.cs6461.services.cpu.flags.Zero;
+import com.gwu.cs6461.services.cpu.alu.flags.Negative;
+import com.gwu.cs6461.services.cpu.alu.flags.Overflow;
+import com.gwu.cs6461.services.cpu.alu.flags.Zero;
 import com.gwu.cs6461.util.Binary;
 
 /**
