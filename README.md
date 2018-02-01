@@ -30,7 +30,7 @@ JDK 8+ should be used. The default compiler level has been set to 9 (JDK 1.9), p
 accordingly if you are using JDK 1.8.
 
 3. The implementation of UI is powered by [JavaFX](http://www.oracle.com/technetwork/java/javase/overview/javafx-overview-2158620.html), download 
-[JavaFx Scene Builder](http://gluonhq.com/products/scene-builder/) if you need a drag and drop editor.
+[JavaFx Scene Builder](http://gluonhq.com/products/scene-builder/) if you need a WYSIWYG layout editor.
 
 ## Contributing
 1. __Please do not commit anything but source code and resource files to this repository, also please make modifications based on the
