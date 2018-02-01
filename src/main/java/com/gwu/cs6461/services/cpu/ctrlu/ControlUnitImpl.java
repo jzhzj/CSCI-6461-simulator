@@ -45,7 +45,7 @@ public class ControlUnitImpl implements ControlUnit {
     }
 
     private Instruction decode(DRAMData data) {
-        // TODO determine instruction type by opcode
+        // determine instruction type by opcode
         Instruction instruction = null;
 
         try {
