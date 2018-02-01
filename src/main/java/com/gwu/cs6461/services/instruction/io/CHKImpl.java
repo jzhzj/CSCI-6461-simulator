@@ -1,28 +1,25 @@
 package com.gwu.cs6461.services.instruction.io;
 
+import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.instruction.Instruction;
 
 /**
  * CHK Instruction
  */
 public class CHKImpl implements Instruction {
+
     @Override
-    public int getDecimalValue() {
-        return 0;
+    public void onExecute() {
+
     }
 
     @Override
-    public String getBinary() {
+    public Instruction fromDRAMData(DRAMData data) {
         return null;
     }
 
     @Override
-    public String getHex() {
-        return null;
-    }
-
-    @Override
-    public CHKImpl setValue(int literalValue) throws IllegalArgumentException {
+    public DRAMData toDRAMData() {
         return null;
     }
 }

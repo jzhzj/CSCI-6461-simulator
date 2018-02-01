@@ -9,8 +9,6 @@ public interface ControlUnit {
 
     void fetch();
 
-    void decode();
-
     void execute();
 
 }

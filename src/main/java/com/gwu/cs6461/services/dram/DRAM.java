@@ -10,14 +10,14 @@ public interface DRAM {
      * @param address memory address
      * @return data stored in memory
      */
-    DRAMDataImpl read(DRAMAddress address);
+    DRAMData read(DRAMAddress address);
 
     /**
      * Write data to given address
      * @param address memory address
      * @param data data to write
      */
-    void write(DRAMAddress address, DRAMDataImpl data);
+    void write(DRAMAddress address, DRAMData data);
 
     /**
      * Clear all data in memory

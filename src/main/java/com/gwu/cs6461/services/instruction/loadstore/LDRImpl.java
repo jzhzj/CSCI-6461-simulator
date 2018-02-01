@@ -1,28 +1,28 @@
 package com.gwu.cs6461.services.instruction.loadstore;
 
+import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.instruction.Instruction;
 
 /**
  * LDR Instruction
  */
 public class LDRImpl implements Instruction {
+
+    private DRAMData instruction;
+
     @Override
-    public int getDecimalValue() {
-        return 0;
+    public void onExecute() {
+
     }
 
     @Override
-    public String getBinary() {
-        return null;
+    public LDRImpl fromDRAMData(DRAMData data) {
+        instruction = data;
+        return this;
     }
 
     @Override
-    public String getHex() {
-        return null;
-    }
-
-    @Override
-    public LDRImpl setValue(int literalValue) throws IllegalArgumentException {
-        return null;
+    public DRAMData toDRAMData() {
+        return instruction;
     }
 }

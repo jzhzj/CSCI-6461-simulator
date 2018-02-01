@@ -1,13 +1,13 @@
 package com.gwu.cs6461.services.cpu.registers;
 
-import com.gwu.cs6461.services.dram.DRAMData;
+import com.gwu.cs6461.services.instruction.Instruction;
 
 /**
  * Singleton
  * Instruction Register
  * It holds the current instruction that is being executed
  */
-public class IRImpl implements Register<DRAMData>{
+public class IRImpl implements Register<Instruction>{
 
     private static IRImpl ourInstance = new IRImpl();
 
@@ -19,15 +19,15 @@ public class IRImpl implements Register<DRAMData>{
 
     }
 
-    private DRAMData currentIns;
+    private Instruction currentIns;
 
     @Override
-    public void write(DRAMData data) {
+    public void write(Instruction data) {
         currentIns = data;
     }
 
     @Override
-    public DRAMData read() {
+    public Instruction read() {
         return currentIns;
     }
 

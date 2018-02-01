@@ -1,28 +1,25 @@
 package com.gwu.cs6461.services.instruction.arithmeticlogic;
 
+import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.instruction.Instruction;
 
 /**
  * NOT Instruction
  */
 public class NOTImpl implements Instruction {
+
     @Override
-    public int getDecimalValue() {
-        return 0;
+    public void onExecute() {
+
     }
 
     @Override
-    public String getBinary() {
+    public Instruction fromDRAMData(DRAMData data) {
         return null;
     }
 
     @Override
-    public String getHex() {
-        return null;
-    }
-
-    @Override
-    public NOTImpl setValue(int literalValue) throws IllegalArgumentException {
+    public DRAMData toDRAMData() {
         return null;
     }
 }

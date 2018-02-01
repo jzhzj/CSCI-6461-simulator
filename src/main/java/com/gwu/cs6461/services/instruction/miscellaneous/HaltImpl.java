@@ -1,5 +1,6 @@
 package com.gwu.cs6461.services.instruction.miscellaneous;
 
+import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.instruction.Instruction;
 
 /**
@@ -8,23 +9,17 @@ import com.gwu.cs6461.services.instruction.Instruction;
 public class HaltImpl implements Instruction {
 
     @Override
-    public int getDecimalValue() {
-        return 0;
+    public void onExecute() {
+
     }
 
     @Override
-    public String getBinary() {
+    public Instruction fromDRAMData(DRAMData data) {
         return null;
     }
 
     @Override
-    public String getHex() {
+    public DRAMData toDRAMData() {
         return null;
     }
-
-    @Override
-    public HaltImpl setValue(int literalValue) throws IllegalArgumentException {
-        return this;
-    }
-
 }
