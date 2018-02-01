@@ -1,5 +1,6 @@
 package com.gwu.cs6461;
 
+import com.gwu.cs6461.services.cpu.registers.MARImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +17,12 @@ public class App extends Application {
         primaryStage.show();
     }
 
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        // clear all observers registered on components
+        MARImpl.getInstance().deleteObservers();
+    }
 
     public static void main(String[] args) {
         launch(args);
