@@ -1,131 +1,15 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+        <!--stylesheets="/com/gwu/cs6461/components/main/main.css"-->
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.gwu.cs6461.components.main.MainController"
 
-<GridPane fx:controller="com.gwu.cs6461.components.main.MainController" stylesheets="/com/gwu/cs6461/components/main/main.css"
-          xmlns:fx="http://javafx.com/fxml" alignment="top_left" hgap="10" vgap="10">
+            prefHeight="400.0" prefWidth="600.0">
 
-    <padding>
-        <Insets top="25" right="25" bottom="10" left="25" />
-    </padding>
-
-    <HBox spacing="10" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
-        <Button text="IPL"
-                onMouseClicked="#handleIPLButtonClick"/>
-        <Button text="Run"
-                onMouseClicked="#handleRunButtonClick"/>
-        <Button text="Halt"
-                onMouseClicked="#handleHaltButtonClick"/>
-        <Button text="Single Step"
-                onMouseClicked="#handleSingleStepButtonClick"/>
-    </HBox>
-
-    <VBox spacing="10" alignment="TOP_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
-        <Label text="Registers"/>
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="R0"/>
-            <TextField text="0x0000"/>
-            <Button text="Load Value" />
-        </HBox>
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="R1"/>
-            <TextField text="0x0000"/>
-            <Button text="Load Value" />
-        </HBox>
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="R2"/>
-            <TextField text="0x0000"/>
-            <Button text="Load Value" />
-        </HBox>
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="R3"/>
-            <TextField text="0x0000"/>
-            <Button text="Load Value" />
-        </HBox>
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="X1"/>
-            <TextField text="0x0000"/>
-            <Button text="Load Value" />
-        </HBox>
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="X2"/>
-            <TextField text="0x0000"/>
-            <Button text="Load Value" />
-        </HBox>
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="X3"/>
-            <TextField text="0x0000"/>
-            <Button text="Load Value" />
-        </HBox>
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="MBR"/>
-            <TextField text="0x0000"/>
-            <Button text="Load Value" />
-        </HBox>
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text="MAR"/>
-            <TextField text="0x0000"/>
-            <Button text="Load Value" />
-        </HBox>
-    </VBox>
-
-    <VBox spacing="10" alignment="TOP_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1">
-        <Label text="Memory"/>
-
-        <HBox spacing="10">
-            <VBox>
-                <Label text="Address" />
-                <TextField style="-fx-pref-width: 30px"/>
-            </VBox>
-            <VBox>
-                <Label text="Value" />
-                <TextField style="-fx-pref-width: 30px"/>
-            </VBox>
-            <Button text="Load Value" alignment="BASELINE_RIGHT"/>
-        </HBox>
-
-
-        <children>
-            <ListView fx:id="memoryListView">
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="One"/>
-                        <String fx:value="Two"/>
-                        <String fx:value="Three"/>
-                        <String fx:value="Four"/>
-                        <String fx:value="Five"/>
-                        <String fx:value="One"/>
-                        <String fx:value="Two"/>
-                        <String fx:value="Three"/>
-                        <String fx:value="Four"/>
-                        <String fx:value="Five"/>
-                        <String fx:value="One"/>
-                        <String fx:value="Two"/>
-                        <String fx:value="Three"/>
-                        <String fx:value="Four"/>
-                        <String fx:value="Five"/>
-                        <String fx:value="One"/>
-                        <String fx:value="Two"/>
-                        <String fx:value="Three"/>
-                        <String fx:value="Four"/>
-                        <String fx:value="Five"/>
-                        <String fx:value="One"/>
-                        <String fx:value="Two"/>
-                        <String fx:value="Three"/>
-                        <String fx:value="Four"/>
-                        <String fx:value="Five"/>
-                    </FXCollections>
-                </items>
-            </ListView>
-        </children>
-    </VBox>
-</GridPane>
+</AnchorPane>
