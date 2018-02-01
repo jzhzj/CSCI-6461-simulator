@@ -58,3 +58,7 @@ Run / Debug
 ```sh
 $ mvn verify
 ```
+Run Unit Test
+```sh
+$ mvn test
+```
