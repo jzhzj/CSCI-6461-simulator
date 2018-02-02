@@ -1,8 +1,11 @@
 package com.gwu.cs6461.components.main;
 
 import com.gwu.cs6461.services.*;
-import com.gwu.cs6461.services.cpu.registers.MARImpl;
-import com.gwu.cs6461.services.cpu.registers.Register;
+import com.gwu.cs6461.services.cpu.registers.*;
+import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMData;
+import com.gwu.cs6461.services.dram.DRAMDataImpl;
+import com.gwu.cs6461.services.dram.DRAMImpl;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -78,10 +81,16 @@ public class MainController implements Observer {
     @FXML
     void handleDRAMButtonClick(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
+        DRAMAddress address = new DRAMAddress().setValue(Integer.parseInt(ramAddressTextField.getText()));
+        DRAMData dramData;
         switch (btn.getId()) {
             case "ReadMemButton":
+                dramData = DRAMImpl.getInstance().read(address);
+                ramValueTextField.setText(dramData.getBinary());
                 break;
             case "WriteMemButton":
+                dramData = new DRAMDataImpl().setValue(Integer.parseInt(ramValueTextField.getText()));
+                DRAMImpl.getInstance().write(address, dramData);
                 break;
             default:
         }
@@ -90,36 +99,49 @@ public class MainController implements Observer {
     @FXML
     void handleRegisterButtonClick(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
+        DRAMAddress address;
+        DRAMData dramData;
+
         switch (btn.getId()) {
             case "PCButton":
-
+                address = new DRAMAddress().setValue(Integer.parseInt(pcTextField.getText()));
+                IARImpl.getInstance().write(address);
                 break;
             case "MARButton":
-
+                address = new DRAMAddress().setValue(Integer.parseInt(marTextField.getText()));
+                MARImpl.getInstance().write(address);
                 break;
             case "MBRButton":
-
+                dramData = new DRAMDataImpl().setValue(Integer.parseInt(mbrTextField.getText()));
+                MBRImpl.getInstance().write(dramData);
                 break;
             case "R0Button":
-
+                dramData = new DRAMDataImpl().setValue(Integer.parseInt(r0TextField.getText()));
+                GPR0Impl.getInstance().write(dramData);
                 break;
             case "R1Button":
-
+                dramData = new DRAMDataImpl().setValue(Integer.parseInt(r1TextField.getText()));
+                GPR1Impl.getInstance().write(dramData);
                 break;
             case "R2Button":
-
+                dramData = new DRAMDataImpl().setValue(Integer.parseInt(r2TextField.getText()));
+                GPR2Impl.getInstance().write(dramData);
                 break;
             case "R3Button":
-
+                dramData = new DRAMDataImpl().setValue(Integer.parseInt(r3TextField.getText()));
+                GPR3Impl.getInstance().write(dramData);
                 break;
             case "X1Button":
-
+                address = new DRAMAddress().setValue(Integer.parseInt(x1TextField.getText()));
+                IDXR1Impl.getInstance().write(address);
                 break;
             case "X2Button":
-
+                address = new DRAMAddress().setValue(Integer.parseInt(x2TextField.getText()));
+                IDXR2Impl.getInstance().write(address);
                 break;
             case "X3Button":
-
+                address = new DRAMAddress().setValue(Integer.parseInt(x3TextField.getText()));
+                IDXR3Impl.getInstance().write(address);
                 break;
             default:
         }
