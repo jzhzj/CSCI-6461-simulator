@@ -29,8 +29,7 @@ it is highly recommend to use [Intellij IDEA Ultimate](https://www.jetbrains.com
 JDK 8+ should be used. The default compiler level has been set to 9 (JDK 1.9), please revise pom.xml
 accordingly if you are using JDK 1.8.
 
-3. The implementation of UI is powered by [JavaFX](http://www.oracle.com/technetwork/java/javase/overview/javafx-overview-2158620.html), download 
-[JavaFx Scene Builder](http://gluonhq.com/products/scene-builder/) if you need a WYSIWYG layout editor.
+3. The implementation of UI is powered by JavaFX, Idea has included a WYSIWYG layout editor in case you need one.
 
 ## Contributing
 1. __Please do not commit anything but source code and resource files to this repository, also please make modifications based on the
