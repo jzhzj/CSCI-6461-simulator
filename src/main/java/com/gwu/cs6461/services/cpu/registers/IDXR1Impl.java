@@ -1,5 +1,6 @@
 package com.gwu.cs6461.services.cpu.registers;
 
+import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.util.Binary;
 
 /**
@@ -8,7 +9,7 @@ import com.gwu.cs6461.util.Binary;
  * Index Registers are used for data movement.
  * TODO to be implemented
  */
-public class IDXR1Impl implements Register<Binary> {
+public class IDXR1Impl implements Register<DRAMAddress> {
 
     private static IDXR1Impl ourInstance = new IDXR1Impl();
 
@@ -21,12 +22,12 @@ public class IDXR1Impl implements Register<Binary> {
     }
 
     @Override
-    public void write(Binary data) {
+    public void write(DRAMAddress address) {
 
     }
 
     @Override
-    public Binary read() {
+    public DRAMAddress read() {
         return null;
     }
 
