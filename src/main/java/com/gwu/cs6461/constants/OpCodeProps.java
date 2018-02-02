@@ -17,6 +17,11 @@ public final class OpCodeProps {
         STR_CLASS_NAME = rb.getString("STR_CLASS_NAME");
         STX_OP_CODE = Integer.parseInt(rb.getString("STX_OP_CODE"));
         STX_CLASS_NAME = rb.getString("STX_CLASS_NAME");
+
+        HLT_OP_CODE = Integer.parseInt(rb.getString("HLT_OP_CODE"));
+        HLT_CLASS_NAME = rb.getString("HLT_CLASS_NAME");
+        TRAP_OP_CODE = Integer.parseInt(rb.getString("TRAP_OP_CODE"));
+        TRAP_CLASS_NAME = rb.getString("TRAP_CLASS_NAME");
     }
 
     public static final int LDA_OP_CODE;
@@ -29,5 +34,10 @@ public final class OpCodeProps {
     public static final String STR_CLASS_NAME;
     public static final int STX_OP_CODE;
     public static final String STX_CLASS_NAME;
+
+    public static final int HLT_OP_CODE;
+    public static final String HLT_CLASS_NAME;
+    public static final int TRAP_OP_CODE;
+    public static final String TRAP_CLASS_NAME;
 
 }
