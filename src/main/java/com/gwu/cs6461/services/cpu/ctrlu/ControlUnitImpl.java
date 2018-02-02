@@ -53,6 +53,7 @@ public class ControlUnitImpl implements ControlUnit {
             Class instructionImpl = Class.forName(className);
             instruction = (Instruction) instructionImpl.getConstructor().newInstance();
             instruction.fromDRAMData(data);
+            instruction.onDecode();
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

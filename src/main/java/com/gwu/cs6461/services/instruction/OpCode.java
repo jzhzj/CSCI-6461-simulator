@@ -14,7 +14,9 @@ public enum OpCode {
     LDR (OpCodeProps.LDR_OP_CODE, OpCodeProps.LDR_CLASS_NAME),
     LDX (OpCodeProps.LDX_OP_CODE, OpCodeProps.LDX_CLASS_NAME),
     STR (OpCodeProps.STR_OP_CODE, OpCodeProps.STR_CLASS_NAME),
-    STX (OpCodeProps.STX_OP_CODE, OpCodeProps.STX_CLASS_NAME);
+    STX (OpCodeProps.STX_OP_CODE, OpCodeProps.STX_CLASS_NAME),
+    HLT (OpCodeProps.HLT_OP_CODE, OpCodeProps.HLT_CLASS_NAME),
+    TRAP(OpCodeProps.TRAP_OP_CODE, OpCodeProps.TRAP_CLASS_NAME);
 
     private int value;
     private String instructionClassName;

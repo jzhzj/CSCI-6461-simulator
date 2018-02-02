@@ -1,38 +1,25 @@
 package com.gwu.cs6461.services.instruction.loadstore;
 
+import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMData;
-import com.gwu.cs6461.services.instruction.Instruction;
+import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.instruction.LSInstruction;
 
 /**
  * LDX Instruction
+ * Load Index Register from Memory, x = 1..3
  */
-public class LDXImpl implements Instruction {
 
-    private DRAMData instruction;
+public class LDXImpl extends LSInstruction {
 
-    @Override
-    public void onFetch() {
-
-    }
-
-    @Override
-    public void onDecode() {
-
-    }
 
     @Override
     public void onExecute() {
+        super.onExecute();
 
-    }
-
-    @Override
-    public LDXImpl fromDRAMData(DRAMData data) {
-        instruction = data;
-        return this;
-    }
-
-    @Override
-    public DRAMData toDRAMData() {
-        return instruction;
+        //  c(EA)
+        DRAMData data = DRAMImpl.getInstance().read(getEffectiveAddress());
+        //  Xx <- c(EA)
+        getIdxRegister().write(new DRAMAddress().setValue(data.getDecimalValue()));
     }
 }

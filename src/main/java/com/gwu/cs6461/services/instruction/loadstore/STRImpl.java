@@ -1,38 +1,17 @@
 package com.gwu.cs6461.services.instruction.loadstore;
 
-import com.gwu.cs6461.services.dram.DRAMData;
-import com.gwu.cs6461.services.instruction.Instruction;
+import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.instruction.LSInstruction;
 
 /**
  * STR Instruction
+ * Store Register To Memory, r = 0..3
  */
-public class STRImpl implements Instruction  {
-
-    private DRAMData instruction;
-
-    @Override
-    public void onFetch() {
-
-    }
-
-    @Override
-    public void onDecode() {
-
-    }
-
+public class STRImpl extends LSInstruction {
     @Override
     public void onExecute() {
-
-    }
-
-    @Override
-    public STRImpl fromDRAMData(DRAMData data) {
-        instruction = data;
-        return this;
-    }
-
-    @Override
-    public DRAMData toDRAMData() {
-        return instruction;
+        super.onExecute();
+        // Memory(EA) <− c(r)
+        DRAMImpl.getInstance().write(getEffectiveAddress(), getGpRegister().read());
     }
 }

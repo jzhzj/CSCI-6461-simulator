@@ -9,6 +9,16 @@ import com.gwu.cs6461.services.instruction.Instruction;
 public class INImpl implements Instruction {
 
     @Override
+    public void onFetch() {
+
+    }
+
+    @Override
+    public void onDecode() {
+
+    }
+
+    @Override
     public void onExecute() {
 
     }
