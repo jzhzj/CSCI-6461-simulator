@@ -13,22 +13,22 @@
    <children>
       <ToolBar maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="900.0">
         <items>
-            <Button fx:id="ILPButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="93.0" text="IPL" textAlignment="CENTER">
+            <Button fx:id="ILPButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleIPLButtonClick" prefHeight="27.0" prefWidth="93.0" text="IPL" textAlignment="CENTER">
                <font>
                   <Font size="11.0" />
                </font>
             </Button>
-            <Button fx:id="RUNButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="93.0" text="RUN" textAlignment="CENTER">
+            <Button fx:id="RUNButton" mnemonicParsing="false" onMouseClicked="#handleRunButtonClick" prefHeight="27.0" prefWidth="93.0" text="RUN" textAlignment="CENTER">
                <font>
                   <Font size="11.0" />
                </font>
             </Button>
-            <Button fx:id="HALTButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="93.0" text="HALT" textAlignment="CENTER">
+            <Button fx:id="HALTButton" mnemonicParsing="false" onMouseClicked="#handleHaltButtonClick" prefHeight="27.0" prefWidth="93.0" text="HALT" textAlignment="CENTER">
                <font>
                   <Font size="11.0" />
                </font>
             </Button>
-            <Button fx:id="SSButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="93.0" text="SINGLE STEP" textAlignment="CENTER">
+            <Button fx:id="SSButton" mnemonicParsing="false" onMouseClicked="#handleSingleStepButtonClick" prefHeight="27.0" prefWidth="93.0" text="SINGLE STEP" textAlignment="CENTER">
                <font>
                   <Font size="11.0" />
                </font>
