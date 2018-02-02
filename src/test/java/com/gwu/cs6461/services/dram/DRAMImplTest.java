@@ -11,6 +11,7 @@ public class DRAMImplTest {
 
     @Before
     public void setUp() throws Exception {
+        DRAMImpl.getInstance().reset();
     }
 
     @After
