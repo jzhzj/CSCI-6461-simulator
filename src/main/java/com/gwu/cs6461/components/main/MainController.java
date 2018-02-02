@@ -86,7 +86,7 @@ public class MainController implements Observer {
         switch (btn.getId()) {
             case "ReadMemButton":
                 dramData = DRAMImpl.getInstance().read(address);
-                ramValueTextField.setText(dramData.getBinary());
+                ramValueTextField.setText(String.valueOf(dramData.getDecimalValue()));
                 break;
             case "WriteMemButton":
                 dramData = new DRAMDataImpl().setValue(Integer.parseInt(ramValueTextField.getText()));
