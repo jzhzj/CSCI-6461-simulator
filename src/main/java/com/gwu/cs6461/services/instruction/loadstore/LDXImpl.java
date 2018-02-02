@@ -11,6 +11,16 @@ public class LDXImpl implements Instruction {
     private DRAMData instruction;
 
     @Override
+    public void onFetch() {
+
+    }
+
+    @Override
+    public void onDecode() {
+
+    }
+
+    @Override
     public void onExecute() {
 
     }

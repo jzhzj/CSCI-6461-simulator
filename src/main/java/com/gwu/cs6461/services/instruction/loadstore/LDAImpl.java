@@ -8,21 +8,31 @@ import com.gwu.cs6461.services.instruction.Instruction;
  */
 public class LDAImpl implements Instruction  {
 
-    private DRAMData instruction;
+    private DRAMData data;
+
+    @Override
+    public void onFetch() {
+
+    }
+
+    @Override
+    public void onDecode() {
+
+    }
 
     @Override
     public void onExecute() {
-        System.out.println("111");
+        data.getBinary();
     }
 
     @Override
     public LDAImpl fromDRAMData(DRAMData data) {
-        instruction = data;
+        this.data = data;
         return this;
     }
 
     @Override
     public DRAMData toDRAMData() {
-        return instruction;
+        return data;
     }
 }
