@@ -1,6 +1,6 @@
 package com.gwu.cs6461.services.cpu;
 
-import com.gwu.cs6461.services.cpu.registers.MARImpl;
+import com.gwu.cs6461.services.cpu.registers.*;
 
 /**
  * Singleton
@@ -20,7 +20,22 @@ public class CPUImpl implements CPU{
 
     @Override
     public void reset() {
-        // TODO reset all registers
+
         MARImpl.getInstance().reset();
+        MBRImpl.getInstance().reset();
+        MFRImpl.getInstance().reset();
+        MSRImpl.getInstance().reset();
+        CCRImpl.getInstance().reset();
+        GPR0Impl.getInstance().reset();
+        GPR1Impl.getInstance().reset();
+        GPR2Impl.getInstance().reset();
+        GPR3Impl.getInstance().reset();
+        IARImpl.getInstance().reset();
+        IDXR1Impl.getInstance().reset();
+        IDXR2Impl.getInstance().reset();
+        IDXR3Impl.getInstance().reset();
+        IRImpl.getInstance().reset();
+
+
     }
 }
