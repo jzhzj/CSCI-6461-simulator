@@ -7,8 +7,8 @@ import com.gwu.cs6461.util.Binary;
  * Singleton
  * Index Register 1
  * Index Registers are used for data movement.
- * TODO to be implemented
  */
+
 public class IDXR1Impl implements Register<DRAMAddress> {
 
     private static IDXR1Impl ourInstance = new IDXR1Impl();
@@ -21,14 +21,16 @@ public class IDXR1Impl implements Register<DRAMAddress> {
 
     }
 
+    private DRAMAddress dramAddress;
+
     @Override
     public void write(DRAMAddress address) {
-
+        dramAddress = address;
     }
 
     @Override
     public DRAMAddress read() {
-        return null;
+        return dramAddress;
     }
 
     @Override

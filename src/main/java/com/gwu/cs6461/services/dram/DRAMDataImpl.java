@@ -1,8 +1,12 @@
 package com.gwu.cs6461.services.dram;
 
 import com.gwu.cs6461.constants.MachineProps;
+import com.gwu.cs6461.services.instruction.Instruction;
+import com.gwu.cs6461.services.instruction.OpCode;
 import com.gwu.cs6461.util.Binary;
 import org.apache.commons.lang3.StringUtils;
+
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * DRAM data at each address, represented in 16 bits = 2 bytes = 1 word
@@ -49,5 +53,30 @@ public class DRAMDataImpl implements DRAMData {
         }
         data = literalValue;
         return this;
+    }
+
+    @Override
+    public Instruction toInstruction() {
+        // determine instruction type by opcode
+        Instruction instruction = null;
+
+        try {
+            String className = OpCode.getInstructionImplClassName(this);
+            Class instructionImpl = Class.forName(className);
+            instruction = (Instruction) instructionImpl.getConstructor().newInstance();
+            instruction.fromDRAMData(this);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+        return instruction;
     }
 }

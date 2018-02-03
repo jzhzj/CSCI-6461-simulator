@@ -7,12 +7,11 @@ import com.gwu.cs6461.services.dram.DRAMImpl;
 import org.apache.commons.lang3.StringUtils;
 
 /**
+ * 2nd tier implementation of Instruction
  * super class of all 5
  * Load and Store Instructions
  */
-public class LSInstruction implements Instruction {
-
-    private DRAMData data;
+public class LSInstructionImpl extends InstructionImpl {
 
     private Register<DRAMData> gpRegister;
     private Register<DRAMAddress> idxRegister;
@@ -46,13 +45,15 @@ public class LSInstruction implements Instruction {
 
     @Override
     public void onFetch() {
-
+        super.onFetch();
     }
 
     @Override
     public void onDecode() {
+        super.onDecode();
+
         // set target register and effective address
-        String instructionBinary = data.getBinary();
+        String instructionBinary = toDRAMData().getBinary();
 
         switch (StringUtils.substring(instructionBinary, 6, 7)) {
             case "00":
@@ -93,22 +94,12 @@ public class LSInstruction implements Instruction {
 
     @Override
     public void onExecute() {
-
+        super.onExecute();
     }
 
-    @Override
-    public Instruction fromDRAMData(DRAMData data) {
-        this.data = data;
-        return this;
-    }
-
-    @Override
-    public DRAMData toDRAMData() {
-        return data;
-    }
 
     private DRAMAddress getEA() {
-        String instructionBinary = data.getBinary();
+        String instructionBinary = toDRAMData().getBinary();
         int addressFieldValue = Integer.parseInt(StringUtils.substring(instructionBinary, 11, 15));
         DRAMAddress ea = new DRAMAddress();
         switch (StringUtils.substring(instructionBinary, 10, 10)) {

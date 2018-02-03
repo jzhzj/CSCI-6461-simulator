@@ -1,13 +1,14 @@
 package com.gwu.cs6461.services.instruction.loadstore;
 
 import com.gwu.cs6461.services.dram.DRAMImpl;
-import com.gwu.cs6461.services.instruction.LSInstruction;
+import com.gwu.cs6461.services.instruction.LSInstructionImpl;
 
 /**
  * STR Instruction
  * Store Register To Memory, r = 0..3
  */
-public class STRImpl extends LSInstruction {
+public class STRImpl extends LSInstructionImpl {
+
     @Override
     public void onExecute() {
         super.onExecute();
