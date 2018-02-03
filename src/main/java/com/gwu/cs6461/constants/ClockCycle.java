@@ -21,10 +21,10 @@ public @interface ClockCycle {
      * clock cycles consumed by a decode action
      * @return clock cycles consumed
      */
-    int decode();
+    int decode() default 12;
     /**
      * clock cycles consumed by an execute action
      * @return clock cycles consumed
      */
-    int execute();
+    int execute() default 12;
 }
