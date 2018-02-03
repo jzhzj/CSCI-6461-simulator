@@ -10,10 +10,21 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
-public @interface ClockCycle {
-    int FETCH = 6;
-    int DECODE = 12;
-    int EXECUTE = 6;
 
-    int count() default 1;
+public @interface ClockCycle {
+    /**
+     * clock cycles consumed by a fetch action takes 6 clock cycles
+     * @return clock cycles consumed
+     */
+    int fetch() default 6;
+    /**
+     * clock cycles consumed by a decode action
+     * @return clock cycles consumed
+     */
+    int decode();
+    /**
+     * clock cycles consumed by an execute action
+     * @return clock cycles consumed
+     */
+    int execute();
 }

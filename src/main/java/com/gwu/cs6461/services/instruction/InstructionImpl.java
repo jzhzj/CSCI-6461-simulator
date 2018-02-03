@@ -1,5 +1,6 @@
 package com.gwu.cs6461.services.instruction;
 
+import com.gwu.cs6461.constants.ClockCycle;
 import com.gwu.cs6461.services.cpu.registers.IARImpl;
 import com.gwu.cs6461.services.cpu.registers.IRImpl;
 import com.gwu.cs6461.services.cpu.registers.MARImpl;
@@ -16,6 +17,7 @@ public class InstructionImpl implements Instruction {
 
     private DRAMData data;
 
+    @ClockCycle(fetch = 6)
     @Override
     public void onFetch() {
         // memory address : PC -> MAR

@@ -1,5 +1,6 @@
 package com.gwu.cs6461.services.instruction;
 
+import com.gwu.cs6461.constants.ClockCycle;
 import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMData;
@@ -48,6 +49,7 @@ public class LSInstructionImpl extends InstructionImpl {
         super.onFetch();
     }
 
+    @ClockCycle(decode = 18)
     @Override
     public void onDecode() {
         super.onDecode();
