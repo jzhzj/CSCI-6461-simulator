@@ -61,7 +61,6 @@ public class MainController implements Observer {
         Button btn = (Button) mouseEvent.getSource();
         switch (btn.getId()) {
             case "ILPButton":
-                MARImpl.getInstance().reset();
                 machine.ipl();
                 break;
             case "RUNButton":
@@ -75,7 +74,6 @@ public class MainController implements Observer {
                 break;
             default:
         }
-
     }
 
     @FXML
