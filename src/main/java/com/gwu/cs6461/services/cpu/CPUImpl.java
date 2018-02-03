@@ -1,6 +1,10 @@
 package com.gwu.cs6461.services.cpu;
 
+import com.gwu.cs6461.services.cpu.ctrlu.ControlUnitImpl;
 import com.gwu.cs6461.services.cpu.registers.*;
+import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.instruction.Instruction;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -38,7 +42,35 @@ public class CPUImpl implements CPU{
     private Set<Register> registers;
 
     @Override
+    public void resume() {
+        while (true){
+            process();
+        }
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void pauseAfter(int count) {
+
+    }
+
+
+    @Override
     public void reset() {
         registers.stream().forEach(register -> register.reset());
+    }
+
+    /**
+     * CPU processes 1 instruction at current machine state
+     */
+    private void process() {
+        // pc
+        DRAMAddress dramAddress = IARImpl.getInstance().read();
+        Instruction instruction = DRAMImpl.getInstance().read(dramAddress).toInstruction();
+        ControlUnitImpl.getInstance().scheduleTask(instruction);
     }
 }

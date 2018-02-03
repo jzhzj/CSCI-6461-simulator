@@ -39,4 +39,11 @@ public class DRAMImpl implements DRAM {
             dramData[i] = new DRAMDataImpl().setValue(0);
         }
     }
+
+    @Override
+    public void init() {
+        reset();
+        // TODO populate reserved addresses
+
+    }
 }

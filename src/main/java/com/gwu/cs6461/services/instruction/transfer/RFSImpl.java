@@ -6,30 +6,6 @@ import com.gwu.cs6461.services.instruction.Instruction;
 /**
  * RFS Instruction
  */
-public class RFSImpl implements Instruction {
+public class RFSImpl {
 
-    @Override
-    public void onFetch() {
-
-    }
-
-    @Override
-    public void onDecode() {
-
-    }
-
-    @Override
-    public void onExecute() {
-
-    }
-
-    @Override
-    public Instruction fromDRAMData(DRAMData data) {
-        return null;
-    }
-
-    @Override
-    public DRAMData toDRAMData() {
-        return null;
-    }
 }

@@ -11,9 +11,11 @@ import com.gwu.cs6461.services.instruction.LSInstructionImpl;
 public class LDAImpl extends LSInstructionImpl {
 
     @Override
-    public void onExecute() {
-        super.onExecute();
-        //  r <− EA
-        getGpRegister().write(new DRAMDataImpl().setValue(getEffectiveAddress().getDecimalValue()));
+    public Runnable onExecute() {
+        Runnable executeTask = () -> {
+            //  r <− EA
+            getGpRegister().write(new DRAMDataImpl().setValue(getEffectiveAddress().getDecimalValue()));
+        };
+        return executeTask;
     }
 }

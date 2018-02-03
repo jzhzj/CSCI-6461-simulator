@@ -1,35 +1,10 @@
 package com.gwu.cs6461.services.instruction.arithmeticlogic;
 
-import com.gwu.cs6461.services.dram.DRAMData;
-import com.gwu.cs6461.services.instruction.Instruction;
+
 
 /**
  * NOT Instruction
  */
-public class NOTImpl implements Instruction {
+public class NOTImpl {
 
-    @Override
-    public void onFetch() {
-
-    }
-
-    @Override
-    public void onDecode() {
-
-    }
-
-    @Override
-    public void onExecute() {
-
-    }
-
-    @Override
-    public Instruction fromDRAMData(DRAMData data) {
-        return null;
-    }
-
-    @Override
-    public DRAMData toDRAMData() {
-        return null;
-    }
 }

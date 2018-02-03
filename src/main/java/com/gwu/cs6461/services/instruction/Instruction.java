@@ -8,9 +8,9 @@ import com.gwu.cs6461.services.dram.DRAMData;
  * 16 bits binary
  */
 public interface Instruction {
-    void onFetch();
-    void onDecode();
-    void onExecute();
+    Runnable onFetch();
+    Runnable onDecode();
+    Runnable onExecute();
     Instruction fromDRAMData(DRAMData data);
     DRAMData toDRAMData();
 }

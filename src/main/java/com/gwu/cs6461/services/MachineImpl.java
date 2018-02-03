@@ -1,9 +1,6 @@
 package com.gwu.cs6461.services;
 
 import com.gwu.cs6461.services.cpu.CPUImpl;
-import com.gwu.cs6461.services.cpu.registers.MARImpl;
-import com.gwu.cs6461.services.dram.DRAMDataImpl;
-import com.gwu.cs6461.services.dram.DRAMImpl;
 import com.gwu.cs6461.services.romloader.RomLoaderImpl;
 
 /**
@@ -24,25 +21,23 @@ public class MachineImpl implements Machine{
 
     @Override
     public void run() {
-
+        CPUImpl.getInstance().resume();
     }
 
     @Override
     public void halt() {
-
+        CPUImpl.getInstance().pause();
     }
 
     @Override
     public void singleStep() {
-
+        CPUImpl.getInstance().pauseAfter(1);
     }
 
     @Override
     public void ipl() {
         // reset CPU and DRAM
         CPUImpl.getInstance().reset();
-        DRAMImpl.getInstance().reset();
-
         RomLoaderImpl.getInstance().load();
     }
 }

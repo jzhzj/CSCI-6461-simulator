@@ -14,11 +14,13 @@ public class LDXImpl extends LSInstructionImpl {
 
 
     @Override
-    public void onExecute() {
-        super.onExecute();
-        //  c(EA)
-        DRAMData data = DRAMImpl.getInstance().read(getEffectiveAddress());
-        //  Xx <- c(EA)
-        getIdxRegister().write(new DRAMAddress().setValue(data.getDecimalValue()));
+    public Runnable onExecute() {
+        Runnable executeTask = () -> {
+            //  c(EA)
+            DRAMData data = DRAMImpl.getInstance().read(getEffectiveAddress());
+            //  Xx <- c(EA)
+            getIdxRegister().write(new DRAMAddress().setValue(data.getDecimalValue()));
+        };
+        return executeTask;
     }
 }

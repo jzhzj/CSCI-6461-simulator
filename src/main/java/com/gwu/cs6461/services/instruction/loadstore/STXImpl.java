@@ -11,9 +11,11 @@ import com.gwu.cs6461.services.instruction.LSInstructionImpl;
 public class STXImpl extends LSInstructionImpl {
 
     @Override
-    public void onExecute() {
-        super.onExecute();
-        // Memory(EA) <- c(Xx)
-        DRAMImpl.getInstance().write(getEffectiveAddress(), new DRAMDataImpl().setValue(getIdxRegister().read().getDecimalValue()));
+    public Runnable onExecute() {
+        Runnable executeTask = () ->{
+            // Memory(EA) <- c(Xx)
+            DRAMImpl.getInstance().write(getEffectiveAddress(), new DRAMDataImpl().setValue(getIdxRegister().read().getDecimalValue()));
+        };
+        return executeTask;
     }
 }

@@ -1,10 +1,6 @@
 package com.gwu.cs6461.services.cpu.ctrlu;
 
-import com.gwu.cs6461.services.cpu.registers.IARImpl;
-import com.gwu.cs6461.services.cpu.registers.IRImpl;
-import com.gwu.cs6461.services.dram.DRAMAddress;
-import com.gwu.cs6461.services.dram.DRAMImpl;
-
+import com.gwu.cs6461.services.instruction.Instruction;
 
 /**
  * Singleton
@@ -22,19 +18,43 @@ public class ControlUnitImpl implements ControlUnit {
 
     }
 
-    @Override
-    public void fetch() {
-        DRAMAddress dramAddress = IARImpl.getInstance().read();
-        DRAMImpl.getInstance().read(dramAddress).toInstruction().onFetch();
+
+    private synchronized void fetch(Runnable task) {
+        Thread fetchThread = new Thread(task);
+        fetchThread.start();
+        try {
+            fetchThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private synchronized void decode(Runnable task) {
+        Thread decodeThread = new Thread(task);
+        decodeThread.start();
+        try {
+            decodeThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private synchronized void execute(Runnable task) {
+        Thread executeThread = new Thread(task);
+        executeThread.start();
+        try {
+            executeThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void decode() {
-        IRImpl.getInstance().read().onDecode();
-    }
-
-    @Override
-    public void execute() {
-        IRImpl.getInstance().read().onExecute();
+    public void scheduleTask(Instruction instruction) {
+        fetch(instruction.onFetch());
+        decode(instruction.onDecode());
+        execute(instruction.onExecute());
     }
 }

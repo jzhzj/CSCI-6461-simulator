@@ -1,6 +1,5 @@
 package com.gwu.cs6461.services.instruction;
 
-import com.gwu.cs6461.constants.ClockCycle;
 import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMData;
@@ -45,59 +44,54 @@ public class LSInstructionImpl extends InstructionImpl {
     private DRAMAddress effectiveAddress;
 
     @Override
-    public void onFetch() {
-        super.onFetch();
+    public Runnable onDecode() {
+
+        Runnable decodeTask = () -> {
+            // set target register and effective address
+            String instructionBinary = toDRAMData().getBinary();
+
+            switch (StringUtils.substring(instructionBinary, 6, 7)) {
+                case "00":
+                    gpRegister = GPR0Impl.getInstance();
+                    break;
+                case "01":
+                    gpRegister = GPR1Impl.getInstance();
+                    break;
+                case "02":
+                    gpRegister = GPR2Impl.getInstance();
+                    break;
+                case "03":
+                    gpRegister = GPR3Impl.getInstance();
+                    break;
+                default:
+                    // TODO throw machine fault
+
+            }
+
+            switch (StringUtils.substring(instructionBinary, 8, 9)) {
+                case "00":
+                    break;
+                case "01":
+                    idxRegister = IDXR1Impl.getInstance();
+                    break;
+                case "02":
+                    idxRegister = IDXR2Impl.getInstance();
+                    break;
+                case "03":
+                    idxRegister = IDXR3Impl.getInstance();
+                    break;
+                default:
+                    // TODO throw machine fault
+            }
+
+            effectiveAddress = getEA();
+        };
+
+        return decodeTask;
+
     }
 
-    @ClockCycle(count = 18)
-    @Override
-    public void onDecode() {
-        super.onDecode();
 
-        // set target register and effective address
-        String instructionBinary = toDRAMData().getBinary();
-
-        switch (StringUtils.substring(instructionBinary, 6, 7)) {
-            case "00":
-                gpRegister = GPR0Impl.getInstance();
-                break;
-            case "01":
-                gpRegister = GPR1Impl.getInstance();
-                break;
-            case "02":
-                gpRegister = GPR2Impl.getInstance();
-                break;
-            case "03":
-                gpRegister = GPR3Impl.getInstance();
-                break;
-            default:
-                // TODO throw machine fault
-
-        }
-
-        switch (StringUtils.substring(instructionBinary, 8, 9)) {
-            case "00":
-                break;
-            case "01":
-                idxRegister = IDXR1Impl.getInstance();
-                break;
-            case "02":
-                idxRegister = IDXR2Impl.getInstance();
-                break;
-            case "03":
-                idxRegister = IDXR3Impl.getInstance();
-                break;
-            default:
-                // TODO throw machine fault
-        }
-
-        effectiveAddress = getEA();
-    }
-
-    @Override
-    public void onExecute() {
-        super.onExecute();
-    }
 
 
     private DRAMAddress getEA() {

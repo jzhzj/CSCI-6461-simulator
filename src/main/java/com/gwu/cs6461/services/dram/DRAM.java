@@ -23,4 +23,9 @@ public interface DRAM {
      * Clear all data in memory
      */
     void reset();
+
+    /**
+     * initialize memory, and reserve address 0 - 8
+     */
+    void init();
 }

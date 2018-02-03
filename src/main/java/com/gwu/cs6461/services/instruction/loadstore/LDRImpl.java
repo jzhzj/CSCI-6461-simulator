@@ -13,24 +13,26 @@ import org.apache.commons.lang3.StringUtils;
 public class LDRImpl extends LSInstructionImpl {
 
     @Override
-    public void onExecute() {
-        super.onExecute();
-        // c(EA)
-        DRAMData dataCEA = DRAMImpl.getInstance().read(getEffectiveAddress());
+    public Runnable onExecute() {
+        Runnable executeTask = () -> {
+            // c(EA)
+            DRAMData dataCEA = DRAMImpl.getInstance().read(getEffectiveAddress());
 
-        switch (StringUtils.substring(toDRAMData().getBinary(), 10, 10)) {
-            case "1":
-                // r <- c(c(EA))
-                // c(c(EA))
-                DRAMData dataCCEA = DRAMImpl.getInstance().read(new DRAMAddress().setValue(dataCEA.getDecimalValue()));
-                getGpRegister().write(dataCCEA);
-                break;
-            case "0":
-                // r <− c(EA)
-                getGpRegister().write(dataCEA);
-                break;
-            default:
-                // TODO throw machine fault
-        }
+            switch (StringUtils.substring(toDRAMData().getBinary(), 10, 10)) {
+                case "1":
+                    // r <- c(c(EA))
+                    // c(c(EA))
+                    DRAMData dataCCEA = DRAMImpl.getInstance().read(new DRAMAddress().setValue(dataCEA.getDecimalValue()));
+                    getGpRegister().write(dataCCEA);
+                    break;
+                case "0":
+                    // r <− c(EA)
+                    getGpRegister().write(dataCEA);
+                    break;
+                default:
+                    // TODO throw machine fault
+            }
+        };
+        return executeTask;
     }
 }

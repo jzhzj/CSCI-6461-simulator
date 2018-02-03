@@ -10,9 +10,12 @@ import com.gwu.cs6461.services.instruction.LSInstructionImpl;
 public class STRImpl extends LSInstructionImpl {
 
     @Override
-    public void onExecute() {
-        super.onExecute();
-        // Memory(EA) <− c(r)
-        DRAMImpl.getInstance().write(getEffectiveAddress(), getGpRegister().read());
+    public Runnable onExecute() {
+        Runnable executeTask = () ->{
+            // Memory(EA) <− c(r)
+            DRAMImpl.getInstance().write(getEffectiveAddress(), getGpRegister().read());
+        };
+        return executeTask;
+
     }
 }
