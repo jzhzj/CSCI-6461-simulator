@@ -24,8 +24,8 @@ public class RomLoaderImpl implements RomLoader{
     public void load() {
         DRAMImpl.getInstance().init();
 
-        // TODO set PC to the 1st instruction to be executed
-        IARImpl.getInstance().write(new DRAMAddress().setValue(9));
+        // set PC to the 1st instruction to be executed
+        IARImpl.getInstance().reset();
 
         // TODO load some customized instructions into memory (9) here
 
