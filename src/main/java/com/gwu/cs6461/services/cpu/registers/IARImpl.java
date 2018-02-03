@@ -1,5 +1,6 @@
 package com.gwu.cs6461.services.cpu.registers;
 
+import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 
 /**
@@ -34,6 +35,6 @@ public class IARImpl implements Register<DRAMAddress> {
 
     @Override
     public void reset() {
-        write(null);
+        write(new DRAMAddress().setValue(MachineProps.INSTRUCTION_START_ADDRESS));
     }
 }
