@@ -49,7 +49,7 @@ public class LSInstructionImpl extends InstructionImpl {
         super.onFetch();
     }
 
-    @ClockCycle(decode = 18)
+    @ClockCycle(count = 18)
     @Override
     public void onDecode() {
         super.onDecode();

@@ -17,7 +17,7 @@ public class InstructionImpl implements Instruction {
 
     private DRAMData data;
 
-    @ClockCycle(fetch = 6)
+    @ClockCycle(count = 6)
     @Override
     public void onFetch() {
         // memory address : PC -> MAR

@@ -12,19 +12,5 @@ import java.lang.annotation.*;
 @Inherited
 
 public @interface ClockCycle {
-    /**
-     * clock cycles consumed by a fetch action takes 6 clock cycles
-     * @return clock cycles consumed
-     */
-    int fetch() default 6;
-    /**
-     * clock cycles consumed by a decode action
-     * @return clock cycles consumed
-     */
-    int decode() default 12;
-    /**
-     * clock cycles consumed by an execute action
-     * @return clock cycles consumed
-     */
-    int execute() default 12;
+   int count() default 6;
 }
