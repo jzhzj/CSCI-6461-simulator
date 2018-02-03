@@ -2,6 +2,9 @@ package com.gwu.cs6461.services.cpu;
 
 import com.gwu.cs6461.services.cpu.registers.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Singleton
  * CPU
@@ -15,27 +18,27 @@ public class CPUImpl implements CPU{
     }
 
     private CPUImpl() {
-
+        registers = new HashSet<>();
+        registers.add(MARImpl.getInstance());
+        registers.add(MBRImpl.getInstance());
+        registers.add(MFRImpl.getInstance());
+        registers.add(MSRImpl.getInstance());
+        registers.add(CCRImpl.getInstance());
+        registers.add(GPR0Impl.getInstance());
+        registers.add(GPR1Impl.getInstance());
+        registers.add(GPR2Impl.getInstance());
+        registers.add(GPR3Impl.getInstance());
+        registers.add(IARImpl.getInstance());
+        registers.add(IDXR1Impl.getInstance());
+        registers.add(IDXR2Impl.getInstance());
+        registers.add(IDXR3Impl.getInstance());
+        registers.add(IRImpl.getInstance());
     }
+
+    private Set<Register> registers;
 
     @Override
     public void reset() {
-
-        MARImpl.getInstance().reset();
-        MBRImpl.getInstance().reset();
-        MFRImpl.getInstance().reset();
-        MSRImpl.getInstance().reset();
-        CCRImpl.getInstance().reset();
-        GPR0Impl.getInstance().reset();
-        GPR1Impl.getInstance().reset();
-        GPR2Impl.getInstance().reset();
-        GPR3Impl.getInstance().reset();
-        IARImpl.getInstance().reset();
-        IDXR1Impl.getInstance().reset();
-        IDXR2Impl.getInstance().reset();
-        IDXR3Impl.getInstance().reset();
-        IRImpl.getInstance().reset();
-
-
+        registers.stream().forEach(register -> register.reset());
     }
 }
