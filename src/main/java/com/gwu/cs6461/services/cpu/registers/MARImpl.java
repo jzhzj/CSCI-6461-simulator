@@ -28,7 +28,7 @@ public class MARImpl extends Observable implements Register<DRAMAddress>{
     public void write(DRAMAddress address) {
         activeAddress = address;
         setChanged();
-        notifyObservers(address.getDecimalValue());
+        notifyObservers();
     }
 
     @Override

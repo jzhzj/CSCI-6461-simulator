@@ -1,6 +1,9 @@
 package com.gwu.cs6461.services.cpu.registers;
 
 import com.gwu.cs6461.services.dram.DRAMData;
+import com.gwu.cs6461.services.dram.DRAMDataImpl;
+
+import java.util.Observable;
 
 /**
  * Singleton
@@ -9,7 +12,7 @@ import com.gwu.cs6461.services.dram.DRAMData;
  * It holds the initial data to be operated upon, and the final result for processing.
  * The results of arithmetic operations are returned to accumulator for transfer to the main memory through buffer register.
  */
-public class GPR1Impl implements Register<DRAMData>{
+public class GPR1Impl extends Observable implements Register<DRAMData>{
 
     private static GPR1Impl ourInstance = new GPR1Impl();
 
@@ -26,6 +29,8 @@ public class GPR1Impl implements Register<DRAMData>{
     @Override
     public void write(DRAMData data) {
         operationResult = data;
+        setChanged();
+        notifyObservers();
     }
 
     @Override
@@ -35,6 +40,6 @@ public class GPR1Impl implements Register<DRAMData>{
 
     @Override
     public void reset() {
-        write(null);
+        write(new DRAMDataImpl().setValue(0));
     }
 }

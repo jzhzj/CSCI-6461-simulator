@@ -1,11 +1,14 @@
 package com.gwu.cs6461;
 
+import com.gwu.cs6461.services.cpu.CPUImpl;
 import com.gwu.cs6461.services.cpu.registers.MARImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.Observable;
 
 public class App extends Application {
 
@@ -21,7 +24,10 @@ public class App extends Application {
     public void stop() throws Exception {
         super.stop();
         // clear all observers registered on components
-        MARImpl.getInstance().deleteObservers();
+        CPUImpl.getInstance().registers.stream().forEach(register -> {
+            Observable o = (Observable)register;
+            o.deleteObservers();
+        });
     }
 
     public static void main(String[] args) {

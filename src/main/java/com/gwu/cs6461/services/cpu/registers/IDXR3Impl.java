@@ -2,13 +2,15 @@ package com.gwu.cs6461.services.cpu.registers;
 
 import com.gwu.cs6461.services.dram.DRAMAddress;
 
+import java.util.Observable;
+
 /**
  * Singleton
  * Index Register 3
  * Index Registers are used for data movement.
  */
 
-public class IDXR3Impl implements Register<DRAMAddress> {
+public class IDXR3Impl extends Observable implements Register<DRAMAddress> {
 
     private static IDXR3Impl ourInstance = new IDXR3Impl();
 
@@ -25,6 +27,8 @@ public class IDXR3Impl implements Register<DRAMAddress> {
     @Override
     public void write(DRAMAddress data) {
         dramAddress = data;
+        setChanged();
+        notifyObservers();
     }
 
     @Override
@@ -34,6 +38,6 @@ public class IDXR3Impl implements Register<DRAMAddress> {
 
     @Override
     public void reset() {
-        write(null);
+        write(new DRAMAddress().setValue(0));
     }
 }

@@ -1,12 +1,14 @@
 package com.gwu.cs6461.services.cpu.registers;
 
+import java.util.Observable;
+
 /**
  * Singleton
  * Machine Status Register: certain bits record the status of the health of the machine
  * 16 bits
  * TODO to be implemented
  */
-public class MSRImpl implements Register{
+public class MSRImpl extends Observable implements Register{
 
     private static MSRImpl ourInstance = new MSRImpl();
 

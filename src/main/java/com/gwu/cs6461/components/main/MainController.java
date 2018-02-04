@@ -1,6 +1,7 @@
 package com.gwu.cs6461.components.main;
 
 import com.gwu.cs6461.services.*;
+import com.gwu.cs6461.services.cpu.CPUImpl;
 import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMData;
@@ -23,7 +24,10 @@ public class MainController implements Observer {
 
 
     {
-        MARImpl.getInstance().addObserver(this);
+        CPUImpl.getInstance().registers.stream().forEach(register -> {
+            Observable observable = (Observable)register;
+            observable.addObserver(this);
+        });
     }
 
     @FXML
@@ -147,10 +151,26 @@ public class MainController implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        if (o instanceof MARImpl) {
-            System.out.println("o = [" + o + "], arg = [" + arg + "]");
-        } else {
-            System.out.println("not");
+        if(o instanceof IARImpl){
+            pcTextField.setText(String.valueOf(IARImpl.getInstance().read().getDecimalValue()));
+        } else if (o instanceof MARImpl) {
+            marTextField.setText(String.valueOf(MARImpl.getInstance().read().getDecimalValue()));
+        } else if(o instanceof MBRImpl) {
+            mbrTextField.setText(MBRImpl.getInstance().read().getBinary());
+        } else if(o instanceof GPR0Impl){
+            r0TextField.setText(GPR0Impl.getInstance().read().getBinary());
+        } else if(o instanceof GPR1Impl){
+            r1TextField.setText(GPR1Impl.getInstance().read().getBinary());
+        } else if(o instanceof GPR2Impl){
+            r2TextField.setText(GPR2Impl.getInstance().read().getBinary());
+        } else if(o instanceof GPR3Impl){
+            r3TextField.setText(GPR3Impl.getInstance().read().getBinary());
+        } else if(o instanceof IDXR1Impl){
+            x1TextField.setText(String.valueOf(IDXR1Impl.getInstance().read().getDecimalValue()));
+        } else if(o instanceof IDXR2Impl){
+            x2TextField.setText(String.valueOf(IDXR2Impl.getInstance().read().getDecimalValue()));
+        } else if(o instanceof IDXR3Impl){
+            x3TextField.setText(String.valueOf(IDXR3Impl.getInstance().read().getDecimalValue()));
         }
 
     }

@@ -1,13 +1,16 @@
 package com.gwu.cs6461.services.cpu.registers;
 
 import com.gwu.cs6461.services.dram.DRAMData;
+import com.gwu.cs6461.services.dram.DRAMDataImpl;
+
+import java.util.Observable;
 
 /**
  * Singleton
  * Memory Buffer Register
  * It holds the contents of memory location read from or written to the memory
  */
-public class MBRImpl implements Register<DRAMData> {
+public class MBRImpl extends Observable implements Register<DRAMData> {
 
     private static MBRImpl ourInstance = new MBRImpl();
 
@@ -24,6 +27,8 @@ public class MBRImpl implements Register<DRAMData> {
     @Override
     public void write(DRAMData data) {
         memoryBuffer = data;
+        setChanged();
+        notifyObservers();
     }
 
     @Override
@@ -33,6 +38,6 @@ public class MBRImpl implements Register<DRAMData> {
 
     @Override
     public void reset() {
-        write(null);
+        write(new DRAMDataImpl().setValue(0));
     }
 }

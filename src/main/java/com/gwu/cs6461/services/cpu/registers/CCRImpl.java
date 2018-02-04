@@ -1,5 +1,7 @@
 package com.gwu.cs6461.services.cpu.registers;
 
+import java.util.Observable;
+
 /**
  * Singleton
  * Condition Code: set when arithmetic/logical operations are executed;
@@ -7,7 +9,7 @@ package com.gwu.cs6461.services.cpu.registers;
  * They may be referenced as cc(0), cc(1), cc(2), cc(3). Or by the names OVERFLOW, UNDERFLOW, DIVZERO, EQUALORNOT
  * TODO to be implemented
  */
-public class CCRImpl implements Register{
+public class CCRImpl extends Observable implements Register{
 
     private static CCRImpl ourInstance = new CCRImpl();
 

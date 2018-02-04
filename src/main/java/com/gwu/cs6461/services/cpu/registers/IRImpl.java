@@ -2,12 +2,14 @@ package com.gwu.cs6461.services.cpu.registers;
 
 import com.gwu.cs6461.services.instruction.Instruction;
 
+import java.util.Observable;
+
 /**
  * Singleton
  * Instruction Register
  * It holds the current instruction that is being executed
  */
-public class IRImpl implements Register<Instruction>{
+public class IRImpl extends Observable implements Register<Instruction>{
 
     private static IRImpl ourInstance = new IRImpl();
 
@@ -24,6 +26,8 @@ public class IRImpl implements Register<Instruction>{
     @Override
     public void write(Instruction data) {
         currentIns = data;
+        setChanged();
+        notifyObservers();
     }
 
     @Override

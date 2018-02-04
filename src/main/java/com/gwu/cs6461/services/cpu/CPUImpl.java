@@ -39,27 +39,35 @@ public class CPUImpl implements CPU{
         registers.add(IRImpl.getInstance());
     }
 
-    private Set<Register> registers;
+    public Set<Register> registers;
+    private int internalProcessCount = 0;
+    private Thread taskThread = new Thread(() -> {
+        while(true){
+            process();
+        }
+    });
 
     @Override
     public void resume() {
-        while (true){
-            process();
+        if(taskThread.isAlive()){
+            taskThread.notify();
+        } else {
+            taskThread.start();
         }
+
     }
 
     @Override
     public void pause() {
-
+        try {
+            taskThread.wait();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void pauseAfter(int count) {
-
-        for(int i=0; i<count;i++){
-            process();
-        }
-        pause();
 
     }
 
@@ -73,6 +81,7 @@ public class CPUImpl implements CPU{
      * CPU processes 1 instruction at current machine state
      */
     private void process() {
+        internalProcessCount++;
         // pc
         DRAMAddress dramAddress = IARImpl.getInstance().read();
         Instruction instruction = DRAMImpl.getInstance().read(dramAddress).toInstruction();
