@@ -1,7 +1,6 @@
 package com.gwu.cs6461;
 
 import com.gwu.cs6461.services.cpu.CPUImpl;
-import com.gwu.cs6461.services.cpu.registers.MARImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
