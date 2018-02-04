@@ -20,35 +20,20 @@ public class ControlUnitImpl implements ControlUnit {
 
 
     private synchronized void fetch(Runnable task) {
-        Thread fetchThread = new Thread(task);
-        fetchThread.start();
-        try {
-            fetchThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        // run synchronously in this thread
+        task.run();
     }
 
 
     private synchronized void decode(Runnable task) {
-        Thread decodeThread = new Thread(task);
-        decodeThread.start();
-        try {
-            decodeThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        // run synchronously in this thread
+        task.run();
     }
 
 
     private synchronized void execute(Runnable task) {
-        Thread executeThread = new Thread(task);
-        executeThread.start();
-        try {
-            executeThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        // run synchronously in this thread
+        task.run();
     }
 
     @Override

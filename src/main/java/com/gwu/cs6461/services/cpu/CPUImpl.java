@@ -40,35 +40,29 @@ public class CPUImpl implements CPU{
     }
 
     public Set<Register> registers;
-    private int internalProcessCount = 0;
-    private Thread taskThread = new Thread(() -> {
-        while(true){
-            process();
-        }
-    });
+
+    private TaskThread taskThread = new TaskThread();
 
     @Override
     public void resume() {
-        if(taskThread.isAlive()){
-            taskThread.notify();
-        } else {
+        if(TaskThread.State.NEW == taskThread.getState()){
+            taskThread.start();
+        } else if(TaskThread.State.TERMINATED == taskThread.getState()){
+            taskThread = new TaskThread();
             taskThread.start();
         }
-
     }
 
     @Override
     public void pause() {
-        try {
-            taskThread.wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        taskThread.quit = true;
     }
 
     @Override
     public void pauseAfter(int count) {
-
+        for(int i = 0; i < count; i++){
+            process();
+        }
     }
 
 
@@ -81,10 +75,23 @@ public class CPUImpl implements CPU{
      * CPU processes 1 instruction at current machine state
      */
     private void process() {
-        internalProcessCount++;
         // pc
         DRAMAddress dramAddress = IARImpl.getInstance().read();
         Instruction instruction = DRAMImpl.getInstance().read(dramAddress).toInstruction();
         ControlUnitImpl.getInstance().scheduleTask(instruction);
+    }
+
+    private class TaskThread extends Thread{
+
+        private boolean quit = false;
+
+        @Override
+        public void run() {
+            super.run();
+
+            while(!quit){
+                process();
+            }
+        }
     }
 }
