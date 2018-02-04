@@ -83,15 +83,18 @@ public class MainController implements Observer {
     @FXML
     void handleDRAMButtonClick(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
+        // parse as decimal
         DRAMAddress address = new DRAMAddress().setValue(Integer.parseInt(ramAddressTextField.getText()));
         DRAMData dramData;
         switch (btn.getId()) {
             case "ReadMemButton":
                 dramData = DRAMImpl.getInstance().read(address);
-                ramValueTextField.setText(String.valueOf(dramData.getDecimalValue()));
+                // display as binary
+                ramValueTextField.setText(dramData.getBinary());
                 break;
             case "WriteMemButton":
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(ramValueTextField.getText()));
+                // parse as binary
+                dramData = new DRAMDataImpl().setValue(Integer.parseInt(ramValueTextField.getText(), 2));
                 DRAMImpl.getInstance().write(address, dramData);
                 break;
             default:
