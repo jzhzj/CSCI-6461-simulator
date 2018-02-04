@@ -1,19 +1,17 @@
 package com.gwu.cs6461.components.main;
 
-import com.gwu.cs6461.services.*;
+import com.gwu.cs6461.services.MachineImpl;
 import com.gwu.cs6461.services.cpu.CPUImpl;
 import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import com.gwu.cs6461.services.dram.DRAMImpl;
-import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -72,6 +70,7 @@ public class MainController implements Observer {
                 break;
             case "HALTButton":
                 machine.halt();
+                promptHalt();
                 break;
             case "SSButton":
                 machine.singleStep();
@@ -176,5 +175,16 @@ public class MainController implements Observer {
             x3TextField.setText(String.valueOf(IDXR3Impl.getInstance().read().getDecimalValue()));
         }
 
+    }
+
+    /**
+     * Prompt dialog with halt message.
+     */
+    void promptHalt(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("HALT");
+        alert.setHeaderText(null);
+        alert.setContentText("Machine Halted.");
+        alert.showAndWait();
     }
 }
