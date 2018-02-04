@@ -46,6 +46,7 @@ public class CPUImpl implements CPU{
     @Override
     public void resume() {
         if(TaskThread.State.NEW == taskThread.getState()){
+            taskThread.reset();
             taskThread.start();
         } else if(TaskThread.State.TERMINATED == taskThread.getState()){
             taskThread = new TaskThread();
@@ -55,7 +56,7 @@ public class CPUImpl implements CPU{
 
     @Override
     public void pause() {
-        taskThread.quit = true;
+        taskThread.kill();
     }
 
     @Override
@@ -68,6 +69,7 @@ public class CPUImpl implements CPU{
 
     @Override
     public void reset() {
+        pause();
         registers.stream().forEach(register -> register.reset());
     }
 
@@ -81,9 +83,25 @@ public class CPUImpl implements CPU{
         ControlUnitImpl.getInstance().scheduleTask(instruction);
     }
 
+    /**
+     * Task thread
+     * call reset() or constructor before call start()
+     */
     private class TaskThread extends Thread{
 
-        private boolean quit = false;
+        boolean quit;
+
+        TaskThread(){
+            reset();
+        }
+
+        void reset(){
+            this.quit = false;
+        }
+
+        void kill(){
+            this.quit = true;
+        }
 
         @Override
         public void run() {
