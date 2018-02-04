@@ -1,5 +1,7 @@
 package com.gwu.cs6461.services.cpu.registers;
 
+import com.gwu.cs6461.services.dram.DRAMData;
+import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import com.gwu.cs6461.services.instruction.Instruction;
 
 import java.util.Observable;
@@ -9,7 +11,7 @@ import java.util.Observable;
  * Instruction Register
  * It holds the current instruction that is being executed
  */
-public class IRImpl extends Observable implements Register<Instruction>{
+public class IRImpl extends Observable implements Register<DRAMData>{
 
     private static IRImpl ourInstance = new IRImpl();
 
@@ -21,22 +23,22 @@ public class IRImpl extends Observable implements Register<Instruction>{
 
     }
 
-    private Instruction currentIns;
+    private DRAMData currentIns;
 
     @Override
-    public void write(Instruction data) {
+    public void write(DRAMData data) {
         currentIns = data;
         setChanged();
         notifyObservers();
     }
 
     @Override
-    public Instruction read() {
+    public DRAMData read() {
         return currentIns;
     }
 
     @Override
     public void reset() {
-        write(null);
+        write(new DRAMDataImpl().setValue(0));
     }
 }

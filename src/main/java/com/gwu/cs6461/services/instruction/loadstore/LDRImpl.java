@@ -18,7 +18,7 @@ public class LDRImpl extends LSInstructionImpl {
             // c(EA)
             DRAMData dataCEA = DRAMImpl.getInstance().read(getEffectiveAddress());
 
-            switch (StringUtils.substring(toDRAMData().getBinary(), 10, 10)) {
+            switch (StringUtils.substring(toDRAMData().getBinary(), 10, 11)) {
                 case "1":
                     // r <- c(c(EA))
                     // c(c(EA))

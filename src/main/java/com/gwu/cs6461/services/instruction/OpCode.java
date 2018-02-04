@@ -43,10 +43,10 @@ public enum OpCode {
 
 
     public static String getOpcodeBinary(DRAMData data){
-        return StringUtils.substring(data.getBinary(), 0, MachineProps.OPERATION_CODE_BIT_WIDTH - 1);
+        return StringUtils.substring(data.getBinary(), 0, MachineProps.OPERATION_CODE_BIT_WIDTH);
     }
 
     public static int getOpcode(DRAMData data){
-        return Integer.parseInt(getOpcodeBinary(data));
+        return Integer.parseInt(getOpcodeBinary(data), 2);
     }
 }

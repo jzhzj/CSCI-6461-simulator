@@ -50,17 +50,21 @@ public class LSInstructionImpl extends InstructionImpl {
             // set target register and effective address
             String instructionBinary = toDRAMData().getBinary();
 
-            switch (StringUtils.substring(instructionBinary, 6, 7)) {
+            switch (StringUtils.substring(instructionBinary, 6, 8)) {
                 case "00":
+                    // 00
                     gpRegister = GPR0Impl.getInstance();
                     break;
                 case "01":
+                    // 01
                     gpRegister = GPR1Impl.getInstance();
                     break;
-                case "02":
+                case "10":
+                    // 02
                     gpRegister = GPR2Impl.getInstance();
                     break;
-                case "03":
+                case "11":
+                    // 03
                     gpRegister = GPR3Impl.getInstance();
                     break;
                 default:
@@ -68,16 +72,20 @@ public class LSInstructionImpl extends InstructionImpl {
 
             }
 
-            switch (StringUtils.substring(instructionBinary, 8, 9)) {
+            switch (StringUtils.substring(instructionBinary, 8, 10)) {
                 case "00":
+                    // 00
                     break;
                 case "01":
+                    // 01
                     idxRegister = IDXR1Impl.getInstance();
                     break;
-                case "02":
+                case "10":
+                    // 02
                     idxRegister = IDXR2Impl.getInstance();
                     break;
-                case "03":
+                case "11":
+                    // 03
                     idxRegister = IDXR3Impl.getInstance();
                     break;
                 default:
@@ -96,9 +104,9 @@ public class LSInstructionImpl extends InstructionImpl {
 
     private DRAMAddress getEA() {
         String instructionBinary = toDRAMData().getBinary();
-        int addressFieldValue = Integer.parseInt(StringUtils.substring(instructionBinary, 11, 15));
+        int addressFieldValue = Integer.parseInt(StringUtils.substring(instructionBinary, 11, 16), 2);
         DRAMAddress ea = new DRAMAddress();
-        switch (StringUtils.substring(instructionBinary, 10, 10)) {
+        switch (StringUtils.substring(instructionBinary, 10, 11)) {
             case "1":
                 if(idxRegister == null) {
                     // Address

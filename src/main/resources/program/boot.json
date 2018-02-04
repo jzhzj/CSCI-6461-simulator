@@ -1,18 +1,18 @@
 [
   {
+    "name": "LDR",
+    "value": "",
+    "op": {
+      "op_code": "000001",
+      "data": "1100011111",
+      "desc": "LDR 3,0,31. Load register 3 with the contents of the memory location 31. Since IX = 00, there is no indexing, so 31 is the EA."
+    }
+  },
+  {
     "name": "LDA",
     "value": "0000110000000000",
     "op": {
       "op_code": "000011",
-      "data": "0000000000",
-      "desc": ""
-    }
-  },
-  {
-    "name": "LDX",
-    "value": "",
-    "op": {
-      "op_code": "000111",
       "data": "0000000000",
       "desc": ""
     }

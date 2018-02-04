@@ -27,7 +27,7 @@ public class InstructionImpl implements Instruction {
             MBRImpl.getInstance().write(data);
 
             // write instruction to IR, MBR -> IR
-            IRImpl.getInstance().write(data.toInstruction());
+            IRImpl.getInstance().write(data);
             // PC -> PC + 1
             IARImpl.getInstance().write(new DRAMAddress().setValue(IARImpl.getInstance().read().getDecimalValue() + 1));
         };

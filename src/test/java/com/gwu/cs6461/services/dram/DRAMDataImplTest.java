@@ -44,6 +44,9 @@ public class DRAMDataImplTest {
 
         dramData.setValue(-2);
         assertEquals("1111111111111110", dramData.getBinary());
+
+        dramData.setValue(1823);
+        assertEquals("0000011100011111", dramData.getBinary());
     }
 
     @Test
