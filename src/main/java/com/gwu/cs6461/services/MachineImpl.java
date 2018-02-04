@@ -38,6 +38,6 @@ public class MachineImpl implements Machine{
     public void ipl() {
         // reset CPU and DRAM
         CPUImpl.getInstance().reset();
-        RomLoaderImpl.getInstance().load();
+        RomLoaderImpl.getInstance().boot();
     }
 }

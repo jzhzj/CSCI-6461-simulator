@@ -1,8 +1,17 @@
 package com.gwu.cs6461.services.romloader;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.services.cpu.registers.IARImpl;
 import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import com.gwu.cs6461.services.dram.DRAMImpl;
+
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Singleton
@@ -21,15 +30,38 @@ public class RomLoaderImpl implements RomLoader{
     }
 
     @Override
-    public void load() {
+    public void boot() {
         DRAMImpl.getInstance().init();
 
         // set PC to the 1st instruction to be executed
         IARImpl.getInstance().reset();
 
-        // TODO load some customized instructions into memory (9) here
 
+        Type listType = new TypeToken<LinkedList<RomData>>(){}.getType();
+        Gson gson = new Gson();
+        List<RomData> romDataList = null;
+        BufferedReader bufferedReader = loadFile();
+        romDataList = gson.fromJson(bufferedReader, listType);
 
+        // load some customized instructions into memory (8) here, romDataList
+        for(int i = 0, length = romDataList.size(); i < length; i++){
+            DRAMImpl.getInstance().write(
+                    new DRAMAddress().setValue(MachineProps.INSTRUCTION_START_ADDRESS + i),
+                    new DRAMDataImpl().setValue(Integer.parseInt(romDataList.get(i).getValue(), 2)));
+        }
+
+        try {
+            if(bufferedReader != null){
+                bufferedReader.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // ok, loader's job is done.
+    }
+
+    private BufferedReader loadFile() {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(MachineProps.ROM_BOOT_FILE_PATH)));
+        return bufferedReader;
     }
 }
