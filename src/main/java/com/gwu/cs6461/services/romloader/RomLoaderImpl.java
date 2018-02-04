@@ -39,9 +39,8 @@ public class RomLoaderImpl implements RomLoader{
 
         Type listType = new TypeToken<LinkedList<RomData>>(){}.getType();
         Gson gson = new Gson();
-        List<RomData> romDataList = null;
         BufferedReader bufferedReader = loadFile();
-        romDataList = gson.fromJson(bufferedReader, listType);
+        List<RomData> romDataList = gson.fromJson(bufferedReader, listType);
 
         // load some customized instructions into memory (8) here, romDataList
         for(int i = 0, length = romDataList.size(); i < length; i++){
