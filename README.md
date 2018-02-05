@@ -4,28 +4,23 @@ This project is to build a Java simulator of the von Neumann Architecture.
 Please kindly be reminded to follow [GW Academic Integrity Code](https://studentconduct.gwu.edu/code-academic-integrity).
 
 ## Table of Contents
-- [Team members](#contacts)
+
 - Deliverable
-  * [Working JAR files](https://github.com/1988warren/csa_simulator/releases)
+  * [Releases (jar and source code zip)](https://github.com/1988warren/csa_simulator/releases)
   * [User Guide](https://github.com/1988warren/csa_simulator/wiki/User-Guide)
   * [Design Notes](https://github.com/1988warren/csa_simulator/wiki/Design-Notes)
 - For developers
   * [Notes](#notes)
   * [Contributing](#contributing)
   * [Usage](#usage)
-
-## Contacts
-- [Cao Wuchen](mailto:caowuchen@gwu.edu) (a.k.a. Warren)
-- [Yang Tong](mailto:yangtong@gwu.edu)
-- [Hou Yanbing](mailto:hou_yanbing@gwu.edu)
-- [Qi Jiuzhi](mailto:qijiuzhi@gwu.edu)
+- [Contacts](#contacts)
 
 ## Notes
 
 1. The project is managed by [Apache Maven](https://maven.apache.org/), 
-it is highly recommend to use [Intellij IDEA Ultimate](https://www.jetbrains.com/idea/download/) (with built-in Maven v2 & v3 and plugin, zero configuration).
+it is highly recommend to use [Intellij IDEA Ultimate](https://www.jetbrains.com/idea/download/) (with built-in Maven v2 & v3 plugin, zero configuration).
 
-2. As requested in [syllabus](http://www.mslcourses.com/CSCI6461Section11Spring2018/),
+2. As requested in [official course guide](http://www.mslcourses.com/CSCI6461Section11Spring2018/),
 JDK 8+ should be used. The default compiler level has been set to 9 (JDK 1.9), please revise pom.xml
 accordingly if you are using JDK 1.8.
 
@@ -61,3 +56,8 @@ Run Unit Test
 ```sh
 $ mvn test
 ```
+## Contacts
+- [Cao Wuchen](mailto:caowuchen@gwu.edu) (a.k.a. Warren)
+- [Yang Tong](mailto:yangtong@gwu.edu)
+- [Hou Yanbing](mailto:hou_yanbing@gwu.edu)
+- [Qi Jiuzhi](mailto:qijiuzhi@gwu.edu)
