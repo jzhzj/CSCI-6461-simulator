@@ -1,5 +1,5 @@
 # Welcome to GWU CS_6461 Computer Systems Architecture Class Project (Spring 2018)
-This project is to build a Java simulator of a small processor with performance improvements.
+This project is to build a Java simulator of the von Neumann Architecture.
 
 Please kindly be reminded to follow [GW Academic Integrity Code](https://studentconduct.gwu.edu/code-academic-integrity).
 
