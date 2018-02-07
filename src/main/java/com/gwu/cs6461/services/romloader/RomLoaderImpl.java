@@ -31,7 +31,7 @@ public class RomLoaderImpl implements RomLoader{
 
     @Override
     public void boot() {
-        DRAMImpl.getInstance().init();
+        DRAMImpl.getInstance().reset();
 
         // set PC to the 1st instruction to be executed
         IARImpl.getInstance().reset();
@@ -45,8 +45,8 @@ public class RomLoaderImpl implements RomLoader{
         // load some customized instructions into memory (8) here, romDataList
         for(int i = 0, length = romDataList.size(); i < length; i++){
             DRAMImpl.getInstance().write(
-                    new DRAMAddress().setValue(MachineProps.INSTRUCTION_START_ADDRESS + i),
-                    new DRAMDataImpl().setValue(Integer.parseInt(romDataList.get(i).getValue(), 2)));
+                    new DRAMAddress().setDecimalValue(MachineProps.INSTRUCTION_START_ADDRESS + i),
+                    new DRAMDataImpl().setBinaryValue(romDataList.get(i).getValue()));
         }
 
         try {

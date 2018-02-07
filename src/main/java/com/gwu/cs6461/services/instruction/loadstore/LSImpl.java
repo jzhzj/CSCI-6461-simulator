@@ -1,9 +1,10 @@
-package com.gwu.cs6461.services.instruction;
+package com.gwu.cs6461.services.instruction.loadstore;
 
 import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.instruction.InstructionImpl;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -11,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
  * super class of all 5
  * Load and Store Instructions
  */
-public class LSInstructionImpl extends InstructionImpl {
+public class LSImpl extends InstructionImpl {
 
     private Register<DRAMData> gpRegister;
     private Register<DRAMAddress> idxRegister;
@@ -48,7 +49,7 @@ public class LSInstructionImpl extends InstructionImpl {
 
         Runnable decodeTask = () -> {
             // set target register and effective address
-            String instructionBinary = toDRAMData().getBinary();
+            String instructionBinary = toDRAMData().getBinaryValue();
 
             switch (StringUtils.substring(instructionBinary, 6, 8)) {
                 case "00":
@@ -103,30 +104,30 @@ public class LSInstructionImpl extends InstructionImpl {
 
 
     private DRAMAddress getEA() {
-        String instructionBinary = toDRAMData().getBinary();
+        String instructionBinary = toDRAMData().getBinaryValue();
         int addressFieldValue = Integer.parseInt(StringUtils.substring(instructionBinary, 11, 16), 2);
         DRAMAddress ea = new DRAMAddress();
         switch (StringUtils.substring(instructionBinary, 10, 11)) {
             case "1":
                 if(idxRegister == null) {
                     // Address
-                    DRAMAddress address = new DRAMAddress().setValue(addressFieldValue);
+                    DRAMAddress address = new DRAMAddress().setDecimalValue(addressFieldValue);
                     // c(Address)
-                    ea.setValue(DRAMImpl.getInstance().read(address).getDecimalValue());
+                    ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
                 } else {
                     // c(Xj) + Address
-                    DRAMAddress address = new DRAMAddress().setValue(idxRegister.read().getDecimalValue() + addressFieldValue);
+                    DRAMAddress address = new DRAMAddress().setDecimalValue(idxRegister.read().getDecimalValue() + addressFieldValue);
                     // c(c(Xj) + Address)
-                    ea.setValue(DRAMImpl.getInstance().read(address).getDecimalValue());
+                    ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
                 }
                 break;
             case "0":
                 if(idxRegister == null){
                     // contents of the Address field
-                    ea.setValue(addressFieldValue);
+                    ea.setDecimalValue(addressFieldValue);
                 } else {
                     // c(Xj) + contents of the Address field
-                    ea.setValue(idxRegister.read().getDecimalValue() + addressFieldValue);
+                    ea.setDecimalValue(idxRegister.read().getDecimalValue() + addressFieldValue);
                 }
                 break;
             default:

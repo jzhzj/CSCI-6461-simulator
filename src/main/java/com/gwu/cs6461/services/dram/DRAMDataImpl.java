@@ -3,7 +3,6 @@ package com.gwu.cs6461.services.dram;
 import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.services.instruction.Instruction;
 import com.gwu.cs6461.services.instruction.OpCode;
-import com.gwu.cs6461.util.Binary;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.InvocationTargetException;
@@ -25,7 +24,7 @@ public class DRAMDataImpl implements DRAMData {
     }
 
     @Override
-    public String getBinary() {
+    public String getBinaryValue() {
         String unformatted = Integer.toBinaryString(data);
         if(unformatted.length() < MachineProps.WORD_BIT_WIDTH){
             return StringUtils.leftPad(unformatted, MachineProps.WORD_BIT_WIDTH, data < 0 ? "1" : "0");
@@ -36,7 +35,7 @@ public class DRAMDataImpl implements DRAMData {
     }
 
     @Override
-    public String getHex() {
+    public String getHexValue() {
         String unformatted = Integer.toHexString(data);
         int hexLength = MachineProps.WORD_BIT_WIDTH / Byte.SIZE * 2;
         if(unformatted.length() < hexLength){
@@ -47,12 +46,32 @@ public class DRAMDataImpl implements DRAMData {
     }
 
     @Override
-    public DRAMDataImpl setValue(int literalValue) throws IllegalArgumentException{
-        if(literalValue <  MIN_VALUE || literalValue > MAX_VALUE) {
+    public DRAMDataImpl setDecimalValue(int decimalValue) throws IllegalArgumentException{
+        if(decimalValue <  MIN_VALUE || decimalValue > MAX_VALUE) {
             throw new IllegalArgumentException();
         }
-        data = literalValue;
+        data = decimalValue;
         return this;
+    }
+
+    @Override
+    public DRAMDataImpl setDecimalValue(String decimalValue) throws IllegalArgumentException {
+        try{
+            int value = Integer.parseInt(decimalValue);
+            return setDecimalValue(value);
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @Override
+    public DRAMDataImpl setBinaryValue(String binaryValue) throws IllegalArgumentException {
+        try{
+            int value = Integer.parseInt(binaryValue, 2);
+            return setDecimalValue(value);
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
     }
 
     @Override

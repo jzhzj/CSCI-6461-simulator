@@ -1,18 +1,26 @@
-# Welcome to GWU CS_6461 Computer Systems Architecture Class Project (Spring 2018)
+# Welcome to CS_6461 Team Project (Spring 2018)
 This project is to build a Java simulator of the von Neumann Architecture.
 
 Please kindly be reminded to follow [GW Academic Integrity Code](https://studentconduct.gwu.edu/code-academic-integrity).
+
+## Team Attitude
+<p align="center">
+  <img src="https://media.giphy.com/media/DeOa0SqsDH5sc/giphy.gif">
+</p>
+
 
 ## Table of Contents
 
 - Deliverable
   * [Releases (jar and source code zip)](https://github.com/1988warren/csa_simulator/releases)
+    * [v1.0.0 (Project 1)]()
   * [User Guide](https://github.com/1988warren/csa_simulator/wiki/User-Guide)
   * [Design Notes](https://github.com/1988warren/csa_simulator/wiki/Design-Notes)
 - For developers
   * [Notes](#notes)
   * [Contributing](#contributing)
   * [Usage](#usage)
+  * [About Maven](#about-maven)
 - [Contacts](#contacts)
 
 ## Notes
@@ -56,6 +64,11 @@ Run Unit Test
 ```sh
 $ mvn test
 ```
+## About Maven
+<p align="center">
+  <img src="https://cloud.githubusercontent.com/assets/300046/16313672/881e4a8e-3937-11e6-8af5-1c3b93b9caef.jpg">
+</p>
+
 ## Contacts
 - [Cao Wuchen](mailto:caowuchen@gwu.edu) (a.k.a. Warren)
 - [Yang Tong](mailto:yangtong@gwu.edu)

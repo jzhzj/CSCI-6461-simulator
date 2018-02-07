@@ -1,7 +1,6 @@
 package com.gwu.cs6461.services.cpu.registers;
 
 import com.gwu.cs6461.services.dram.DRAMAddress;
-import com.gwu.cs6461.util.Binary;
 
 import java.util.Observable;
 
@@ -39,6 +38,6 @@ public class IDXR1Impl extends Observable implements Register<DRAMAddress> {
 
     @Override
     public void reset() {
-        write(new DRAMAddress().setValue(0));
+        write(new DRAMAddress().setDecimalValue(0));
     }
 }

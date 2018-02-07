@@ -2,7 +2,6 @@ package com.gwu.cs6461.services.cpu.registers;
 
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
-import com.gwu.cs6461.services.instruction.Instruction;
 
 import java.util.Observable;
 
@@ -39,6 +38,6 @@ public class IRImpl extends Observable implements Register<DRAMData>{
 
     @Override
     public void reset() {
-        write(new DRAMDataImpl().setValue(0));
+        write(new DRAMDataImpl().setDecimalValue(0));
     }
 }

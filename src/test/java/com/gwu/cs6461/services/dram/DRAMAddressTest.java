@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.*;
 
 public class DRAMAddressTest {
 
@@ -34,47 +33,47 @@ public class DRAMAddressTest {
     public void getBinary() {
         dramAddress = new DRAMAddress();
         // after dramAddress is initialized, it should have binary value of 12 zeros.
-        assertEquals(MachineProps.IAR_REG_BIT_WIDTH, dramAddress.getBinary().length());
+        assertEquals(MachineProps.IAR_REG_BIT_WIDTH, dramAddress.getBinaryValue().length());
 
-        assertEquals("000000000000", dramAddress.getBinary());
+        assertEquals("000000000000", dramAddress.getBinaryValue());
 
-        dramAddress.setValue(2);
-        assertEquals("000000000010", dramAddress.getBinary());
+        dramAddress.setDecimalValue(2);
+        assertEquals("000000000010", dramAddress.getBinaryValue());
 
-        dramAddress.setValue(DRAMAddress.MAX_VALUE);
-        assertEquals("111111111111", dramAddress.getBinary());
+        dramAddress.setDecimalValue(DRAMAddress.MAX_VALUE);
+        assertEquals("111111111111", dramAddress.getBinaryValue());
     }
 
     @Test
     public void getHex() {
         dramAddress = new DRAMAddress();
         // after dramAddress is initialized, it should have hex value of 3 zeros.
-        assertEquals(MachineProps.IAR_REG_BIT_WIDTH * 2 / Byte.SIZE, dramAddress.getHex().length());
+        assertEquals(MachineProps.IAR_REG_BIT_WIDTH * 2 / Byte.SIZE, dramAddress.getHexValue().length());
 
-        assertEquals("000", dramAddress.getHex());
+        assertEquals("000", dramAddress.getHexValue());
 
-        dramAddress.setValue(10);
-        assertEquals("00a", dramAddress.getHex());
+        dramAddress.setDecimalValue(10);
+        assertEquals("00a", dramAddress.getHexValue());
 
-        dramAddress.setValue(DRAMAddress.MAX_VALUE);
-        assertEquals("fff", dramAddress.getHex());
+        dramAddress.setDecimalValue(DRAMAddress.MAX_VALUE);
+        assertEquals("fff", dramAddress.getHexValue());
     }
 
     @Test
     public void setValue() {
-        dramAddress.setValue(DRAMAddress.MIN_VALUE);
-        dramAddress.setValue(DRAMAddress.MAX_VALUE);
+        dramAddress.setDecimalValue(DRAMAddress.MIN_VALUE);
+        dramAddress.setDecimalValue(DRAMAddress.MAX_VALUE);
     }
 
     @Test
     public void testSetValueAboveRange(){
         thrown.expect(IllegalArgumentException.class);
-        dramAddress.setValue(DRAMAddress.MAX_VALUE + 1);
+        dramAddress.setDecimalValue(DRAMAddress.MAX_VALUE + 1);
     }
 
     @Test
     public void testSetValueBelowRange() {
         thrown.expect(IllegalArgumentException.class);
-        dramAddress.setValue(DRAMAddress.MIN_VALUE - 1);
+        dramAddress.setDecimalValue(DRAMAddress.MIN_VALUE - 1);
     }
 }

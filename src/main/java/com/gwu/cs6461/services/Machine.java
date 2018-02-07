@@ -16,7 +16,7 @@ public interface Machine {
     void halt();
 
     /**
-     * Run single step to the next machine state
+     * Run single step to the next instruction
      */
     void singleStep();
 

@@ -10,21 +10,36 @@ public interface Binary {
      * Get binary value in 2's compliment
      * @return binary in formatted String
      */
-    String getBinary();
+    String getBinaryValue();
 
     /**
      * Get hex value
      * @return hex in formatted String
      */
-    String getHex();
+    String getHexValue();
 
     /**
      * Modify binary value
-     * @param literalValue
+     * @param decimalValue value as int
      * @return the Binary object itself
      * @throws IllegalArgumentException
      */
-    Binary setValue(int literalValue) throws IllegalArgumentException;
-//    void setValue(String literalValue);
+    Binary setDecimalValue(int decimalValue) throws IllegalArgumentException;
+
+    /**
+     * Modify binary value
+     * @param decimalValue value as string
+     * @return the Binary object itself
+     * @throws IllegalArgumentException
+     */
+    Binary setDecimalValue(String decimalValue) throws IllegalArgumentException;
+
+    /**
+     * Modify binary value by a binary string
+     * @param binaryValue binary string
+     * @return the Binary object itself
+     * @throws IllegalArgumentException
+     */
+    Binary setBinaryValue(String binaryValue) throws IllegalArgumentException;
 
 }

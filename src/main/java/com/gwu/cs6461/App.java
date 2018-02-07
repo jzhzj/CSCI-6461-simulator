@@ -1,5 +1,6 @@
 package com.gwu.cs6461;
 
+import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.services.cpu.CPUImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +15,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/com/gwu/cs6461/components/main/main.fxml"));
-        primaryStage.setTitle("Simulator");
+        primaryStage.setTitle(MachineProps.SIMULATOR_NAME);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
@@ -23,7 +24,7 @@ public class App extends Application {
     public void stop() throws Exception {
         super.stop();
         // clear all observers registered on components
-        CPUImpl.getInstance().registers.stream().forEach(register -> {
+        CPUImpl.getInstance().getRegisters().stream().forEach(register -> {
             Observable o = (Observable)register;
             o.deleteObservers();
         });

@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.*;
 
 public class DRAMImplTest {
 
@@ -20,15 +19,15 @@ public class DRAMImplTest {
 
     @Test
     public void read() {
-        assertEquals(0, DRAMImpl.getInstance().read(new DRAMAddress().setValue(DRAMAddress.MIN_VALUE)).getDecimalValue());
-        assertEquals(0, DRAMImpl.getInstance().read(new DRAMAddress().setValue(DRAMAddress.MAX_VALUE)).getDecimalValue());
+        assertEquals(0, DRAMImpl.getInstance().read(new DRAMAddress().setDecimalValue(DRAMAddress.MIN_VALUE)).getDecimalValue());
+        assertEquals(0, DRAMImpl.getInstance().read(new DRAMAddress().setDecimalValue(DRAMAddress.MAX_VALUE)).getDecimalValue());
     }
 
     @Test
     public void write() {
-        DRAMImpl.getInstance().write(new DRAMAddress().setValue(1), new DRAMDataImpl().setValue(-1));
-        DRAMImpl.getInstance().write(new DRAMAddress().setValue(1), new DRAMDataImpl().setValue(1));
-        assertEquals(1, DRAMImpl.getInstance().read(new DRAMAddress().setValue(1)).getDecimalValue());
+        DRAMImpl.getInstance().write(new DRAMAddress().setDecimalValue(1), new DRAMDataImpl().setDecimalValue(-1));
+        DRAMImpl.getInstance().write(new DRAMAddress().setDecimalValue(1), new DRAMDataImpl().setDecimalValue(1));
+        assertEquals(1, DRAMImpl.getInstance().read(new DRAMAddress().setDecimalValue(1)).getDecimalValue());
     }
 
     @Test

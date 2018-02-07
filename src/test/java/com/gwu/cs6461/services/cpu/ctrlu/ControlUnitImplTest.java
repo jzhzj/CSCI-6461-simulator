@@ -9,14 +9,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.*;
 
 public class ControlUnitImplTest {
 
     @Before
     public void setUp() throws Exception {
-        DRAMAddress dramAddress = new DRAMAddress().setValue(0);
-        DRAMImpl.getInstance().write(dramAddress, new DRAMDataImpl().setValue(0b0000110000000000));
+        DRAMAddress dramAddress = new DRAMAddress().setDecimalValue(0);
+        DRAMImpl.getInstance().write(dramAddress, new DRAMDataImpl().setDecimalValue(0b0000110000000000));
         IARImpl.getInstance().write(dramAddress);
     }
 

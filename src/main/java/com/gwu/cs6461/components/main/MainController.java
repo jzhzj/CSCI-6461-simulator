@@ -22,7 +22,7 @@ public class MainController implements Observer {
 
 
     {
-        CPUImpl.getInstance().registers.stream().forEach(register -> {
+        CPUImpl.getInstance().getRegisters().stream().forEach(register -> {
             Observable observable = (Observable)register;
             observable.addObserver(this);
         });
@@ -82,21 +82,22 @@ public class MainController implements Observer {
     @FXML
     void handleDRAMButtonClick(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
-        // parse as decimal
-        DRAMAddress address = new DRAMAddress().setValue(Integer.parseInt(ramAddressTextField.getText()));
+        DRAMAddress address = new DRAMAddress().setDecimalValue(ramAddressTextField.getText());
         DRAMData dramData;
-        switch (btn.getId()) {
-            case "ReadMemButton":
-                dramData = DRAMImpl.getInstance().read(address);
-                // display as binary
-                ramValueTextField.setText(dramData.getBinary());
-                break;
-            case "WriteMemButton":
-                // parse as binary
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(ramValueTextField.getText(), 2));
-                DRAMImpl.getInstance().write(address, dramData);
-                break;
-            default:
+        try{
+            switch (btn.getId()) {
+                case "ReadMemButton":
+                    dramData = DRAMImpl.getInstance().read(address);
+                    ramValueTextField.setText(dramData.getBinaryValue());
+                    break;
+                case "WriteMemButton":
+                    dramData = new DRAMDataImpl().setBinaryValue(ramValueTextField.getText());
+                    DRAMImpl.getInstance().write(address, dramData);
+                    break;
+                default:
+            }
+        } catch (IllegalArgumentException e){
+            promptWarning();
         }
     }
 
@@ -106,48 +107,52 @@ public class MainController implements Observer {
         DRAMAddress address;
         DRAMData dramData;
 
-        switch (btn.getId()) {
-            case "PCButton":
-                address = new DRAMAddress().setValue(Integer.parseInt(pcTextField.getText()));
-                IARImpl.getInstance().write(address);
-                break;
-            case "MARButton":
-                address = new DRAMAddress().setValue(Integer.parseInt(marTextField.getText()));
-                MARImpl.getInstance().write(address);
-                break;
-            case "MBRButton":
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(mbrTextField.getText()));
-                MBRImpl.getInstance().write(dramData);
-                break;
-            case "R0Button":
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(r0TextField.getText()));
-                GPR0Impl.getInstance().write(dramData);
-                break;
-            case "R1Button":
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(r1TextField.getText()));
-                GPR1Impl.getInstance().write(dramData);
-                break;
-            case "R2Button":
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(r2TextField.getText()));
-                GPR2Impl.getInstance().write(dramData);
-                break;
-            case "R3Button":
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(r3TextField.getText()));
-                GPR3Impl.getInstance().write(dramData);
-                break;
-            case "X1Button":
-                address = new DRAMAddress().setValue(Integer.parseInt(x1TextField.getText()));
-                IDXR1Impl.getInstance().write(address);
-                break;
-            case "X2Button":
-                address = new DRAMAddress().setValue(Integer.parseInt(x2TextField.getText()));
-                IDXR2Impl.getInstance().write(address);
-                break;
-            case "X3Button":
-                address = new DRAMAddress().setValue(Integer.parseInt(x3TextField.getText()));
-                IDXR3Impl.getInstance().write(address);
-                break;
-            default:
+        try {
+            switch (btn.getId()) {
+                case "PCButton":
+                    address = new DRAMAddress().setDecimalValue(pcTextField.getText());
+                    IARImpl.getInstance().write(address);
+                    break;
+                case "MARButton":
+                    address = new DRAMAddress().setDecimalValue(marTextField.getText());
+                    MARImpl.getInstance().write(address);
+                    break;
+                case "MBRButton":
+                    dramData = new DRAMDataImpl().setBinaryValue(mbrTextField.getText());
+                    MBRImpl.getInstance().write(dramData);
+                    break;
+                case "R0Button":
+                    dramData = new DRAMDataImpl().setBinaryValue(r0TextField.getText());
+                    GPR0Impl.getInstance().write(dramData);
+                    break;
+                case "R1Button":
+                    dramData = new DRAMDataImpl().setBinaryValue(r1TextField.getText());
+                    GPR1Impl.getInstance().write(dramData);
+                    break;
+                case "R2Button":
+                    dramData = new DRAMDataImpl().setBinaryValue(r2TextField.getText());
+                    GPR2Impl.getInstance().write(dramData);
+                    break;
+                case "R3Button":
+                    dramData = new DRAMDataImpl().setBinaryValue(r3TextField.getText());
+                    GPR3Impl.getInstance().write(dramData);
+                    break;
+                case "X1Button":
+                    address = new DRAMAddress().setDecimalValue(x1TextField.getText());
+                    IDXR1Impl.getInstance().write(address);
+                    break;
+                case "X2Button":
+                    address = new DRAMAddress().setDecimalValue(x2TextField.getText());
+                    IDXR2Impl.getInstance().write(address);
+                    break;
+                case "X3Button":
+                    address = new DRAMAddress().setDecimalValue(x3TextField.getText());
+                    IDXR3Impl.getInstance().write(address);
+                    break;
+                default:
+            }
+        } catch (IllegalArgumentException e){
+            promptWarning();
         }
     }
 
@@ -158,15 +163,15 @@ public class MainController implements Observer {
         } else if (o instanceof MARImpl) {
             marTextField.setText(String.valueOf(MARImpl.getInstance().read().getDecimalValue()));
         } else if(o instanceof MBRImpl) {
-            mbrTextField.setText(MBRImpl.getInstance().read().getBinary());
+            mbrTextField.setText(MBRImpl.getInstance().read().getBinaryValue());
         } else if(o instanceof GPR0Impl){
-            r0TextField.setText(GPR0Impl.getInstance().read().getBinary());
+            r0TextField.setText(GPR0Impl.getInstance().read().getBinaryValue());
         } else if(o instanceof GPR1Impl){
-            r1TextField.setText(GPR1Impl.getInstance().read().getBinary());
+            r1TextField.setText(GPR1Impl.getInstance().read().getBinaryValue());
         } else if(o instanceof GPR2Impl){
-            r2TextField.setText(GPR2Impl.getInstance().read().getBinary());
+            r2TextField.setText(GPR2Impl.getInstance().read().getBinaryValue());
         } else if(o instanceof GPR3Impl){
-            r3TextField.setText(GPR3Impl.getInstance().read().getBinary());
+            r3TextField.setText(GPR3Impl.getInstance().read().getBinaryValue());
         } else if(o instanceof IDXR1Impl){
             x1TextField.setText(String.valueOf(IDXR1Impl.getInstance().read().getDecimalValue()));
         } else if(o instanceof IDXR2Impl){
@@ -182,9 +187,20 @@ public class MainController implements Observer {
      */
     void promptHalt(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("HALT");
+        alert.setTitle("Halt");
         alert.setHeaderText(null);
         alert.setContentText("Machine Halted.");
+        alert.showAndWait();
+    }
+
+    /**
+     * Show warning when user inputs wrong numbers
+     */
+    void promptWarning() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setHeaderText(null);
+        alert.setContentText("Illegal Input!");
         alert.showAndWait();
     }
 }

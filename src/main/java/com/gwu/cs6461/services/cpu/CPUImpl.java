@@ -39,7 +39,11 @@ public class CPUImpl implements CPU{
         registers.add(IRImpl.getInstance());
     }
 
-    public Set<Register> registers;
+    public Set<Register> getRegisters() {
+        return registers;
+    }
+
+    private Set<Register> registers;
 
     private TaskThread taskThread = new TaskThread();
 
@@ -60,8 +64,8 @@ public class CPUImpl implements CPU{
     }
 
     @Override
-    public void pauseAfter(int count) {
-        for(int i = 0; i < count; i++){
+    public void pauseAfter(int step) {
+        for(int i = 0; i < step; i++){
             process();
         }
     }
