@@ -1,9 +1,10 @@
-package com.gwu.cs6461.services.instruction;
+package com.gwu.cs6461.services.instruction.loadstore;
 
 import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.instruction.InstructionImpl;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -11,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
  * super class of all 5
  * Load and Store Instructions
  */
-public class LSInstructionImpl extends InstructionImpl {
+public class LSImpl extends InstructionImpl {
 
     private Register<DRAMData> gpRegister;
     private Register<DRAMAddress> idxRegister;

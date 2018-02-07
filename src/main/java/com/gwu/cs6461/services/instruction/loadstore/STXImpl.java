@@ -2,13 +2,12 @@ package com.gwu.cs6461.services.instruction.loadstore;
 
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import com.gwu.cs6461.services.dram.DRAMImpl;
-import com.gwu.cs6461.services.instruction.LSInstructionImpl;
 
 /**
  * STX Instruction
  * Store Index Register to Memory. X = 1..3
  */
-public class STXImpl extends LSInstructionImpl {
+public class STXImpl extends LSImpl {
 
     @Override
     public Runnable onExecute() {
