@@ -40,6 +40,6 @@ public class GPR1Impl extends Observable implements Register<DRAMData>{
 
     @Override
     public void reset() {
-        write(new DRAMDataImpl().setValue(0));
+        write(new DRAMDataImpl().setDecimalValue(0));
     }
 }

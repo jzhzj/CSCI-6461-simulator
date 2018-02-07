@@ -48,7 +48,7 @@ public class LSInstructionImpl extends InstructionImpl {
 
         Runnable decodeTask = () -> {
             // set target register and effective address
-            String instructionBinary = toDRAMData().getBinary();
+            String instructionBinary = toDRAMData().getBinaryValue();
 
             switch (StringUtils.substring(instructionBinary, 6, 8)) {
                 case "00":
@@ -103,30 +103,30 @@ public class LSInstructionImpl extends InstructionImpl {
 
 
     private DRAMAddress getEA() {
-        String instructionBinary = toDRAMData().getBinary();
+        String instructionBinary = toDRAMData().getBinaryValue();
         int addressFieldValue = Integer.parseInt(StringUtils.substring(instructionBinary, 11, 16), 2);
         DRAMAddress ea = new DRAMAddress();
         switch (StringUtils.substring(instructionBinary, 10, 11)) {
             case "1":
                 if(idxRegister == null) {
                     // Address
-                    DRAMAddress address = new DRAMAddress().setValue(addressFieldValue);
+                    DRAMAddress address = new DRAMAddress().setDecimalValue(addressFieldValue);
                     // c(Address)
-                    ea.setValue(DRAMImpl.getInstance().read(address).getDecimalValue());
+                    ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
                 } else {
                     // c(Xj) + Address
-                    DRAMAddress address = new DRAMAddress().setValue(idxRegister.read().getDecimalValue() + addressFieldValue);
+                    DRAMAddress address = new DRAMAddress().setDecimalValue(idxRegister.read().getDecimalValue() + addressFieldValue);
                     // c(c(Xj) + Address)
-                    ea.setValue(DRAMImpl.getInstance().read(address).getDecimalValue());
+                    ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
                 }
                 break;
             case "0":
                 if(idxRegister == null){
                     // contents of the Address field
-                    ea.setValue(addressFieldValue);
+                    ea.setDecimalValue(addressFieldValue);
                 } else {
                     // c(Xj) + contents of the Address field
-                    ea.setValue(idxRegister.read().getDecimalValue() + addressFieldValue);
+                    ea.setDecimalValue(idxRegister.read().getDecimalValue() + addressFieldValue);
                 }
                 break;
             default:

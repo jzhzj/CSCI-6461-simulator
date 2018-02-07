@@ -14,7 +14,7 @@ public class LDAImpl extends LSInstructionImpl {
     public Runnable onExecute() {
         Runnable executeTask = () -> {
             //  r <− EA
-            getGpRegister().write(new DRAMDataImpl().setValue(getEffectiveAddress().getDecimalValue()));
+            getGpRegister().write(new DRAMDataImpl().setDecimalValue(getEffectiveAddress().getDecimalValue()));
         };
         return executeTask;
     }

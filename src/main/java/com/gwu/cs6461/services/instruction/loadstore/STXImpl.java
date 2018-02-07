@@ -14,7 +14,7 @@ public class STXImpl extends LSInstructionImpl {
     public Runnable onExecute() {
         Runnable executeTask = () ->{
             // Memory(EA) <- c(Xx)
-            DRAMImpl.getInstance().write(getEffectiveAddress(), new DRAMDataImpl().setValue(getIdxRegister().read().getDecimalValue()));
+            DRAMImpl.getInstance().write(getEffectiveAddress(), new DRAMDataImpl().setDecimalValue(getIdxRegister().read().getDecimalValue()));
         };
         return executeTask;
     }

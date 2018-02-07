@@ -39,6 +39,6 @@ public class IARImpl extends Observable implements Register<DRAMAddress> {
 
     @Override
     public void reset() {
-        write(new DRAMAddress().setValue(MachineProps.INSTRUCTION_START_ADDRESS));
+        write(new DRAMAddress().setDecimalValue(MachineProps.INSTRUCTION_START_ADDRESS));
     }
 }

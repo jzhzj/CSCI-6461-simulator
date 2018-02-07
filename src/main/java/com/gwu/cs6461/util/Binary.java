@@ -10,13 +10,13 @@ public interface Binary {
      * Get binary value in 2's compliment
      * @return binary in formatted String
      */
-    String getBinary();
+    String getBinaryValue();
 
     /**
      * Get hex value
      * @return hex in formatted String
      */
-    String getHex();
+    String getHexValue();
 
     /**
      * Modify binary value
@@ -24,7 +24,7 @@ public interface Binary {
      * @return the Binary object itself
      * @throws IllegalArgumentException
      */
-    Binary setValue(int literalValue) throws IllegalArgumentException;
+    Binary setDecimalValue(int literalValue) throws IllegalArgumentException;
 
     /**
      * Modify binary value by a binary string

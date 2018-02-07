@@ -19,7 +19,7 @@ public class LDXImpl extends LSInstructionImpl {
             //  c(EA)
             DRAMData data = DRAMImpl.getInstance().read(getEffectiveAddress());
             //  Xx <- c(EA)
-            getIdxRegister().write(new DRAMAddress().setValue(data.getDecimalValue()));
+            getIdxRegister().write(new DRAMAddress().setDecimalValue(data.getDecimalValue()));
         };
         return executeTask;
     }

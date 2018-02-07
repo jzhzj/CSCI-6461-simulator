@@ -38,6 +38,6 @@ public class IDXR3Impl extends Observable implements Register<DRAMAddress> {
 
     @Override
     public void reset() {
-        write(new DRAMAddress().setValue(0));
+        write(new DRAMAddress().setDecimalValue(0));
     }
 }

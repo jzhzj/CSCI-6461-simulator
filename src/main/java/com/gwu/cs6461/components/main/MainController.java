@@ -83,13 +83,13 @@ public class MainController implements Observer {
     void handleDRAMButtonClick(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
         // parse as decimal
-        DRAMAddress address = new DRAMAddress().setValue(Integer.parseInt(ramAddressTextField.getText()));
+        DRAMAddress address = new DRAMAddress().setDecimalValue(Integer.parseInt(ramAddressTextField.getText()));
         DRAMData dramData;
         switch (btn.getId()) {
             case "ReadMemButton":
                 dramData = DRAMImpl.getInstance().read(address);
                 // display as binary
-                ramValueTextField.setText(dramData.getBinary());
+                ramValueTextField.setText(dramData.getBinaryValue());
                 break;
             case "WriteMemButton":
                 // parse as binary
@@ -108,43 +108,43 @@ public class MainController implements Observer {
 
         switch (btn.getId()) {
             case "PCButton":
-                address = new DRAMAddress().setValue(Integer.parseInt(pcTextField.getText()));
+                address = new DRAMAddress().setDecimalValue(Integer.parseInt(pcTextField.getText()));
                 IARImpl.getInstance().write(address);
                 break;
             case "MARButton":
-                address = new DRAMAddress().setValue(Integer.parseInt(marTextField.getText()));
+                address = new DRAMAddress().setDecimalValue(Integer.parseInt(marTextField.getText()));
                 MARImpl.getInstance().write(address);
                 break;
             case "MBRButton":
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(mbrTextField.getText()));
+                dramData = new DRAMDataImpl().setDecimalValue(Integer.parseInt(mbrTextField.getText()));
                 MBRImpl.getInstance().write(dramData);
                 break;
             case "R0Button":
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(r0TextField.getText()));
+                dramData = new DRAMDataImpl().setDecimalValue(Integer.parseInt(r0TextField.getText()));
                 GPR0Impl.getInstance().write(dramData);
                 break;
             case "R1Button":
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(r1TextField.getText()));
+                dramData = new DRAMDataImpl().setDecimalValue(Integer.parseInt(r1TextField.getText()));
                 GPR1Impl.getInstance().write(dramData);
                 break;
             case "R2Button":
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(r2TextField.getText()));
+                dramData = new DRAMDataImpl().setDecimalValue(Integer.parseInt(r2TextField.getText()));
                 GPR2Impl.getInstance().write(dramData);
                 break;
             case "R3Button":
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(r3TextField.getText()));
+                dramData = new DRAMDataImpl().setDecimalValue(Integer.parseInt(r3TextField.getText()));
                 GPR3Impl.getInstance().write(dramData);
                 break;
             case "X1Button":
-                address = new DRAMAddress().setValue(Integer.parseInt(x1TextField.getText()));
+                address = new DRAMAddress().setDecimalValue(Integer.parseInt(x1TextField.getText()));
                 IDXR1Impl.getInstance().write(address);
                 break;
             case "X2Button":
-                address = new DRAMAddress().setValue(Integer.parseInt(x2TextField.getText()));
+                address = new DRAMAddress().setDecimalValue(Integer.parseInt(x2TextField.getText()));
                 IDXR2Impl.getInstance().write(address);
                 break;
             case "X3Button":
-                address = new DRAMAddress().setValue(Integer.parseInt(x3TextField.getText()));
+                address = new DRAMAddress().setDecimalValue(Integer.parseInt(x3TextField.getText()));
                 IDXR3Impl.getInstance().write(address);
                 break;
             default:
@@ -158,15 +158,15 @@ public class MainController implements Observer {
         } else if (o instanceof MARImpl) {
             marTextField.setText(String.valueOf(MARImpl.getInstance().read().getDecimalValue()));
         } else if(o instanceof MBRImpl) {
-            mbrTextField.setText(MBRImpl.getInstance().read().getBinary());
+            mbrTextField.setText(MBRImpl.getInstance().read().getBinaryValue());
         } else if(o instanceof GPR0Impl){
-            r0TextField.setText(GPR0Impl.getInstance().read().getBinary());
+            r0TextField.setText(GPR0Impl.getInstance().read().getBinaryValue());
         } else if(o instanceof GPR1Impl){
-            r1TextField.setText(GPR1Impl.getInstance().read().getBinary());
+            r1TextField.setText(GPR1Impl.getInstance().read().getBinaryValue());
         } else if(o instanceof GPR2Impl){
-            r2TextField.setText(GPR2Impl.getInstance().read().getBinary());
+            r2TextField.setText(GPR2Impl.getInstance().read().getBinaryValue());
         } else if(o instanceof GPR3Impl){
-            r3TextField.setText(GPR3Impl.getInstance().read().getBinary());
+            r3TextField.setText(GPR3Impl.getInstance().read().getBinaryValue());
         } else if(o instanceof IDXR1Impl){
             x1TextField.setText(String.valueOf(IDXR1Impl.getInstance().read().getDecimalValue()));
         } else if(o instanceof IDXR2Impl){

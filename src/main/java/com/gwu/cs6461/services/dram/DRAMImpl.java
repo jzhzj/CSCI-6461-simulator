@@ -17,7 +17,7 @@ public class DRAMImpl implements DRAM {
     private DRAMImpl() {
         dramData = new DRAMData[MachineProps.DRAM_EXPAND_WORD_SIZE];
         for (int i = 0; i < dramData.length; i++) {
-            dramData[i] = new DRAMDataImpl().setValue(0);
+            dramData[i] = new DRAMDataImpl().setDecimalValue(0);
         }
     }
 
@@ -36,7 +36,7 @@ public class DRAMImpl implements DRAM {
     @Override
     public void reset() {
         for (int i = 0; i < dramData.length; i++) {
-            dramData[i] = new DRAMDataImpl().setValue(0);
+            dramData[i] = new DRAMDataImpl().setDecimalValue(0);
         }
     }
 

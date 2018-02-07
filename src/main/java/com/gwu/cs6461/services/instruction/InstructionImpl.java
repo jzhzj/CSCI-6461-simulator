@@ -29,7 +29,7 @@ public class InstructionImpl implements Instruction {
             // write instruction to IR, MBR -> IR
             IRImpl.getInstance().write(data);
             // PC -> PC + 1
-            IARImpl.getInstance().write(new DRAMAddress().setValue(IARImpl.getInstance().read().getDecimalValue() + 1));
+            IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(IARImpl.getInstance().read().getDecimalValue() + 1));
         };
         return fetchTask;
     }

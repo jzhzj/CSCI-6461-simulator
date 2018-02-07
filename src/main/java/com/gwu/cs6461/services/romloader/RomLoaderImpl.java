@@ -45,7 +45,7 @@ public class RomLoaderImpl implements RomLoader{
         // load some customized instructions into memory (8) here, romDataList
         for(int i = 0, length = romDataList.size(); i < length; i++){
             DRAMImpl.getInstance().write(
-                    new DRAMAddress().setValue(MachineProps.INSTRUCTION_START_ADDRESS + i),
+                    new DRAMAddress().setDecimalValue(MachineProps.INSTRUCTION_START_ADDRESS + i),
                     new DRAMDataImpl().setBinaryValue(romDataList.get(i).getValue()));
         }
 

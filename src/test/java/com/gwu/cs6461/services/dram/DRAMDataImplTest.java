@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.*;
 
 public class DRAMDataImplTest {
 
@@ -35,18 +34,18 @@ public class DRAMDataImplTest {
         dramData = new DRAMDataImpl();
         // after dramData is initialized, it should have binary value of 16 zeros.
 
-        assertEquals(MachineProps.WORD_BIT_WIDTH, dramData.getBinary().length());
+        assertEquals(MachineProps.WORD_BIT_WIDTH, dramData.getBinaryValue().length());
 
-        assertEquals("0000000000000000", dramData.getBinary());
+        assertEquals("0000000000000000", dramData.getBinaryValue());
 
-        dramData.setValue(2);
-        assertEquals("0000000000000010", dramData.getBinary());
+        dramData.setDecimalValue(2);
+        assertEquals("0000000000000010", dramData.getBinaryValue());
 
-        dramData.setValue(-2);
-        assertEquals("1111111111111110", dramData.getBinary());
+        dramData.setDecimalValue(-2);
+        assertEquals("1111111111111110", dramData.getBinaryValue());
 
-        dramData.setValue(1823);
-        assertEquals("0000011100011111", dramData.getBinary());
+        dramData.setDecimalValue(1823);
+        assertEquals("0000011100011111", dramData.getBinaryValue());
     }
 
     @Test
@@ -54,32 +53,32 @@ public class DRAMDataImplTest {
         dramData = new DRAMDataImpl();
         // after dramData is initialized, it should have hex value of 4 zeros.
 
-        assertEquals(MachineProps.WORD_BIT_WIDTH / Byte.SIZE * 2, dramData.getHex().length());
+        assertEquals(MachineProps.WORD_BIT_WIDTH / Byte.SIZE * 2, dramData.getHexValue().length());
 
-        assertEquals("0000", dramData.getHex());
+        assertEquals("0000", dramData.getHexValue());
 
-        dramData.setValue(10);
-        assertEquals("000a", dramData.getHex());
+        dramData.setDecimalValue(10);
+        assertEquals("000a", dramData.getHexValue());
 
-        dramData.setValue(-2);
-        assertEquals("fffe", dramData.getHex());
+        dramData.setDecimalValue(-2);
+        assertEquals("fffe", dramData.getHexValue());
     }
 
     @Test
     public void setValue() {
-        dramData.setValue(DRAMDataImpl.MIN_VALUE);
-        dramData.setValue(DRAMDataImpl.MAX_VALUE);
+        dramData.setDecimalValue(DRAMDataImpl.MIN_VALUE);
+        dramData.setDecimalValue(DRAMDataImpl.MAX_VALUE);
     }
 
     @Test
     public void testSetValueAboveRange(){
         thrown.expect(IllegalArgumentException.class);
-        dramData.setValue(DRAMDataImpl.MAX_VALUE + 1);
+        dramData.setDecimalValue(DRAMDataImpl.MAX_VALUE + 1);
     }
 
     @Test
     public void testSetValueBelowRange(){
         thrown.expect(IllegalArgumentException.class);
-        dramData.setValue(DRAMDataImpl.MIN_VALUE - 1);
+        dramData.setDecimalValue(DRAMDataImpl.MIN_VALUE - 1);
     }
 }
