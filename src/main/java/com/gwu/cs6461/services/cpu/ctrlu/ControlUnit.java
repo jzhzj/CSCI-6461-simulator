@@ -8,6 +8,10 @@ import com.gwu.cs6461.services.instruction.Instruction;
  */
 public interface ControlUnit {
 
+    /**
+     * Schedule the process of an instruction as task
+     * @param instruction
+     */
     void scheduleTask(Instruction instruction);
 
 }
