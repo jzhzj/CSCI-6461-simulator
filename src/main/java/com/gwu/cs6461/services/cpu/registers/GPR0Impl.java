@@ -30,10 +30,8 @@ public class GPR0Impl extends Observable implements Register<DRAMData>{
     @Override
     public void write(DRAMData data) {
         operationResult = data;
-        if(data.getDecimalValue() != operationResult.getDecimalValue()){
-            setChanged();
-            notifyObservers();
-        }
+        setChanged();
+        notifyObservers();
     }
 
     @Override
