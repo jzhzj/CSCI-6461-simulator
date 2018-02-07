@@ -17,20 +17,8 @@ public class LDRImpl extends LSImpl {
             // c(EA)
             DRAMData dataCEA = DRAMImpl.getInstance().read(getEffectiveAddress());
 
-            switch (StringUtils.substring(toDRAMData().getBinaryValue(), 10, 11)) {
-                case "1":
-                    // r <- c(c(EA))
-                    // c(c(EA))
-                    DRAMData dataCCEA = DRAMImpl.getInstance().read(new DRAMAddress().setDecimalValue(dataCEA.getDecimalValue()));
-                    getGpRegister().write(dataCCEA);
-                    break;
-                case "0":
-                    // r <− c(EA)
-                    getGpRegister().write(dataCEA);
-                    break;
-                default:
-                    // TODO throw machine fault
-            }
+            // r <− c(EA)
+            getGpRegister().write(dataCEA);
         };
         return executeTask;
     }
