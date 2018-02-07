@@ -38,6 +38,7 @@ public class ControlUnitImpl implements ControlUnit {
 
     @Override
     public void scheduleTask(Instruction instruction) {
+        // execute instructions 1 by 1 synchronously
         fetch(instruction.onFetch());
         decode(instruction.onDecode());
         execute(instruction.onExecute());
