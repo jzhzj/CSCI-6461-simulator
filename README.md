@@ -13,6 +13,7 @@ Please kindly be reminded to follow [GW Academic Integrity Code](https://student
   * [Notes](#notes)
   * [Contributing](#contributing)
   * [Usage](#usage)
+  * [About Maven](#about-maven)
 - [Contacts](#contacts)
 
 ## Notes
