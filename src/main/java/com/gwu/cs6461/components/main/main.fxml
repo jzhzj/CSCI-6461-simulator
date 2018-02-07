@@ -147,12 +147,12 @@
           <AnchorPane prefHeight="305.0" prefWidth="600.0">
                <children>
                   <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="600.0" />
-                  <Label layoutX="28.0" layoutY="104.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="Address" />
-                  <TextField fx:id="ramAddressTextField" layoutX="105.0" layoutY="104.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
-                  <Label layoutX="290.0" layoutY="104.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="Value" />
-                  <TextField fx:id="ramValueTextField" layoutX="361.0" layoutY="104.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
-                  <Button fx:id="ReadMemButton" layoutX="178.0" layoutY="161.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Read" />
-                  <Button fx:id="WriteMemButton" layoutX="361.0" layoutY="161.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
+                  <TextField fx:id="ramAddressTextField" layoutX="71.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
+                  <Label layoutX="238.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="Value" />
+                  <TextField fx:id="ramValueTextField" layoutX="282.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
+                  <Button fx:id="ReadMemButton" layoutX="453.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Read" />
+                  <Button fx:id="WriteMemButton" layoutX="527.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
+                  <Label layoutX="14.0" layoutY="26.0" prefHeight="32.0" prefWidth="58.0" text="Address" />
                </children></AnchorPane>
         </content>
       </TitledPane>
@@ -163,7 +163,7 @@
               <AnchorPane prefHeight="276.0" prefWidth="605.0" />
             </content>
           </Tab>
-          <Tab text="file engineer">
+          <Tab text="field engineer">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="276.0" prefWidth="548.0" />
             </content>
