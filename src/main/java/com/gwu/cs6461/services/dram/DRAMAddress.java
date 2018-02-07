@@ -48,4 +48,14 @@ public class DRAMAddress implements Binary{
         address = literalValue;
         return this;
     }
+
+    @Override
+    public DRAMAddress setBinaryValue(String binaryValue) throws IllegalArgumentException {
+        try{
+            int value = Integer.parseInt(binaryValue, 2);
+            return setValue(value);
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
+    }
 }

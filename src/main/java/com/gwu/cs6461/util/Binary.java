@@ -25,6 +25,13 @@ public interface Binary {
      * @throws IllegalArgumentException
      */
     Binary setValue(int literalValue) throws IllegalArgumentException;
-//    void setValue(String literalValue);
+
+    /**
+     * Modify binary value by a binary string
+     * @param binaryValue binary string
+     * @return the Binary object itself
+     * @throws IllegalArgumentException
+     */
+    Binary setBinaryValue(String binaryValue) throws IllegalArgumentException;
 
 }

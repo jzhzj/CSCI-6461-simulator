@@ -93,7 +93,7 @@ public class MainController implements Observer {
                 break;
             case "WriteMemButton":
                 // parse as binary
-                dramData = new DRAMDataImpl().setValue(Integer.parseInt(ramValueTextField.getText(), 2));
+                dramData = new DRAMDataImpl().setBinaryValue(ramValueTextField.getText());
                 DRAMImpl.getInstance().write(address, dramData);
                 break;
             default:

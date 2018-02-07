@@ -56,6 +56,16 @@ public class DRAMDataImpl implements DRAMData {
     }
 
     @Override
+    public DRAMDataImpl setBinaryValue(String binaryValue) throws IllegalArgumentException {
+        try{
+            int value = Integer.parseInt(binaryValue, 2);
+            return setValue(value);
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @Override
     public Instruction toInstruction() {
         // determine instruction type by opcode
         Instruction instruction = null;
