@@ -3,6 +3,12 @@ This project is to build a Java simulator of the von Neumann Architecture.
 
 Please kindly be reminded to follow [GW Academic Integrity Code](https://studentconduct.gwu.edu/code-academic-integrity).
 
+## Team Attitude
+<p align="center">
+  <img src="https://media.giphy.com/media/DeOa0SqsDH5sc/giphy.gif">
+</p>
+
+
 ## Table of Contents
 
 - Deliverable
