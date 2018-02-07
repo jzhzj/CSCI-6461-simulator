@@ -46,12 +46,22 @@ public class DRAMDataImpl implements DRAMData {
     }
 
     @Override
-    public DRAMDataImpl setDecimalValue(int literalValue) throws IllegalArgumentException{
-        if(literalValue <  MIN_VALUE || literalValue > MAX_VALUE) {
+    public DRAMDataImpl setDecimalValue(int decimalValue) throws IllegalArgumentException{
+        if(decimalValue <  MIN_VALUE || decimalValue > MAX_VALUE) {
             throw new IllegalArgumentException();
         }
-        data = literalValue;
+        data = decimalValue;
         return this;
+    }
+
+    @Override
+    public DRAMDataImpl setDecimalValue(String decimalValue) throws IllegalArgumentException {
+        try{
+            int value = Integer.parseInt(decimalValue);
+            return setDecimalValue(value);
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
     }
 
     @Override

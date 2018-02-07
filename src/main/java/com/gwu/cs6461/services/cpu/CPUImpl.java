@@ -39,7 +39,11 @@ public class CPUImpl implements CPU{
         registers.add(IRImpl.getInstance());
     }
 
-    public Set<Register> registers;
+    public Set<Register> getRegisters() {
+        return registers;
+    }
+
+    private Set<Register> registers;
 
     private TaskThread taskThread = new TaskThread();
 

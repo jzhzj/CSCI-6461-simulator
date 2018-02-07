@@ -20,11 +20,19 @@ public interface Binary {
 
     /**
      * Modify binary value
-     * @param literalValue
+     * @param decimalValue value as int
      * @return the Binary object itself
      * @throws IllegalArgumentException
      */
-    Binary setDecimalValue(int literalValue) throws IllegalArgumentException;
+    Binary setDecimalValue(int decimalValue) throws IllegalArgumentException;
+
+    /**
+     * Modify binary value
+     * @param decimalValue value as string
+     * @return the Binary object itself
+     * @throws IllegalArgumentException
+     */
+    Binary setDecimalValue(String decimalValue) throws IllegalArgumentException;
 
     /**
      * Modify binary value by a binary string

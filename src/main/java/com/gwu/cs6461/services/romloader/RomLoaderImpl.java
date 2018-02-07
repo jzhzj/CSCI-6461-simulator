@@ -31,7 +31,7 @@ public class RomLoaderImpl implements RomLoader{
 
     @Override
     public void boot() {
-        DRAMImpl.getInstance().init();
+        DRAMImpl.getInstance().reset();
 
         // set PC to the 1st instruction to be executed
         IARImpl.getInstance().reset();
