@@ -57,7 +57,9 @@ Run Unit Test
 $ mvn test
 ```
 ## About Maven
-![maven](https://cloud.githubusercontent.com/assets/300046/16313672/881e4a8e-3937-11e6-8af5-1c3b93b9caef.jpg)
+<p align="center">
+  <img src="https://cloud.githubusercontent.com/assets/300046/16313672/881e4a8e-3937-11e6-8af5-1c3b93b9caef.jpg">
+</p>
 
 ## Contacts
 - [Cao Wuchen](mailto:caowuchen@gwu.edu) (a.k.a. Warren)
