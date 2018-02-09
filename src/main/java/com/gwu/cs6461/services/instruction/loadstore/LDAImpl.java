@@ -5,7 +5,7 @@ import com.gwu.cs6461.services.dram.DRAMDataImpl;
 
 /**
  * LDA Instruction
- * Load Register with Address, r = 0..3
+ * Load Register with Effective Address, r = 0..3
  */
 public class LDAImpl extends LSImpl {
 

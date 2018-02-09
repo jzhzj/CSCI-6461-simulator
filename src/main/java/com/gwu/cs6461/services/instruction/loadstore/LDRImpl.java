@@ -1,13 +1,12 @@
 package com.gwu.cs6461.services.instruction.loadstore;
 
-import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.cpu.registers.MBRImpl;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMImpl;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * LDR Instruction
- * Load Register From Memory, r = 0..3
+ * Load Register From Memory based on Effective address, r = 0..3
  */
 public class LDRImpl extends LSImpl {
 
@@ -16,7 +15,8 @@ public class LDRImpl extends LSImpl {
         Runnable executeTask = () -> {
             // c(EA)
             DRAMData dataCEA = DRAMImpl.getInstance().read(getEffectiveAddress());
-
+            // MBR <- c(EA)
+            MBRImpl.getInstance().write(dataCEA);
             // r <− c(EA)
             getGpRegister().write(dataCEA);
         };
