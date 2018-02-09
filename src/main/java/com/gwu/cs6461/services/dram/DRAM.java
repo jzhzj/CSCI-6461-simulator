@@ -22,6 +22,13 @@ public interface DRAM {
     void write(DRAMAddress address, DRAMData data) throws IllegalMemoryAddressToReservedLocations;
 
     /**
+     * Write data to reserved address
+     * @param address reserved memory address
+     * @param data data to write
+     */
+    void writeToReservedAddress(DRAMAddress address, DRAMData data);
+
+    /**
      * Clear all data in memory
      */
     void reset();

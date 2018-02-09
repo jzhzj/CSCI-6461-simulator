@@ -39,6 +39,11 @@ public class DRAMImpl implements DRAM {
     }
 
     @Override
+    public void writeToReservedAddress(DRAMAddress address, DRAMData data) {
+        dramData[address.getDecimalValue()] = data;
+    }
+
+    @Override
     public void reset() {
         for (int i = 0; i < dramData.length; i++) {
             dramData[i] = new DRAMDataImpl();
