@@ -17,8 +17,8 @@ public class LDRImpl extends LSImpl {
             DRAMData dataCEA = DRAMImpl.getInstance().read(getEffectiveAddress());
             // MBR <- c(EA)
             MBRImpl.getInstance().write(dataCEA);
-            // r <− c(EA)
-            getGpRegister().write(dataCEA);
+            // r <− MBR
+            getGpRegister().write(MBRImpl.getInstance().read());
         };
         return executeTask;
     }
