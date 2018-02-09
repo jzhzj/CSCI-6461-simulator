@@ -41,7 +41,7 @@ public class DRAMAddressTest {
         assertEquals("000000000010", dramAddress.getBinaryValue());
 
         dramAddress.setDecimalValue(DRAMAddress.MAX_VALUE);
-        assertEquals("111111111111", dramAddress.getBinaryValue());
+        assertEquals("011111111111", dramAddress.getBinaryValue());
     }
 
     @Test
@@ -56,7 +56,7 @@ public class DRAMAddressTest {
         assertEquals("00a", dramAddress.getHexValue());
 
         dramAddress.setDecimalValue(DRAMAddress.MAX_VALUE);
-        assertEquals("fff", dramAddress.getHexValue());
+        assertEquals("7ff", dramAddress.getHexValue());
     }
 
     @Test

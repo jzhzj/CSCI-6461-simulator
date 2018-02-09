@@ -15,7 +15,7 @@ public class DRAMImpl implements DRAM {
     }
 
     private DRAMImpl() {
-        dramData = new DRAMData[MachineProps.DRAM_EXPAND_WORD_SIZE];
+        dramData = new DRAMData[MachineProps.DRAM_WORD_SIZE];
         for (int i = 0; i < dramData.length; i++) {
             dramData[i] = new DRAMDataImpl();
         }
