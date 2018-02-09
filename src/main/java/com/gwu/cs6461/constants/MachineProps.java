@@ -10,7 +10,6 @@ public final class MachineProps {
         // sizes and widths
         WORD_BIT_WIDTH = Integer.parseInt(rb.getString("WORD_BIT_WIDTH"));
         DRAM_WORD_SIZE = Integer.parseInt(rb.getString("DRAM_WORD_SIZE"));
-        DRAM_EXPAND_WORD_SIZE = Integer.parseInt(rb.getString("DRAM_EXPAND_WORD_SIZE"));
         GENERAL_PURPOSE_REG_BIT_WIDTH = Integer.parseInt(rb.getString("GENERAL_PURPOSE_REG_BIT_WIDTH"));
         INDEX_REG_BIT_WIDTH = Integer.parseInt(rb.getString("INDEX_REG_BIT_WIDTH"));
         IAR_REG_BIT_WIDTH = Integer.parseInt(rb.getString("IAR_REG_BIT_WIDTH"));
@@ -28,7 +27,6 @@ public final class MachineProps {
 
     public static final int WORD_BIT_WIDTH;
     public static final int DRAM_WORD_SIZE;
-    public static final int DRAM_EXPAND_WORD_SIZE;
     public static final int GENERAL_PURPOSE_REG_BIT_WIDTH;
     public static final int INDEX_REG_BIT_WIDTH;
     public static final int IAR_REG_BIT_WIDTH;

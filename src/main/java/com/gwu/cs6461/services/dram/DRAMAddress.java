@@ -5,12 +5,12 @@ import com.gwu.cs6461.util.Binary;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * DRAM Address range from [0, 4096 = 2^12), represented in 12 bits.
+ * DRAM Address range from [0, 2048), represented in 12 bits.
  */
 public class DRAMAddress implements Binary{
 
     public static final int MIN_VALUE = 0;
-    public static final int MAX_VALUE = MachineProps.DRAM_EXPAND_WORD_SIZE - 1;
+    public static final int MAX_VALUE = MachineProps.DRAM_WORD_SIZE - 1;
 
     private int address;
 
