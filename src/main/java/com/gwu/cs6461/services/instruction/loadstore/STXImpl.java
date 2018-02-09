@@ -18,8 +18,8 @@ public class STXImpl extends LSImpl {
             DRAMData dramData = new DRAMDataImpl().setDecimalValue(getIdxRegister().read().getDecimalValue());
             // MBR <- c(Xx)
             MBRImpl.getInstance().write(dramData);
-            // Memory(EA) <- c(Xx)
-            DRAMImpl.getInstance().write(getEffectiveAddress(), dramData);
+            // Memory(EA) <- MBR
+            DRAMImpl.getInstance().write(getEffectiveAddress(), MBRImpl.getInstance().read());
         };
         return executeTask;
     }

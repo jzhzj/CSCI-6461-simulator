@@ -17,8 +17,8 @@ public class STRImpl extends LSImpl {
             DRAMData dramData = getGpRegister().read();
             // MBR <- c(r)
             MBRImpl.getInstance().write(dramData);
-            // Memory(EA) <− c(r)
-            DRAMImpl.getInstance().write(getEffectiveAddress(), dramData);
+            // Memory(EA) <− MBR
+            DRAMImpl.getInstance().write(getEffectiveAddress(), MBRImpl.getInstance().read());
         };
         return executeTask;
 
