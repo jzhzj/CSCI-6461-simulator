@@ -1,14 +1,17 @@
 package com.gwu.cs6461.services.cpu.registers;
 
+import com.gwu.cs6461.services.fault.MachineFault;
+
 import java.util.Observable;
 
 /**
  * Singleton
  * Machine Fault Register: contains the ID code if a machine fault after it occurs
  * 4 bits
- * TODO to be implemented
  */
-public class MFRImpl extends Observable implements Register {
+public class MFRImpl extends Observable implements Register<MachineFault> {
+
+    private MachineFault machineFault;
 
     private static MFRImpl ourInstance = new MFRImpl();
 
@@ -21,13 +24,15 @@ public class MFRImpl extends Observable implements Register {
     }
 
     @Override
-    public void write(Object data) {
-
+    public void write(MachineFault data) {
+        machineFault = data;
+        setChanged();
+        notifyObservers();
     }
 
     @Override
-    public Object read() {
-        return null;
+    public MachineFault read() {
+        return machineFault;
     }
 
     @Override

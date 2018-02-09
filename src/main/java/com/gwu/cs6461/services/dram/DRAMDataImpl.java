@@ -1,6 +1,7 @@
 package com.gwu.cs6461.services.dram;
 
 import com.gwu.cs6461.constants.MachineProps;
+import com.gwu.cs6461.services.fault.IllegalOperationCode;
 import com.gwu.cs6461.services.instruction.Instruction;
 import com.gwu.cs6461.services.instruction.OpCode;
 import org.apache.commons.lang3.StringUtils;
@@ -75,7 +76,7 @@ public class DRAMDataImpl implements DRAMData {
     }
 
     @Override
-    public Instruction toInstruction() {
+    public Instruction toInstruction() throws IllegalOperationCode{
         // determine instruction type by opcode
         Instruction instruction = null;
 
@@ -86,6 +87,7 @@ public class DRAMDataImpl implements DRAMData {
             instruction.fromDRAMData(this);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            throw new IllegalOperationCode();
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

@@ -1,5 +1,7 @@
 package com.gwu.cs6461.services;
 
+import com.gwu.cs6461.services.fault.IllegalOperationCode;
+
 /**
  * Defines what machine does
  */
@@ -8,7 +10,7 @@ public interface Machine {
     /**
      * Run machine at current machine state
      */
-    void run();
+    void run() throws IllegalOperationCode;
 
     /**
      * Pause machine
@@ -18,7 +20,7 @@ public interface Machine {
     /**
      * Run single step to the next instruction
      */
-    void singleStep();
+    void singleStep() throws IllegalOperationCode;
 
     /**
      * Initialize / Reset machine

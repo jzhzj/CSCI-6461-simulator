@@ -39,7 +39,7 @@
       </ToolBar>
       <TabPane layoutY="40.0" prefHeight="560.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Opertator">
+          <Tab text="Operator">
             <content>
               <AnchorPane prefHeight="520.0" prefWidth="900.0">
                      <children>
@@ -52,21 +52,21 @@
                                           <ToolBar maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
                                              <items>
                                                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" text="PC" />
-                                                <TextField fx:id="pcTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
+                                                <TextField fx:id="pcTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="decimal" />
                                                 <Button fx:id="PCButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleRegisterButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                              </items>
                                           </ToolBar>
                                           <ToolBar layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
                                              <items>
                                                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" text="MAR" />
-                                                <TextField fx:id="marTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
+                                                <TextField fx:id="marTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="decimal" />
                                                 <Button fx:id="MARButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleRegisterButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                              </items>
                                           </ToolBar>
                                           <ToolBar layoutX="10.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
                                              <items>
                                                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" text="MBR" />
-                                                <TextField fx:id="mbrTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
+                                                <TextField fx:id="mbrTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="16-bits binary" />
                                                 <Button fx:id="MBRButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                              </items>
                                           </ToolBar>
@@ -77,13 +77,13 @@
                                           <ToolBar prefHeight="40.0" prefWidth="300.0">
                                              <items>
                                                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" text="CC" />
-                                                <TextField fx:id="ccTextField" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="160.0" />
+                                                <TextField fx:id="ccTextField" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="160.0" promptText="4-bits binary" />
                                              </items>
                                           </ToolBar>
                                           <ToolBar layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="300.0">
                                              <items>
                                                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" text="MFR" />
-                                                <TextField fx:id="mfrTextField" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
+                                                <TextField fx:id="mfrTextField" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="4-bits binary" />
                                              </items>
                                           </ToolBar>
                                        </children>
@@ -93,28 +93,28 @@
                                           <ToolBar prefHeight="40.0" prefWidth="300.0">
                                             <items>
                                                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" text="R0" />
-                                                <TextField fx:id="r0TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
+                                                <TextField fx:id="r0TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="16-bits binary" />
                                                 <Button fx:id="R0Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleRegisterButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                             </items>
                                           </ToolBar>
                                           <ToolBar layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="300.0">
                                              <items>
                                                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" text="R1" />
-                                                <TextField fx:id="r1TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
+                                                <TextField fx:id="r1TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="16-bits binary" />
                                                 <Button fx:id="R1Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleRegisterButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                              </items>
                                           </ToolBar>
                                           <ToolBar layoutX="10.0" layoutY="50.0" prefHeight="40.0" prefWidth="300.0">
                                              <items>
                                                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" text="R2" />
-                                                <TextField fx:id="r2TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
+                                                <TextField fx:id="r2TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="16-bits binary" />
                                                 <Button fx:id="R2Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleRegisterButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                              </items>
                                           </ToolBar>
                                           <ToolBar layoutX="10.0" layoutY="90.0" prefHeight="40.0" prefWidth="300.0">
                                              <items>
                                                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" text="R3" />
-                                                <TextField fx:id="r3TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
+                                                <TextField fx:id="r3TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="16-bits binary" />
                                                 <Button fx:id="R3Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleRegisterButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                              </items>
                                           </ToolBar>
@@ -125,21 +125,21 @@
                                           <ToolBar prefHeight="40.0" prefWidth="300.0">
                                              <items>
                                                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" text="X1" />
-                                                <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" fx:id="x1TextField" />
+                                                <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="decimal" fx:id="x1TextField" />
                                                 <Button fx:id="X1Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleRegisterButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                              </items>
                                           </ToolBar>
                                           <ToolBar layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="300.0">
                                              <items>
                                                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" text="X2" />
-                                                <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" fx:id="x2TextField" />
+                                                <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="decimal" fx:id="x2TextField" />
                                                 <Button fx:id="X2Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleRegisterButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                              </items>
                                           </ToolBar>
                                           <ToolBar layoutX="10.0" layoutY="50.0" prefHeight="40.0" prefWidth="300.0">
                                              <items>
                                                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" text="X3" />
-                                                <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" fx:id="x3TextField" />
+                                                <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="decimal" fx:id="x3TextField" />
                                                 <Button fx:id="X3Button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleRegisterButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                              </items>
                                           </ToolBar>
@@ -156,9 +156,9 @@
                                     <ToolBar prefHeight="40.0" prefWidth="600.0">
                                        <items>
                                           <Label prefHeight="32.0" prefWidth="58.0" text="Address" />
-                                          <TextField fx:id="ramAddressTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
+                                          <TextField fx:id="ramAddressTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="decimal" />
                                           <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="Value" />
-                                          <TextField fx:id="ramValueTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" />
+                                          <TextField fx:id="ramValueTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="16-bits binary" />
                                           <Button fx:id="ReadMemButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Read" />
                                           <Button fx:id="WriteMemButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                        </items>

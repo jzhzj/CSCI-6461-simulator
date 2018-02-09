@@ -1,6 +1,7 @@
 package com.gwu.cs6461.services;
 
 import com.gwu.cs6461.services.cpu.CPUImpl;
+import com.gwu.cs6461.services.fault.IllegalOperationCode;
 import com.gwu.cs6461.services.romloader.RomLoaderImpl;
 
 /**
@@ -20,7 +21,7 @@ public class MachineImpl implements Machine{
     }
 
     @Override
-    public void run() {
+    public void run() throws IllegalOperationCode {
         CPUImpl.getInstance().resume();
     }
 
@@ -30,7 +31,7 @@ public class MachineImpl implements Machine{
     }
 
     @Override
-    public void singleStep() {
+    public void singleStep() throws IllegalOperationCode {
         CPUImpl.getInstance().pauseAfter(1);
     }
 

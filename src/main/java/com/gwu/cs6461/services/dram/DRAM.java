@@ -1,5 +1,7 @@
 package com.gwu.cs6461.services.dram;
 
+import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
+
 /**
  * Defines what memory does
  */
@@ -17,7 +19,7 @@ public interface DRAM {
      * @param address memory address
      * @param data data to write
      */
-    void write(DRAMAddress address, DRAMData data);
+    void write(DRAMAddress address, DRAMData data) throws IllegalMemoryAddressToReservedLocations;
 
     /**
      * Clear all data in memory

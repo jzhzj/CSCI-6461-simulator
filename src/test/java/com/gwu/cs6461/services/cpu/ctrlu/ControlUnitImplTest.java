@@ -14,7 +14,7 @@ public class ControlUnitImplTest {
 
     @Before
     public void setUp() throws Exception {
-        DRAMAddress dramAddress = new DRAMAddress().setDecimalValue(0);
+        DRAMAddress dramAddress = new DRAMAddress().setDecimalValue(10);
         DRAMImpl.getInstance().write(dramAddress, new DRAMDataImpl().setDecimalValue(0b0000110000000000));
         IARImpl.getInstance().write(dramAddress);
     }

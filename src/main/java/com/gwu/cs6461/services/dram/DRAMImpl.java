@@ -1,10 +1,11 @@
 package com.gwu.cs6461.services.dram;
 
 import com.gwu.cs6461.constants.MachineProps;
+import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
 
 /**
- * DRAM stores 1 word (16 bit) at each location (address).
- * Total capacity = 4096 (2^12) words
+ * Word addressable DRAM, stores 1 word (16 bit) at each location (address).
+ * Total capacity = 2048 words
  */
 public class DRAMImpl implements DRAM {
 
@@ -29,7 +30,11 @@ public class DRAMImpl implements DRAM {
     }
 
     @Override
-    public void write(DRAMAddress address, DRAMData data) {
+    public void write(DRAMAddress address, DRAMData data) throws IllegalMemoryAddressToReservedLocations {
+        if(address.getDecimalValue() < MachineProps.INSTRUCTION_START_ADDRESS){
+            // trying to write reserved memory
+            throw new IllegalMemoryAddressToReservedLocations();
+        }
         dramData[address.getDecimalValue()] = data;
     }
 

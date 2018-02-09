@@ -1,6 +1,8 @@
 package com.gwu.cs6461.services.dram;
 
 import com.gwu.cs6461.constants.MachineProps;
+import com.gwu.cs6461.services.fault.IllegalMemoryAddressBeyondMax;
+import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
 import com.gwu.cs6461.util.Binary;
 import org.apache.commons.lang3.StringUtils;
 
@@ -41,9 +43,9 @@ public class DRAMAddress implements Binary{
     }
 
     @Override
-    public DRAMAddress setDecimalValue(int decimalValue) throws IllegalArgumentException{
+    public DRAMAddress setDecimalValue(int decimalValue) throws IllegalMemoryAddressBeyondMax {
         if(decimalValue < MIN_VALUE || decimalValue > MAX_VALUE){
-            throw new IllegalArgumentException();
+            throw new IllegalMemoryAddressBeyondMax();
         }
         address = decimalValue;
         return this;

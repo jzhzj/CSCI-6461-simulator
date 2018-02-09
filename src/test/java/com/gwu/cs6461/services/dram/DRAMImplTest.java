@@ -25,9 +25,9 @@ public class DRAMImplTest {
 
     @Test
     public void write() {
-        DRAMImpl.getInstance().write(new DRAMAddress().setDecimalValue(1), new DRAMDataImpl().setDecimalValue(-1));
-        DRAMImpl.getInstance().write(new DRAMAddress().setDecimalValue(1), new DRAMDataImpl().setDecimalValue(1));
-        assertEquals(1, DRAMImpl.getInstance().read(new DRAMAddress().setDecimalValue(1)).getDecimalValue());
+        DRAMImpl.getInstance().write(new DRAMAddress().setDecimalValue(10), new DRAMDataImpl().setDecimalValue(-1));
+        DRAMImpl.getInstance().write(new DRAMAddress().setDecimalValue(10), new DRAMDataImpl().setDecimalValue(1));
+        assertEquals(1, DRAMImpl.getInstance().read(new DRAMAddress().setDecimalValue(10)).getDecimalValue());
     }
 
     @Test

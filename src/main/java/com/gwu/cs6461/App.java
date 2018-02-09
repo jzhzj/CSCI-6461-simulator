@@ -28,6 +28,7 @@ public class App extends Application {
             Observable o = (Observable)register;
             o.deleteObservers();
         });
+        CPUImpl.getInstance().deleteObservers();
     }
 
     public static void main(String[] args) {

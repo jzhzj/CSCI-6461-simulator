@@ -4,16 +4,18 @@ import com.gwu.cs6461.services.cpu.ctrlu.ControlUnitImpl;
 import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.fault.IllegalOperationCode;
 import com.gwu.cs6461.services.instruction.Instruction;
 
 import java.util.HashSet;
+import java.util.Observable;
 import java.util.Set;
 
 /**
  * Singleton
  * CPU
  */
-public class CPUImpl implements CPU{
+public class CPUImpl extends Observable implements CPU {
 
     private static CPUImpl ourInstance = new CPUImpl();
 
@@ -45,26 +47,26 @@ public class CPUImpl implements CPU{
 
     private Set<Register> registers;
 
-    private TaskThread taskThread = new TaskThread();
+    private boolean stop = true;
 
     @Override
-    public void resume() {
-        if(TaskThread.State.NEW == taskThread.getState()){
-            taskThread.reset();
-            taskThread.start();
-        } else if(TaskThread.State.TERMINATED == taskThread.getState()){
-            taskThread = new TaskThread();
-            taskThread.start();
+    public void resume() throws IllegalOperationCode {
+        stop = false;
+        while(!stop){
+            process();
         }
     }
 
     @Override
     public void pause() {
-        taskThread.kill();
+        stop = true;
+        // notify halt.
+        setChanged();
+        notifyObservers();
     }
 
     @Override
-    public void pauseAfter(int step) {
+    public void pauseAfter(int step) throws IllegalOperationCode {
         for(int i = 0; i < step; i++){
             process();
         }
@@ -73,47 +75,20 @@ public class CPUImpl implements CPU{
 
     @Override
     public void reset() {
-        pause();
+        // stop without notifying halt.
+        stop = true;
         registers.stream().forEach(register -> register.reset());
     }
 
     /**
      * CPU processes 1 instruction at current machine state
      */
-    private void process() {
+    private void process() throws IllegalOperationCode {
         // pc
         DRAMAddress dramAddress = IARImpl.getInstance().read();
-        Instruction instruction = DRAMImpl.getInstance().read(dramAddress).toInstruction();
+        Instruction instruction = null;
+        instruction = DRAMImpl.getInstance().read(dramAddress).toInstruction();
         ControlUnitImpl.getInstance().scheduleTask(instruction);
-    }
 
-    /**
-     * Task thread
-     * call reset() or constructor before call start()
-     */
-    private class TaskThread extends Thread{
-
-        boolean quit;
-
-        TaskThread(){
-            reset();
-        }
-
-        void reset(){
-            this.quit = false;
-        }
-
-        void kill(){
-            this.quit = true;
-        }
-
-        @Override
-        public void run() {
-            super.run();
-
-            while(!quit){
-                process();
-            }
-        }
     }
 }

@@ -18,29 +18,11 @@ public class ControlUnitImpl implements ControlUnit {
 
     }
 
-
-    private synchronized void fetch(Runnable task) {
-        // run synchronously in this thread
-        task.run();
-    }
-
-
-    private synchronized void decode(Runnable task) {
-        // run synchronously in this thread
-        task.run();
-    }
-
-
-    private synchronized void execute(Runnable task) {
-        // run synchronously in this thread
-        task.run();
-    }
-
     @Override
     public void scheduleTask(Instruction instruction) {
         // execute instructions 1 by 1 synchronously
-        fetch(instruction.onFetch());
-        decode(instruction.onDecode());
-        execute(instruction.onExecute());
+        instruction.onFetch().run();
+        instruction.onDecode().run();
+        instruction.onExecute().run();
     }
 }
