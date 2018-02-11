@@ -5,25 +5,88 @@
     "op": {
       "op_code": "000001",
       "data": "1100011111",
-      "desc": "LDR 3,0,31. Load register 3 with the contents of the memory location 31. Since IX = 00, there is no indexing, so 31 is the EA."
+      "desc": "LDR 3,0,31."
+    }
+  },
+  {
+    "name": "LDR",
+    "value": "",
+    "op": {
+      "op_code": "000001",
+      "data": "0101011111",
+      "desc": "LDR 1,1,31"
     }
   },
   {
     "name": "LDA",
-    "value": "0000110000000000",
+    "value": "",
     "op": {
       "op_code": "000011",
-      "data": "0000000000",
-      "desc": ""
+      "data": "1010011111",
+      "desc": "LDA 2,2,31"
     }
   },
   {
     "name": "LDA",
-    "value": "0000110000000000",
+    "value": "",
     "op": {
       "op_code": "000011",
-      "data": "0000000000",
-      "desc": ""
+      "data": "0010011111",
+      "desc": "LDA 0,2,31"
+    }
+  },
+  {
+    "name": "LDX",
+    "value": "",
+    "op": {
+      "op_code": "101001",
+      "data": "0001011111",
+      "desc": "LDX 1,31"
+    }
+  },
+  {
+    "name": "LDX",
+    "value": "",
+    "op": {
+      "op_code": "101001",
+      "data": "0010111111",
+      "desc": "LDX 2,31"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "1001011111",
+      "desc": "STR 2,1,31"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0100011111",
+      "desc": "STR 1,0,31"
+    }
+  },
+  {
+    "name": "STX",
+    "value": "",
+    "op": {
+      "op_code": "101010",
+      "data": "0010011111",
+      "desc": "STX 2,31"
+    }
+  },
+  {
+    "name": "STX",
+    "value": "",
+    "op": {
+      "op_code": "101010",
+      "data": "0001011111",
+      "desc": "STX 1,31"
     }
   },
   {
@@ -32,7 +95,7 @@
     "op": {
       "op_code": "000000",
       "data": "0000000000",
-      "desc": ""
+      "desc": "HALT"
     }
   }
 ]
