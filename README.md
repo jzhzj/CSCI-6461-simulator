@@ -13,7 +13,6 @@ Please kindly be reminded to follow [GW Academic Integrity Code](https://student
 
 - Deliverable
   * [Releases (jar and source code zip)](https://github.com/1988warren/csa_simulator/releases)
-    * [v1.0.0 (Project 1)]()
   * [User Guide](https://github.com/1988warren/csa_simulator/wiki/User-Guide)
   * [Design Notes](https://github.com/1988warren/csa_simulator/wiki/Design-Notes)
 - For developers
