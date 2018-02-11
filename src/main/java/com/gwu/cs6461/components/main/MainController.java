@@ -232,7 +232,7 @@ public class MainController implements Observer {
 
     void promptIllegalWriteReservedMemoryWarning(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning");
+        alert.setTitle("Machine Fault");
         alert.setHeaderText(null);
         alert.setContentText("Illegal Writing Reserved Memory Location!");
         alert.showAndWait();
@@ -240,7 +240,7 @@ public class MainController implements Observer {
 
     void promptIllegalMemoryAddressBeyondMaxWarning(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning");
+        alert.setTitle("Machine Fault");
         alert.setHeaderText(null);
         alert.setContentText("Illegal Memory Address Beyond Max!");
         alert.showAndWait();
@@ -248,7 +248,7 @@ public class MainController implements Observer {
 
     void promptIllegalOpCodeWarning(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning");
+        alert.setTitle("Machine Fault");
         alert.setHeaderText(null);
         alert.setContentText("Illegal Op Code!");
         alert.showAndWait();
