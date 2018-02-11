@@ -40,9 +40,13 @@ public class MainController implements Observer {
     @FXML
     private TextField mbrTextField;
     @FXML
+    private TextField irTextField;
+    @FXML
     private TextField ccTextField;
     @FXML
     private TextField mfrTextField;
+    @FXML
+    private TextField msrTextField;
     @FXML
     private TextField r0TextField;
     @FXML
@@ -181,6 +185,8 @@ public class MainController implements Observer {
             marTextField.setText(String.valueOf(MARImpl.getInstance().read().getDecimalValue()));
         } else if(o instanceof MBRImpl) {
             mbrTextField.setText(MBRImpl.getInstance().read().getBinaryValue());
+        } else if(o instanceof IRImpl){
+            irTextField.setText(IRImpl.getInstance().read().getBinaryValue());
         } else if(o instanceof GPR0Impl){
             r0TextField.setText(GPR0Impl.getInstance().read().getBinaryValue());
         } else if(o instanceof GPR1Impl){
@@ -204,6 +210,8 @@ public class MainController implements Observer {
             }
         } else if(o instanceof CPUImpl){
             promptHalt();
+        } else if(o instanceof MSRImpl){
+            msrTextField.setText(MSRImpl.getInstance().read().toString());
         }
 
     }
