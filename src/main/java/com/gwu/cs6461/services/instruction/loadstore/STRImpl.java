@@ -14,7 +14,7 @@ public class STRImpl extends LSImpl {
     public Runnable onExecute() {
         Runnable executeTask = () ->{
             // c(r)
-            DRAMData dramData = getGpRegister().read();
+            DRAMData dramData = gpRegister.read();
             // MBR <- c(r)
             MBRImpl.getInstance().write(dramData);
             // Memory(EA) <− MBR

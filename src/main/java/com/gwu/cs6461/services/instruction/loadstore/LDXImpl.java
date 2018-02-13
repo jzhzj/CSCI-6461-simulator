@@ -21,7 +21,7 @@ public class LDXImpl extends LSImpl {
             // MBR <- c(EA)
             MBRImpl.getInstance().write(data);
             //  Xx <- MBR
-            getIdxRegister().write(new DRAMAddress().setDecimalValue(MBRImpl.getInstance().read().getDecimalValue()));
+            idxRegister.write(new DRAMAddress().setDecimalValue(MBRImpl.getInstance().read().getDecimalValue()));
         };
         return executeTask;
     }

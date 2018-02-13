@@ -18,7 +18,7 @@ public class LDRImpl extends LSImpl {
             // MBR <- c(EA)
             MBRImpl.getInstance().write(dataCEA);
             // r <− MBR
-            getGpRegister().write(MBRImpl.getInstance().read());
+            gpRegister.write(MBRImpl.getInstance().read());
         };
         return executeTask;
     }

@@ -14,25 +14,8 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class LSImpl extends InstructionImpl {
 
-    private Register<DRAMData> gpRegister;
-    private Register<DRAMAddress> idxRegister;
-
-
-    public Register<DRAMData> getGpRegister() {
-        return gpRegister;
-    }
-
-    public void setGpRegister(Register<DRAMData> gpRegister) {
-        this.gpRegister = gpRegister;
-    }
-
-    public Register<DRAMAddress> getIdxRegister() {
-        return idxRegister;
-    }
-
-    public void setIdxRegister(Register<DRAMAddress> idxRegister) {
-        this.idxRegister = idxRegister;
-    }
+    Register<DRAMData> gpRegister;
+    Register<DRAMAddress> idxRegister;
 
     public DRAMAddress getEffectiveAddress() {
         return effectiveAddress;

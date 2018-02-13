@@ -15,7 +15,7 @@ public class STXImpl extends LSImpl {
     public Runnable onExecute() {
         Runnable executeTask = () ->{
             // c(Xx)
-            DRAMData dramData = new DRAMDataImpl().setDecimalValue(getIdxRegister().read().getDecimalValue());
+            DRAMData dramData = new DRAMDataImpl().setDecimalValue(idxRegister.read().getDecimalValue());
             // MBR <- c(Xx)
             MBRImpl.getInstance().write(dramData);
             // Memory(EA) <- MBR
