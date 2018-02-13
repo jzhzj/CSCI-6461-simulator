@@ -18,7 +18,7 @@ public class STRImpl extends LSImpl {
             // MBR <- c(r)
             MBRImpl.getInstance().write(dramData);
             // Memory(EA) <− MBR
-            DRAMImpl.getInstance().write(getEffectiveAddress(), MBRImpl.getInstance().read());
+            DRAMImpl.getInstance().write(effectiveAddress, MBRImpl.getInstance().read());
         };
         return executeTask;
 

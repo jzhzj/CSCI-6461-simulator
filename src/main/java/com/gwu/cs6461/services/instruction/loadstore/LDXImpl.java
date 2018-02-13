@@ -17,7 +17,7 @@ public class LDXImpl extends LSImpl {
     public Runnable onExecute() {
         Runnable executeTask = () -> {
             //  c(EA)
-            DRAMData data = DRAMImpl.getInstance().read(getEffectiveAddress());
+            DRAMData data = DRAMImpl.getInstance().read(effectiveAddress);
             // MBR <- c(EA)
             MBRImpl.getInstance().write(data);
             //  Xx <- MBR

@@ -16,16 +16,7 @@ public class LSImpl extends InstructionImpl {
 
     Register<DRAMData> gpRegister;
     Register<DRAMAddress> idxRegister;
-
-    public DRAMAddress getEffectiveAddress() {
-        return effectiveAddress;
-    }
-
-    public void setEffectiveAddress(DRAMAddress effectiveAddress) {
-        this.effectiveAddress = effectiveAddress;
-    }
-
-    private DRAMAddress effectiveAddress;
+    DRAMAddress effectiveAddress;
 
     @Override
     public Runnable onDecode() {

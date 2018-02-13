@@ -13,7 +13,7 @@ public class LDAImpl extends LSImpl {
     public Runnable onExecute() {
         Runnable executeTask = () -> {
             //  r <− EA
-            gpRegister.write(new DRAMDataImpl().setDecimalValue(getEffectiveAddress().getDecimalValue()));
+            gpRegister.write(new DRAMDataImpl().setDecimalValue(effectiveAddress.getDecimalValue()));
         };
         return executeTask;
     }
