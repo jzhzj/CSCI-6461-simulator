@@ -1,4 +1,4 @@
-package com.gwu.cs6461.services.cache;
+package com.gwu.cs6461.services.sram;
 
 /**
  * A fully associative, unified cache.
@@ -7,15 +7,15 @@ package com.gwu.cs6461.services.cache;
  * 16 cache lines
  * TODO to be implemented
  */
-public class CacheImpl implements Cache {
+public class SRAMImpl implements SRAM {
 
-    private static CacheImpl ourInstance = new CacheImpl();
+    private static SRAMImpl ourInstance = new SRAMImpl();
 
-    public static CacheImpl getInstance() {
+    public static SRAMImpl getInstance() {
         return ourInstance;
     }
 
-    private CacheImpl() {
+    private SRAMImpl() {
 
     }
 
