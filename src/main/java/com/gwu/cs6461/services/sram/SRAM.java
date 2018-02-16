@@ -5,4 +5,6 @@ package com.gwu.cs6461.services.sram;
  * TODO to be designed
  */
 public interface SRAM {
+    void read();
+    void write();
 }

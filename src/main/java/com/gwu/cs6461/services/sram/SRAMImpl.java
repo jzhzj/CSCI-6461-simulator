@@ -20,4 +20,13 @@ public class SRAMImpl implements SRAM {
     }
 
 
+    @Override
+    public void read() {
+
+    }
+
+    @Override
+    public void write() {
+
+    }
 }
