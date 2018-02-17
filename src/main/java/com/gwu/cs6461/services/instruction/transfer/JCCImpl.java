@@ -15,7 +15,7 @@ public class JCCImpl extends TransferImpl {
     public Runnable onDecode() {
         Runnable task = () -> {
             //TODO complete the condition argument after realizing the CCRImpl
-            if (CCRImpl.getInstance().read().getId().getDecimalValue() == ) {
+            if (CCRImpl.getInstance().read().getId().getDecimalValue() == 1) {
                 IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
             }
         };
