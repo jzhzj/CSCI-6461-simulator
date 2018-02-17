@@ -5,7 +5,6 @@ import com.gwu.cs6461.services.dram.DRAMAddress;
 
 /**
  * JMA Instruction
- * TODO to be implemented
  */
 public class JMAImpl extends TransferImpl {
     @Override

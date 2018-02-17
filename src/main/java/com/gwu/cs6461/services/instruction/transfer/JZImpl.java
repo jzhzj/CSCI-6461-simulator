@@ -5,7 +5,6 @@ import com.gwu.cs6461.services.dram.DRAMAddress;
 
 /**
  * JZ Instruction
- * TODO to be implemented
  */
 public class JZImpl extends TransferImpl {
 
