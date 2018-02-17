@@ -1,6 +1,7 @@
 package com.gwu.cs6461.services.cpu.alu.cc;
 
 import com.gwu.cs6461.constants.MachineProps;
+import com.gwu.cs6461.services.cpu.registers.CCRImpl;
 import com.gwu.cs6461.util.Binary;
 import org.apache.commons.lang3.StringUtils;
 
@@ -9,6 +10,10 @@ import org.apache.commons.lang3.StringUtils;
  * cc(3)
  */
 public class EqOrNot extends Throwable implements ConditionCode{
+
+    public EqOrNot() {
+        CCRImpl.getInstance().write(this);
+    }
 
     private Binary id = new Binary() {
         @Override
