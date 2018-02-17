@@ -1,10 +1,17 @@
 package com.gwu.cs6461.services.instruction.arithmeticlogic;
 
 
-
 /**
  * DVD Instruction
+ * TODO to be implemented
  */
-public class DVDImpl {
+public class DVDImpl extends ALImpl {
 
+    @Override
+    public Runnable onExecute() {
+        Runnable task = () -> {
+
+        };
+        return task;
+    }
 }
