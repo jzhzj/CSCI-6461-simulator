@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * AIR Instruction
+ * Add  Immediate to Register, r = 0..3
  */
 public class AIRImpl extends ALImpl {
     private int immedFieldValue;

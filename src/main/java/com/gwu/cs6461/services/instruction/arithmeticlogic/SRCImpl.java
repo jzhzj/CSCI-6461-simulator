@@ -2,7 +2,8 @@ package com.gwu.cs6461.services.instruction.arithmeticlogic;
 
 
 /**
- * RRC Instruction
+ * SRC Instruction
+ * Shift Register by Count
  * TODO to be implemented
  */
 public class SRCImpl extends ALImpl {
