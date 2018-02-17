@@ -1,8 +1,8 @@
 package com.gwu.cs6461.services.cpu.alu;
 
-import com.gwu.cs6461.services.cpu.alu.flags.Negative;
-import com.gwu.cs6461.services.cpu.alu.flags.Overflow;
-import com.gwu.cs6461.services.cpu.alu.flags.Zero;
+import com.gwu.cs6461.services.cpu.alu.cc.EqOrNot;
+import com.gwu.cs6461.services.cpu.alu.cc.Overflow;
+import com.gwu.cs6461.services.cpu.alu.cc.DivZero;
 import com.gwu.cs6461.util.Binary;
 
 /**
@@ -22,42 +22,42 @@ public class ALUImpl implements ALU {
     }
 
     @Override
-    public Binary add(Binary a, Binary b) throws Zero, Overflow, Negative {
+    public Binary add(Binary a, Binary b) throws DivZero, Overflow, EqOrNot {
         return null;
     }
 
     @Override
-    public Binary addWithCarry(Binary a, Binary b) throws Zero, Overflow, Negative {
+    public Binary addWithCarry(Binary a, Binary b) throws DivZero, Overflow, EqOrNot {
         return null;
     }
 
     @Override
-    public Binary subtract(Binary a, Binary b) throws Zero, Overflow, Negative {
+    public Binary subtract(Binary a, Binary b) throws DivZero, Overflow, EqOrNot {
         return null;
     }
 
     @Override
-    public Binary subtractWithBorrow(Binary a, Binary b) throws Zero, Overflow, Negative {
+    public Binary subtractWithBorrow(Binary a, Binary b) throws DivZero, Overflow, EqOrNot {
         return null;
     }
 
     @Override
-    public Binary negate(Binary a) throws Zero, Overflow, Negative {
+    public Binary negate(Binary a) throws DivZero, Overflow, EqOrNot {
         return null;
     }
 
     @Override
-    public Binary increment(Binary a) throws Zero, Overflow, Negative {
+    public Binary increment(Binary a) throws DivZero, Overflow, EqOrNot {
         return null;
     }
 
     @Override
-    public Binary decrement(Binary a) throws Zero, Overflow, Negative {
+    public Binary decrement(Binary a) throws DivZero, Overflow, EqOrNot {
         return null;
     }
 
     @Override
-    public Binary passThrough(Binary a) throws Zero, Negative {
+    public Binary passThrough(Binary a) throws DivZero, EqOrNot {
         return null;
     }
 

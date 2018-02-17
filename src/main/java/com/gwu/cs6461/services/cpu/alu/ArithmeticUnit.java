@@ -1,8 +1,8 @@
 package com.gwu.cs6461.services.cpu.alu;
 
-import com.gwu.cs6461.services.cpu.alu.flags.Negative;
-import com.gwu.cs6461.services.cpu.alu.flags.Overflow;
-import com.gwu.cs6461.services.cpu.alu.flags.Zero;
+import com.gwu.cs6461.services.cpu.alu.cc.EqOrNot;
+import com.gwu.cs6461.services.cpu.alu.cc.Overflow;
+import com.gwu.cs6461.services.cpu.alu.cc.DivZero;
 import com.gwu.cs6461.util.Binary;
 
 /**
@@ -17,11 +17,11 @@ public interface ArithmeticUnit {
      * @param a
      * @param b
      * @return
-     * @throws Zero
+     * @throws DivZero
      * @throws Overflow
-     * @throws Negative
+     * @throws EqOrNot
      */
-    Binary add(Binary a, Binary b) throws Zero, Overflow, Negative;
+    Binary add(Binary a, Binary b) throws DivZero, Overflow, EqOrNot;
 
 
     /**
@@ -29,22 +29,22 @@ public interface ArithmeticUnit {
      * @param a
      * @param b
      * @return
-     * @throws Zero
+     * @throws DivZero
      * @throws Overflow
-     * @throws Negative
+     * @throws EqOrNot
      */
-    Binary addWithCarry(Binary a, Binary b) throws Zero, Overflow, Negative;
+    Binary addWithCarry(Binary a, Binary b) throws DivZero, Overflow, EqOrNot;
 
     /**
      * b is subtracted from a
      * @param a
      * @param b
      * @return
-     * @throws Zero
+     * @throws DivZero
      * @throws Overflow
-     * @throws Negative
+     * @throws EqOrNot
      */
-    Binary subtract(Binary a, Binary b) throws Zero, Overflow, Negative;
+    Binary subtract(Binary a, Binary b) throws DivZero, Overflow, EqOrNot;
 
 
     /**
@@ -52,51 +52,51 @@ public interface ArithmeticUnit {
      * @param a
      * @param b
      * @return
-     * @throws Zero
+     * @throws DivZero
      * @throws Overflow
-     * @throws Negative
+     * @throws EqOrNot
      */
-    Binary subtractWithBorrow(Binary a, Binary b) throws Zero, Overflow, Negative;
+    Binary subtractWithBorrow(Binary a, Binary b) throws DivZero, Overflow, EqOrNot;
 
 
     /**
      * a is subtracted from 0, flipping its sign
      * @param a
      * @return
-     * @throws Zero
+     * @throws DivZero
      * @throws Overflow
-     * @throws Negative
+     * @throws EqOrNot
      */
-    Binary negate(Binary a) throws Zero, Overflow, Negative;
+    Binary negate(Binary a) throws DivZero, Overflow, EqOrNot;
 
 
     /**
      * add 1 to a
      * @param a
      * @return
-     * @throws Zero
+     * @throws DivZero
      * @throws Overflow
-     * @throws Negative
+     * @throws EqOrNot
      */
-    Binary increment(Binary a) throws Zero, Overflow, Negative;
+    Binary increment(Binary a) throws DivZero, Overflow, EqOrNot;
 
 
     /**
      * subtract 1 from a
      * @param a
      * @return
-     * @throws Zero
+     * @throws DivZero
      * @throws Overflow
-     * @throws Negative
+     * @throws EqOrNot
      */
-    Binary decrement(Binary a) throws Zero, Overflow, Negative;
+    Binary decrement(Binary a) throws DivZero, Overflow, EqOrNot;
 
     /**
      * all bits of a are passed through unmodified
      * @param a
      * @return
-     * @throws Zero
-     * @throws Negative
+     * @throws DivZero
+     * @throws EqOrNot
      */
-    Binary passThrough(Binary a) throws Zero, Negative;
+    Binary passThrough(Binary a) throws DivZero, EqOrNot;
 }
