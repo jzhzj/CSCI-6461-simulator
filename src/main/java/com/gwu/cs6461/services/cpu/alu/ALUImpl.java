@@ -1,8 +1,5 @@
 package com.gwu.cs6461.services.cpu.alu;
 
-import com.gwu.cs6461.services.cpu.alu.cc.EqOrNot;
-import com.gwu.cs6461.services.cpu.alu.cc.Overflow;
-import com.gwu.cs6461.services.cpu.alu.cc.DivZero;
 import com.gwu.cs6461.util.Binary;
 
 /**
