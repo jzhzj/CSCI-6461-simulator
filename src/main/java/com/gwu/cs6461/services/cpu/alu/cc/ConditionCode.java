@@ -1,7 +1,14 @@
 package com.gwu.cs6461.services.cpu.alu.cc;
 
-import com.gwu.cs6461.util.Binary;
-
 public interface ConditionCode {
-    Binary getId();
+    enum Type {
+        OVER_FLOW,
+        UNDER_FLOW,
+        DIV_ZERO,
+        EQ_OR_NOT
+    }
+
+    boolean getBit(Type type);
+    void setBit(Type type, boolean value);
+
 }
