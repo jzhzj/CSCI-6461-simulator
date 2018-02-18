@@ -21,7 +21,7 @@ public interface ArithmeticUnit {
      * @throws Overflow
      * @throws EqOrNot
      */
-    Binary add(Binary a, Binary b) throws DivZero, Overflow, EqOrNot;
+    Binary add(Binary a, Binary b);
 
 
     /**
@@ -33,7 +33,7 @@ public interface ArithmeticUnit {
      * @throws Overflow
      * @throws EqOrNot
      */
-    Binary addWithCarry(Binary a, Binary b) throws DivZero, Overflow, EqOrNot;
+    Binary addWithCarry(Binary a, Binary b);
 
     /**
      * b is subtracted from a
@@ -44,7 +44,7 @@ public interface ArithmeticUnit {
      * @throws Overflow
      * @throws EqOrNot
      */
-    Binary subtract(Binary a, Binary b) throws DivZero, Overflow, EqOrNot;
+    Binary subtract(Binary a, Binary b);
 
 
     /**
@@ -56,7 +56,7 @@ public interface ArithmeticUnit {
      * @throws Overflow
      * @throws EqOrNot
      */
-    Binary subtractWithBorrow(Binary a, Binary b) throws DivZero, Overflow, EqOrNot;
+    Binary subtractWithBorrow(Binary a, Binary b);
 
 
     /**
@@ -67,7 +67,7 @@ public interface ArithmeticUnit {
      * @throws Overflow
      * @throws EqOrNot
      */
-    Binary negate(Binary a) throws DivZero, Overflow, EqOrNot;
+    Binary negate(Binary a);
 
 
     /**
@@ -78,7 +78,7 @@ public interface ArithmeticUnit {
      * @throws Overflow
      * @throws EqOrNot
      */
-    Binary increment(Binary a) throws DivZero, Overflow, EqOrNot;
+    Binary increment(Binary a);
 
 
     /**
@@ -89,7 +89,7 @@ public interface ArithmeticUnit {
      * @throws Overflow
      * @throws EqOrNot
      */
-    Binary decrement(Binary a) throws DivZero, Overflow, EqOrNot;
+    Binary decrement(Binary a);
 
     /**
      * all bits of a are passed through unmodified
@@ -98,5 +98,5 @@ public interface ArithmeticUnit {
      * @throws DivZero
      * @throws EqOrNot
      */
-    Binary passThrough(Binary a) throws DivZero, EqOrNot;
+    Binary passThrough(Binary a);
 }

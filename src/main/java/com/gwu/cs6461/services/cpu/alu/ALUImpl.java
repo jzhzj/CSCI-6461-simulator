@@ -22,45 +22,44 @@ public class ALUImpl implements ALU {
     }
 
     @Override
-    public Binary add(Binary a, Binary b) throws DivZero, Overflow, EqOrNot {
+    public Binary add(Binary a, Binary b) {
         return null;
     }
 
     @Override
-    public Binary addWithCarry(Binary a, Binary b) throws DivZero, Overflow, EqOrNot {
+    public Binary addWithCarry(Binary a, Binary b) {
         return null;
     }
 
     @Override
-    public Binary subtract(Binary a, Binary b) throws DivZero, Overflow, EqOrNot {
+    public Binary subtract(Binary a, Binary b) {
         return null;
     }
 
     @Override
-    public Binary subtractWithBorrow(Binary a, Binary b) throws DivZero, Overflow, EqOrNot {
+    public Binary subtractWithBorrow(Binary a, Binary b) {
         return null;
     }
 
     @Override
-    public Binary negate(Binary a) throws DivZero, Overflow, EqOrNot {
+    public Binary negate(Binary a) {
         return null;
     }
 
     @Override
-    public Binary increment(Binary a) throws DivZero, Overflow, EqOrNot {
+    public Binary increment(Binary a) {
         return null;
     }
 
     @Override
-    public Binary decrement(Binary a) throws DivZero, Overflow, EqOrNot {
+    public Binary decrement(Binary a) {
         return null;
     }
 
     @Override
-    public Binary passThrough(Binary a) throws DivZero, EqOrNot {
+    public Binary passThrough(Binary a) {
         return null;
     }
-
 
     @Override
     public boolean and() {
