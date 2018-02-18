@@ -1,6 +1,11 @@
 package com.gwu.cs6461.services.instruction.transfer;
 
 
+import com.gwu.cs6461.services.cpu.registers.GPR3Impl;
+import com.gwu.cs6461.services.cpu.registers.IARImpl;
+import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMData;
+
 /**
  * JSR Instruction
  * TODO to be implemented
@@ -10,7 +15,10 @@ public class JSRImpl extends TransferImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
-
+        //R3 <- PC+1;
+         GPR3Impl.getInstance().write((DRAMData) new DRAMAddress().setDecimalValue(IARImpl.getInstance().read().getDecimalValue() + 1));
+         //PC <- EA ;
+         IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
         };
         return task;
     }
