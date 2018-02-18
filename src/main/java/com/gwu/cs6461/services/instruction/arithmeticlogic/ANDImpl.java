@@ -18,32 +18,37 @@ public class ANDImpl extends ALImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
-            String instructionBinary = toDRAMData().getBinaryValue();
-
-            switch (StringUtils.substring(instructionBinary, 8, 10)) {
-                case "00":
-                    // 00
-                    gpRegister2 = GPR0Impl.getInstance();
-                    break;
-                case "01":
-                    // 01
-                    gpRegister2 = GPR1Impl.getInstance();
-                    break;
-                case "10":
-                    // 02
-                    gpRegister2 = GPR2Impl.getInstance();
-                    break;
-                case "11":
-                    // 03
-                    gpRegister2 = GPR3Impl.getInstance();
-                    break;
-                default:
-                    // TODO throw machine fault
-
-            }
             //TODO correct the argument after realizing the ALUImpl
-//            gpRegister.write(new DRAMDataImpl().setDecimalValue(ALUImpl.getInstance().and(gpRegister,gpRegister2)));
+//            gpRegister.write(new DRAMDataImpl().setDecimalValue(ALUImpl.getInstance().and(gpRegister,getRegister2())));
         };
         return task;
+    }
+
+
+    private Register getRegister2 () {
+        String instructionBinary = toDRAMData().getBinaryValue();
+
+        switch (StringUtils.substring(instructionBinary, 8, 10)) {
+            case "00":
+                // 00
+                gpRegister2 = GPR0Impl.getInstance();
+                break;
+            case "01":
+                // 01
+                gpRegister2 = GPR1Impl.getInstance();
+                break;
+            case "10":
+                // 02
+                gpRegister2 = GPR2Impl.getInstance();
+                break;
+            case "11":
+                // 03
+                gpRegister2 = GPR3Impl.getInstance();
+                break;
+            default:
+                // TODO throw machine fault
+
+        }
+        return gpRegister2;
     }
 }
