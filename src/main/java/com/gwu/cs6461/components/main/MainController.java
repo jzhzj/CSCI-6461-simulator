@@ -212,6 +212,8 @@ public class MainController implements Observer {
             promptHalt();
         } else if(o instanceof MSRImpl){
             msrTextField.setText(MSRImpl.getInstance().read().toString());
+        } else if(o instanceof CCRImpl){
+            ccTextField.setText(CCRImpl.getInstance().read().toString());
         }
 
     }
