@@ -19,7 +19,7 @@ public class AMRImpl extends ALImpl {
             //c(EA)
             DRAMData dataCEA = DRAMImpl.getInstance().read(effectiveAddress);
             //r <- c(r) + c(EA)
-            gpRegister.write(new DRAMDataImpl().setDecimalValue(dataGpR.getDecimalValue()+dataCEA.getDecimalValue()));
+            gpRegister.write(new DRAMDataImpl().setDecimalValue(dataGpR.getDecimalValue() + dataCEA.getDecimalValue()));
         };
         return task;
     }

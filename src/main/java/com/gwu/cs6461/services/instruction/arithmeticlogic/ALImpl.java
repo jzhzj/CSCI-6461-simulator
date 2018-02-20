@@ -69,15 +69,13 @@ public class ALImpl extends InstructionImpl {
     }
 
 
-
-
     private DRAMAddress getEA() {
         String instructionBinary = toDRAMData().getBinaryValue();
         int addressFieldValue = Integer.parseInt(StringUtils.substring(instructionBinary, 11, 16), 2);
         DRAMAddress ea = new DRAMAddress();
         switch (StringUtils.substring(instructionBinary, 10, 11)) {
             case "1":
-                if(idxRegister == null) {
+                if (idxRegister == null) {
                     // Address
                     DRAMAddress address = new DRAMAddress().setDecimalValue(addressFieldValue);
                     // c(Address)
@@ -90,7 +88,7 @@ public class ALImpl extends InstructionImpl {
                 }
                 break;
             case "0":
-                if(idxRegister == null){
+                if (idxRegister == null) {
                     // contents of the Address field
                     ea.setDecimalValue(addressFieldValue);
                 } else {

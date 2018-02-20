@@ -23,7 +23,7 @@ public class MLTImpl extends ALImpl {
     }
 
 
-    private Register getRegister2 () {
+    private Register getRegister2() {
         String instructionBinary = toDRAMData().getBinaryValue();
 
         switch (StringUtils.substring(instructionBinary, 8, 10)) {

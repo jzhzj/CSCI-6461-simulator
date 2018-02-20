@@ -1,6 +1,7 @@
 package com.gwu.cs6461.services.instruction.arithmeticlogic;
 
 
+import com.gwu.cs6461.services.cpu.registers.GPR1Impl;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import org.apache.commons.lang3.StringUtils;
@@ -11,12 +12,20 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class SIRImpl extends ALImpl {
     private int immedFieldValue;
+
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
             DRAMData data = gpRegister.read();
             //r <- c(r) - Immed
-            gpRegister.write(new DRAMDataImpl().setDecimalValue(data.getDecimalValue()  - getImmed()));
+            if (getImmed() == 0) {
+
+            } else if (gpRegister.read().getDecimalValue() == 0) {
+                GPR1Impl.getInstance().write(new DRAMDataImpl().setDecimalValue(-getImmed()));
+            } else {
+                gpRegister.write(new DRAMDataImpl().setDecimalValue(data.getDecimalValue() - getImmed()));
+            }
+
 
         };
         return task;
