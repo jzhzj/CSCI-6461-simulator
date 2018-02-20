@@ -1,9 +1,7 @@
 package com.gwu.cs6461.services.cpu.alu;
 
-import com.gwu.cs6461.services.cpu.registers.Register;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
-import com.gwu.cs6461.util.Binary;
 
 /**
  * Singleton
@@ -24,81 +22,85 @@ public class ALUImpl implements ALU {
 
     @Override
     public DRAMData add(DRAMData a, int b) {
-        DRAMData data = new DRAMDataImpl().setDecimalValue(a.getDecimalValue() + b);
-        return data;
+        return new DRAMDataImpl().setDecimalValue(a.getDecimalValue() + b);
     }
 
     @Override
     public DRAMData add(DRAMData a, DRAMData b) {
-        DRAMData data = new DRAMDataImpl().setDecimalValue(a.getDecimalValue() + b.getDecimalValue());
-        return data;
+        return new DRAMDataImpl().setDecimalValue(a.getDecimalValue() + b.getDecimalValue());
     }
 
     @Override
     public DRAMData subtract(DRAMData a, int b) {
-        DRAMData data = new DRAMDataImpl().setDecimalValue(a.getDecimalValue() - b);
-        return data;
+        return new DRAMDataImpl().setDecimalValue(a.getDecimalValue() - b);
     }
 
     @Override
     public DRAMData subtract(DRAMData a, DRAMData b) {
-        DRAMData data = new DRAMDataImpl().setDecimalValue(a.getDecimalValue() - b.getDecimalValue());
-        return data;
+        return new DRAMDataImpl().setDecimalValue(a.getDecimalValue() - b.getDecimalValue());
     }
 
+    //TODO
     @Override
     public DRAMData time(DRAMData a, DRAMData b) {
         return null;
     }
 
+    //TODO
     @Override
     public DRAMData divide(DRAMData a, DRAMData b) {
         return null;
     }
 
+    //TODO
     @Override
     public DRAMData and(DRAMData a, DRAMData b) {
-        DRAMData data = new DRAMDataImpl();
-        return data;
+        return new DRAMDataImpl();
     }
 
+    //TODO
     @Override
     public DRAMData or(DRAMData a, DRAMData b) {
-        DRAMData data = new DRAMDataImpl();
-        return data;
+        return new DRAMDataImpl();
     }
 
+    //TODO
     @Override
     public DRAMData not(DRAMData a) {
-        DRAMData data = new DRAMDataImpl();
-        return data;
+        return new DRAMDataImpl();
     }
 
+    //TODO
     @Override
     public DRAMData arithmeticShiftL(DRAMData a) {
         return null;
     }
 
+    //TODO
     @Override
     public DRAMData arithmeticShiftR(DRAMData a) {
         return null;
     }
 
+    //TODO
     @Override
     public DRAMData logicalShiftL(DRAMData a) {
         return null;
     }
 
+    //TODO
     @Override
     public DRAMData logicalShiftR(DRAMData a) {
         return null;
     }
 
+    //TODO
     @Override
     public DRAMData logicalRotateL(DRAMData a) {
         return null;
     }
 
+    //TODO
     @Override
     public DRAMData logicalRotateR(DRAMData a) {
         return null;
