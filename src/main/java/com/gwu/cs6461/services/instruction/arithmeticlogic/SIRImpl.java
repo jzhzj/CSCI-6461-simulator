@@ -17,14 +17,13 @@ public class SIRImpl extends ALImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
-            DRAMData data = gpRegister.read();
             //r <- c(r) - Immed
             if (getImmed() == 0) {
 
             } else if (gpRegister.read().getDecimalValue() == 0) {
                 GPR1Impl.getInstance().write(new DRAMDataImpl().setDecimalValue(-getImmed()));
             } else {
-                gpRegister.write(ALUImpl.getInstance().subtract(data, getImmed()));
+                gpRegister.write(ALUImpl.getInstance().subtract(gpRegister.read(), getImmed()));
             }
 
 

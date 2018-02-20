@@ -17,9 +17,8 @@ public class AIRImpl extends ALImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
-            DRAMData data = gpRegister.read();
             //r <- c(r) + Immed
-            gpRegister.write(ALUImpl.getInstance().add(data, getImmed()));
+            gpRegister.write(ALUImpl.getInstance().add(gpRegister.read(), getImmed()));
         };
         return task;
     }

@@ -15,12 +15,8 @@ public class AMRImpl extends ALImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
-            //c(r)
-            DRAMData dataGpR = gpRegister.read();
-            //c(EA)
-            DRAMData dataCEA = DRAMImpl.getInstance().read(effectiveAddress);
             //r <- c(r) + c(EA)
-            gpRegister.write(ALUImpl.getInstance().add(dataGpR, dataCEA));
+            gpRegister.write(ALUImpl.getInstance().add(gpRegister.read(), DRAMImpl.getInstance().read(effectiveAddress)));
         };
         return task;
     }
