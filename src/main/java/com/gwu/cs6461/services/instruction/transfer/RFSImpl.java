@@ -8,7 +8,6 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * RFS Instruction
-
  */
 public class RFSImpl extends TransferImpl {
     private int immedFieldValue;

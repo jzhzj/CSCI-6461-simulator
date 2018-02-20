@@ -1,5 +1,8 @@
 package com.gwu.cs6461.services.cpu.alu;
 
+import com.gwu.cs6461.services.cpu.registers.Register;
+import com.gwu.cs6461.services.dram.DRAMData;
+import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import com.gwu.cs6461.util.Binary;
 
 /**
@@ -18,58 +21,86 @@ public class ALUImpl implements ALU {
 
     }
 
+
     @Override
-    public Binary add(Binary a, Binary b) {
+    public DRAMData add(DRAMData a, int b) {
+        DRAMData data = new DRAMDataImpl().setDecimalValue(a.getDecimalValue() + b);
+        return data;
+    }
+
+    @Override
+    public DRAMData add(DRAMData a, DRAMData b) {
+        DRAMData data = new DRAMDataImpl().setDecimalValue(a.getDecimalValue() + b.getDecimalValue());
+        return data;
+    }
+
+    @Override
+    public DRAMData subtract(DRAMData a, int b) {
+        DRAMData data = new DRAMDataImpl().setDecimalValue(a.getDecimalValue() - b);
+        return data;
+    }
+
+    @Override
+    public DRAMData subtract(DRAMData a, DRAMData b) {
+        DRAMData data = new DRAMDataImpl().setDecimalValue(a.getDecimalValue() - b.getDecimalValue());
+        return data;
+    }
+
+    @Override
+    public DRAMData time(DRAMData a, DRAMData b) {
         return null;
     }
 
     @Override
-    public Binary addWithCarry(Binary a, Binary b) {
+    public DRAMData divide(DRAMData a, DRAMData b) {
         return null;
     }
 
     @Override
-    public Binary subtract(Binary a, Binary b) {
+    public DRAMData and(DRAMData a, DRAMData b) {
+        DRAMData data = new DRAMDataImpl();
+        return data;
+    }
+
+    @Override
+    public DRAMData or(DRAMData a, DRAMData b) {
+        DRAMData data = new DRAMDataImpl();
+        return data;
+    }
+
+    @Override
+    public DRAMData not(DRAMData a) {
+        DRAMData data = new DRAMDataImpl();
+        return data;
+    }
+
+    @Override
+    public DRAMData arithmeticShiftL(DRAMData a) {
         return null;
     }
 
     @Override
-    public Binary subtractWithBorrow(Binary a, Binary b) {
+    public DRAMData arithmeticShiftR(DRAMData a) {
         return null;
     }
 
     @Override
-    public Binary negate(Binary a) {
+    public DRAMData logicalShiftL(DRAMData a) {
         return null;
     }
 
     @Override
-    public Binary increment(Binary a) {
+    public DRAMData logicalShiftR(DRAMData a) {
         return null;
     }
 
     @Override
-    public Binary decrement(Binary a) {
+    public DRAMData logicalRotateL(DRAMData a) {
         return null;
     }
 
     @Override
-    public Binary passThrough(Binary a) {
+    public DRAMData logicalRotateR(DRAMData a) {
         return null;
-    }
-
-    @Override
-    public boolean and() {
-        return false;
-    }
-
-    @Override
-    public boolean or() {
-        return false;
-    }
-
-    @Override
-    public boolean not() {
-        return false;
     }
 }

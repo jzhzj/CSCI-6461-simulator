@@ -10,7 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * ORR Instruction
  * Logical Or of Register and Register
- * TODO to be implemented
  */
 public class ORRImpl extends ALImpl {
     Register<DRAMData> gpRegister2;
@@ -18,11 +17,8 @@ public class ORRImpl extends ALImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
-            String instructionBinary = toDRAMData().getBinaryValue();
-
-
-            //TODO correct the argument after realizing the ALU
-            //gpRegister.write(new DRAMDataImpl().setDecimalValue(ALUImpl.getInstance().or(gpRegister,gpRegister2)));
+            //Logical Or of Register and Register
+            gpRegister.write(ALUImpl.getInstance().or(gpRegister.read(), gpRegister2.read()));
 
         };
         return task;

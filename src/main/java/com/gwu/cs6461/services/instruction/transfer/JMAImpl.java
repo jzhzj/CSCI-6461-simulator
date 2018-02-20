@@ -10,6 +10,7 @@ public class JMAImpl extends TransferImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
+            //PC <- EA
             IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
         };
         return task;

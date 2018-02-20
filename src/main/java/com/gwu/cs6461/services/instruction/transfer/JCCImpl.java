@@ -17,6 +17,7 @@ public class JCCImpl extends TransferImpl {
         Runnable task = () -> {
             //TODO complete the condition argument after realizing the CCRImpl
             if (CCRImpl.getInstance().read().getBit(ConditionCode.Type.UNDER_FLOW)) {
+                //PC <- EA
                 IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
             }
         };

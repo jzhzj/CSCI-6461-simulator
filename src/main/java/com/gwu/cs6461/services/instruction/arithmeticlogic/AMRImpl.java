@@ -1,6 +1,7 @@
 package com.gwu.cs6461.services.instruction.arithmeticlogic;
 
 
+import com.gwu.cs6461.services.cpu.alu.ALUImpl;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import com.gwu.cs6461.services.dram.DRAMImpl;
@@ -19,7 +20,7 @@ public class AMRImpl extends ALImpl {
             //c(EA)
             DRAMData dataCEA = DRAMImpl.getInstance().read(effectiveAddress);
             //r <- c(r) + c(EA)
-            gpRegister.write(new DRAMDataImpl().setDecimalValue(dataGpR.getDecimalValue() + dataCEA.getDecimalValue()));
+            gpRegister.write(ALUImpl.getInstance().add(dataGpR, dataCEA));
         };
         return task;
     }

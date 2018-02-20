@@ -1,6 +1,7 @@
 package com.gwu.cs6461.services.instruction.arithmeticlogic;
 
 
+import com.gwu.cs6461.services.cpu.alu.ALUImpl;
 import com.gwu.cs6461.services.cpu.registers.GPR1Impl;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
@@ -23,7 +24,7 @@ public class SIRImpl extends ALImpl {
             } else if (gpRegister.read().getDecimalValue() == 0) {
                 GPR1Impl.getInstance().write(new DRAMDataImpl().setDecimalValue(-getImmed()));
             } else {
-                gpRegister.write(new DRAMDataImpl().setDecimalValue(data.getDecimalValue() - getImmed()));
+                gpRegister.write(ALUImpl.getInstance().subtract(data, getImmed()));
             }
 
 

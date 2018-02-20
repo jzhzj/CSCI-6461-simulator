@@ -11,6 +11,7 @@ public class JGEImpl extends TransferImpl {
     public Runnable onExecute() {
         Runnable task = () -> {
             if (gpRegister.read().getDecimalValue() >= 0) {
+                //PC <- EA
                 IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
             }
         };

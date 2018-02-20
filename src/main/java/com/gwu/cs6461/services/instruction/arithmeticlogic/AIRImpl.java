@@ -1,6 +1,8 @@
 package com.gwu.cs6461.services.instruction.arithmeticlogic;
 
 
+import com.gwu.cs6461.services.cpu.alu.ALU;
+import com.gwu.cs6461.services.cpu.alu.ALUImpl;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import org.apache.commons.lang3.StringUtils;
@@ -17,7 +19,7 @@ public class AIRImpl extends ALImpl {
         Runnable task = () -> {
             DRAMData data = gpRegister.read();
             //r <- c(r) + Immed
-            gpRegister.write(new DRAMDataImpl().setDecimalValue(data.getDecimalValue()+getImmed()));
+            gpRegister.write(ALUImpl.getInstance().add(data, getImmed()));
         };
         return task;
     }

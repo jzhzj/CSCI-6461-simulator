@@ -10,7 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * AND Instruction
  * Logical And of Register and Register
- * TODO to be implemented
  */
 public class ANDImpl extends ALImpl {
     Register<DRAMData> gpRegister2;
@@ -18,8 +17,8 @@ public class ANDImpl extends ALImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
-            //TODO correct the argument after realizing the ALUImpl
-//            gpRegister.write(new DRAMDataImpl().setDecimalValue(ALUImpl.getInstance().and(gpRegister,getRegister2())));
+            //c(rx) <- c(rx) AND c(ry)
+            gpRegister.write(ALUImpl.getInstance().and(gpRegister.read(),gpRegister2.read()));
         };
         return task;
     }
