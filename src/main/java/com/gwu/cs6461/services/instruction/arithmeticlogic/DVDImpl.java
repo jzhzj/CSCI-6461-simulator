@@ -9,7 +9,6 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * DVD Instruction
  * Divide Register by Register
- * TODO to be implemented
  */
 public class DVDImpl extends ALImpl {
     Register<DRAMData> gpRegister2;

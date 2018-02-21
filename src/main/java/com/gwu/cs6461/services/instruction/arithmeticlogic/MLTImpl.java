@@ -10,7 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * MLT Instruction
  * Multiply Register by Register
- * TODO to be implemented
  */
 public class MLTImpl extends ALImpl {
     Register<DRAMData> gpRegister2;
