@@ -109,7 +109,7 @@ public class ALUImpl implements ALU {
         return new DRAMDataImpl();
     }
 
-    //TODO
+
     @Override
     public DRAMData not(DRAMData a) {
         return new DRAMDataImpl().setDecimalValue((-a.getDecimalValue())-1);
