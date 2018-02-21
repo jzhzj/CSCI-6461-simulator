@@ -57,7 +57,7 @@ public interface ArithmeticUnit {
      * @param b
      * @return
      */
-    DRAMData time(DRAMData a, DRAMData b);
+    DRAMData[] multiply(DRAMData a, DRAMData b);
 
 
     /**
@@ -67,6 +67,6 @@ public interface ArithmeticUnit {
      * @param b
      * @return
      */
-    DRAMData divide(DRAMData a, DRAMData b);
+    DRAMData[] divide(DRAMData a, DRAMData b);
 
 }

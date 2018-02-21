@@ -17,6 +17,7 @@ public class ORRImpl extends ALImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
+            getRegister2();
             //Logical Or of Register and Register
             gpRegister.write(ALUImpl.getInstance().or(gpRegister.read(), gpRegister2.read()));
 
@@ -25,7 +26,7 @@ public class ORRImpl extends ALImpl {
     }
 
 
-    private Register getRegister2() {
+    private void getRegister2() {
         String instructionBinary = toDRAMData().getBinaryValue();
 
         switch (StringUtils.substring(instructionBinary, 8, 10)) {
@@ -49,6 +50,5 @@ public class ORRImpl extends ALImpl {
                 // TODO throw machine fault
 
         }
-        return gpRegister2;
     }
 }

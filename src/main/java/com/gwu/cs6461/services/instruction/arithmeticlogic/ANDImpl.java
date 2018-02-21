@@ -17,14 +17,15 @@ public class ANDImpl extends ALImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
+            getRegister2();
             //c(rx) <- c(rx) AND c(ry)
-            gpRegister.write(ALUImpl.getInstance().and(gpRegister.read(),gpRegister2.read()));
+            gpRegister.write(ALUImpl.getInstance().and(gpRegister.read(), gpRegister2.read()));
         };
         return task;
     }
 
 
-    private Register getRegister2() {
+    private void getRegister2() {
         String instructionBinary = toDRAMData().getBinaryValue();
 
         switch (StringUtils.substring(instructionBinary, 8, 10)) {
@@ -48,6 +49,5 @@ public class ANDImpl extends ALImpl {
                 // TODO throw machine fault
 
         }
-        return gpRegister2;
     }
 }

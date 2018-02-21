@@ -17,13 +17,14 @@ public class SIRImpl extends ALImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
+            getImmed();
             //r <- c(r) - Immed
-            if (getImmed() == 0) {
+            if (immedFieldValue == 0) {
 
             } else if (gpRegister.read().getDecimalValue() == 0) {
-                GPR1Impl.getInstance().write(new DRAMDataImpl().setDecimalValue(-getImmed()));
+                GPR1Impl.getInstance().write(new DRAMDataImpl().setDecimalValue(-immedFieldValue));
             } else {
-                gpRegister.write(ALUImpl.getInstance().subtract(gpRegister.read(), getImmed()));
+                gpRegister.write(ALUImpl.getInstance().subtract(gpRegister.read(), immedFieldValue));
             }
 
 
@@ -32,9 +33,8 @@ public class SIRImpl extends ALImpl {
     }
 
 
-    private int getImmed() {
+    private void getImmed() {
         String instructionBinary = toDRAMData().getBinaryValue();
         immedFieldValue = Integer.parseInt(StringUtils.substring(instructionBinary, 11, 16), 2);
-        return immedFieldValue;
     }
 }
