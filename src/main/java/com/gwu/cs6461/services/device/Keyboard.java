@@ -1,6 +1,11 @@
 package com.gwu.cs6461.services.device;
 
-public class Keyboard implements Device {
+import com.gwu.cs6461.services.dram.DRAMData;
+import com.gwu.cs6461.util.Binary;
+
+import java.util.Observable;
+
+public class Keyboard extends Observable implements Device {
     private static Keyboard ourInstance = new Keyboard();
 
     public static Keyboard getInstance() {
@@ -11,12 +16,15 @@ public class Keyboard implements Device {
     }
 
     @Override
-    public void in() {
+    public void write(Binary inputBuffer) {
 
     }
 
     @Override
-    public void out() {
-
+    public DRAMData read() {
+        // TODO to be implemented
+        setChanged();
+        notifyObservers();
+        return null;
     }
 }

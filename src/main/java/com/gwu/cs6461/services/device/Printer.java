@@ -1,6 +1,10 @@
 package com.gwu.cs6461.services.device;
 
-public class Printer implements Device {
+import com.gwu.cs6461.util.Binary;
+
+import java.util.Observable;
+
+public class Printer extends Observable implements Device {
     private static Printer ourInstance = new Printer();
 
     public static Printer getInstance() {
@@ -11,12 +15,14 @@ public class Printer implements Device {
     }
 
     @Override
-    public void in() {
-
+    public void write(Binary inputBuffer) {
+        // TODO to be implemented
+        setChanged();
+        notifyObservers();
     }
 
     @Override
-    public void out() {
-
+    public Binary read() {
+        return null;
     }
 }
