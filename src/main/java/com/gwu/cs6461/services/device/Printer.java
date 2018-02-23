@@ -15,12 +15,10 @@ public class Printer extends Observable implements Device<DRAMData> {
     private Printer() {
     }
 
-    private DRAMData data;
 
     @Override
     public void write(DRAMData inputBuffer) {
         // TODO to be implemented
-        data = inputBuffer;
 
         setChanged();
         notifyObservers();
