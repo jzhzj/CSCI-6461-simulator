@@ -8,6 +8,7 @@ import com.gwu.cs6461.services.dram.DRAMAddress;
 
 /**
  * JCC Instruction
+ * Jump If Condition Code
  * TODO to be implemented
  */
 public class JCCImpl extends TransferImpl {

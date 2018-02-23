@@ -2,6 +2,7 @@ package com.gwu.cs6461.services.instruction.arithmeticlogic;
 
 
 import com.gwu.cs6461.services.cpu.alu.ALUImpl;
+import com.gwu.cs6461.services.dram.DRAMData;
 
 /**
  * NOT Instruction
@@ -13,7 +14,7 @@ public class NOTImpl extends arithRRImpl {
     public Runnable onExecute() {
         Runnable task = () -> {
             //c(rx) <- NOT c(rx)
-            gpRegister.write(ALUImpl.getInstance().not(gpRegister.read()));
+            gpRegister.write((DRAMData) ALUImpl.getInstance().not(gpRegister.read()));
         };
         return task;
     }

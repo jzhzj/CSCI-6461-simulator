@@ -16,7 +16,7 @@ public class AMRImpl extends arithRXAImpl {
     public Runnable onExecute() {
         Runnable task = () -> {
             //r <- c(r) + c(EA)
-            gpRegister.write(ALUImpl.getInstance().add(gpRegister.read(), DRAMImpl.getInstance().read(effectiveAddress)));
+            gpRegister.write((DRAMData) ALUImpl.getInstance().add(gpRegister.read(), DRAMImpl.getInstance().read(effectiveAddress)));
         };
         return task;
     }

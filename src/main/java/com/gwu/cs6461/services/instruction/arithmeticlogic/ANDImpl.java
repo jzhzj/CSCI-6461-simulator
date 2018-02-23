@@ -17,7 +17,7 @@ public class ANDImpl extends arithRRImpl {
     public Runnable onExecute() {
         Runnable task = () -> {
             //c(rx) <- c(rx) AND c(ry)
-            gpRegister.write(ALUImpl.getInstance().and(gpRegister.read(), gpRegister2.read()));
+            gpRegister.write((DRAMData) ALUImpl.getInstance().and(gpRegister.read(), gpRegister2.read()));
         };
         return task;
     }

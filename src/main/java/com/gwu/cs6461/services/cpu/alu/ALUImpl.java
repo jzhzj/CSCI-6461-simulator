@@ -3,6 +3,7 @@ package com.gwu.cs6461.services.cpu.alu;
 import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
+import com.gwu.cs6461.util.Binary;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -23,28 +24,28 @@ public class ALUImpl implements ALU {
 
 
     @Override
-    public DRAMData add(DRAMData a, int b) {
+    public Binary add(Binary a, int b) {
         return new DRAMDataImpl().setDecimalValue(a.getDecimalValue() + b);
     }
 
     @Override
-    public DRAMData add(DRAMData a, DRAMData b) {
+    public Binary add(Binary a, Binary b) {
         return new DRAMDataImpl().setDecimalValue(a.getDecimalValue() + b.getDecimalValue());
     }
 
     @Override
-    public DRAMData subtract(DRAMData a, int b) {
+    public Binary subtract(Binary a, int b) {
         return new DRAMDataImpl().setDecimalValue(a.getDecimalValue() - b);
     }
 
     @Override
-    public DRAMData subtract(DRAMData a, DRAMData b) {
+    public Binary subtract(Binary a, Binary b) {
         return new DRAMDataImpl().setDecimalValue(a.getDecimalValue() - b.getDecimalValue());
     }
 
 
     @Override
-    public DRAMData[] multiply(DRAMData a, DRAMData b) {
+    public Binary[] multiply(Binary a, Binary b) {
         DRAMData[] dramData = {new DRAMDataImpl(), new DRAMDataImpl()};
         int result = a.getDecimalValue() * b.getDecimalValue();
         String unformatted = Integer.toBinaryString(result);
@@ -64,7 +65,7 @@ public class ALUImpl implements ALU {
 
 
     @Override
-    public DRAMData[] divide(DRAMData a, DRAMData b) {
+    public Binary[] divide(Binary a, Binary b) {
         DRAMData[] dramData = {new DRAMDataImpl(), new DRAMDataImpl()};
 
         int quotient = a.getDecimalValue() / b.getDecimalValue();
@@ -95,55 +96,55 @@ public class ALUImpl implements ALU {
 
     //TODO
     @Override
-    public DRAMData and(DRAMData a, DRAMData b) {
+    public Binary and(Binary a, Binary b) {
         return new DRAMDataImpl();
     }
 
     //TODO
     @Override
-    public DRAMData or(DRAMData a, DRAMData b) {
+    public Binary or(Binary a, Binary b) {
         return new DRAMDataImpl();
     }
 
 
     @Override
-    public DRAMData not(DRAMData a) {
+    public Binary not(Binary a) {
         return new DRAMDataImpl().setDecimalValue(~a.getDecimalValue());
     }
 
     //TODO
     @Override
-    public DRAMData arithmeticShiftL(DRAMData a) {
+    public Binary arithmeticShiftL(Binary a) {
         return null;
     }
 
     //TODO
     @Override
-    public DRAMData arithmeticShiftR(DRAMData a) {
+    public Binary arithmeticShiftR(Binary a) {
         return null;
     }
 
     //TODO
     @Override
-    public DRAMData logicalShiftL(DRAMData a) {
+    public Binary logicalShiftL(Binary a) {
         return null;
     }
 
     //TODO
     @Override
-    public DRAMData logicalShiftR(DRAMData a) {
+    public Binary logicalShiftR(Binary a) {
         return null;
     }
 
     //TODO
     @Override
-    public DRAMData logicalRotateL(DRAMData a) {
+    public Binary logicalRotateL(Binary a) {
         return null;
     }
 
     //TODO
     @Override
-    public DRAMData logicalRotateR(DRAMData a) {
+    public Binary logicalRotateR(Binary a) {
         return null;
     }
 }

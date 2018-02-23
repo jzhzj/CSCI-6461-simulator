@@ -5,6 +5,7 @@ import com.gwu.cs6461.services.dram.DRAMAddress;
 
 /**
  * JZ Instruction
+ * Jump If Zero
  */
 public class JZImpl extends TransferImpl {
 
@@ -12,6 +13,7 @@ public class JZImpl extends TransferImpl {
     public Runnable onExecute() {
         Runnable task = () -> {
             if (gpRegister.read().getDecimalValue() == 0) {
+                //PC <- EA
                 IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
             }
         };

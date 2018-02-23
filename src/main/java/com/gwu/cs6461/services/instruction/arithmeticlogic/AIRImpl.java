@@ -2,6 +2,7 @@ package com.gwu.cs6461.services.instruction.arithmeticlogic;
 
 
 import com.gwu.cs6461.services.cpu.alu.ALUImpl;
+import com.gwu.cs6461.services.dram.DRAMData;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -16,7 +17,7 @@ public class AIRImpl extends arithRXAImpl {
         Runnable task = () -> {
             getImmed();
             //r <- c(r) + Immed
-            gpRegister.write(ALUImpl.getInstance().add(gpRegister.read(), immedFieldValue));
+            gpRegister.write((DRAMData) ALUImpl.getInstance().add(gpRegister.read(), immedFieldValue));
         };
         return task;
     }

@@ -20,7 +20,7 @@ public class MLTImpl extends arithRRImpl {
                 //TODO throw machine fault
             }
             // c(rx) * c(ry)
-            DRAMData[] dramData = ALUImpl.getInstance().multiply(gpRegister.read(), gpRegister2.read());
+            DRAMData[] dramData = (DRAMData[]) ALUImpl.getInstance().multiply(gpRegister.read(), gpRegister2.read());
             // rx <- high order bits
             gpRegister.write(dramData[0]);
             // rx+1 <- low order bits

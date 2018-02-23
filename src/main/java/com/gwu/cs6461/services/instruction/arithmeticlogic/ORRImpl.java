@@ -17,7 +17,7 @@ public class ORRImpl extends arithRRImpl {
     public Runnable onExecute() {
         Runnable task = () -> {
             //Logical Or of Register and Register
-            gpRegister.write(ALUImpl.getInstance().or(gpRegister.read(), gpRegister2.read()));
+            gpRegister.write((DRAMData) ALUImpl.getInstance().or(gpRegister.read(), gpRegister2.read()));
         };
         return task;
     }

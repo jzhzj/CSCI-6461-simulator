@@ -5,6 +5,7 @@ import com.gwu.cs6461.services.dram.DRAMAddress;
 
 /**
  * JMA Instruction
+ * Unconditional Jump To Address
  */
 public class JMAImpl extends TransferImpl {
     @Override

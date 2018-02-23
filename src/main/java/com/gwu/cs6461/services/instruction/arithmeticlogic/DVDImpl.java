@@ -19,7 +19,7 @@ public class DVDImpl extends arithRRImpl {
                 //TODO throw machine fault
             }
             // c(rx) / c(ry)
-            DRAMData[] dramData = ALUImpl.getInstance().divide(gpRegister.read(), gpRegister2.read());
+            DRAMData[] dramData = (DRAMData[]) ALUImpl.getInstance().divide(gpRegister.read(), gpRegister2.read());
             // rx <- quotient
             gpRegister.write(dramData[0]);
             // rx+1 <- remainder

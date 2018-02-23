@@ -5,6 +5,7 @@ import com.gwu.cs6461.services.dram.DRAMAddress;
 
 /**
  * JGE Instruction
+ * Jump Greater Than or Equal To
  */
 public class JGEImpl extends TransferImpl {
     @Override

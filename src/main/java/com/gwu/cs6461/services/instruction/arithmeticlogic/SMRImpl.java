@@ -15,7 +15,7 @@ public class SMRImpl extends arithRXAImpl {
     public Runnable onExecute() {
         Runnable task = () -> {
             //r <- c(r) - c(EA)
-            gpRegister.write(ALUImpl.getInstance().subtract(gpRegister.read(), DRAMImpl.getInstance().read(effectiveAddress)));
+            gpRegister.write((DRAMData) ALUImpl.getInstance().subtract(gpRegister.read(), DRAMImpl.getInstance().read(effectiveAddress)));
         };
         return task;
     }

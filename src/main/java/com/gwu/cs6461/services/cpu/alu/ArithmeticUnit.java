@@ -18,7 +18,7 @@ public interface ArithmeticUnit {
      * @param b
      * @return
      */
-    DRAMData add(DRAMData a, DRAMData b);
+    Binary add(Binary a, Binary b);
 
 
     /**
@@ -28,7 +28,7 @@ public interface ArithmeticUnit {
      * @param b
      * @return
      */
-    DRAMData subtract(DRAMData a, DRAMData b);
+    Binary subtract(Binary a, Binary b);
 
 
     /**
@@ -38,7 +38,7 @@ public interface ArithmeticUnit {
      * @param b
      * @return
      */
-    DRAMData add(DRAMData a, int b);
+    Binary add(Binary a, int b);
 
 
     /**
@@ -48,7 +48,7 @@ public interface ArithmeticUnit {
      * @param b
      * @return
      */
-    DRAMData subtract(DRAMData a, int b);
+    Binary subtract(Binary a, int b);
 
     /**
      * a and b are summed
@@ -57,7 +57,7 @@ public interface ArithmeticUnit {
      * @param b
      * @return
      */
-    DRAMData[] multiply(DRAMData a, DRAMData b);
+    Binary[] multiply(Binary a, Binary b);
 
 
     /**
@@ -67,6 +67,6 @@ public interface ArithmeticUnit {
      * @param b
      * @return
      */
-    DRAMData[] divide(DRAMData a, DRAMData b);
+    Binary[] divide(Binary a, Binary b);
 
 }

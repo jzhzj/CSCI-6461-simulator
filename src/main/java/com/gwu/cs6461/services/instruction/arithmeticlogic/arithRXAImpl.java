@@ -1,5 +1,6 @@
 package com.gwu.cs6461.services.instruction.arithmeticlogic;
 
+import com.gwu.cs6461.services.cpu.alu.ALUImpl;
 import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMData;
@@ -82,7 +83,7 @@ public class arithRXAImpl extends InstructionImpl {
                     ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
                 } else {
                     // c(Xj) + Address
-                    DRAMAddress address = new DRAMAddress().setDecimalValue(idxRegister.read().getDecimalValue() + addressFieldValue);
+                    DRAMAddress address = new DRAMAddress().setDecimalValue(ALUImpl.getInstance().add(idxRegister.read(), addressFieldValue).getDecimalValue());
                     // c(c(Xj) + Address)
                     ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
                 }
@@ -93,7 +94,7 @@ public class arithRXAImpl extends InstructionImpl {
                     ea.setDecimalValue(addressFieldValue);
                 } else {
                     // c(Xj) + contents of the Address field
-                    ea.setDecimalValue(idxRegister.read().getDecimalValue() + addressFieldValue);
+                    ea.setDecimalValue(ALUImpl.getInstance().add(idxRegister.read(), addressFieldValue).getDecimalValue());
                 }
                 break;
             default:

@@ -1,5 +1,6 @@
 package com.gwu.cs6461.services.instruction.loadstore;
 
+import com.gwu.cs6461.services.cpu.alu.ALUImpl;
 import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMData;
@@ -75,33 +76,31 @@ public class LSImpl extends InstructionImpl {
     }
 
 
-
-
     private DRAMAddress getEA() {
         String instructionBinary = toDRAMData().getBinaryValue();
         int addressFieldValue = Integer.parseInt(StringUtils.substring(instructionBinary, 11, 16), 2);
         DRAMAddress ea = new DRAMAddress();
         switch (StringUtils.substring(instructionBinary, 10, 11)) {
             case "1":
-                if(idxRegister == null) {
+                if (idxRegister == null) {
                     // Address
                     DRAMAddress address = new DRAMAddress().setDecimalValue(addressFieldValue);
                     // c(Address)
                     ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
                 } else {
                     // c(Xj) + Address
-                    DRAMAddress address = new DRAMAddress().setDecimalValue(idxRegister.read().getDecimalValue() + addressFieldValue);
+                    DRAMAddress address = new DRAMAddress().setDecimalValue(ALUImpl.getInstance().add(idxRegister.read(), addressFieldValue).getDecimalValue());
                     // c(c(Xj) + Address)
                     ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
                 }
                 break;
             case "0":
-                if(idxRegister == null){
+                if (idxRegister == null) {
                     // contents of the Address field
                     ea.setDecimalValue(addressFieldValue);
                 } else {
                     // c(Xj) + contents of the Address field
-                    ea.setDecimalValue(idxRegister.read().getDecimalValue() + addressFieldValue);
+                    ea.setDecimalValue(ALUImpl.getInstance().add(idxRegister.read(), addressFieldValue).getDecimalValue());
                 }
                 break;
             default:
@@ -109,5 +108,4 @@ public class LSImpl extends InstructionImpl {
         }
         return ea;
     }
-
 }

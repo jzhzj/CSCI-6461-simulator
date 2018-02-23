@@ -19,7 +19,7 @@ public class SIRImpl extends arithRXAImpl {
         Runnable task = () -> {
             getImmed();
             //r <- c(r) - Immed
-            gpRegister.write(ALUImpl.getInstance().subtract(gpRegister.read(), immedFieldValue));
+            gpRegister.write((DRAMData) ALUImpl.getInstance().subtract(gpRegister.read(), immedFieldValue));
         };
         return task;
     }

@@ -1,6 +1,7 @@
 package com.gwu.cs6461.services.instruction.transfer;
 
 
+import com.gwu.cs6461.services.cpu.alu.ALUImpl;
 import com.gwu.cs6461.services.cpu.registers.GPR3Impl;
 import com.gwu.cs6461.services.cpu.registers.IARImpl;
 import com.gwu.cs6461.services.dram.DRAMAddress;
@@ -17,7 +18,7 @@ public class JSRImpl extends TransferImpl {
     public Runnable onExecute() {
         Runnable task = () -> {
         //R3 <- PC+1;
-         GPR3Impl.getInstance().write((DRAMData) new DRAMAddress().setDecimalValue(IARImpl.getInstance().read().getDecimalValue() + 1));
+         GPR3Impl.getInstance().write((DRAMData) new DRAMAddress().setDecimalValue(ALUImpl.getInstance().add(IARImpl.getInstance().read(), 1).getDecimalValue()));
          //PC <- EA ;
          IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
         };
