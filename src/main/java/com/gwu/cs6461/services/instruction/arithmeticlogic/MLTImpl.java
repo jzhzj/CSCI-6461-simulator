@@ -11,13 +11,11 @@ import org.apache.commons.lang3.StringUtils;
  * MLT Instruction
  * Multiply Register by Register
  */
-public class MLTImpl extends ALImpl {
-    Register<DRAMData> gpRegister2;
+public class MLTImpl extends arithRRImpl {
 
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
-            getRegister2();
             if (gpRegister == GPR1Impl.getInstance() || gpRegister2 == GPR1Impl.getInstance() || gpRegister == GPR3Impl.getInstance() || gpRegister2 == GPR3Impl.getInstance()) {
                 //TODO throw machine fault
             }
@@ -33,32 +31,5 @@ public class MLTImpl extends ALImpl {
             }
         };
         return task;
-    }
-
-
-    private void getRegister2() {
-        String instructionBinary = toDRAMData().getBinaryValue();
-
-        switch (StringUtils.substring(instructionBinary, 8, 10)) {
-            case "00":
-                // 00
-                gpRegister2 = GPR0Impl.getInstance();
-                break;
-            case "01":
-                // 01
-                gpRegister2 = GPR1Impl.getInstance();
-                break;
-            case "10":
-                // 02
-                gpRegister2 = GPR2Impl.getInstance();
-                break;
-            case "11":
-                // 03
-                gpRegister2 = GPR3Impl.getInstance();
-                break;
-            default:
-                // TODO throw machine fault
-
-        }
     }
 }

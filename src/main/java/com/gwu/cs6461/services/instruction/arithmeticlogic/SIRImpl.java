@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
  * SIR Instruction
  * Subtract  Immediate  from Register, r = 0..3
  */
-public class SIRImpl extends ALImpl {
+public class SIRImpl extends arithRXAImpl {
     private int immedFieldValue;
 
     @Override
@@ -19,15 +19,7 @@ public class SIRImpl extends ALImpl {
         Runnable task = () -> {
             getImmed();
             //r <- c(r) - Immed
-            if (immedFieldValue == 0) {
-
-            } else if (gpRegister.read().getDecimalValue() == 0) {
-                GPR1Impl.getInstance().write(new DRAMDataImpl().setDecimalValue(-immedFieldValue));
-            } else {
-                gpRegister.write(ALUImpl.getInstance().subtract(gpRegister.read(), immedFieldValue));
-            }
-
-
+            gpRegister.write(ALUImpl.getInstance().subtract(gpRegister.read(), immedFieldValue));
         };
         return task;
     }

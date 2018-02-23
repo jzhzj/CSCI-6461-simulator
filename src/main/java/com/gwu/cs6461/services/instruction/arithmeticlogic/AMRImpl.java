@@ -10,7 +10,7 @@ import com.gwu.cs6461.services.dram.DRAMImpl;
  * AMR Instruction
  * Add Memory To Register, r = 0..3
  */
-public class AMRImpl extends ALImpl {
+public class AMRImpl extends arithRXAImpl {
 
     @Override
     public Runnable onExecute() {

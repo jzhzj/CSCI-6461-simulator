@@ -7,7 +7,7 @@ import com.gwu.cs6461.services.dram.DRAMImpl;
 import com.gwu.cs6461.services.instruction.InstructionImpl;
 import org.apache.commons.lang3.StringUtils;
 
-public class ALImpl extends InstructionImpl {
+public class arithRXAImpl extends InstructionImpl {
     Register<DRAMData> gpRegister;
     Register<DRAMAddress> idxRegister;
     DRAMAddress effectiveAddress;

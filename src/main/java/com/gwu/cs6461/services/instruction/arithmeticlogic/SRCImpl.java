@@ -6,7 +6,7 @@ package com.gwu.cs6461.services.instruction.arithmeticlogic;
  * Shift Register by Count
  * TODO to be implemented
  */
-public class SRCImpl extends ALImpl {
+public class SRCImpl extends arithRCImpl {
 
     @Override
     public Runnable onExecute() {

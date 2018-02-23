@@ -6,7 +6,7 @@ package com.gwu.cs6461.services.instruction.arithmeticlogic;
  * Rotate Register by Count
  * TODO to be implemented
  */
-public class RRCImpl extends ALImpl {
+public class RRCImpl extends arithRCImpl {
 
     @Override
     public Runnable onExecute() {

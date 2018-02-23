@@ -6,7 +6,7 @@ package com.gwu.cs6461.services.instruction.arithmeticlogic;
  * Test the Equality of Register and Register
  * TODO to be implemented
  */
-public class TRRImpl extends ALImpl {
+public class TRRImpl extends arithRRImpl {
 
     @Override
     public Runnable onExecute() {

@@ -9,7 +9,7 @@ import com.gwu.cs6461.services.dram.DRAMImpl;
  * SMR Instruction
  * Subtract Memory From Register, r = 0..3
  */
-public class SMRImpl extends ALImpl {
+public class SMRImpl extends arithRXAImpl {
 
     @Override
     public Runnable onExecute() {
