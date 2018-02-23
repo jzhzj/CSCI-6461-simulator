@@ -1,10 +1,11 @@
 package com.gwu.cs6461.services.device;
 
-import com.gwu.cs6461.util.Binary;
+
+import com.gwu.cs6461.services.dram.DRAMData;
 
 import java.util.Observable;
 
-public class Printer extends Observable implements Device {
+public class Printer extends Observable implements Device<DRAMData> {
     private static Printer ourInstance = new Printer();
 
     public static Printer getInstance() {
@@ -14,15 +15,19 @@ public class Printer extends Observable implements Device {
     private Printer() {
     }
 
+    private DRAMData data;
+
     @Override
-    public void write(Binary inputBuffer) {
+    public void write(DRAMData inputBuffer) {
         // TODO to be implemented
+        data = inputBuffer;
+
         setChanged();
         notifyObservers();
     }
 
     @Override
-    public Binary read() {
+    public DRAMData read() {
         return null;
     }
 }
