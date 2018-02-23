@@ -94,16 +94,16 @@ public class ALUImpl implements ALU {
         return dramData;
     }
 
-    //TODO
+
     @Override
     public Binary and(Binary a, Binary b) {
-        return new DRAMDataImpl();
+        return new DRAMDataImpl().setDecimalValue(a.getDecimalValue() & b.getDecimalValue());
     }
 
-    //TODO
+
     @Override
     public Binary or(Binary a, Binary b) {
-        return new DRAMDataImpl();
+        return new DRAMDataImpl().setDecimalValue(a.getDecimalValue() | b.getDecimalValue());
     }
 
 
