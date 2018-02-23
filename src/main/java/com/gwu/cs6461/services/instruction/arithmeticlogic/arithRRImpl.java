@@ -12,7 +12,7 @@ public class arithRRImpl extends InstructionImpl {
     @Override
     public Runnable onDecode() {
         Runnable decodeTask = () -> {
-            // set target register and effective address
+            // set target registers
             String instructionBinary = toDRAMData().getBinaryValue();
 
             switch (StringUtils.substring(instructionBinary, 6, 8)) {

@@ -10,13 +10,21 @@ import com.gwu.cs6461.util.Binary;
  */
 public interface LogicUnit {
     Binary and(Binary a, Binary b);
+
     Binary or(Binary a, Binary b);
+
     Binary not(Binary a);
-    Binary arithmeticShiftL(Binary a);
-    Binary arithmeticShiftR(Binary a);
-    Binary logicalShiftL(Binary a);
-    Binary logicalShiftR(Binary a);
-    Binary logicalRotateL(Binary a);
-    Binary logicalRotateR(Binary a);
+
+    void test(Binary a, Binary b);
+
+    Binary arithmeticShiftR(Binary a, int count);
+
+    Binary logicalShiftL(Binary a, int count);
+
+    Binary logicalShiftR(Binary a, int count);
+
+    Binary logicalRotateL(Binary a, int count);
+
+    Binary logicalRotateR(Binary a, int count);
 
 }

@@ -1,6 +1,7 @@
 package com.gwu.cs6461.services.cpu.alu;
 
 import com.gwu.cs6461.constants.MachineProps;
+import com.gwu.cs6461.services.cpu.registers.Register;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import com.gwu.cs6461.util.Binary;
@@ -114,37 +115,41 @@ public class ALUImpl implements ALU {
 
     //TODO
     @Override
-    public Binary arithmeticShiftL(Binary a) {
+    public void test(Binary a, Binary b) {
+        if (a.getDecimalValue() == b.getDecimalValue()) {
+
+        } else {
+
+        }
+    }
+
+    //TODO
+    @Override
+    public Binary arithmeticShiftR(Binary a, int count) {
         return null;
     }
 
     //TODO
     @Override
-    public Binary arithmeticShiftR(Binary a) {
+    public Binary logicalShiftL(Binary a, int count) {
         return null;
     }
 
     //TODO
     @Override
-    public Binary logicalShiftL(Binary a) {
+    public Binary logicalShiftR(Binary a, int count) {
         return null;
     }
 
     //TODO
     @Override
-    public Binary logicalShiftR(Binary a) {
+    public Binary logicalRotateL(Binary a, int count) {
         return null;
     }
 
     //TODO
     @Override
-    public Binary logicalRotateL(Binary a) {
-        return null;
-    }
-
-    //TODO
-    @Override
-    public Binary logicalRotateR(Binary a) {
+    public Binary logicalRotateR(Binary a, int count) {
         return null;
     }
 }
