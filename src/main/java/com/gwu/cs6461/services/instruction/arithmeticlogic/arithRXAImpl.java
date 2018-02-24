@@ -8,6 +8,11 @@ import com.gwu.cs6461.services.dram.DRAMImpl;
 import com.gwu.cs6461.services.instruction.InstructionImpl;
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * 2nd tier implementation of Instruction
+ * super class of AMR SMR AIR SIR Instructions
+ */
+
 public class arithRXAImpl extends InstructionImpl {
     Register<DRAMData> gpRegister;
     Register<DRAMAddress> idxRegister;

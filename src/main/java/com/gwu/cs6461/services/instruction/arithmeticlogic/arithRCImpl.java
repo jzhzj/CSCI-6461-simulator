@@ -5,6 +5,11 @@ import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.instruction.InstructionImpl;
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * 2nd tier implementation of Instruction
+ * super class of SRC and RRC Instructions
+ */
+
 public class arithRCImpl extends InstructionImpl {
     Register<DRAMData> gpRegister;
     boolean isLogical;
