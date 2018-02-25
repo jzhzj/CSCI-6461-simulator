@@ -12,7 +12,7 @@ public class STRImpl extends LSImpl {
 
     @Override
     public Runnable onExecute() {
-        Runnable executeTask = () ->{
+        Runnable executeTask = () -> {
             // c(r)
             DRAMData dramData = gpRegister.read();
             // MBR <- c(r)

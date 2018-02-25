@@ -17,7 +17,7 @@ import java.util.List;
  * Singleton
  * Rom Loader
  */
-public class RomLoaderImpl implements RomLoader{
+public class RomLoaderImpl implements RomLoader {
 
     private static RomLoaderImpl ourInstance = new RomLoaderImpl();
 
@@ -37,20 +37,21 @@ public class RomLoaderImpl implements RomLoader{
         IARImpl.getInstance().reset();
 
 
-        Type listType = new TypeToken<LinkedList<RomData>>(){}.getType();
+        Type listType = new TypeToken<LinkedList<RomData>>() {
+        }.getType();
         Gson gson = new Gson();
         BufferedReader bufferedReader = loadFile();
         List<RomData> romDataList = gson.fromJson(bufferedReader, listType);
 
         // load some customized instructions into memory (8) here, romDataList
-        for(int i = 0, length = romDataList.size(); i < length; i++){
+        for (int i = 0, length = romDataList.size(); i < length; i++) {
             DRAMImpl.getInstance().write(
                     new DRAMAddress().setDecimalValue(MachineProps.INSTRUCTION_START_ADDRESS + i),
                     new DRAMDataImpl().setBinaryValue(romDataList.get(i).getValue()));
         }
 
         try {
-            if(bufferedReader != null){
+            if (bufferedReader != null) {
                 bufferedReader.close();
             }
         } catch (IOException e) {

@@ -13,7 +13,7 @@ public class STXImpl extends LSImpl {
 
     @Override
     public Runnable onExecute() {
-        Runnable executeTask = () ->{
+        Runnable executeTask = () -> {
             // c(Xx)
             DRAMData dramData = new DRAMDataImpl().setDecimalValue(idxRegister.read().getDecimalValue());
             // MBR <- c(Xx)

@@ -14,11 +14,11 @@ public class SOBImpl extends TransferImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
-            DRAMData data= gpRegister.read();
+            DRAMData data = gpRegister.read();
             //r <- c(r) – 1
             gpRegister.write((DRAMData) ALUImpl.getInstance().subtract(gpRegister.read(), 1));
             //If c(r) > 0,  PC <- EA;
-            if(gpRegister.read().getDecimalValue() > 0){
+            if (gpRegister.read().getDecimalValue() > 0) {
                 IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
             }
         };

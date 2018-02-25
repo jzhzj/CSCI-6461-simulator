@@ -25,7 +25,7 @@ public class App extends Application {
         super.stop();
         // clear all observers registered on components
         CPUImpl.getInstance().getRegisters().forEach(register -> {
-            Observable o = (Observable)register;
+            Observable o = (Observable) register;
             o.deleteObservers();
         });
         CPUImpl.getInstance().deleteObservers();

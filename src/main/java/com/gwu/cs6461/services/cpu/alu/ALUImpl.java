@@ -46,7 +46,7 @@ public class ALUImpl implements ALU {
 
     @Override
     public Binary add(Binary a, Binary b) {
-        return add(a,b.getDecimalValue());
+        return add(a, b.getDecimalValue());
     }
 
 
@@ -69,7 +69,7 @@ public class ALUImpl implements ALU {
 
     @Override
     public Binary subtract(Binary a, Binary b) {
-        return subtract(a,b.getDecimalValue());
+        return subtract(a, b.getDecimalValue());
     }
 
 
@@ -210,6 +210,6 @@ public class ALUImpl implements ALU {
     @Override
     public Binary logicalRotateR(Binary a, int count) {
         // Rotating right by count equals to rotating left by WORD_BIT_WIDTH - count
-        return logicalRotateL(a,MachineProps.WORD_BIT_WIDTH - count);
+        return logicalRotateL(a, MachineProps.WORD_BIT_WIDTH - count);
     }
 }

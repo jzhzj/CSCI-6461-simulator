@@ -6,5 +6,6 @@ package com.gwu.cs6461.services.sram;
  */
 public interface SRAM {
     void read();
+
     void write();
 }

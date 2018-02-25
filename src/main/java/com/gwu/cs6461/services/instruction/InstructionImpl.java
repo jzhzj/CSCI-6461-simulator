@@ -10,8 +10,7 @@ import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMImpl;
 
 /**
- *  1st-tier Instruction implementation
- *
+ * 1st-tier Instruction implementation
  */
 public class InstructionImpl implements Instruction {
 

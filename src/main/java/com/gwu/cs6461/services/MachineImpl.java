@@ -8,7 +8,7 @@ import com.gwu.cs6461.services.romloader.RomLoaderImpl;
  * Singleton
  * Machine
  */
-public class MachineImpl implements Machine{
+public class MachineImpl implements Machine {
 
     private static MachineImpl ourInstance = new MachineImpl();
 

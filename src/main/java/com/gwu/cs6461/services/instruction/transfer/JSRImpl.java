@@ -17,10 +17,10 @@ public class JSRImpl extends TransferImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
-        //R3 <- PC+1;
-         GPR3Impl.getInstance().write((DRAMData) new DRAMAddress().setDecimalValue(ALUImpl.getInstance().add(IARImpl.getInstance().read(), 1).getDecimalValue()));
-         //PC <- EA ;
-         IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
+            //R3 <- PC+1;
+            GPR3Impl.getInstance().write((DRAMData) new DRAMAddress().setDecimalValue(ALUImpl.getInstance().add(IARImpl.getInstance().read(), 1).getDecimalValue()));
+            //PC <- EA ;
+            IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
         };
         return task;
     }

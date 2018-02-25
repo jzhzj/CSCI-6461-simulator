@@ -15,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class RFSImpl extends TransferImpl {
     private int immedFieldValue;
+
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
