@@ -163,10 +163,18 @@
                                           <Button fx:id="WriteMemButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                        </items>
                                     </ToolBar>
-                                    <TextField fx:id="KeyboardTextField" layoutX="19.0" layoutY="99.0" prefHeight="140.0" prefWidth="539.0" />
-                                    <TextField fx:id="printerTextField" layoutX="21.0" layoutY="292.0" prefHeight="169.0" prefWidth="538.0" />
-                                    <Label layoutX="19.0" layoutY="52.0" prefHeight="40.0" prefWidth="73.0" text="keyboard" />
-                                    <Label layoutX="23.0" layoutY="246.0" prefHeight="40.0" prefWidth="70.0" text="printer" />
+                                    <TitledPane animated="false" layoutX="-2.0" layoutY="155.0" prefHeight="480.0" prefWidth="600.0" text="I/O Panel">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="600.0">
+                                             <children>
+                                                <TextField fx:id="KeyboardTextField" layoutX="130.0" layoutY="21.0" prefHeight="40.0" prefWidth="184.0" />
+                                                <TextField fx:id="printerTextField" layoutX="14.0" layoutY="101.0" prefHeight="207.0" prefWidth="565.0" />
+                                                <Label layoutX="36.0" layoutY="61.0" prefHeight="40.0" prefWidth="70.0" text="printer" />
+                                                <Label layoutX="35.0" layoutY="21.0" prefHeight="40.0" prefWidth="73.0" text="keyboard" />
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </TitledPane>
                                  </children>
                               </AnchorPane>
                           </content>
