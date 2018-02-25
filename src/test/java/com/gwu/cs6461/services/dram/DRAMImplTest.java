@@ -19,15 +19,15 @@ public class DRAMImplTest {
 
     @Test
     public void read() {
-        assertEquals(0, DRAMImpl.getInstance().read(new DRAMAddress().setDecimalValue(DRAMAddress.MIN_VALUE)).getDecimalValue());
-        assertEquals(0, DRAMImpl.getInstance().read(new DRAMAddress().setDecimalValue(DRAMAddress.MAX_VALUE)).getDecimalValue());
+        assertEquals(0, DRAMImpl.getInstance().read(new DRAMAddressImpl().setDecimalValue(DRAMAddress.MIN_VALUE)).getDecimalValue());
+        assertEquals(0, DRAMImpl.getInstance().read(new DRAMAddressImpl().setDecimalValue(DRAMAddress.MAX_VALUE)).getDecimalValue());
     }
 
     @Test
     public void write() {
-        DRAMImpl.getInstance().write(new DRAMAddress().setDecimalValue(10), new DRAMDataImpl().setDecimalValue(-1));
-        DRAMImpl.getInstance().write(new DRAMAddress().setDecimalValue(10), new DRAMDataImpl().setDecimalValue(1));
-        assertEquals(1, DRAMImpl.getInstance().read(new DRAMAddress().setDecimalValue(10)).getDecimalValue());
+        DRAMImpl.getInstance().write(new DRAMAddressImpl().setDecimalValue(10), new DRAMDataImpl().setDecimalValue(-1));
+        DRAMImpl.getInstance().write(new DRAMAddressImpl().setDecimalValue(10), new DRAMDataImpl().setDecimalValue(1));
+        assertEquals(1, DRAMImpl.getInstance().read(new DRAMAddressImpl().setDecimalValue(10)).getDecimalValue());
     }
 
     @Test

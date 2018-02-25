@@ -4,11 +4,13 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.services.cpu.registers.IARImpl;
-import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import com.gwu.cs6461.services.dram.DRAMImpl;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.LinkedList;
 import java.util.List;
@@ -46,7 +48,7 @@ public class RomLoaderImpl implements RomLoader {
         // load some customized instructions into memory (8) here, romDataList
         for (int i = 0, length = romDataList.size(); i < length; i++) {
             DRAMImpl.getInstance().write(
-                    new DRAMAddress().setDecimalValue(MachineProps.INSTRUCTION_START_ADDRESS + i),
+                    new DRAMAddressImpl().setDecimalValue(MachineProps.INSTRUCTION_START_ADDRESS + i),
                     new DRAMDataImpl().setBinaryValue(romDataList.get(i).getValue()));
         }
 

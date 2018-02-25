@@ -2,6 +2,7 @@ package com.gwu.cs6461.services.instruction.loadstore;
 
 import com.gwu.cs6461.services.cpu.registers.MBRImpl;
 import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMImpl;
 
@@ -21,7 +22,7 @@ public class LDXImpl extends LSImpl {
             // MBR <- c(EA)
             MBRImpl.getInstance().write(data);
             //  Xx <- MBR
-            idxRegister.write(new DRAMAddress().setDecimalValue(MBRImpl.getInstance().read().getDecimalValue()));
+            idxRegister.write(new DRAMAddressImpl().setDecimalValue(MBRImpl.getInstance().read().getDecimalValue()));
         };
         return executeTask;
     }

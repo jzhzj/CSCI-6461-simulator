@@ -3,10 +3,7 @@ package com.gwu.cs6461.components.main;
 import com.gwu.cs6461.services.MachineImpl;
 import com.gwu.cs6461.services.cpu.CPUImpl;
 import com.gwu.cs6461.services.cpu.registers.*;
-import com.gwu.cs6461.services.dram.DRAMAddress;
-import com.gwu.cs6461.services.dram.DRAMData;
-import com.gwu.cs6461.services.dram.DRAMDataImpl;
-import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.dram.*;
 import com.gwu.cs6461.services.fault.IllegalMemoryAddressBeyondMax;
 import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
 import com.gwu.cs6461.services.fault.IllegalOperationCode;
@@ -100,7 +97,7 @@ public class MainController implements Observer {
     void handleDRAMButtonClick(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
         try{
-            DRAMAddress address = new DRAMAddress().setDecimalValue(ramAddressTextField.getText());
+            DRAMAddress address = new DRAMAddressImpl().setDecimalValue(ramAddressTextField.getText());
             DRAMData dramData;
             switch (btn.getId()) {
                 case "ReadMemButton":
@@ -131,11 +128,11 @@ public class MainController implements Observer {
         try {
             switch (btn.getId()) {
                 case "PCButton":
-                    address = new DRAMAddress().setDecimalValue(pcTextField.getText());
+                    address = new DRAMAddressImpl().setDecimalValue(pcTextField.getText());
                     IARImpl.getInstance().write(address);
                     break;
                 case "MARButton":
-                    address = new DRAMAddress().setDecimalValue(marTextField.getText());
+                    address = new DRAMAddressImpl().setDecimalValue(marTextField.getText());
                     MARImpl.getInstance().write(address);
                     break;
                 case "MBRButton":
@@ -159,15 +156,15 @@ public class MainController implements Observer {
                     GPR3Impl.getInstance().write(dramData);
                     break;
                 case "X1Button":
-                    address = new DRAMAddress().setDecimalValue(x1TextField.getText());
+                    address = new DRAMAddressImpl().setDecimalValue(x1TextField.getText());
                     IDXR1Impl.getInstance().write(address);
                     break;
                 case "X2Button":
-                    address = new DRAMAddress().setDecimalValue(x2TextField.getText());
+                    address = new DRAMAddressImpl().setDecimalValue(x2TextField.getText());
                     IDXR2Impl.getInstance().write(address);
                     break;
                 case "X3Button":
-                    address = new DRAMAddress().setDecimalValue(x3TextField.getText());
+                    address = new DRAMAddressImpl().setDecimalValue(x3TextField.getText());
                     IDXR3Impl.getInstance().write(address);
                     break;
                 default:

@@ -2,9 +2,8 @@ package com.gwu.cs6461.services.instruction.transfer;
 
 import com.gwu.cs6461.services.cpu.alu.ALUImpl;
 import com.gwu.cs6461.services.cpu.registers.IARImpl;
-import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 import com.gwu.cs6461.services.dram.DRAMData;
-import com.gwu.cs6461.services.dram.DRAMDataImpl;
 
 /**
  * SOB Instruction
@@ -19,7 +18,7 @@ public class SOBImpl extends TransferImpl {
             gpRegister.write((DRAMData) ALUImpl.getInstance().subtract(gpRegister.read(), 1));
             //If c(r) > 0,  PC <- EA;
             if (gpRegister.read().getDecimalValue() > 0) {
-                IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
+                IARImpl.getInstance().write(new DRAMAddressImpl().setDecimalValue(effectiveAddress.getDecimalValue()));
             }
         };
         return task;

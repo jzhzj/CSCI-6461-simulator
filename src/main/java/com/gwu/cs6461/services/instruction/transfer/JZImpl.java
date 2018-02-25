@@ -1,7 +1,7 @@
 package com.gwu.cs6461.services.instruction.transfer;
 
 import com.gwu.cs6461.services.cpu.registers.IARImpl;
-import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 
 /**
  * JZ Instruction
@@ -14,7 +14,7 @@ public class JZImpl extends TransferImpl {
         Runnable task = () -> {
             if (gpRegister.read().getDecimalValue() == 0) {
                 //PC <- EA
-                IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
+                IARImpl.getInstance().write(new DRAMAddressImpl().setDecimalValue(effectiveAddress.getDecimalValue()));
             }
         };
         return task;

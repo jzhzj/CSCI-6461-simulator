@@ -1,7 +1,7 @@
 package com.gwu.cs6461.services.instruction.transfer;
 
 import com.gwu.cs6461.services.cpu.registers.IARImpl;
-import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 
 /**
  * JMA Instruction
@@ -12,7 +12,7 @@ public class JMAImpl extends TransferImpl {
     public Runnable onExecute() {
         Runnable task = () -> {
             //PC <- EA
-            IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(effectiveAddress.getDecimalValue()));
+            IARImpl.getInstance().write(new DRAMAddressImpl().setDecimalValue(effectiveAddress.getDecimalValue()));
         };
         return task;
     }

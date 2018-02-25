@@ -1,6 +1,7 @@
 package com.gwu.cs6461.services.cpu.registers;
 
 import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 
 import java.util.Observable;
 
@@ -22,7 +23,7 @@ public class MARImpl extends Observable implements Register<DRAMAddress>{
 
     }
 
-    private DRAMAddress activeAddress = new DRAMAddress();
+    private DRAMAddress activeAddress = new DRAMAddressImpl();
 
     @Override
     public void write(DRAMAddress address) {
@@ -38,6 +39,6 @@ public class MARImpl extends Observable implements Register<DRAMAddress>{
 
     @Override
     public void reset() {
-        write(new DRAMAddress());
+        write(new DRAMAddressImpl());
     }
 }

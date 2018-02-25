@@ -6,6 +6,7 @@ import com.gwu.cs6461.services.cpu.registers.IRImpl;
 import com.gwu.cs6461.services.cpu.registers.MARImpl;
 import com.gwu.cs6461.services.cpu.registers.MBRImpl;
 import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMImpl;
 
@@ -29,7 +30,7 @@ public class InstructionImpl implements Instruction {
             // write instruction to IR, MBR -> IR
             IRImpl.getInstance().write(data);
             // PC -> PC + 1
-            IARImpl.getInstance().write(new DRAMAddress().setDecimalValue(ALUImpl.getInstance().add(IARImpl.getInstance().read(), 1).getDecimalValue()));
+            IARImpl.getInstance().write(new DRAMAddressImpl().setDecimalValue(ALUImpl.getInstance().add(IARImpl.getInstance().read(), 1).getDecimalValue()));
         };
         return fetchTask;
     }

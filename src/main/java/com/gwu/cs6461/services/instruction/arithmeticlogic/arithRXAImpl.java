@@ -3,6 +3,7 @@ package com.gwu.cs6461.services.instruction.arithmeticlogic;
 import com.gwu.cs6461.services.cpu.alu.ALUImpl;
 import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMImpl;
 import com.gwu.cs6461.services.instruction.InstructionImpl;
@@ -78,17 +79,17 @@ public class arithRXAImpl extends InstructionImpl {
     private DRAMAddress getEA() {
         String instructionBinary = toDRAMData().getBinaryValue();
         int addressFieldValue = Integer.parseInt(StringUtils.substring(instructionBinary, 11, 16), 2);
-        DRAMAddress ea = new DRAMAddress();
+        DRAMAddress ea = new DRAMAddressImpl();
         switch (StringUtils.substring(instructionBinary, 10, 11)) {
             case "1":
                 if (idxRegister == null) {
                     // Address
-                    DRAMAddress address = new DRAMAddress().setDecimalValue(addressFieldValue);
+                    DRAMAddress address = new DRAMAddressImpl().setDecimalValue(addressFieldValue);
                     // c(Address)
                     ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
                 } else {
                     // c(Xj) + Address
-                    DRAMAddress address = new DRAMAddress().setDecimalValue(ALUImpl.getInstance().add(idxRegister.read(), addressFieldValue).getDecimalValue());
+                    DRAMAddress address = new DRAMAddressImpl().setDecimalValue(ALUImpl.getInstance().add(idxRegister.read(), addressFieldValue).getDecimalValue());
                     // c(c(Xj) + Address)
                     ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
                 }
