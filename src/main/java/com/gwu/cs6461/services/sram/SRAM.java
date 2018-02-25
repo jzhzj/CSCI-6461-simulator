@@ -1,7 +1,7 @@
 package com.gwu.cs6461.services.sram;
 
 import com.gwu.cs6461.constants.MachineProps;
-import com.gwu.cs6461.services.cache.Cache;
+import com.gwu.cs6461.util.Cache;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMBlock;
 import com.gwu.cs6461.services.dram.DRAMData;

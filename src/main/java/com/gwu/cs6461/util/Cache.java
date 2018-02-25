@@ -1,4 +1,4 @@
-package com.gwu.cs6461.services.cache;
+package com.gwu.cs6461.util;
 
 /**
  * Defines what cache does
