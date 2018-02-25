@@ -26,7 +26,7 @@ public class MainController implements Observer {
 
 
     {
-        CPUImpl.getInstance().getRegisters().stream().forEach(register -> {
+        CPUImpl.getInstance().getRegisters().forEach(register -> {
             Observable observable = (Observable)register;
             observable.addObserver(this);
         });
@@ -213,7 +213,7 @@ public class MainController implements Observer {
         } else if(o instanceof MSRImpl){
             msrTextField.setText(MSRImpl.getInstance().read().toString());
         } else if(o instanceof CCRImpl){
-            ccTextField.setText(CCRImpl.getInstance().read().toString());
+            ccTextField.setText(CCRImpl.getInstance().read() != null ? CCRImpl.getInstance().read().toString() : null);
         }
 
     }
