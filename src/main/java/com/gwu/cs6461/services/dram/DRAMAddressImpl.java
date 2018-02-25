@@ -65,4 +65,14 @@ public class DRAMAddressImpl implements DRAMAddress {
             throw new IllegalArgumentException();
         }
     }
+
+    @Override
+    public int getBlockNum() {
+        return address / MachineProps.DRAM_BLOCK_WORD_SIZE;
+    }
+
+    @Override
+    public int getOffset() {
+        return address % MachineProps.DRAM_BLOCK_WORD_SIZE;
+    }
 }
