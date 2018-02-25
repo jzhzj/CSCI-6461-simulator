@@ -163,6 +163,10 @@
                                           <Button fx:id="WriteMemButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                        </items>
                                     </ToolBar>
+                                    <TextField fx:id="KeyboardTextField" layoutX="19.0" layoutY="99.0" prefHeight="140.0" prefWidth="539.0" />
+                                    <TextField fx:id="printerTextField" layoutX="21.0" layoutY="292.0" prefHeight="169.0" prefWidth="538.0" />
+                                    <Label layoutX="19.0" layoutY="52.0" prefHeight="40.0" prefWidth="73.0" text="keyboard" />
+                                    <Label layoutX="23.0" layoutY="246.0" prefHeight="40.0" prefWidth="70.0" text="printer" />
                                  </children>
                               </AnchorPane>
                           </content>

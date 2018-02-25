@@ -62,6 +62,11 @@ public class MainController implements Observer {
     private TextField ramAddressTextField;
     @FXML
     private TextField ramValueTextField;
+    @FXML
+    private TextField KeyboardTextField;//hou
+    @FXML
+    private TextField printerTextField; //HOU
+
 
 
     @FXML
