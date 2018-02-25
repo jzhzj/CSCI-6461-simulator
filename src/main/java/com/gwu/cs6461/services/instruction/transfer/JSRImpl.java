@@ -20,7 +20,7 @@ public class JSRImpl extends TransferImpl {
             //R3 <- PC+1;
             GPR3Impl.getInstance().write((DRAMData) new DRAMAddressImpl().setDecimalValue(ALUImpl.getInstance().add(IARImpl.getInstance().read(), 1).getDecimalValue()));
             //PC <- EA ;
-            IARImpl.getInstance().write(new DRAMAddressImpl().setDecimalValue(effectiveAddress.getDecimalValue()));
+            IARImpl.getInstance().write(effectiveAddress);
         };
         return task;
     }

@@ -18,7 +18,7 @@ public class SOBImpl extends TransferImpl {
             gpRegister.write((DRAMData) ALUImpl.getInstance().subtract(gpRegister.read(), 1));
             //If c(r) > 0,  PC <- EA;
             if (gpRegister.read().getDecimalValue() > 0) {
-                IARImpl.getInstance().write(new DRAMAddressImpl().setDecimalValue(effectiveAddress.getDecimalValue()));
+                IARImpl.getInstance().write(effectiveAddress);
             }
         };
         return task;
