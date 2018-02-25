@@ -5,8 +5,8 @@ import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 import com.gwu.cs6461.services.dram.DRAMData;
-import com.gwu.cs6461.services.dram.DRAMImpl;
 import com.gwu.cs6461.services.instruction.InstructionImpl;
+import com.gwu.cs6461.services.sram.SRAMImpl;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -87,12 +87,12 @@ public class LSImpl extends InstructionImpl {
                     // Address
                     DRAMAddress address = new DRAMAddressImpl().setDecimalValue(addressFieldValue);
                     // c(Address)
-                    ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
+                    ea.setDecimalValue(SRAMImpl.getInstance().read(address).getDecimalValue());
                 } else {
                     // c(Xj) + Address
                     DRAMAddress address = new DRAMAddressImpl().setDecimalValue(ALUImpl.getInstance().add(idxRegister.read(), addressFieldValue).getDecimalValue());
                     // c(c(Xj) + Address)
-                    ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
+                    ea.setDecimalValue(SRAMImpl.getInstance().read(address).getDecimalValue());
                 }
                 break;
             case "0":

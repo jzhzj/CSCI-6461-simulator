@@ -2,7 +2,7 @@ package com.gwu.cs6461.services.instruction.loadstore;
 
 import com.gwu.cs6461.services.cpu.registers.MBRImpl;
 import com.gwu.cs6461.services.dram.DRAMData;
-import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.sram.SRAMImpl;
 
 /**
  * LDR Instruction
@@ -14,7 +14,7 @@ public class LDRImpl extends LSImpl {
     public Runnable onExecute() {
         Runnable executeTask = () -> {
             // c(EA)
-            DRAMData dataCEA = DRAMImpl.getInstance().read(effectiveAddress);
+            DRAMData dataCEA = SRAMImpl.getInstance().read(effectiveAddress);
             // MBR <- c(EA)
             MBRImpl.getInstance().write(dataCEA);
             // r <− MBR

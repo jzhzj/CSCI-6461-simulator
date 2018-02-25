@@ -8,7 +8,7 @@ import com.gwu.cs6461.services.cpu.registers.MBRImpl;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 import com.gwu.cs6461.services.dram.DRAMData;
-import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.sram.SRAMImpl;
 
 /**
  * 1st-tier Instruction implementation
@@ -24,7 +24,7 @@ public class InstructionImpl implements Instruction {
             DRAMAddress address = IARImpl.getInstance().read();
             MARImpl.getInstance().write(address);
             // read memory data using the address, then write it to MBR : M (MAR) -> MBR
-            DRAMData data = DRAMImpl.getInstance().read(address);
+            DRAMData data = SRAMImpl.getInstance().read(address);
             MBRImpl.getInstance().write(data);
 
             // write instruction to IR, MBR -> IR
