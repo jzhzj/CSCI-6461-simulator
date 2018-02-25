@@ -1,6 +1,7 @@
 package com.gwu.cs6461.services.cpu.alu;
 
 import com.gwu.cs6461.constants.MachineProps;
+import com.gwu.cs6461.services.Machine;
 import com.gwu.cs6461.services.cpu.alu.cc.ConditionCode;
 import com.gwu.cs6461.services.cpu.registers.CCRImpl;
 import com.gwu.cs6461.services.cpu.registers.Register;
@@ -121,7 +122,7 @@ public class ALUImpl implements ALU {
 
     @Override
     public Binary or(Binary a, Binary b) {
-        //Logical Or of a and b, then return the result
+        // Logical Or of a and b, then return the result
         short result = (short) ((short) a.getDecimalValue() | (short) b.getDecimalValue());
         return new DRAMDataImpl().setDecimalValue(result);
     }
@@ -129,7 +130,7 @@ public class ALUImpl implements ALU {
 
     @Override
     public Binary not(Binary a) {
-        //Logical Not of a, then return the result
+        // Logical Not of a, then return the result
         short result = (short) (~a.getDecimalValue());
         return new DRAMDataImpl().setDecimalValue(result);
     }
@@ -180,7 +181,7 @@ public class ALUImpl implements ALU {
     @Override
     public Binary logicalShiftR(Binary a, int count) {
         short num = (short) a.getDecimalValue();
-        // Arithmetically Shift register right by count
+        // Logically Shift register right by count
         for (int i = 0; i < count; i++) {
             // set cc(1) <- true
             if ((num & 1) == 1) {
@@ -191,15 +192,24 @@ public class ALUImpl implements ALU {
         return new DRAMDataImpl().setDecimalValue(num);
     }
 
-    //TODO to be implemented
+
     @Override
     public Binary logicalRotateL(Binary a, int count) {
-        return null;
+        int num = a.getDecimalValue();
+        num = num << MachineProps.WORD_BIT_WIDTH >>> MachineProps.WORD_BIT_WIDTH;
+        // get higher bits that over flow during rotate
+        short higherBits = (short) (num >>> (MachineProps.WORD_BIT_WIDTH - count));
+        // get lower bits that are left during rotate
+        short lowerBits = (short) (num << count);
+        // merge higher bits and lower bits
+        short result = (short) (higherBits | lowerBits);
+        return new DRAMDataImpl().setDecimalValue(result);
     }
 
-    //TODO to be implemented
+
     @Override
     public Binary logicalRotateR(Binary a, int count) {
-        return null;
+        // Rotating right by count equals to rotating left by WORD_BIT_WIDTH - count
+        return logicalRotateL(a,MachineProps.WORD_BIT_WIDTH - count);
     }
 }
