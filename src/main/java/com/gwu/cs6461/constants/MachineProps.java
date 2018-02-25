@@ -26,7 +26,7 @@ public final class MachineProps {
         DRAM_WORD_SIZE = Integer.parseInt(rb.getString("DRAM_WORD_SIZE"));
         DRAM_BLOCK_WORD_SIZE = Integer.parseInt(rb.getString("DRAM_BLOCK_WORD_SIZE"));
 
-        SRAM_LINE_SIZE = Integer.parseInt(rb.getString("SRAM_LINE_SIZE"));
+        SRAM_BLOCK_SIZE = Integer.parseInt(rb.getString("SRAM_BLOCK_SIZE"));
 
         ILLEGAL_MEMORY_ADDRESS_TO_RESERVED_LOCATIONS_ID = Integer.parseInt(rb.getString("ILLEGAL_MEMORY_ADDRESS_TO_RESERVED_LOCATIONS_ID"));
         ILLEGAL_TRAP_CODE_ID = Integer.parseInt(rb.getString("ILLEGAL_TRAP_CODE_ID"));
@@ -55,7 +55,7 @@ public final class MachineProps {
     public static final int DRAM_WORD_SIZE;
     public static final int DRAM_BLOCK_WORD_SIZE;
 
-    public static final int SRAM_LINE_SIZE;
+    public static final int SRAM_BLOCK_SIZE;
 
     public static final int ILLEGAL_MEMORY_ADDRESS_TO_RESERVED_LOCATIONS_ID;
     public static final int ILLEGAL_TRAP_CODE_ID;
