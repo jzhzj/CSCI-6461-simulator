@@ -13,7 +13,7 @@ import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 public class JCCImpl extends TransferImpl {
 
     @Override
-    public Runnable onDecode() {
+    public Runnable onExecute() {
         Runnable task = () -> {
 
             if (CCRImpl.getInstance().read().getBit(ConditionCode.Type.UNDER_FLOW)) {
