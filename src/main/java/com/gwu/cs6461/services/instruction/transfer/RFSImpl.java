@@ -19,7 +19,6 @@ public class RFSImpl extends TransferImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
-            DRAMData data = gpRegister.read();
             //R0 <- Immed
             GPR0Impl.getInstance().write(new DRAMDataImpl().setDecimalValue(getImmed()));
             //PC <- R3

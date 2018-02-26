@@ -13,7 +13,6 @@ public class SOBImpl extends TransferImpl {
     @Override
     public Runnable onExecute() {
         Runnable task = () -> {
-            DRAMData data = gpRegister.read();
             //r <- c(r) – 1
             gpRegister.write((DRAMData) ALUImpl.getInstance().subtract(gpRegister.read(), 1));
             //If c(r) > 0,  PC <- EA;
