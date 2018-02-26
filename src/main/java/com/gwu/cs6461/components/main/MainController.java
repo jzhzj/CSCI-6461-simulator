@@ -3,6 +3,8 @@ package com.gwu.cs6461.components.main;
 import com.gwu.cs6461.services.MachineImpl;
 import com.gwu.cs6461.services.cpu.CPUImpl;
 import com.gwu.cs6461.services.cpu.registers.*;
+import com.gwu.cs6461.services.device.Keyboard;
+import com.gwu.cs6461.services.device.Printer;
 import com.gwu.cs6461.services.dram.*;
 import com.gwu.cs6461.services.fault.IllegalMemoryAddressBeyondMax;
 import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
@@ -10,14 +12,13 @@ import com.gwu.cs6461.services.fault.IllegalOperationCode;
 import com.gwu.cs6461.services.fault.MachineFault;
 import com.gwu.cs6461.services.sram.SRAMImpl;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Optional;
 
 public class MainController implements Observer {
 
@@ -29,7 +30,13 @@ public class MainController implements Observer {
             Observable observable = (Observable)register;
             observable.addObserver(this);
         });
+
         CPUImpl.getInstance().addObserver(this);
+
+        MachineImpl.getInstance().getDevices().forEach(device -> {
+            Observable observable = (Observable) device;
+            observable.addObserver(this);
+        });
     }
 
     @FXML
@@ -69,10 +76,7 @@ public class MainController implements Observer {
     @FXML
     private TextField cacheValueTextField;
     @FXML
-    private TextField keyboardTextField;//hou
-    @FXML
-    private TextArea printerTextArea; //HOU
-
+    private TextArea printerTextArea;
 
 
     @FXML
@@ -82,6 +86,7 @@ public class MainController implements Observer {
             switch (btn.getId()) {
                 case "ILPButton":
                     machine.ipl();
+                    printerTextArea.setText(null);
                     break;
                 case "RUNButton":
                     machine.run();
@@ -248,6 +253,10 @@ public class MainController implements Observer {
             msrTextField.setText(MSRImpl.getInstance().read().toString());
         } else if(o instanceof CCRImpl){
             ccTextField.setText(CCRImpl.getInstance().read() != null ? CCRImpl.getInstance().read().toString() : null);
+        } else if(o instanceof Printer) {
+            printerTextArea.setText(StringUtils.join(printerTextArea.getText(), String.valueOf(Printer.getInstance().output())));
+        } else if(o instanceof Keyboard) {
+            promptRequireInput();
         }
 
     }
@@ -296,5 +305,14 @@ public class MainController implements Observer {
         alert.setHeaderText(null);
         alert.setContentText("Illegal Op Code!");
         alert.showAndWait();
+    }
+
+    private void promptRequireInput() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Instruction Requires Input");
+        dialog.setHeaderText(null);
+        dialog.setContentText("Please Enter A Char:");
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(userInput ->  Keyboard.getInstance().input(userInput.toCharArray()[0]));
     }
 }
