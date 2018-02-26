@@ -151,9 +151,9 @@
                         </TitledPane>
                         <TitledPane animated="false" layoutX="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="231.0" prefWidth="600.0" text="DRAM Panel" AnchorPane.bottomAnchor="297.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <content>
-                            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="598.0">
+                            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="598.0">
                                  <children>
-                                    <ToolBar maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="40.0" prefWidth="600.0">
+                                    <ToolBar maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="40.0" prefWidth="619.0">
                                        <items>
                                           <Label prefHeight="32.0" prefWidth="58.0" text="Address" />
                                           <TextField fx:id="ramAddressTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="decimal" />
@@ -161,21 +161,25 @@
                                           <TextField fx:id="ramValueTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="16-bits binary" />
                                           <Button fx:id="ReadMemButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Read" />
                                           <Button fx:id="WriteMemButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
+                                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="600.0" />
                                        </items>
                                     </ToolBar>
-                                  <AnchorPane layoutY="-144.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="600.0" />
                                  </children>
                               </AnchorPane>
                           </content>
                         </TitledPane>
                         <TitledPane animated="false" layoutX="301.0" layoutY="228.0" prefHeight="298.0" prefWidth="599.0" text="I/O Panel">
                           <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="213.0" prefWidth="66.0">
+                            <AnchorPane minHeight="0.0" minWidth="-Infinity" prefHeight="213.0" prefWidth="66.0">
                                  <children>
                                     <Label layoutX="41.0" layoutY="43.0" prefHeight="27.0" prefWidth="60.0" text="keyboard" />
                                     <Label layoutX="41.0" layoutY="92.0" text="printer" />
-                                    <TextField layoutX="121.0" layoutY="43.0" />
-                                    <TextField layoutX="45.0" layoutY="122.0" prefHeight="127.0" prefWidth="524.0" />
+                                    <TextField fx:id="KeyboardTextField" layoutX="121.0" layoutY="43.0" prefHeight="40.0" prefWidth="170.0">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="printerTextField" layoutX="45.0" layoutY="122.0" prefHeight="127.0" prefWidth="524.0" />
                                  </children></AnchorPane>
                           </content>
                         </TitledPane>
