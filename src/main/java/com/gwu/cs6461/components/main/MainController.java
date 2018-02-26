@@ -8,9 +8,11 @@ import com.gwu.cs6461.services.fault.IllegalMemoryAddressBeyondMax;
 import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
 import com.gwu.cs6461.services.fault.IllegalOperationCode;
 import com.gwu.cs6461.services.fault.MachineFault;
+import com.gwu.cs6461.services.sram.SRAMImpl;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -63,9 +65,13 @@ public class MainController implements Observer {
     @FXML
     private TextField ramValueTextField;
     @FXML
-    private TextField KeyboardTextField;//hou
+    private TextField cacheAddressTextField;
     @FXML
-    private TextField printerTextField; //HOU
+    private TextField cacheValueTextField;
+    @FXML
+    private TextField keyboardTextField;//hou
+    @FXML
+    private TextArea printerTextArea; //HOU
 
 
 
@@ -112,6 +118,32 @@ public class MainController implements Observer {
                 case "WriteMemButton":
                     dramData = new DRAMDataImpl().setBinaryValue(ramValueTextField.getText());
                     DRAMImpl.getInstance().write(address, dramData);
+                    break;
+                default:
+            }
+        } catch (IllegalMemoryAddressToReservedLocations e){
+            promptIllegalWriteReservedMemoryWarning();
+        } catch (IllegalMemoryAddressBeyondMax e){
+            promptIllegalMemoryAddressBeyondMaxWarning();
+        } catch (IllegalArgumentException e){
+            promptIllegalInputWarning();
+        }
+    }
+
+    @FXML
+    void handleSRAMButtonClick(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        try{
+            DRAMAddress address = new DRAMAddressImpl().setDecimalValue(cacheAddressTextField.getText());
+            DRAMData dramData;
+            switch (btn.getId()) {
+                case "ReadCacheButton":
+                    dramData = SRAMImpl.getInstance().read(address);
+                    cacheValueTextField.setText(dramData.getBinaryValue());
+                    break;
+                case "WriteCacheButton":
+                    dramData = new DRAMDataImpl().setBinaryValue(cacheValueTextField.getText());
+                    SRAMImpl.getInstance().write(address, dramData);
                     break;
                 default:
             }
@@ -223,7 +255,7 @@ public class MainController implements Observer {
     /**
      * Prompt dialog with halt message.
      */
-    void promptHalt(){
+    private void promptHalt(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Halt");
         alert.setHeaderText(null);
@@ -234,7 +266,7 @@ public class MainController implements Observer {
     /**
      * Show warning when user inputs illegal strings
      */
-    void promptIllegalInputWarning() {
+    private void promptIllegalInputWarning() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
         alert.setHeaderText(null);
@@ -242,7 +274,7 @@ public class MainController implements Observer {
         alert.showAndWait();
     }
 
-    void promptIllegalWriteReservedMemoryWarning(){
+    private void promptIllegalWriteReservedMemoryWarning(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Machine Fault");
         alert.setHeaderText(null);
@@ -250,7 +282,7 @@ public class MainController implements Observer {
         alert.showAndWait();
     }
 
-    void promptIllegalMemoryAddressBeyondMaxWarning(){
+    private void promptIllegalMemoryAddressBeyondMaxWarning(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Machine Fault");
         alert.setHeaderText(null);
@@ -258,7 +290,7 @@ public class MainController implements Observer {
         alert.showAndWait();
     }
 
-    void promptIllegalOpCodeWarning(){
+    private void promptIllegalOpCodeWarning(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Machine Fault");
         alert.setHeaderText(null);

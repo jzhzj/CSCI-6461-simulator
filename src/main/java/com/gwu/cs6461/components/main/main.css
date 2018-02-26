@@ -2,6 +2,14 @@
     -fx-text-fill: red;
 }
 
-#ccTextField{
+#ccTextField {
     -fx-text-fill: red;
+}
+
+#printerTextArea {
+    -fx-text-fill: white;
+}
+
+#printerTextArea .content {
+    -fx-background-color: black;
 }
