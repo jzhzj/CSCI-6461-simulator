@@ -1,14 +1,11 @@
 package com.gwu.cs6461.services.cpu.alu;
 
 import com.gwu.cs6461.constants.MachineProps;
-import com.gwu.cs6461.services.Machine;
 import com.gwu.cs6461.services.cpu.alu.cc.ConditionCode;
 import com.gwu.cs6461.services.cpu.registers.CCRImpl;
-import com.gwu.cs6461.services.cpu.registers.Register;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import com.gwu.cs6461.util.Binary;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * Singleton
@@ -29,8 +26,9 @@ public class ALUImpl implements ALU {
 
     @Override
     public Binary add(Binary a, int b) {
+        short[] var = getShortValue(a, b);
         // add a and b, then return the result
-        short result = (short) (((short) a.getDecimalValue()) + (short) b);
+        short result = (short) (var[1] + var[2]);
         int test = a.getDecimalValue() + b;
         // set cc(0) <- true
         if (test > Short.MAX_VALUE) {
@@ -52,8 +50,9 @@ public class ALUImpl implements ALU {
 
     @Override
     public Binary subtract(Binary a, int b) {
+        short[] var = getShortValue(a, b);
         // subtract b from a, then return the result
-        short result = (short) (((short) a.getDecimalValue()) - (short) b);
+        short result = (short) (var[0] - var[1]);
         int test = a.getDecimalValue() - b;
         // set cc(0) <- true
         if (test > Short.MAX_VALUE) {
@@ -76,14 +75,15 @@ public class ALUImpl implements ALU {
     @Override
     public Binary[] multiply(Binary a, Binary b) {
         DRAMData[] dramData = {new DRAMDataImpl(), new DRAMDataImpl()};
+        short[] var = getShortValue(a, b);
         // a * b
-        int result = (short) a.getDecimalValue() * (short) b.getDecimalValue();
+        int result = var[0] * var[1];
         // set cc(0) <- true
         if (result > (Short.MAX_VALUE * Short.MAX_VALUE)) {
             CCRImpl.getInstance().read().setBit(ConditionCode.Type.OVER_FLOW, true);
         }
-        short r0 = (short) (result >> MachineProps.WORD_BIT_WIDTH);
         short r1 = (short) result;
+        short r0 = (short) (result >> MachineProps.WORD_BIT_WIDTH);
         // store the higher order bits
         dramData[0].setDecimalValue(r0);
         // store the lower order bits
@@ -95,14 +95,15 @@ public class ALUImpl implements ALU {
     @Override
     public Binary[] divide(Binary a, Binary b) {
         DRAMData[] dramData = {new DRAMDataImpl(), new DRAMDataImpl()};
+        short[] var = getShortValue(a, b);
         // set cc(2) <- true
         if (b.getDecimalValue() == 0) {
             CCRImpl.getInstance().read().setBit(ConditionCode.Type.DIV_ZERO, true);
         }
         // quotient
-        short quotient = (short) ((short)a.getDecimalValue() / (short) b.getDecimalValue());
+        short quotient = (short) (var[0] / var[1]);
         // remainder
-        short remainder = (short) ((short)a.getDecimalValue() % (short) b.getDecimalValue());
+        short remainder = (short) (var[0] % var[1]);
         // store the quotient
         dramData[0].setDecimalValue(quotient);
         // store the remainder
@@ -114,16 +115,18 @@ public class ALUImpl implements ALU {
 
     @Override
     public Binary and(Binary a, Binary b) {
+        short[] var = getShortValue(a, b);
         // Logical And of a and b, then return the result
-        short result = (short) ((short) a.getDecimalValue() & (short) b.getDecimalValue());
+        short result = (short) (var[0] & var[1]);
         return new DRAMDataImpl().setDecimalValue(result);
     }
 
 
     @Override
     public Binary or(Binary a, Binary b) {
+        short[] var = getShortValue(a, b);
         // Logical Or of a and b, then return the result
-        short result = (short) ((short) a.getDecimalValue() | (short) b.getDecimalValue());
+        short result = (short) (var[0] | var[1]);
         return new DRAMDataImpl().setDecimalValue(result);
     }
 
@@ -138,7 +141,8 @@ public class ALUImpl implements ALU {
 
     @Override
     public void test(Binary a, Binary b) {
-        if ((short) a.getDecimalValue() == (short) b.getDecimalValue()) {
+        short[] var = getShortValue(a, b);
+        if (var[0] == var[1]) {
             // set cc(3) <- true
             CCRImpl.getInstance().read().setBit(ConditionCode.Type.EQ_OR_NOT, true);
         } else {
@@ -211,5 +215,14 @@ public class ALUImpl implements ALU {
     public Binary logicalRotateR(Binary a, int count) {
         // Rotating right by count equals to rotating left by WORD_BIT_WIDTH - count
         return logicalRotateL(a, MachineProps.WORD_BIT_WIDTH - count);
+    }
+
+    private short[] getShortValue(Binary a, int b) {
+        short[] args = {(short) a.getDecimalValue(), (short) b};
+        return args;
+    }
+
+    private short[] getShortValue(Binary a, Binary b) {
+        return getShortValue(a, b.getDecimalValue());
     }
 }
