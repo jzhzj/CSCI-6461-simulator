@@ -5,8 +5,10 @@ import com.gwu.cs6461.services.dram.DRAMBlock;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMImpl;
 
+import java.util.ArrayDeque;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.Queue;
 
 /**
  * A fully associative, unified cache.
@@ -23,10 +25,12 @@ public class SRAMImpl implements SRAM {
     }
 
     private SRAMImpl() {
-        blockMap = new TreeMap<>();
+        blockIdQueue = new ArrayDeque<>(MAX_BLOCK_CAPACITY);
+        blockMap = new HashMap<>(MAX_BLOCK_CAPACITY);
     }
 
-    private TreeMap<Integer, DRAMBlock> blockMap;
+    private Queue<Integer> blockIdQueue;
+    private Map<Integer, DRAMBlock> blockMap;
 
     @Override
     public DRAMData read(DRAMAddress address) {
@@ -83,10 +87,12 @@ public class SRAMImpl implements SRAM {
 
         } else {
             // cache is at capacity, FIFO
-            Map.Entry<Integer, DRAMBlock> out = blockMap.pollFirstEntry();
+            int outId = blockIdQueue.poll();
+            DRAMBlock out = blockMap.remove(outId);
             // write back
-            writeLowerLevel(out.getKey(), out.getValue());
+            writeLowerLevel(outId, out);
         }
         blockMap.put(id, readLowerLevel(id));
+        blockIdQueue.add(id);
     }
 }

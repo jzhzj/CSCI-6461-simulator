@@ -15,11 +15,11 @@ public interface DRAM {
     DRAMData read(DRAMAddress address);
 
     /**
-     * Read a block of memory
-     * @param blockNum block number
-     * @return a block of memory
+     * Read a block of DRAM data
+     * @param blockId block id
+     * @return DRAM data block
      */
-    DRAMBlock readBlock(int blockNum);
+    DRAMBlock readBlock(int blockId);
 
     /**
      * Write data to given address
@@ -29,11 +29,11 @@ public interface DRAM {
     void write(DRAMAddress address, DRAMData data) throws IllegalMemoryAddressToReservedLocations;
 
     /**
-     * Write a block of memory
-     * @param blockNum block number
-     * @param block block of data to write
+     * Write a block of DRAM data
+     * @param blockId block id
+     * @param block data to write
      */
-    void writeBlock(int blockNum, DRAMBlock block);
+    void writeBlock(int blockId, DRAMBlock block);
 
     /**
      * Write data to reserved address

@@ -4,8 +4,9 @@ package com.gwu.cs6461.services.device;
 import com.gwu.cs6461.services.dram.DRAMData;
 
 import java.util.Observable;
+import java.util.concurrent.Future;
 
-public class Printer extends Observable implements Device<DRAMData> {
+public class Printer extends Observable implements Device<DRAMData, Character> {
     private static Printer ourInstance = new Printer();
 
     public static Printer getInstance() {
@@ -16,16 +17,33 @@ public class Printer extends Observable implements Device<DRAMData> {
     }
 
 
+    private DRAMData data;
+
     @Override
     public void write(DRAMData inputBuffer) {
-        // TODO to be implemented
-
+        data = inputBuffer;
         setChanged();
         notifyObservers();
     }
 
     @Override
-    public DRAMData read() {
+    public Future<DRAMData> read() {
         return null;
+    }
+
+    @Override
+    public void input(Character value) {
+
+    }
+
+    @Override
+    public Character output() {
+        // convert data to char
+        return (char) data.getDecimalValue();
+    }
+
+    @Override
+    public void reset() {
+        data = null;
     }
 }

@@ -15,7 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 public class IOImpl extends InstructionImpl {
 
     Register<DRAMData> gpRegister;
-    Device<DRAMData> ioDevice;
+    Device<DRAMData, Character> ioDevice;
 
     @Override
     public Runnable onDecode() {

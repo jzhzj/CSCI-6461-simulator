@@ -1,6 +1,7 @@
 package com.gwu.cs6461;
 
 import com.gwu.cs6461.constants.MachineProps;
+import com.gwu.cs6461.services.MachineImpl;
 import com.gwu.cs6461.services.cpu.CPUImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +30,11 @@ public class App extends Application {
             o.deleteObservers();
         });
         CPUImpl.getInstance().deleteObservers();
+
+        MachineImpl.getInstance().getDevices().forEach(device -> {
+            Observable o = (Observable) device;
+            o.deleteObservers();
+        });
     }
 
     public static void main(String[] args) {
