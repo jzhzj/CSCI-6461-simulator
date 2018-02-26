@@ -254,7 +254,7 @@ public class MainController implements Observer {
     /**
      * Prompt dialog with halt message.
      */
-    void promptHalt(){
+    private void promptHalt(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Halt");
         alert.setHeaderText(null);
@@ -265,7 +265,7 @@ public class MainController implements Observer {
     /**
      * Show warning when user inputs illegal strings
      */
-    void promptIllegalInputWarning() {
+    private void promptIllegalInputWarning() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
         alert.setHeaderText(null);
@@ -273,7 +273,7 @@ public class MainController implements Observer {
         alert.showAndWait();
     }
 
-    void promptIllegalWriteReservedMemoryWarning(){
+    private void promptIllegalWriteReservedMemoryWarning(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Machine Fault");
         alert.setHeaderText(null);
@@ -281,7 +281,7 @@ public class MainController implements Observer {
         alert.showAndWait();
     }
 
-    void promptIllegalMemoryAddressBeyondMaxWarning(){
+    private void promptIllegalMemoryAddressBeyondMaxWarning(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Machine Fault");
         alert.setHeaderText(null);
@@ -289,7 +289,7 @@ public class MainController implements Observer {
         alert.showAndWait();
     }
 
-    void promptIllegalOpCodeWarning(){
+    private void promptIllegalOpCodeWarning(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Machine Fault");
         alert.setHeaderText(null);
