@@ -33,16 +33,13 @@ public class Keyboard extends Observable implements Device<DRAMData, Character> 
 
         setChanged();
         notifyObservers();
-        return executor.submit(new Callable<DRAMData>() {
-            @Override
-            public DRAMData call() throws Exception {
-                while(data == null) {
+        Callable<DRAMData> task = () -> {
+            while(data == null) {
 
-                }
-                return data;
             }
-        });
-
+            return data;
+        };
+        return executor.submit(task);
     }
 
     @Override
