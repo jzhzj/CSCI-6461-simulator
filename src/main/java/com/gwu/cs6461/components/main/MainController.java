@@ -8,6 +8,7 @@ import com.gwu.cs6461.services.fault.IllegalMemoryAddressBeyondMax;
 import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
 import com.gwu.cs6461.services.fault.IllegalOperationCode;
 import com.gwu.cs6461.services.fault.MachineFault;
+import com.gwu.cs6461.services.sram.SRAMImpl;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -63,6 +64,10 @@ public class MainController implements Observer {
     @FXML
     private TextField ramValueTextField;
     @FXML
+    private TextField cacheAddressTextField;
+    @FXML
+    private TextField cacheValueTextField;
+    @FXML
     private TextField KeyboardTextField;//hou
     @FXML
     private TextField printerTextField; //HOU
@@ -112,6 +117,32 @@ public class MainController implements Observer {
                 case "WriteMemButton":
                     dramData = new DRAMDataImpl().setBinaryValue(ramValueTextField.getText());
                     DRAMImpl.getInstance().write(address, dramData);
+                    break;
+                default:
+            }
+        } catch (IllegalMemoryAddressToReservedLocations e){
+            promptIllegalWriteReservedMemoryWarning();
+        } catch (IllegalMemoryAddressBeyondMax e){
+            promptIllegalMemoryAddressBeyondMaxWarning();
+        } catch (IllegalArgumentException e){
+            promptIllegalInputWarning();
+        }
+    }
+
+    @FXML
+    void handleSRAMButtonClick(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        try{
+            DRAMAddress address = new DRAMAddressImpl().setDecimalValue(cacheAddressTextField.getText());
+            DRAMData dramData;
+            switch (btn.getId()) {
+                case "ReadCacheButton":
+                    dramData = SRAMImpl.getInstance().read(address);
+                    cacheValueTextField.setText(dramData.getBinaryValue());
+                    break;
+                case "WriteCacheButton":
+                    dramData = new DRAMDataImpl().setBinaryValue(cacheValueTextField.getText());
+                    SRAMImpl.getInstance().write(address, dramData);
                     break;
                 default:
             }

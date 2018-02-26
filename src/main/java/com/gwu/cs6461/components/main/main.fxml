@@ -178,8 +178,8 @@
                                           <TextField fx:id="cacheAddressTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="decimal" />
                                           <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="Value" />
                                           <TextField fx:id="cacheValueTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="16-bits binary" />
-                                          <Button fx:id="ReadCacheButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Read" />
-                                          <Button fx:id="WriteCacheButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
+                                          <Button fx:id="ReadCacheButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleSRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Read" />
+                                          <Button fx:id="WriteCacheButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleSRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
                                           <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="600.0" />
                                        </items>
                                     </ToolBar>
