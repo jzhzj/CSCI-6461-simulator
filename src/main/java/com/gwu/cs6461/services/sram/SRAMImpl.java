@@ -25,11 +25,11 @@ public class SRAMImpl implements SRAM {
     }
 
     private SRAMImpl() {
-        blockNumQueue = new ArrayDeque<>(MAX_BLOCK_CAPACITY);
+        blockIdQueue = new ArrayDeque<>(MAX_BLOCK_CAPACITY);
         blockMap = new HashMap<>(MAX_BLOCK_CAPACITY);
     }
 
-    private Queue<Integer> blockNumQueue;
+    private Queue<Integer> blockIdQueue;
     private Map<Integer, DRAMBlock> blockMap;
 
     @Override
@@ -87,12 +87,12 @@ public class SRAMImpl implements SRAM {
 
         } else {
             // cache is at capacity, FIFO
-            int outId = blockNumQueue.poll();
+            int outId = blockIdQueue.poll();
             DRAMBlock out = blockMap.remove(outId);
             // write back
             writeLowerLevel(outId, out);
         }
         blockMap.put(id, readLowerLevel(id));
-        blockNumQueue.add(id);
+        blockIdQueue.add(id);
     }
 }
