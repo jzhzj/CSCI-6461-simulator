@@ -1,12 +1,14 @@
 package com.gwu.cs6461.services.sram;
 
-import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMBlock;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMImpl;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Queue;
 
 /**
  * A fully associative, unified cache.
@@ -23,8 +25,8 @@ public class SRAMImpl implements SRAM {
     }
 
     private SRAMImpl() {
-        blockNumQueue = new ArrayDeque<>(MachineProps.SRAM_BLOCK_SIZE);
-        blockMap = new HashMap<>(MachineProps.SRAM_BLOCK_SIZE);
+        blockNumQueue = new ArrayDeque<>(MAX_BLOCK_CAPACITY);
+        blockMap = new HashMap<>(MAX_BLOCK_CAPACITY);
     }
 
     private Queue<Integer> blockNumQueue;
