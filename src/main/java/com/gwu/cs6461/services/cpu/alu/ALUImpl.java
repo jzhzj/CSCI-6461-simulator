@@ -100,9 +100,9 @@ public class ALUImpl implements ALU {
             CCRImpl.getInstance().read().setBit(ConditionCode.Type.DIV_ZERO, true);
         }
         // quotient
-        short quotient = (short) (a.getDecimalValue() / b.getDecimalValue());
+        short quotient = (short) ((short)a.getDecimalValue() / (short) b.getDecimalValue());
         // remainder
-        short remainder = (short) (a.getDecimalValue() % b.getDecimalValue());
+        short remainder = (short) ((short)a.getDecimalValue() % (short) b.getDecimalValue());
         // store the quotient
         dramData[0].setDecimalValue(quotient);
         // store the remainder
