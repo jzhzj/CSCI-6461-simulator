@@ -10,7 +10,7 @@ import com.gwu.cs6461.services.dram.DRAMData;
  * Defines what SRAM does
  */
 public interface SRAM extends Cache<DRAMBlock> {
-    int MAX_BLOCK_CAPACITY = MachineProps.SRAM_BLOCK_SIZE;
+    int BLOCK_SIZE = MachineProps.SRAM_BLOCK_SIZE;
 
     DRAMData read(DRAMAddress address);
     void write(DRAMAddress address, DRAMData data);

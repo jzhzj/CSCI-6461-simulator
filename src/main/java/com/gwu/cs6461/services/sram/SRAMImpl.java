@@ -25,8 +25,8 @@ public class SRAMImpl implements SRAM {
     }
 
     private SRAMImpl() {
-        blockIdQueue = new ArrayDeque<>(MAX_BLOCK_CAPACITY);
-        blockMap = new HashMap<>(MAX_BLOCK_CAPACITY);
+        blockIdQueue = new ArrayDeque<>(BLOCK_SIZE);
+        blockMap = new HashMap<>(BLOCK_SIZE);
     }
 
     private Queue<Integer> blockIdQueue;
@@ -82,7 +82,7 @@ public class SRAMImpl implements SRAM {
      * policy: FIFO
      */
     private void replace(int id) {
-        if(blockMap.size() < MAX_BLOCK_CAPACITY) {
+        if(blockMap.size() < BLOCK_SIZE) {
             // compulsory miss, block not yet cached
 
         } else {
