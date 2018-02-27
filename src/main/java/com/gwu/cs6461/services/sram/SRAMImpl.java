@@ -4,6 +4,7 @@ import com.gwu.cs6461.services.dram.DRAMAddress;
 import com.gwu.cs6461.services.dram.DRAMBlock;
 import com.gwu.cs6461.services.dram.DRAMData;
 import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;
@@ -46,7 +47,10 @@ public class SRAMImpl implements SRAM {
     }
 
     @Override
-    public void write(DRAMAddress address, DRAMData data) {
+    public void write(DRAMAddress address, DRAMData data) throws IllegalMemoryAddressToReservedLocations {
+        if (address.getDecimalValue() < DRAMAddress.INSTRUCTION_START) {
+            throw new IllegalMemoryAddressToReservedLocations();
+        }
         int blockNum = address.getBlockNum();
         if(isCached(blockNum)){
             // cache hit
@@ -55,6 +59,19 @@ public class SRAMImpl implements SRAM {
             // cache miss
             replace(blockNum);
             write(address, data);
+        }
+    }
+
+    @Override
+    public void writeToReservedAddress(DRAMAddress address, DRAMData data) {
+        int blockNum = address.getBlockNum();
+        if(isCached(blockNum)){
+            // cache hit
+            blockMap.get(blockNum).write(address.getOffset(), data);
+        } else {
+            // cache miss
+            replace(blockNum);
+            writeToReservedAddress(address, data);
         }
     }
 
