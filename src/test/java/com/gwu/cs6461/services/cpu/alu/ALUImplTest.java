@@ -1,13 +1,19 @@
 package com.gwu.cs6461.services.cpu.alu;
 
+import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertEquals;
+
 public class ALUImplTest {
+
+    private ALU alu;
 
     @Before
     public void setUp() throws Exception {
+        alu = ALUImpl.getInstance();
     }
 
     @After
@@ -16,6 +22,8 @@ public class ALUImplTest {
 
     @Test
     public void add() {
+        // 1 + 1 = 2
+        assertEquals(2, alu.add(new DRAMDataImpl().setDecimalValue(1), 1).getDecimalValue());
     }
 
     @Test
