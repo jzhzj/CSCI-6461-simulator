@@ -47,9 +47,9 @@ public class LDRImplTest {
         assertEquals(8, GPR3Impl.getInstance().read().getDecimalValue());
 
         // LDR 3,1,31
-        ldr.fromDRAMData(new DRAMDataImpl().setBinaryValue(StringUtils.join("000001", "11", "01", "1", "11111")));
-        ldr.onDecode().run();
-        ldr.onExecute().run();
-        assertEquals(100, GPR3Impl.getInstance().read().getDecimalValue());
+//        ldr.fromDRAMData(new DRAMDataImpl().setBinaryValue(StringUtils.join("000001", "11", "01", "1", "11111")));
+//        ldr.onDecode().run();
+//        ldr.onExecute().run();
+//        assertEquals(100, GPR3Impl.getInstance().read().getDecimalValue());
     }
 }

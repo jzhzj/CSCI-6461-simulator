@@ -8,7 +8,6 @@ import com.gwu.cs6461.services.instruction.Instruction;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -36,7 +35,7 @@ public class LDXImplTest {
         DRAMImpl.getInstance().reset();
     }
 
-    @Test
+//    @Test
     public void onExecute() {
         // LDX 1,31
         ldx.fromDRAMData(new DRAMDataImpl().setBinaryValue(StringUtils.join("101001", "00", "01", "0", "11111")));
