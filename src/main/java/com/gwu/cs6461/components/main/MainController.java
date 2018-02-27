@@ -104,6 +104,7 @@ public class MainController implements Observer {
         } catch (IllegalMemoryAddressToReservedLocations e){
             promptIllegalWriteReservedMemoryWarning();
         } catch (IllegalMemoryAddressBeyondMax e){
+            e.printStackTrace();
             promptIllegalMemoryAddressBeyondMaxWarning();
         }
 
@@ -252,7 +253,7 @@ public class MainController implements Observer {
         } else if(o instanceof MSRImpl){
             msrTextField.setText(MSRImpl.getInstance().read().toString());
         } else if(o instanceof CCRImpl){
-            ccTextField.setText(CCRImpl.getInstance().read() != null ? CCRImpl.getInstance().read().toString() : null);
+            ccTextField.setText(CCRImpl.getInstance().read().toString());
         } else if(o instanceof Printer) {
             printerTextArea.setText(StringUtils.join(printerTextArea.getText(), String.valueOf(Printer.getInstance().output())));
         } else if(o instanceof Keyboard) {

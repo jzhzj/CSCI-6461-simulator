@@ -1,6 +1,7 @@
 package com.gwu.cs6461.services.cpu.registers;
 
 import com.gwu.cs6461.services.cpu.alu.cc.ConditionCode;
+import com.gwu.cs6461.services.cpu.alu.cc.ConditionCodeImpl;
 
 import java.util.Observable;
 
@@ -19,7 +20,7 @@ public class CCRImpl extends Observable implements Register<ConditionCode>{
     }
 
     private CCRImpl() {
-
+        conditionCode = new ConditionCodeImpl();
     }
 
     private ConditionCode conditionCode;
@@ -38,6 +39,6 @@ public class CCRImpl extends Observable implements Register<ConditionCode>{
 
     @Override
     public void reset() {
-        write(null);
+        write(new ConditionCodeImpl());
     }
 }
