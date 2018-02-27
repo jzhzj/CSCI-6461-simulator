@@ -1,11 +1,13 @@
 package com.gwu.cs6461.services.dram;
 
+import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
 
 /**
  * Defines what memory does
  */
 public interface DRAM {
+    int WORD_SIZE = MachineProps.DRAM_WORD_SIZE;
 
     /**
      * Read data from address

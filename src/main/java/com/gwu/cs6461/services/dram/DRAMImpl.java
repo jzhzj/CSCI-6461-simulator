@@ -1,6 +1,5 @@
 package com.gwu.cs6461.services.dram;
 
-import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
 
 /**
@@ -16,7 +15,7 @@ public class DRAMImpl implements DRAM {
     }
 
     private DRAMImpl() {
-        dramData = new DRAMData[MachineProps.DRAM_WORD_SIZE];
+        dramData = new DRAMData[WORD_SIZE];
         for (int i = 0; i < dramData.length; i++) {
             dramData[i] = new DRAMDataImpl();
         }
@@ -38,7 +37,7 @@ public class DRAMImpl implements DRAM {
         DRAMBlock block = new DRAMBlockImpl();
         int offset = 0;
         while (offset <= DRAMBlock.MAX_OFFSET_VALUE) {
-            block.write(offset, dramData[blockId * MachineProps.DRAM_BLOCK_WORD_SIZE + offset]);
+            block.write(offset, dramData[blockId * DRAMBlock.WORD_SIZE + offset]);
             offset++;
         }
         return block;
@@ -46,7 +45,7 @@ public class DRAMImpl implements DRAM {
 
     @Override
     public void write(DRAMAddress address, DRAMData data) throws IllegalMemoryAddressToReservedLocations {
-        if(address.getDecimalValue() < MachineProps.INSTRUCTION_START_ADDRESS){
+        if(address.getDecimalValue() < DRAMAddress.INSTRUCTION_START){
             // trying to write reserved memory
             throw new IllegalMemoryAddressToReservedLocations();
         }
@@ -60,7 +59,7 @@ public class DRAMImpl implements DRAM {
         }
         int offset = 0;
         while (offset <= DRAMBlock.MAX_OFFSET_VALUE) {
-            dramData[blockId * MachineProps.DRAM_BLOCK_WORD_SIZE + offset] = block.read(offset);
+            dramData[blockId * DRAMBlock.WORD_SIZE + offset] = block.read(offset);
             offset++;
         }
     }
