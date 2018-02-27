@@ -15,7 +15,8 @@ import static junit.framework.TestCase.assertEquals;
 
 /**
  * LDA r, x, address[,I]
- * Load Register with Address, r = 0..3, r <− EA
+ * Load Register with Address, r = 0..3
+ * r <− EA
  */
 public class LDAImplTest {
 
