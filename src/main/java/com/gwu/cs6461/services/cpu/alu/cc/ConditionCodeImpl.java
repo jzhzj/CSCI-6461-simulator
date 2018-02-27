@@ -14,8 +14,9 @@ public class ConditionCodeImpl implements ConditionCode{
     }
 
     @Override
-    public void setBit(Type type, boolean value) {
+    public ConditionCode setBit(Type type, boolean value) {
         values[type.ordinal()] = value;
+        return this;
     }
 
     @Override

@@ -9,6 +9,6 @@ public interface ConditionCode {
     }
 
     boolean getBit(Type type);
-    void setBit(Type type, boolean value);
+    ConditionCode setBit(Type type, boolean value);
 
 }
