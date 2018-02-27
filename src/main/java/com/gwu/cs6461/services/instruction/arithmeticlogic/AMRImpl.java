@@ -3,8 +3,7 @@ package com.gwu.cs6461.services.instruction.arithmeticlogic;
 
 import com.gwu.cs6461.services.cpu.alu.ALUImpl;
 import com.gwu.cs6461.services.dram.DRAMData;
-import com.gwu.cs6461.services.dram.DRAMDataImpl;
-import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.sram.SRAMImpl;
 
 /**
  * AMR Instruction
@@ -16,7 +15,7 @@ public class AMRImpl extends arithRXAImpl {
     public Runnable onExecute() {
         Runnable task = () -> {
             //r <- c(r) + c(EA)
-            gpRegister.write((DRAMData) ALUImpl.getInstance().add(gpRegister.read(), DRAMImpl.getInstance().read(effectiveAddress)));
+            gpRegister.write((DRAMData) ALUImpl.getInstance().add(gpRegister.read(), SRAMImpl.getInstance().read(effectiveAddress)));
         };
         return task;
     }

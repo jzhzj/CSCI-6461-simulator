@@ -3,9 +3,9 @@ package com.gwu.cs6461.services.cpu;
 import com.gwu.cs6461.services.cpu.ctrlu.ControlUnitImpl;
 import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
-import com.gwu.cs6461.services.dram.DRAMImpl;
 import com.gwu.cs6461.services.fault.IllegalOperationCode;
 import com.gwu.cs6461.services.instruction.Instruction;
+import com.gwu.cs6461.services.sram.SRAMImpl;
 
 import java.util.HashSet;
 import java.util.Observable;
@@ -86,8 +86,7 @@ public class CPUImpl extends Observable implements CPU {
     private void process() throws IllegalOperationCode {
         // pc
         DRAMAddress dramAddress = IARImpl.getInstance().read();
-        Instruction instruction = null;
-        instruction = DRAMImpl.getInstance().read(dramAddress).toInstruction();
+        Instruction instruction = SRAMImpl.getInstance().read(dramAddress).toInstruction();
         ControlUnitImpl.getInstance().scheduleTask(instruction);
 
     }
