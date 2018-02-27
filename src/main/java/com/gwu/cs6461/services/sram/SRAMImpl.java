@@ -76,6 +76,12 @@ public class SRAMImpl implements SRAM {
     }
 
     @Override
+    public void reset() {
+        blockIdQueue = new ArrayDeque<>(BLOCK_SIZE);
+        blockMap = new HashMap<>(BLOCK_SIZE);
+    }
+
+    @Override
     public DRAMBlock readLowerLevel(int id) {
         return DRAMImpl.getInstance().readBlock(id);
     }

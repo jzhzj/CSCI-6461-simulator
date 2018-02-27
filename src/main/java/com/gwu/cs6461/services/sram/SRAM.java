@@ -16,4 +16,5 @@ public interface SRAM extends Cache<DRAMBlock> {
     DRAMData read(DRAMAddress address);
     void write(DRAMAddress address, DRAMData data) throws IllegalMemoryAddressToReservedLocations;
     void writeToReservedAddress(DRAMAddress address, DRAMData data);
+    void reset();
 }
