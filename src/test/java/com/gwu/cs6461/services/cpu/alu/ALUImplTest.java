@@ -32,6 +32,7 @@ public class ALUImplTest {
 
     @Test
     public void subtract() {
+        assertEquals(-100, alu.subtract(new DRAMDataImpl().setDecimalValue(300), new DRAMDataImpl().setDecimalValue(400)).getDecimalValue());
     }
 
     @Test
@@ -40,10 +41,14 @@ public class ALUImplTest {
 
     @Test
     public void multiply() {
+        assertEquals(1526, alu.multiply(new DRAMDataImpl().setDecimalValue(10001), new DRAMDataImpl().setDecimalValue(10001))[0].getDecimalValue());
+        assertEquals(12065, alu.multiply(new DRAMDataImpl().setDecimalValue(10001), new DRAMDataImpl().setDecimalValue(10001))[1].getDecimalValue());
     }
 
     @Test
     public void divide() {
+        assertEquals(256, alu.divide(new DRAMDataImpl().setDecimalValue(10001), new DRAMDataImpl().setDecimalValue(39))[0].getDecimalValue());
+        assertEquals(17, alu.divide(new DRAMDataImpl().setDecimalValue(10001), new DRAMDataImpl().setDecimalValue(39))[1].getDecimalValue());
     }
 
     @Test
@@ -64,21 +69,26 @@ public class ALUImplTest {
 
     @Test
     public void arithmeticShiftR() {
+        assertEquals(68, alu.arithmeticShiftR(new DRAMDataImpl().setDecimalValue(136),1).getDecimalValue());
     }
 
     @Test
     public void logicalShiftL() {
+        assertEquals(10, alu.logicalShiftL(new DRAMDataImpl().setDecimalValue(5),1).getDecimalValue());
     }
 
     @Test
     public void logicalShiftR() {
+        assertEquals(-16, alu.logicalShiftR(new DRAMDataImpl().setDecimalValue(-32),1).getDecimalValue());
     }
 
     @Test
     public void logicalRotateL() {
+        assertEquals(1, alu.logicalRotateL(new DRAMDataImpl().setDecimalValue(16384), 2).getDecimalValue());
     }
 
     @Test
     public void logicalRotateR() {
+        assertEquals(16384, alu.logicalRotateR(new DRAMDataImpl().setDecimalValue(1), 2).getDecimalValue());
     }
 }
