@@ -9,7 +9,13 @@ import com.gwu.cs6461.util.Binary;
  * Defines what memory data does
  */
 public interface DRAMData extends Binary{
-    int MIN_VALUE = - (int) Math.pow(2, (MachineProps.WORD_BIT_WIDTH / 2));
+    /**
+     * - 2^15
+     */
+    int MIN_VALUE = - (int) Math.pow(2, MachineProps.WORD_BIT_WIDTH) / 2;
+    /**
+     *  2^16 - 1
+     */
     int MAX_VALUE = (int) Math.pow(2, MachineProps.WORD_BIT_WIDTH) - 1;
 
 
