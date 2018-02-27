@@ -1,3 +1,2334 @@
 [
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100011001",
+      "desc": "AIR 1,25"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "1000000100",
+      "desc": "LDA 2,0,4"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000010000",
+      "desc": "AIR 0,16"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011000",
+      "desc": "AIR 0,24"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000010000",
+      "desc": "AIR 0,16"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000001",
+      "desc": "AIR 0,1"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000001",
+      "desc": "AIR 0,1"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0100010010",
+      "desc": "STR 1,0,18"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "1000010011",
+      "desc": "STR 2,0,19"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "1000000001",
+      "desc": "LDA 2,0,1"
+    }
+  },
+  {
+    "name": "IN",
+    "value": "",
+    "op": {
+      "op_code": "111101",
+      "data": "0000000000",
+      "desc": "IN 0,0"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "1000000100",
+      "desc": "LDA 2,0,4"
+    }
+  },
+  {
+    "name": "TRR",
+    "value": "",
+    "op": {
+      "op_code": "010110",
+      "data": "0010000000",
+      "desc": "TRR 0,2"
+    }
+  },
+  {
+    "name": "JCC",
+    "value": "",
+    "op": {
+      "op_code": "001100",
+      "data": "1100101000",
+      "desc": "JCC 3,0,P1_INPUT_CONT"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "000001101",
+      "desc": "STR 0,0,13"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000010001",
+      "desc": "AIR 0,17"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "000001110",
+      "desc": "STR 0,0,14"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011010",
+      "desc": "AIR 0,26"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "000001111",
+      "desc": "STR 0,0,15"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000001101",
+      "desc": "LDA 0,0,13"
+    }
+  },
+  {
+    "name": "JSR",
+    "value": "",
+    "op": {
+      "op_code": "001110",
+      "data": "0000101000",
+      "desc": "JSR 0,INPUT_VALID"
+    }
+  },
+  {
+    "name": "JZ",
+    "value": "",
+    "op": {
+      "op_code": "001010",
+      "data": "0000101000",
+      "desc": "JZ 0,0,P1_BAD_INPUT"
+    }
+  },
+  {
+    "name": "LDR",
+    "value": "",
+    "op": {
+      "op_code": "000001",
+      "data": "0000010100",
+      "desc": "LDR 0,0,20"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "1000001010",
+      "desc": "LDA 2,0,10"
+    }
+  },
+  {
+    "name": "MLT",
+    "value": "",
+    "op": {
+      "op_code": "010100",
+      "data": "0010000000",
+      "desc": "MLT 0,2"
+    }
+  },
+  {
+    "name": "AMR",
+    "value": "",
+    "op": {
+      "op_code": "000100",
+      "data": "0000001101",
+      "desc": "AMR 0,0,13"
+    }
+  },
+  {
+    "name": "SIR",
+    "value": "",
+    "op": {
+      "op_code": "000111",
+      "data": "0000011111",
+      "desc": "SIR 0,31"
+    }
+  },
+  {
+    "name": "SIR",
+    "value": "",
+    "op": {
+      "op_code": "000111",
+      "data": "0000010001",
+      "desc": "SIR 0,17"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0000010100",
+      "desc": "STR 0,0,20"
+    }
+  },
+  {
+    "name": "JMA",
+    "value": "",
+    "op": {
+      "op_code": "001101",
+      "data": "0000101000",
+      "desc": "JMA 0,P1_INPUT_INNER"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000001",
+      "desc": "AIR 0,1"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000100",
+      "desc": "AIR 0,4"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000100",
+      "desc": "AIR 0,4"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000111",
+      "desc": "AIR 0,7"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000001010",
+      "desc": "LDA 0,0,10"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011011",
+      "desc": "AIR 0,27"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000001",
+      "desc": "AIR 0,1"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "IN",
+    "value": "",
+    "op": {
+      "op_code": "111101",
+      "data": "0000000000",
+      "desc": "IN 0,0"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "1000000100",
+      "desc": "LDA 2,0,4"
+    }
+  },
+  {
+    "name": "TRR",
+    "value": "",
+    "op": {
+      "op_code": "010110",
+      "data": "0010000000",
+      "desc": "TRR 0,2"
+    }
+  },
+  {
+    "name": "JCC",
+    "value": "",
+    "op": {
+      "op_code": "001100",
+      "data": "1100000000",
+      "desc": "JCC 3,0,P1_INPUT_INNER"
+    }
+  },
+  {
+    "name": "JMA",
+    "value": "",
+    "op": {
+      "op_code": "001101",
+      "data": "0000101000",
+      "desc": "JMP 0, P1_BAD_INPUT_2"
+    }
+  },
+  {
+    "name": "LDR",
+    "value": "",
+    "op": {
+      "op_code": "000001",
+      "data": "0000010100",
+      "desc": "LDR 0,0,20"
+    }
+  },
+  {
+    "name": "LDR",
+    "value": "",
+    "op": {
+      "op_code": "000001",
+      "data": "01000100100",
+      "desc": "LDR 1,0,18"
+    }
+  },
+  {
+    "name": "LDR",
+    "value": "",
+    "op": {
+      "op_code": "000001",
+      "data": "1000010011",
+      "desc": "LDR 2,0,19"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0100001001",
+      "desc": "STR 1,0,9"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0000101001",
+      "desc": "STR 0,0,9,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0000010100",
+      "desc": "STR 0,0,20"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0000001101",
+      "desc": "STR 0,0,13"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000001010",
+      "desc": "LDA 0,0,10"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0100000001",
+      "desc": "AIR 1,1"
+    }
+  },
+  {
+    "name": "SOB",
+    "value": "",
+    "op": {
+      "op_code": "010000",
+      "data": "1000000000",
+      "desc": "SOB 2,0,P1_INPUT"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0100010010",
+      "desc": "STR 1,0,18"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "1000010011",
+      "desc": "STR 2,0,19"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000001000",
+      "desc": "AIR 0,8"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
 
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000001100",
+      "desc": "AIR 0,12"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000010001",
+      "desc": "AIR 0,17"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000111",
+      "desc": "AIR 0,7"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000001",
+      "desc": "AIR 0,1"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000010001",
+      "desc": "AIR 0,11"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011000",
+      "desc": "AIR 0,24"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000010000",
+      "desc": "AIR 0,16"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011011",
+      "desc": "AIR 0,27"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000001",
+      "desc": "AIR 0,1"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "IN",
+    "value": "",
+    "op": {
+      "op_code": "111101",
+      "data": "0000000000",
+      "desc": "IN 0,0"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "1000000100",
+      "desc": "LDA 2,0,4"
+    }
+  },
+  {
+    "name": "TRR",
+    "value": "",
+    "op": {
+      "op_code": "010110",
+      "data": "0010000000",
+      "desc": "TRR 0,2"
+    }
+  },
+  {
+    "name": "JCC",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "1100000000",
+      "desc": "JCC 3,0,P1_SEARCH_CONT"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0000001101",
+      "desc": "STR 0,0,13"
+    }
+  },
+  {
+  "name": "LDA",
+  "value": "",
+  "op": {
+    "op_code": "000011",
+    "data": "0000000000",
+    "desc": "LDA 0,0,0"
+  }
+},
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000010001",
+      "desc": "AIR 0,17"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0000001110",
+      "desc": "STR 0,0,14"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011011",
+      "desc": "AIR 0,27"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0000001111",
+      "desc": "STR 0,0,15"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000001101",
+      "desc": "LDA 0,0,13"
+    }
+  },
+  {
+    "name": "JSR",
+    "value": "",
+    "op": {
+      "op_code": "001110",
+      "data": "0000000000",
+      "desc": "JSR 0,INPUT_VALID"
+    }
+  },
+  {
+    "name": "JZ",
+    "value": "",
+    "op": {
+      "op_code": "001010",
+      "data": "0000000000",
+      "desc": "JZ 0,0,P1_SEARCH_BAD"
+    }
+  },
+  {
+    "name": "LDR",
+    "value": "",
+    "op": {
+      "op_code": "000001",
+      "data": "0000010100",
+      "desc": "LDR 0,0,20"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "1000001010",
+      "desc": "LDA 2,0,10"
+    }
+  },
+  {
+    "name": "MLT",
+    "value": "",
+    "op": {
+      "op_code": "010100",
+      "data": "0010000000",
+      "desc": "MLT 0,2"
+    }
+  },
+  {
+    "name": "AMR",
+    "value": "",
+    "op": {
+      "op_code": "000100",
+      "data": "0000001101",
+      "desc": "AMR 0,0,13"
+    }
+  },
+  {
+    "name": "SIR",
+    "value": "",
+    "op": {
+      "op_code": "000111",
+      "data": "0000011111",
+      "desc": "SIR 0,31"
+    }
+  },
+  {
+    "name": "SIR",
+    "value": "",
+    "op": {
+      "op_code": "000111",
+      "data": "0000010001",
+      "desc": "SIR 0,17"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0000010100",
+      "desc": "STR 0,0,20"
+    }
+  },
+  {
+    "name": "JMA",
+    "value": "",
+    "op": {
+      "op_code": "001101",
+      "data": "0000101000",
+      "desc": "JMA 0, P1_INPUT_SEARCH"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000001",
+      "desc": "AIR 0,1"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000100",
+      "desc": "AIR 0,4"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000100",
+      "desc": "AIR 0,4"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000111",
+      "desc": "AIR 0,7"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000001010",
+      "desc": "LDA 0,0,10"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000011111",
+      "desc": "AIR 0,31"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000001",
+      "desc": "AIR 0,1"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "IN",
+    "value": "",
+    "op": {
+      "op_code": "111101",
+      "data": "0000000000",
+      "desc": "IN 0,0"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "1000000100",
+      "desc": "LDA 2,0,4"
+    }
+  },
+  {
+    "name": "TRR",
+    "value": "",
+    "op": {
+      "op_code": "010110",
+      "data": "0010000000",
+      "desc": "TRR 0,2"
+    }
+  },
+  {
+    "name": "JCC",
+    "value": "",
+    "op": {
+      "op_code": "001100",
+      "data": "1100000000",
+      "desc": "JCC 3,0, P1_INPUT_SEARCH"
+    }
+  },
+  {
+    "name": "JMA",
+    "value": "",
+    "op": {
+      "op_code": "001101",
+      "data": "0000101000",
+      "desc": "JMA 0, P1_SEARCH_BAD_2"
+    }
+  },
+  {
+    "name": "LDR",
+    "value": "",
+    "op": {
+      "op_code": "000001",
+      "data": "0100010010",
+      "desc": "LDR 1,0,18"
+    }
+  },
+  {
+    "name": "LDR",
+    "value": "",
+    "op": {
+      "op_code": "000001",
+      "data": "1000010011",
+      "desc": "LDR 2,0,19"
+    }
+  },
+  {
+    "name": "LDR",
+    "value": "",
+    "op": {
+      "op_code": "000001",
+      "data": "0000010100",
+      "desc": "LDR 0,0,20"
+    }
+  },
+  {
+  "name": "STR",
+  "value": "",
+  "op": {
+    "op_code": "000010",
+    "data": "000001010",
+    "desc": "STR 0,0,10"
+    }
+  },
+  {
+  "name": "LDA",
+  "value": "",
+  "op": {
+    "op_code": "000011",
+    "data": "0000001010",
+    "desc": "LDA 0,0,10"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
+    }
+  },
+  {
+    "name": "SIR",
+    "value": "",
+    "op": {
+      "op_code": "000111",
+      "data": "0100000101",
+      "desc": "SIR 1,5"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "ORR",
+    "value": "",
+    "op": {
+      "op_code": "011000",
+      "data": "0001000000",
+      "desc": "ORR 0,1"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "1100000100",
+      "desc": "LDA 3,0,4"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "1000000001",
+      "desc": "LDA 2,0,1"
+    }
+  },
+  {
+    "name": "SRC",
+    "value": "",
+    "op": {
+      "op_code": "011111",
+      "data": "10010001000",
+      "desc": "SRC 2,8,1,0"
+    }
+  },
+  {
+    "name": "SRC",
+    "value": "",
+    "op": {
+      "op_code": "011111",
+      "data": "10010001000",
+      "desc": "SRC 2,8,1,0"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "1000001011",
+      "desc": "STR 2,0,11"
+    }
+  },
+  {
+    "name": "LDR",
+    "value": "",
+    "op": {
+      "op_code": "000001",
+      "data": "0100001010",
+      "desc": "LDR 1,0,10"
+    }
+  },
+  {
+    "name": "LDR",
+    "value": "",
+    "op": {
+      "op_code": "000001",
+      "data": "1000001011",
+      "desc": "LDR 2,0,11"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0000001001",
+      "desc": "STR 0,0,9"
+    }
+  },
+  {
+    "name": "SMR",
+    "value": "",
+    "op": {
+      "op_code": "000101",
+      "data": "0100101001",
+      "desc": "SMR 1,0,9,1"
+    }
+  },
+  {
+    "name": "JZ",
+    "value": "",
+    "op": {
+      "op_code": "001010",
+      "data": "0100000000",
+      "desc": "JZ 1,0,P1_MATCH"
+    }
+  },
+  {
+    "name": "JGE",
+    "value": "",
+    "op": {
+      "op_code": "010001",
+      "data": "0100000000",
+      "desc": "JGE 1,0,P1_POSITIVE"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0100001001",
+      "desc": "STR 1,0,9"
+    }
+  },
+  {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "010000000",
+      "desc": "LDA 1,0,0"
+    }
+  },
+  {
+    "name": "SMR",
+    "value": "",
+    "op": {
+      "op_code": "000101",
+      "data": "0100001001",
+      "desc": "SMR 1,0,9"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0100001001",
+      "desc": "STR 1,0,9"
+    }
+  },
+  {
+    "name": "SMR",
+    "value": "",
+    "op": {
+      "op_code": "000101",
+      "data": "1000001001",
+      "desc": "SMR 2,0,9"
+    }
+  },
+  {
+    "name": "JGE",
+    "value": "",
+    "op": {
+      "op_code": "010001",
+      "data": "1000000000",
+      "desc": "JGE 2,0,P1_NEW_CLOSEST"
+    }
+  },
+  {
+    "name": "AIR",
+    "value": "",
+    "op": {
+      "op_code": "000110",
+      "data": "0000000001",
+      "desc": "AIR 0,1"
+    }
+  },
+  {
+    "name": "SOB",
+    "value": "",
+    "op": {
+      "op_code": "010000",
+      "data": "1100000000",
+      "desc": "SOB 3,0,P1_MAIN_LOOP"
+    }
+  },
+  {
+    "name": "JMA",
+    "value": "",
+    "op": {
+      "op_code": "001101",
+      "data": "0000000000",
+      "desc": "JMA 0,P1_OUT"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0100001011",
+      "desc": "STR 1,0,11"
+    }
+  },
+  {
+    "name": "STR",
+    "value": "",
+    "op": {
+      "op_code": "000010",
+      "data": "0000001001",
+      "desc": "STR 0,0,9"
+    }
+  }
 ]
