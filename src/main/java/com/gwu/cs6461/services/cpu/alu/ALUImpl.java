@@ -28,7 +28,7 @@ public class ALUImpl implements ALU {
     public Binary add(Binary a, int b) {
         short[] var = getShortValue(a, b);
         // add a and b, then return the result
-        short result = (short) (var[1] + var[2]);
+        short result = (short) (var[0] + var[1]);
         int test = a.getDecimalValue() + b;
         // set cc(0) <- true
         if (test > Short.MAX_VALUE) {
