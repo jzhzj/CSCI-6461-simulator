@@ -26,8 +26,8 @@ public interface Device<T, V> {
     void input(V value);
 
     /**
-     * Show value to user
-     * @return value to display
+     * Show output to user
+     * @return output to display
      */
     V output();
 
