@@ -18,7 +18,7 @@ public class JSRImpl extends TransferImpl {
     public Runnable onExecute() {
         Runnable task = () -> {
             //R3 <- PC+1;
-            GPR3Impl.getInstance().write((DRAMData) new DRAMAddressImpl().setDecimalValue(ALUImpl.getInstance().add(IARImpl.getInstance().read(), 1).getDecimalValue()));
+            GPR3Impl.getInstance().write((DRAMData) new DRAMAddressImpl().setDecimalValue(IARImpl.getInstance().read().getDecimalValue()));
             //PC <- EA ;
             IARImpl.getInstance().write(effectiveAddress);
         };
