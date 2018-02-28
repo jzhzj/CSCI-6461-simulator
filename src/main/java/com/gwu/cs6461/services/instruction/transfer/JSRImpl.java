@@ -1,16 +1,13 @@
 package com.gwu.cs6461.services.instruction.transfer;
 
 
-import com.gwu.cs6461.services.cpu.alu.ALUImpl;
 import com.gwu.cs6461.services.cpu.registers.GPR3Impl;
 import com.gwu.cs6461.services.cpu.registers.IARImpl;
-import com.gwu.cs6461.services.dram.DRAMAddressImpl;
-import com.gwu.cs6461.services.dram.DRAMData;
+import com.gwu.cs6461.services.dram.DRAMDataImpl;
 
 /**
  * JSR Instruction
  * Jump and Save Return Address
- * TODO to be implemented
  */
 public class JSRImpl extends TransferImpl {
 
@@ -18,7 +15,7 @@ public class JSRImpl extends TransferImpl {
     public Runnable onExecute() {
         Runnable task = () -> {
             //R3 <- PC+1;
-            GPR3Impl.getInstance().write((DRAMData) new DRAMAddressImpl().setDecimalValue(IARImpl.getInstance().read().getDecimalValue()));
+            GPR3Impl.getInstance().write(new DRAMDataImpl().setDecimalValue(IARImpl.getInstance().read().getDecimalValue()));
             //PC <- EA ;
             IARImpl.getInstance().write(effectiveAddress);
         };
