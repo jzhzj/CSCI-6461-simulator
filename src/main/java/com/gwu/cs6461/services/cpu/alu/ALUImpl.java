@@ -32,11 +32,13 @@ public class ALUImpl implements ALU {
         int test = a.getDecimalValue() + b;
         // set cc(0) <- true
         if (test > Short.MAX_VALUE) {
-            CCRImpl.getInstance().read().setBit(ConditionCode.Type.OVER_FLOW, true);
+            ConditionCode cc = CCRImpl.getInstance().read().setBit(ConditionCode.Type.OVER_FLOW, true);
+            CCRImpl.getInstance().write(cc);
         }
         // set cc(1) <- true
         if (test < Short.MIN_VALUE) {
-            CCRImpl.getInstance().read().setBit(ConditionCode.Type.UNDER_FLOW, true);
+            ConditionCode cc = CCRImpl.getInstance().read().setBit(ConditionCode.Type.UNDER_FLOW, true);
+            CCRImpl.getInstance().write(cc);
         }
         return new DRAMDataImpl().setDecimalValue(result);
     }
@@ -56,11 +58,13 @@ public class ALUImpl implements ALU {
         int test = a.getDecimalValue() - b;
         // set cc(0) <- true
         if (test > Short.MAX_VALUE) {
-            CCRImpl.getInstance().read().setBit(ConditionCode.Type.OVER_FLOW, true);
+            ConditionCode cc = CCRImpl.getInstance().read().setBit(ConditionCode.Type.OVER_FLOW, true);
+            CCRImpl.getInstance().write(cc);
         }
         // set cc(1) <- true
         if (test < Short.MIN_VALUE) {
-            CCRImpl.getInstance().read().setBit(ConditionCode.Type.UNDER_FLOW, true);
+            ConditionCode cc = CCRImpl.getInstance().read().setBit(ConditionCode.Type.UNDER_FLOW, true);
+            CCRImpl.getInstance().write(cc);
         }
         return new DRAMDataImpl().setDecimalValue(result);
     }
@@ -80,7 +84,8 @@ public class ALUImpl implements ALU {
         int result = var[0] * var[1];
         // set cc(0) <- true
         if (result > (Short.MAX_VALUE * Short.MAX_VALUE)) {
-            CCRImpl.getInstance().read().setBit(ConditionCode.Type.OVER_FLOW, true);
+            ConditionCode cc = CCRImpl.getInstance().read().setBit(ConditionCode.Type.OVER_FLOW, true);
+            CCRImpl.getInstance().write(cc);
         }
         short r1 = (short) result;
         short r0 = (short) (result >> MachineProps.WORD_BIT_WIDTH);
@@ -98,7 +103,8 @@ public class ALUImpl implements ALU {
         short[] var = getShortValue(a, b);
         // set cc(2) <- true
         if (b.getDecimalValue() == 0) {
-            CCRImpl.getInstance().read().setBit(ConditionCode.Type.DIV_ZERO, true);
+            ConditionCode cc = CCRImpl.getInstance().read().setBit(ConditionCode.Type.DIV_ZERO, true);
+            CCRImpl.getInstance().write(cc);
         }
         // quotient
         short quotient = (short) (var[0] / var[1]);
@@ -144,10 +150,12 @@ public class ALUImpl implements ALU {
         short[] var = getShortValue(a, b);
         if (var[0] == var[1]) {
             // set cc(3) <- true
-            CCRImpl.getInstance().read().setBit(ConditionCode.Type.EQ_OR_NOT, true);
+            ConditionCode cc = CCRImpl.getInstance().read().setBit(ConditionCode.Type.EQ_OR_NOT, true);
+            CCRImpl.getInstance().write(cc);
         } else {
             // set cc(3) <- false
-            CCRImpl.getInstance().read().setBit(ConditionCode.Type.EQ_OR_NOT, false);
+            ConditionCode cc = CCRImpl.getInstance().read().setBit(ConditionCode.Type.EQ_OR_NOT, false);
+            CCRImpl.getInstance().write(cc);
         }
     }
 
@@ -159,7 +167,8 @@ public class ALUImpl implements ALU {
         for (int i = 0; i < count; i++) {
             // set cc(1) <- true
             if ((num & 1) == 1) {
-                CCRImpl.getInstance().read().setBit(ConditionCode.Type.UNDER_FLOW, true);
+                ConditionCode cc = CCRImpl.getInstance().read().setBit(ConditionCode.Type.UNDER_FLOW, true);
+                CCRImpl.getInstance().write(cc);
             }
             num = (short) (num >> 1);
         }
@@ -174,7 +183,8 @@ public class ALUImpl implements ALU {
         for (int i = 0; i < count; i++) {
             // set cc(0) <- true
             if ((num & Short.MIN_VALUE) == Short.MIN_VALUE) {
-                CCRImpl.getInstance().read().setBit(ConditionCode.Type.OVER_FLOW, true);
+                ConditionCode cc = CCRImpl.getInstance().read().setBit(ConditionCode.Type.OVER_FLOW, true);
+                CCRImpl.getInstance().write(cc);
             }
             num = (short) (num << 1);
         }
@@ -189,7 +199,8 @@ public class ALUImpl implements ALU {
         for (int i = 0; i < count; i++) {
             // set cc(1) <- true
             if ((num & 1) == 1) {
-                CCRImpl.getInstance().read().setBit(ConditionCode.Type.UNDER_FLOW, true);
+                ConditionCode cc = CCRImpl.getInstance().read().setBit(ConditionCode.Type.UNDER_FLOW, true);
+                CCRImpl.getInstance().write(cc);
             }
             num = (short) (num >>> 1);
         }
