@@ -1,5 +1,14 @@
 [
   {
+    "name": "JGE",
+    "value": "",
+    "op": {
+      "op_code": "010001",
+      "data": "1101111111",
+      "desc": "JGE 3,0,IV_ABVLWR "
+    }
+  },
+  {
     "name": "IN",
     "value": "",
     "op": {
