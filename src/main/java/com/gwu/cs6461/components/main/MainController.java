@@ -314,6 +314,13 @@ public class MainController implements Observer {
         dialog.setHeaderText(null);
         dialog.setContentText("Please Enter A Char:");
         Optional<String> result = dialog.showAndWait();
-        result.ifPresent(userInput ->  Keyboard.getInstance().input(userInput.toCharArray()[0]));
+        result.ifPresent(userInput ->  {
+            if(StringUtils.isEmpty(userInput)){
+                // as Enter / return button
+                Keyboard.getInstance().input((char)13);
+            } else {
+                Keyboard.getInstance().input(userInput.toCharArray()[0]);
+            }
+        });
     }
 }
