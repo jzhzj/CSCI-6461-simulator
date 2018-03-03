@@ -1,10 +1,10 @@
 [
   {
-    "name": "JGE",
+    "name": "STR",
     "value": "",
     "op": {
-      "op_code": "010001",
-      "data": "1101111111",
+      "op_code": "000010",
+      "data": "0000010000",
       "desc": "JGE 3,0,IV_ABVLWR "
     }
   },
