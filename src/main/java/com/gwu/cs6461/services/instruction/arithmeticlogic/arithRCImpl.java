@@ -70,7 +70,7 @@ public class arithRCImpl extends InstructionImpl {
                     //TODO throw machine fault
             }
 
-            count = Integer.parseInt(StringUtils.substring(instructionBinary, 12, 16));
+            count = Integer.parseInt(StringUtils.substring(instructionBinary, 12, 16), 2);
         };
 
         return decodeTask;
