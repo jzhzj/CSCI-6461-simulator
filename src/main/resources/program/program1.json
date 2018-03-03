@@ -1,6 +1,6 @@
 [
   {
-    "name": "",
+    "name": "P1_INPUT Address",
     "value": "0000000001000001",
     "op": {
       "op_code": "",
@@ -9,7 +9,7 @@
     }
   },
   {
-    "name": "",
+    "name": "P1_INPUT_INNER Address",
     "value": "0000000001011110",
     "op": {
       "op_code": "",
@@ -18,7 +18,7 @@
     }
   },
   {
-    "name": "",
+    "name": "P1_BAD_INPUT Address",
     "value": "0000000001110110",
     "op": {
       "op_code": "",
@@ -27,7 +27,7 @@
     }
   },
   {
-    "name": "",
+    "name": "P1_BAD_INPUT_2 Address",
     "value": "0000000010010101",
     "op": {
       "op_code": "",
@@ -36,7 +36,7 @@
     }
   },
   {
-    "name": "",
+    "name": "P1_INPUT_CONT Address",
     "value": "0000000010011010",
     "op": {
       "op_code": "",
@@ -45,7 +45,7 @@
     }
   },
   {
-    "name": "",
+    "name": "P1_INPUT_SEARCH Address",
     "value": "0000000011011101",
     "op": {
       "op_code": "",
@@ -54,7 +54,7 @@
     }
   },
   {
-    "name": "",
+    "name": "P1_SEARCH_BAD Address",
     "value": "0000000011110101",
     "op": {
       "op_code": "",
@@ -63,7 +63,7 @@
     }
   },
   {
-    "name": "",
+    "name": "P1_SEARCH_BAD_2 Address",
     "value": "0000000100010000",
     "op": {
       "op_code": "",
@@ -72,7 +72,7 @@
     }
   },
   {
-    "name": "",
+    "name": "P1_SEARCH_CONT Address",
     "value": "0000000100010101",
     "op": {
       "op_code": "",
@@ -81,8 +81,8 @@
     }
   },
   {
-    "name": "",
-    "value": "0000000110001101",
+    "name": "INPUT_VALID Address",
+    "value": "0000000110001111",
     "op": {
       "op_code": "",
       "data": "",
@@ -90,7 +90,7 @@
     }
   },
   {
-    "name": "",
+    "name": "For index register",
     "value": "0000000000000000",
     "op": {
       "op_code": "",
@@ -99,8 +99,8 @@
     }
   },
   {
-    "name": "",
-    "value": "0000000110011110",
+    "name": "IV_ABVLWR Address",
+    "value": "0000000110100000",
     "op": {
       "op_code": "",
       "data": "",
@@ -108,17 +108,17 @@
     }
   },
   {
-    "name": "",
-    "value": "0000000110100010",
-    "op": {
-      "op_code": "",
-      "data": "",
-      "desc": ""
-    }
-  },
-  {
-    "name": "",
+    "name": "IV_VALID Address",
     "value": "0000000110100100",
+    "op": {
+      "op_code": "",
+      "data": "",
+      "desc": ""
+    }
+  },
+  {
+    "name": "IV_FAIL Address",
+    "value": "0000000110100110",
     "op": {
       "op_code": "",
       "data": "",
@@ -2569,8 +2569,8 @@
     "value": "",
     "op": {
       "op_code": "000110",
-      "data": "0000000000",
-      "desc": "AIR 0,0"
+      "data": "0000000010",
+      "desc": "AIR 0,2"
     }
   },
   {
@@ -2588,7 +2588,7 @@
     "op": {
       "op_code": "000110",
       "data": "0000001100",
-      "desc": "AIR 0,0"
+      "desc": "AIR 0,12"
     }
   },
   {
@@ -3213,6 +3213,24 @@
     }
   },
   {
+    "name": "LDA",
+    "value": "",
+    "op": {
+      "op_code": "000011",
+      "data": "0000000000",
+      "desc": "LDA 0,0,0"
+    }
+  },
+  {
+    "name": "ORR",
+    "value": "",
+    "op": {
+      "op_code": "011000",
+      "data": "0001000000",
+      "desc": "ORR 0,1"
+    }
+  },
+  {
     "name": "LDR",
     "value": "",
     "op": {
@@ -3226,8 +3244,8 @@
     "value": "",
     "op": {
       "op_code": "010101",
-      "data": "1001000000",
-      "desc": "DVD 2,1"
+      "data": "1000000000",
+      "desc": "DVD 2,0"
     }
   },
   {
