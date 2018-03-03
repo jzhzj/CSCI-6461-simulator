@@ -1,5 +1,14 @@
 [
   {
+    "name": "SRC",
+    "value": "",
+    "op": {
+      "op_code": "011111",
+      "data": "1001000111",
+      "desc": "SRC 2,7,1,0"
+    }
+  },
+  {
     "name": "STR",
     "value": "",
     "op": {
