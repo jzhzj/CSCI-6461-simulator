@@ -7,6 +7,7 @@ import com.gwu.cs6461.services.cpu.registers.IARImpl;
 import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 import com.gwu.cs6461.services.dram.DRAMDataImpl;
 import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.sram.SRAMImpl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class RomLoaderImpl implements RomLoader {
     @Override
     public void boot() {
         DRAMImpl.getInstance().reset();
+        SRAMImpl.getInstance().reset();
 
         // set PC to the 1st instruction to be executed
         IARImpl.getInstance().reset();
@@ -63,7 +65,7 @@ public class RomLoaderImpl implements RomLoader {
     }
 
     private BufferedReader loadFile() {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(MachineProps.ROM_BOOT_FILE_PATH)));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(BOOT_FILE_PATH)));
         return bufferedReader;
     }
 }

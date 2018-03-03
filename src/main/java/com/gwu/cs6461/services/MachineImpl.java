@@ -6,7 +6,6 @@ import com.gwu.cs6461.services.device.Keyboard;
 import com.gwu.cs6461.services.device.Printer;
 import com.gwu.cs6461.services.fault.IllegalOperationCode;
 import com.gwu.cs6461.services.romloader.RomLoaderImpl;
-import com.gwu.cs6461.services.sram.SRAMImpl;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -54,7 +53,6 @@ public class MachineImpl implements Machine {
     public void ipl() {
         // reset CPU and SRAM, reload DRAM
         CPUImpl.getInstance().reset();
-        SRAMImpl.getInstance().reset();
         RomLoaderImpl.getInstance().boot();
     }
 }
