@@ -315,20 +315,12 @@ public class MainController implements Observer {
         dialog.setContentText("Please Enter A Char:");
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(userInput ->  {
-            try {
-                if(StringUtils.isEmpty(userInput)){
-                    // as Enter / return button
-                    Keyboard.getInstance().input((char)13);
-                } else {
-                    if (userInput.length() > 1) {
-                        throw new IllegalArgumentException();
-                    }else {
-                        Keyboard.getInstance().input(userInput.toCharArray()[0]);
-                        printerTextArea.setText(StringUtils.join(printerTextArea.getText(), userInput));
-                    }
-                }
-            } catch (IllegalArgumentException e) {
-                promptIllegalInputWarning();
+            if(StringUtils.isEmpty(userInput)){
+                // as Enter / return button
+                Keyboard.getInstance().input((char)13);
+            } else {
+                Keyboard.getInstance().input(userInput.toCharArray()[0]);
+                printerTextArea.setText(StringUtils.join(printerTextArea.getText(), String.valueOf(userInput)));
             }
         });
     }
