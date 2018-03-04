@@ -1,6 +1,5 @@
 package com.gwu.cs6461.services.dram;
 
-import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
 
 /**
@@ -16,7 +15,7 @@ public class DRAMImpl implements DRAM {
     }
 
     private DRAMImpl() {
-        dramData = new DRAMData[MachineProps.DRAM_WORD_SIZE];
+        dramData = new DRAMData[WORD_SIZE];
         for (int i = 0; i < dramData.length; i++) {
             dramData[i] = new DRAMDataImpl();
         }
@@ -30,12 +29,39 @@ public class DRAMImpl implements DRAM {
     }
 
     @Override
+    public DRAMBlock readBlock(int blockId) throws IllegalArgumentException {
+        if(blockId > DRAMBlock.MAX_BLOCK_ID_VALUE || blockId < DRAMBlock.MIN_BLOCK_ID_VALUE) {
+            throw new IllegalArgumentException();
+        }
+
+        DRAMBlock block = new DRAMBlockImpl();
+        int offset = 0;
+        while (offset <= DRAMBlock.MAX_OFFSET_VALUE) {
+            block.write(offset, dramData[blockId * DRAMBlock.WORD_SIZE + offset]);
+            offset++;
+        }
+        return block;
+    }
+
+    @Override
     public void write(DRAMAddress address, DRAMData data) throws IllegalMemoryAddressToReservedLocations {
-        if(address.getDecimalValue() < MachineProps.INSTRUCTION_START_ADDRESS){
+        if(address.getDecimalValue() < DRAMAddress.INSTRUCTION_START){
             // trying to write reserved memory
             throw new IllegalMemoryAddressToReservedLocations();
         }
         dramData[address.getDecimalValue()] = data;
+    }
+
+    @Override
+    public void writeBlock(int blockId, DRAMBlock block) throws IllegalArgumentException {
+        if(blockId > DRAMBlock.MAX_BLOCK_ID_VALUE || blockId < DRAMBlock.MIN_BLOCK_ID_VALUE) {
+            throw new IllegalArgumentException();
+        }
+        int offset = 0;
+        while (offset <= DRAMBlock.MAX_OFFSET_VALUE) {
+            dramData[blockId * DRAMBlock.WORD_SIZE + offset] = block.read(offset);
+            offset++;
+        }
     }
 
     @Override

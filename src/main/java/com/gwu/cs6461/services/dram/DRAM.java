@@ -1,11 +1,13 @@
 package com.gwu.cs6461.services.dram;
 
+import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
 
 /**
  * Defines what memory does
  */
 public interface DRAM {
+    int WORD_SIZE = MachineProps.DRAM_WORD_SIZE;
 
     /**
      * Read data from address
@@ -15,11 +17,25 @@ public interface DRAM {
     DRAMData read(DRAMAddress address);
 
     /**
+     * Read a block of DRAM data
+     * @param blockId block id
+     * @return DRAM data block
+     */
+    DRAMBlock readBlock(int blockId);
+
+    /**
      * Write data to given address
      * @param address memory address
      * @param data data to write
      */
     void write(DRAMAddress address, DRAMData data) throws IllegalMemoryAddressToReservedLocations;
+
+    /**
+     * Write a block of DRAM data
+     * @param blockId block id
+     * @param block data to write
+     */
+    void writeBlock(int blockId, DRAMBlock block);
 
     /**
      * Write data to reserved address

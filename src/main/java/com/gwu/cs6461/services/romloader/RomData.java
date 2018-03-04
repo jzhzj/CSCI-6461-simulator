@@ -18,7 +18,7 @@ public class RomData {
 
     public String getValue() {
 
-        if(StringUtils.isEmpty(value)){
+        if (StringUtils.isEmpty(value)) {
             return StringUtils.join(op.getOp_code(), op.getData());
         }
         return value;
@@ -35,7 +35,6 @@ public class RomData {
     public void setOp(Op op) {
         this.op = op;
     }
-
 
 
     protected class Op {

@@ -8,18 +8,21 @@ public interface Binary {
 
     /**
      * Get binary value in 2's compliment
+     *
      * @return binary in formatted String
      */
     String getBinaryValue();
 
     /**
      * Get hex value
+     *
      * @return hex in formatted String
      */
     String getHexValue();
 
     /**
      * Modify binary value
+     *
      * @param decimalValue value as int
      * @return the Binary object itself
      * @throws IllegalArgumentException
@@ -28,6 +31,7 @@ public interface Binary {
 
     /**
      * Modify binary value
+     *
      * @param decimalValue value as string
      * @return the Binary object itself
      * @throws IllegalArgumentException
@@ -36,6 +40,7 @@ public interface Binary {
 
     /**
      * Modify binary value by a binary string
+     *
      * @param binaryValue binary string
      * @return the Binary object itself
      * @throws IllegalArgumentException

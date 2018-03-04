@@ -2,6 +2,7 @@ package com.gwu.cs6461.services.cpu.registers;
 
 import com.gwu.cs6461.constants.MachineProps;
 import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 
 import java.util.Observable;
 
@@ -39,6 +40,6 @@ public class IARImpl extends Observable implements Register<DRAMAddress> {
 
     @Override
     public void reset() {
-        write(new DRAMAddress().setDecimalValue(MachineProps.INSTRUCTION_START_ADDRESS));
+        write(new DRAMAddressImpl().setDecimalValue(MachineProps.INSTRUCTION_START_ADDRESS+27));
     }
 }

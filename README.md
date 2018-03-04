@@ -3,12 +3,6 @@ This project is to build a Java simulator of the von Neumann Architecture.
 
 Please kindly be reminded to follow [GW Academic Integrity Code](https://studentconduct.gwu.edu/code-academic-integrity).
 
-## Team Attitude
-<p align="center">
-  <img src="https://media.giphy.com/media/DeOa0SqsDH5sc/giphy.gif">
-</p>
-
-
 ## Table of Contents
 
 - Deliverable
@@ -28,8 +22,8 @@ Please kindly be reminded to follow [GW Academic Integrity Code](https://student
 it is highly recommend to use [Intellij IDEA Ultimate](https://www.jetbrains.com/idea/download/) (with built-in Maven v2 & v3 plugin, zero configuration).
 
 2. As requested in [official course guide](http://www.mslcourses.com/CSCI6461Section11Spring2018/),
-JDK 8+ should be used. The default compiler level has been set to 9 (JDK 1.9), please revise pom.xml
-accordingly if you are using JDK 1.8.
+JDK 8+ should be used. The default compiler level has been set to 1.8 (JDK 1.8), please revise pom.xml
+accordingly if you are using JDK 9.
 
 3. The implementation of UI is powered by JavaFX, Idea has included a WYSIWYG layout editor in case you need one.
 
@@ -40,11 +34,11 @@ latest version of code to avoid conflict.__
 3. __Please inform all team members before commit any change regarding to pom.xml, .gitignore and simulator.iml.__ 
 
 ## Usage
-Revise pom.xml if you are using JDK 1.8
+Revise pom.xml if you are using JDK 9
 ```xml
 <properties>
-  <maven.compiler.source>1.8</maven.compiler.source>
-  <maven.compiler.target>1.8</maven.compiler.target>
+  <maven.compiler.source>9</maven.compiler.source>
+  <maven.compiler.target>9</maven.compiler.target>
 </properties>
 ```
 Delete target folder

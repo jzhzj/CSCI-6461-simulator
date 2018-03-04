@@ -1,56 +1,11 @@
 [
   {
-    "name": "LDR",
+    "name": "SRC",
     "value": "",
     "op": {
-      "op_code": "000001",
-      "data": "1100011111",
-      "desc": "LDR 3,0,31."
-    }
-  },
-  {
-    "name": "LDR",
-    "value": "",
-    "op": {
-      "op_code": "000001",
-      "data": "0101011111",
-      "desc": "LDR 1,1,31"
-    }
-  },
-  {
-    "name": "LDA",
-    "value": "",
-    "op": {
-      "op_code": "000011",
-      "data": "1010011111",
-      "desc": "LDA 2,2,31"
-    }
-  },
-  {
-    "name": "LDA",
-    "value": "",
-    "op": {
-      "op_code": "000011",
-      "data": "0010011111",
-      "desc": "LDA 0,2,31"
-    }
-  },
-  {
-    "name": "LDX",
-    "value": "",
-    "op": {
-      "op_code": "101001",
-      "data": "0001011111",
-      "desc": "LDX 1,31"
-    }
-  },
-  {
-    "name": "LDX",
-    "value": "",
-    "op": {
-      "op_code": "101001",
-      "data": "0010111111",
-      "desc": "LDX 2,31"
+      "op_code": "011111",
+      "data": "1001000111",
+      "desc": "SRC 2,7,1,0"
     }
   },
   {
@@ -58,35 +13,44 @@
     "value": "",
     "op": {
       "op_code": "000010",
-      "data": "1001011111",
-      "desc": "STR 2,1,31"
+      "data": "0000010000",
+      "desc": "JGE 3,0,IV_ABVLWR "
     }
   },
   {
-    "name": "STR",
+    "name": "IN",
     "value": "",
     "op": {
-      "op_code": "000010",
-      "data": "0100011111",
-      "desc": "STR 1,0,31"
+      "op_code": "111101",
+      "data": "0000000000",
+      "desc": "IN 0,0"
     }
   },
   {
-    "name": "STX",
+    "name": "IN",
     "value": "",
     "op": {
-      "op_code": "101010",
-      "data": "0010011111",
-      "desc": "STX 2,31"
+      "op_code": "111101",
+      "data": "0100000000",
+      "desc": "IN 1,0"
     }
   },
   {
-    "name": "STX",
+    "name": "OUT",
     "value": "",
     "op": {
-      "op_code": "101010",
-      "data": "0001011111",
-      "desc": "STX 1,31"
+      "op_code": "111110",
+      "data": "0100000001",
+      "desc": "OUT 1,1"
+    }
+  },
+  {
+    "name": "OUT",
+    "value": "",
+    "op": {
+      "op_code": "111110",
+      "data": "0000000001",
+      "desc": "OUT 0,1"
     }
   },
   {

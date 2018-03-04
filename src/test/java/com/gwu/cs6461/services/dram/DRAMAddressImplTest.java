@@ -9,12 +9,12 @@ import org.junit.rules.ExpectedException;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class DRAMAddressTest {
+public class DRAMAddressImplTest {
 
     @Rule
-    public ExpectedException thrown= ExpectedException.none();
+    public ExpectedException thrown = ExpectedException.none();
 
-    private DRAMAddress dramAddress = new DRAMAddress();
+    private DRAMAddress dramAddress = new DRAMAddressImpl();
 
     @Before
     public void setUp() throws Exception {
@@ -31,7 +31,7 @@ public class DRAMAddressTest {
 
     @Test
     public void getBinary() {
-        dramAddress = new DRAMAddress();
+        dramAddress = new DRAMAddressImpl();
         // after dramAddress is initialized, it should have binary value of 12 zeros.
         assertEquals(MachineProps.IAR_REG_BIT_WIDTH, dramAddress.getBinaryValue().length());
 
@@ -40,13 +40,13 @@ public class DRAMAddressTest {
         dramAddress.setDecimalValue(2);
         assertEquals("000000000010", dramAddress.getBinaryValue());
 
-        dramAddress.setDecimalValue(DRAMAddress.MAX_VALUE);
+        dramAddress.setDecimalValue(DRAMAddressImpl.MAX_VALUE);
         assertEquals("011111111111", dramAddress.getBinaryValue());
     }
 
     @Test
     public void getHex() {
-        dramAddress = new DRAMAddress();
+        dramAddress = new DRAMAddressImpl();
         // after dramAddress is initialized, it should have hex value of 3 zeros.
         assertEquals(MachineProps.IAR_REG_BIT_WIDTH * 2 / Byte.SIZE, dramAddress.getHexValue().length());
 
@@ -55,25 +55,25 @@ public class DRAMAddressTest {
         dramAddress.setDecimalValue(10);
         assertEquals("00a", dramAddress.getHexValue());
 
-        dramAddress.setDecimalValue(DRAMAddress.MAX_VALUE);
+        dramAddress.setDecimalValue(DRAMAddressImpl.MAX_VALUE);
         assertEquals("7ff", dramAddress.getHexValue());
     }
 
     @Test
     public void setValue() {
-        dramAddress.setDecimalValue(DRAMAddress.MIN_VALUE);
-        dramAddress.setDecimalValue(DRAMAddress.MAX_VALUE);
+        dramAddress.setDecimalValue(DRAMAddressImpl.MIN_VALUE);
+        dramAddress.setDecimalValue(DRAMAddressImpl.MAX_VALUE);
     }
 
     @Test
     public void testSetValueAboveRange(){
         thrown.expect(IllegalArgumentException.class);
-        dramAddress.setDecimalValue(DRAMAddress.MAX_VALUE + 1);
+        dramAddress.setDecimalValue(DRAMAddressImpl.MAX_VALUE + 1);
     }
 
     @Test
     public void testSetValueBelowRange() {
         thrown.expect(IllegalArgumentException.class);
-        dramAddress.setDecimalValue(DRAMAddress.MIN_VALUE - 1);
+        dramAddress.setDecimalValue(DRAMAddressImpl.MIN_VALUE - 1);
     }
 }

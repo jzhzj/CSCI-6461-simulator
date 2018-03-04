@@ -1,73 +1,25 @@
 package com.gwu.cs6461.services.dram;
 
 import com.gwu.cs6461.constants.MachineProps;
-import com.gwu.cs6461.services.fault.IllegalMemoryAddressBeyondMax;
-import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
 import com.gwu.cs6461.util.Binary;
-import org.apache.commons.lang3.StringUtils;
 
 /**
- * DRAM Address range from [0, 2048), represented in 12 bits.
+ * Defines what DRAM address does
  */
-public class DRAMAddress implements Binary{
+public interface DRAMAddress extends Binary {
+    int MIN_VALUE = 0;
+    int MAX_VALUE = MachineProps.DRAM_WORD_SIZE - 1;
+    int INSTRUCTION_START = MachineProps.INSTRUCTION_START_ADDRESS;
 
-    public static final int MIN_VALUE = 0;
-    public static final int MAX_VALUE = MachineProps.DRAM_WORD_SIZE - 1;
+    /**
+     * Get the id of DRAM block that this address belongs to
+     * @return block id
+     */
+    int getBlockNum();
 
-    private int address;
-
-    @Override
-    public int getDecimalValue() {
-        return address;
-    }
-
-    @Override
-    public String getBinaryValue() {
-        String unformatted = Integer.toBinaryString(address);
-        if(unformatted.length() < MachineProps.IAR_REG_BIT_WIDTH){
-            return StringUtils.leftPad(unformatted, MachineProps.IAR_REG_BIT_WIDTH, "0");
-        } else {
-            return StringUtils.substring(unformatted, unformatted.length() - MachineProps.IAR_REG_BIT_WIDTH);
-        }
-    }
-
-    @Override
-    public String getHexValue() {
-        String unformatted = Integer.toHexString(address);
-        int hexLength = MachineProps.IAR_REG_BIT_WIDTH * 2 / Byte.SIZE;
-        if(unformatted.length() < hexLength){
-            return StringUtils.leftPad(unformatted, hexLength, "0");
-        } else {
-            return StringUtils.substring(unformatted, unformatted.length() - hexLength);
-        }
-    }
-
-    @Override
-    public DRAMAddress setDecimalValue(int decimalValue) throws IllegalMemoryAddressBeyondMax {
-        if(decimalValue < MIN_VALUE || decimalValue > MAX_VALUE){
-            throw new IllegalMemoryAddressBeyondMax();
-        }
-        address = decimalValue;
-        return this;
-    }
-
-    @Override
-    public DRAMAddress setDecimalValue(String decimalValue) throws IllegalArgumentException {
-        try{
-            int value = Integer.parseInt(decimalValue);
-            return setDecimalValue(value);
-        } catch (NumberFormatException e){
-            throw new IllegalArgumentException();
-        }
-    }
-
-    @Override
-    public DRAMAddress setBinaryValue(String binaryValue) throws IllegalArgumentException {
-        try{
-            int value = Integer.parseInt(binaryValue, 2);
-            return setDecimalValue(value);
-        } catch (NumberFormatException e){
-            throw new IllegalArgumentException();
-        }
-    }
+    /**
+     * Get the offset within the DRAM block that this address belongs to
+     * @return block inner offset
+     */
+    int getOffset();
 }

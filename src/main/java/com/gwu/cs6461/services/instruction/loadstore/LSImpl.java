@@ -1,10 +1,12 @@
 package com.gwu.cs6461.services.instruction.loadstore;
 
+import com.gwu.cs6461.services.cpu.alu.ALUImpl;
 import com.gwu.cs6461.services.cpu.registers.*;
 import com.gwu.cs6461.services.dram.DRAMAddress;
+import com.gwu.cs6461.services.dram.DRAMAddressImpl;
 import com.gwu.cs6461.services.dram.DRAMData;
-import com.gwu.cs6461.services.dram.DRAMImpl;
 import com.gwu.cs6461.services.instruction.InstructionImpl;
+import com.gwu.cs6461.services.sram.SRAMImpl;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -14,35 +16,9 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class LSImpl extends InstructionImpl {
 
-    private Register<DRAMData> gpRegister;
-    private Register<DRAMAddress> idxRegister;
-
-
-    public Register<DRAMData> getGpRegister() {
-        return gpRegister;
-    }
-
-    public void setGpRegister(Register<DRAMData> gpRegister) {
-        this.gpRegister = gpRegister;
-    }
-
-    public Register<DRAMAddress> getIdxRegister() {
-        return idxRegister;
-    }
-
-    public void setIdxRegister(Register<DRAMAddress> idxRegister) {
-        this.idxRegister = idxRegister;
-    }
-
-    public DRAMAddress getEffectiveAddress() {
-        return effectiveAddress;
-    }
-
-    public void setEffectiveAddress(DRAMAddress effectiveAddress) {
-        this.effectiveAddress = effectiveAddress;
-    }
-
-    private DRAMAddress effectiveAddress;
+    Register<DRAMData> gpRegister;
+    Register<DRAMAddress> idxRegister;
+    DRAMAddress effectiveAddress;
 
     @Override
     public Runnable onDecode() {
@@ -101,33 +77,31 @@ public class LSImpl extends InstructionImpl {
     }
 
 
-
-
     private DRAMAddress getEA() {
         String instructionBinary = toDRAMData().getBinaryValue();
         int addressFieldValue = Integer.parseInt(StringUtils.substring(instructionBinary, 11, 16), 2);
-        DRAMAddress ea = new DRAMAddress();
+        DRAMAddress ea = new DRAMAddressImpl();
         switch (StringUtils.substring(instructionBinary, 10, 11)) {
             case "1":
-                if(idxRegister == null) {
+                if (idxRegister == null) {
                     // Address
-                    DRAMAddress address = new DRAMAddress().setDecimalValue(addressFieldValue);
+                    DRAMAddress address = new DRAMAddressImpl().setDecimalValue(addressFieldValue);
                     // c(Address)
-                    ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
+                    ea.setDecimalValue(SRAMImpl.getInstance().read(address).getDecimalValue());
                 } else {
                     // c(Xj) + Address
-                    DRAMAddress address = new DRAMAddress().setDecimalValue(idxRegister.read().getDecimalValue() + addressFieldValue);
+                    DRAMAddress address = new DRAMAddressImpl().setDecimalValue(ALUImpl.getInstance().add(idxRegister.read(), addressFieldValue).getDecimalValue());
                     // c(c(Xj) + Address)
-                    ea.setDecimalValue(DRAMImpl.getInstance().read(address).getDecimalValue());
+                    ea.setDecimalValue(SRAMImpl.getInstance().read(address).getDecimalValue());
                 }
                 break;
             case "0":
-                if(idxRegister == null){
+                if (idxRegister == null) {
                     // contents of the Address field
                     ea.setDecimalValue(addressFieldValue);
                 } else {
                     // c(Xj) + contents of the Address field
-                    ea.setDecimalValue(idxRegister.read().getDecimalValue() + addressFieldValue);
+                    ea.setDecimalValue(ALUImpl.getInstance().add(idxRegister.read(), addressFieldValue).getDecimalValue());
                 }
                 break;
             default:
@@ -135,5 +109,4 @@ public class LSImpl extends InstructionImpl {
         }
         return ea;
     }
-
 }

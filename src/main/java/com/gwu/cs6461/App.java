@@ -1,6 +1,7 @@
 package com.gwu.cs6461;
 
 import com.gwu.cs6461.constants.MachineProps;
+import com.gwu.cs6461.services.MachineImpl;
 import com.gwu.cs6461.services.cpu.CPUImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -24,11 +25,16 @@ public class App extends Application {
     public void stop() throws Exception {
         super.stop();
         // clear all observers registered on components
-        CPUImpl.getInstance().getRegisters().stream().forEach(register -> {
-            Observable o = (Observable)register;
+        CPUImpl.getInstance().getRegisters().forEach(register -> {
+            Observable o = (Observable) register;
             o.deleteObservers();
         });
         CPUImpl.getInstance().deleteObservers();
+
+        MachineImpl.getInstance().getDevices().forEach(device -> {
+            Observable o = (Observable) device;
+            o.deleteObservers();
+        });
     }
 
     public static void main(String[] args) {

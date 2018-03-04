@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToolBar?>
@@ -149,11 +150,11 @@
                               </AnchorPane>
                           </content>
                         </TitledPane>
-                        <TitledPane animated="false" layoutX="300.0" prefHeight="528.0" prefWidth="600.0" text="DRAM Panel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TitledPane animated="false" layoutX="300.0" prefHeight="89.0" prefWidth="642.0" text="DRAM Panel" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <content>
-                            <AnchorPane prefHeight="520.0" prefWidth="600.0">
+                            <AnchorPane prefHeight="51.0" prefWidth="640.0">
                                  <children>
-                                    <ToolBar prefHeight="40.0" prefWidth="600.0">
+                                    <ToolBar maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="40.0" prefWidth="619.0">
                                        <items>
                                           <Label prefHeight="32.0" prefWidth="58.0" text="Address" />
                                           <TextField fx:id="ramAddressTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="decimal" />
@@ -161,10 +162,38 @@
                                           <TextField fx:id="ramValueTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="16-bits binary" />
                                           <Button fx:id="ReadMemButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Read" />
                                           <Button fx:id="WriteMemButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleDRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
+                                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="600.0" />
                                        </items>
                                     </ToolBar>
                                  </children>
                               </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="300.0" layoutY="89.0" prefHeight="89.0" prefWidth="642.0" text="SRAM Panel">
+                           <content>
+                              <AnchorPane prefHeight="51.0" prefWidth="640.0">
+                                 <children>
+                                    <ToolBar maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="40.0" prefWidth="619.0">
+                                       <items>
+                                          <Label prefHeight="32.0" prefWidth="58.0" text="Address" />
+                                          <TextField fx:id="cacheAddressTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="decimal" />
+                                          <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="Value" />
+                                          <TextField fx:id="cacheValueTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="160.0" promptText="16-bits binary" />
+                                          <Button fx:id="ReadCacheButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleSRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Read" />
+                                          <Button fx:id="WriteCacheButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleSRAMButtonClick" prefHeight="30.0" prefWidth="60.0" text="Write" />
+                                          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="600.0" />
+                                       </items>
+                                    </ToolBar>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="300.0" layoutY="178.0" prefHeight="350.0" prefWidth="600.0" text="I/O Panel">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="-Infinity" prefHeight="213.0" prefWidth="66.0">
+                                 <children>
+                                     <TextArea fx:id="printerTextArea" editable="false" layoutX="4.0" layoutY="4.0" prefHeight="315.0" prefWidth="590.0" promptText="simulator:~root$" />
+                                 </children></AnchorPane>
                           </content>
                         </TitledPane>
                      </children></AnchorPane>

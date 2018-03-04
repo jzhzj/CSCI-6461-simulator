@@ -3,22 +3,22 @@ package com.gwu.cs6461.components.main;
 import com.gwu.cs6461.services.MachineImpl;
 import com.gwu.cs6461.services.cpu.CPUImpl;
 import com.gwu.cs6461.services.cpu.registers.*;
-import com.gwu.cs6461.services.dram.DRAMAddress;
-import com.gwu.cs6461.services.dram.DRAMData;
-import com.gwu.cs6461.services.dram.DRAMDataImpl;
-import com.gwu.cs6461.services.dram.DRAMImpl;
+import com.gwu.cs6461.services.device.Keyboard;
+import com.gwu.cs6461.services.device.Printer;
+import com.gwu.cs6461.services.dram.*;
 import com.gwu.cs6461.services.fault.IllegalMemoryAddressBeyondMax;
 import com.gwu.cs6461.services.fault.IllegalMemoryAddressToReservedLocations;
 import com.gwu.cs6461.services.fault.IllegalOperationCode;
 import com.gwu.cs6461.services.fault.MachineFault;
+import com.gwu.cs6461.services.sram.SRAMImpl;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Optional;
 
 public class MainController implements Observer {
 
@@ -26,11 +26,17 @@ public class MainController implements Observer {
 
 
     {
-        CPUImpl.getInstance().getRegisters().stream().forEach(register -> {
+        CPUImpl.getInstance().getRegisters().forEach(register -> {
             Observable observable = (Observable)register;
             observable.addObserver(this);
         });
+
         CPUImpl.getInstance().addObserver(this);
+
+        MachineImpl.getInstance().getDevices().forEach(device -> {
+            Observable observable = (Observable) device;
+            observable.addObserver(this);
+        });
     }
 
     @FXML
@@ -65,6 +71,12 @@ public class MainController implements Observer {
     private TextField ramAddressTextField;
     @FXML
     private TextField ramValueTextField;
+    @FXML
+    private TextField cacheAddressTextField;
+    @FXML
+    private TextField cacheValueTextField;
+    @FXML
+    private TextArea printerTextArea;
 
 
     @FXML
@@ -74,6 +86,7 @@ public class MainController implements Observer {
             switch (btn.getId()) {
                 case "ILPButton":
                     machine.ipl();
+                    printerTextArea.setText(null);
                     break;
                 case "RUNButton":
                     machine.run();
@@ -91,6 +104,7 @@ public class MainController implements Observer {
         } catch (IllegalMemoryAddressToReservedLocations e){
             promptIllegalWriteReservedMemoryWarning();
         } catch (IllegalMemoryAddressBeyondMax e){
+            e.printStackTrace();
             promptIllegalMemoryAddressBeyondMaxWarning();
         }
 
@@ -100,7 +114,7 @@ public class MainController implements Observer {
     void handleDRAMButtonClick(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
         try{
-            DRAMAddress address = new DRAMAddress().setDecimalValue(ramAddressTextField.getText());
+            DRAMAddress address = new DRAMAddressImpl().setDecimalValue(ramAddressTextField.getText());
             DRAMData dramData;
             switch (btn.getId()) {
                 case "ReadMemButton":
@@ -123,6 +137,32 @@ public class MainController implements Observer {
     }
 
     @FXML
+    void handleSRAMButtonClick(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        try{
+            DRAMAddress address = new DRAMAddressImpl().setDecimalValue(cacheAddressTextField.getText());
+            DRAMData dramData;
+            switch (btn.getId()) {
+                case "ReadCacheButton":
+                    dramData = SRAMImpl.getInstance().read(address);
+                    cacheValueTextField.setText(dramData.getBinaryValue());
+                    break;
+                case "WriteCacheButton":
+                    dramData = new DRAMDataImpl().setBinaryValue(cacheValueTextField.getText());
+                    SRAMImpl.getInstance().write(address, dramData);
+                    break;
+                default:
+            }
+        } catch (IllegalMemoryAddressToReservedLocations e){
+            promptIllegalWriteReservedMemoryWarning();
+        } catch (IllegalMemoryAddressBeyondMax e){
+            promptIllegalMemoryAddressBeyondMaxWarning();
+        } catch (IllegalArgumentException e){
+            promptIllegalInputWarning();
+        }
+    }
+
+    @FXML
     void handleRegisterButtonClick(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
         DRAMAddress address;
@@ -131,11 +171,11 @@ public class MainController implements Observer {
         try {
             switch (btn.getId()) {
                 case "PCButton":
-                    address = new DRAMAddress().setDecimalValue(pcTextField.getText());
+                    address = new DRAMAddressImpl().setDecimalValue(pcTextField.getText());
                     IARImpl.getInstance().write(address);
                     break;
                 case "MARButton":
-                    address = new DRAMAddress().setDecimalValue(marTextField.getText());
+                    address = new DRAMAddressImpl().setDecimalValue(marTextField.getText());
                     MARImpl.getInstance().write(address);
                     break;
                 case "MBRButton":
@@ -159,15 +199,15 @@ public class MainController implements Observer {
                     GPR3Impl.getInstance().write(dramData);
                     break;
                 case "X1Button":
-                    address = new DRAMAddress().setDecimalValue(x1TextField.getText());
+                    address = new DRAMAddressImpl().setDecimalValue(x1TextField.getText());
                     IDXR1Impl.getInstance().write(address);
                     break;
                 case "X2Button":
-                    address = new DRAMAddress().setDecimalValue(x2TextField.getText());
+                    address = new DRAMAddressImpl().setDecimalValue(x2TextField.getText());
                     IDXR2Impl.getInstance().write(address);
                     break;
                 case "X3Button":
-                    address = new DRAMAddress().setDecimalValue(x3TextField.getText());
+                    address = new DRAMAddressImpl().setDecimalValue(x3TextField.getText());
                     IDXR3Impl.getInstance().write(address);
                     break;
                 default:
@@ -212,6 +252,12 @@ public class MainController implements Observer {
             promptHalt();
         } else if(o instanceof MSRImpl){
             msrTextField.setText(MSRImpl.getInstance().read().toString());
+        } else if(o instanceof CCRImpl){
+            ccTextField.setText(CCRImpl.getInstance().read().toString());
+        } else if(o instanceof Printer) {
+            printerTextArea.setText(StringUtils.join(printerTextArea.getText(), String.valueOf(Printer.getInstance().output())));
+        } else if(o instanceof Keyboard) {
+            promptRequireInput();
         }
 
     }
@@ -219,7 +265,7 @@ public class MainController implements Observer {
     /**
      * Prompt dialog with halt message.
      */
-    void promptHalt(){
+    private void promptHalt(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Halt");
         alert.setHeaderText(null);
@@ -230,7 +276,7 @@ public class MainController implements Observer {
     /**
      * Show warning when user inputs illegal strings
      */
-    void promptIllegalInputWarning() {
+    private void promptIllegalInputWarning() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
         alert.setHeaderText(null);
@@ -238,7 +284,7 @@ public class MainController implements Observer {
         alert.showAndWait();
     }
 
-    void promptIllegalWriteReservedMemoryWarning(){
+    private void promptIllegalWriteReservedMemoryWarning(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Machine Fault");
         alert.setHeaderText(null);
@@ -246,7 +292,7 @@ public class MainController implements Observer {
         alert.showAndWait();
     }
 
-    void promptIllegalMemoryAddressBeyondMaxWarning(){
+    private void promptIllegalMemoryAddressBeyondMaxWarning(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Machine Fault");
         alert.setHeaderText(null);
@@ -254,11 +300,28 @@ public class MainController implements Observer {
         alert.showAndWait();
     }
 
-    void promptIllegalOpCodeWarning(){
+    private void promptIllegalOpCodeWarning(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Machine Fault");
         alert.setHeaderText(null);
         alert.setContentText("Illegal Op Code!");
         alert.showAndWait();
+    }
+
+    private void promptRequireInput() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Instruction Requires Input");
+        dialog.setHeaderText(null);
+        dialog.setContentText("Please Enter A Char:");
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(userInput ->  {
+            if(StringUtils.isEmpty(userInput)){
+                // as Enter / return button
+                Keyboard.getInstance().input((char)13);
+            } else {
+                Keyboard.getInstance().input(userInput.toCharArray()[0]);
+                printerTextArea.setText(StringUtils.join(printerTextArea.getText(), String.valueOf(userInput)));
+            }
+        });
     }
 }
