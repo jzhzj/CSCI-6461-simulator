@@ -320,6 +320,7 @@ public class MainController implements Observer {
                 Keyboard.getInstance().input((char)13);
             } else {
                 Keyboard.getInstance().input(userInput.toCharArray()[0]);
+                printerTextArea.setText(StringUtils.join(printerTextArea.getText(), String.valueOf(userInput)));
             }
         });
     }
