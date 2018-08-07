@@ -26,3 +26,6 @@ hs_err_pid*
 
 # Build output
 /target
+
+# MacOS related files
+.DS_Store
